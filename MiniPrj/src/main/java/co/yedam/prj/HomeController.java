@@ -24,16 +24,6 @@ public class HomeController {
 		return "mypage";
 	}
 	
-	@RequestMapping("/memberInfo.do")
-	public String memberInfo() {
-		
-		return "member/memberInfo";
-	}
-
-	@RequestMapping("/memberLogin.do")
-	public String memberLogin() {
-		return "member/memberLogin";
-	}
 	
 	
 }
