@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Documentation</title>
+
+    <!-- START: Styles -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700%7cPlayball%7cPT+Serif:700i" rel="stylesheet"><!-- %7c -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/brands.css">
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/solid.css">
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/fontawesome.css">
+
+    <!-- Pe icon 7 stroke -->
+    <link rel="stylesheet" href="../assets/vendor/pixeden-stroke-7-icon/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+
+    <!-- Lightgallery -->
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/lightgallery/dist/css/lightgallery.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" type="text/css" href="../assets/vendor/swiper/dist/css/swiper.min.css">
+
+    <!-- Mimilism -->
+    <link rel="stylesheet" href="../assets/css/mimilism.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <!-- END: Styles -->
+
+    <!-- jQuery -->
+    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <style>
+        pre {
+            max-height:400px;
+        }
+        code {
+            display: inline-block;
+            padding: 1px 4px;
+            color: #d27c61;
+            border-radius: 4px;
+            background-color: #fcede8;
+        }
+    </style>
+
+    <div class="dk-box-1">
+        <div class="container">
+            <h1>Mimilism HTML</h1>
+            <p>Thank you for purchasing Mimilism!</p>
+            <p>Mimilism is a clean and minimal Portfolio HTML template. This template will suite for designers, photographers, web agencies and studios, freelancers and so on. A template is based on Bootstrap 4 grid and will work perfectly on any screens and devices.</p>
+            <p class="mb-0">Hope you’ll enjoy using Mimilism as much as we enjoyed developing it.</p>
+        </div>
+    </div>
+    <div class="dk-box-5" style="background-color: #f3f3f3;">
+        <div class="container">
+            <ul class="dk-list">
+                <li>
+                    <a href="#started">Getting Started</a>
+                </li>
+                <li>
+                    <a href="#structure">Template Structure</a>
+                </li>
+                <li>
+                    <a href="#navbar" class="ml-10">- Main Navigation</a>
+                </li>
+                <li>
+                    <a href="#navbarFullscreen" class="ml-10">- Fullscreen Navigation</a>
+                </li>
+                <li>
+                    <a href="#portfolioItem" class="ml-10">- Portfolio Item</a>
+                </li>
+                <li>
+                    <a href="#footer" class="ml-10">- Footer</a>
+                </li>
+                <li>
+                    <a href="#form">AJAX Form</a>
+                </li>
+                <li>
+                    <a href="#plugins">Plugins</a>
+                </li>
+                <li>
+                    <a href="#thankyou">Thank You!</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="dk-box-1">
+        <div class="container">
+            <h2 id="started">Getting Started</h2>
+            <p>This is HTML template. To getting started you need only Browser to run HTML files.</p>
+            <p>To customize template you can edit CSS and HTML files. Also if you are developer, there are available source files SCSS and JS (required ES6 transpiller). All used plugins added from Npm.</p>
+            <p class="mb-0">For each pages available blank CSS file for your customizations. See it here</p>
+        </div>
+    </div>
+    <div class="dk-box-1 dk-padding-bot">
+        <div class="container">
+            <h2 id="structure">Template Structure</h2>
+            <p class="mb-60">Below described main layout elements: <code>Main Navigation</code>, <code>Fullscreen Navigation</code>, <code>Portfolio Item</code>, <code>Footer</code></p>
+
+            <h3 id="navbar">Main Navigation</h3>
+            <p class="dk-gallery">
+                <a href="images/main-navbar.png" class="dk-gallery-item">
+                    <img src="images/main-navbar.png" alt="" class="dk-img">
+                </a>
+            </p>
+            <p>HTML Example:</p>
+
+            <div class="mb-30" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #999988; font-style: italic">&lt;!--</span>
+<span style="color: #999988; font-style: italic">    START: Navbar</span>
+
+<span style="color: #999988; font-style: italic">    Additional Classes:</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-sticky</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-transparent</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-white</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-fullscreen || .dk-navbar-(xl, lg, md, sm)-fullscreen</span>
+<span style="color: #999988; font-style: italic">--&gt;</span>
+<span style="color: #000080">&lt;nav</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-navbar dk-navbar-fixed dk-navbar-transparent dk-navbar-fullscreen&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;container&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav-content&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;index.html&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav-logo&quot;</span><span style="color: #000080">&gt;</span>Mimilism.<span style="color: #000080">&lt;/a&gt;</span>
+
+            <span style="color: #000080">&lt;ul</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav dk-nav-align-right&quot;</span><span style="color: #000080">&gt;</span>
+                <span style="color: #000080">&lt;li</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-drop-item&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;home-1.html&quot;</span><span style="color: #000080">&gt;</span>Home<span style="color: #000080">&lt;/a&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-dropdown-multi&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;ul</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-dropdown&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;li&gt;</span>
+                                <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;home-1.html&quot;</span><span style="color: #000080">&gt;</span>Minimal Agency<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;/li&gt;</span>
+                            ...
+                        <span style="color: #000080">&lt;/ul&gt;</span>
+                        <span style="color: #000080">&lt;ul</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-dropdown&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;li&gt;</span>
+                                <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;home-9.html&quot;</span><span style="color: #000080">&gt;</span>Digital Agency 2<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;/li&gt;</span>
+                            ...
+                        <span style="color: #000080">&lt;/ul&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/li&gt;</span>
+                <span style="color: #000080">&lt;li</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-drop-item active&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;about-us.html&quot;</span><span style="color: #000080">&gt;</span>About<span style="color: #000080">&lt;/a&gt;</span>
+                    <span style="color: #000080">&lt;ul</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-dropdown&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;li&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;about-us.html&quot;</span><span style="color: #000080">&gt;</span>About Us<span style="color: #000080">&lt;/a&gt;</span>
+                        <span style="color: #000080">&lt;/li&gt;</span>
+                        ...
+                    <span style="color: #000080">&lt;/ul&gt;</span>
+                <span style="color: #000080">&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;/ul&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #000080">&lt;/nav&gt;</span>
+<span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-navbar dk-navbar-fullscreen&quot;</span><span style="color: #000080">&gt;</span>
+   <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav-content&quot;</span><span style="color: #000080">&gt;</span>
+       <span style="color: #999988; font-style: italic">&lt;!-- This will copy the contents of the dk-nav-content --&gt;</span>
+   <span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #999988; font-style: italic">&lt;!-- END: Navbar --&gt;</span>
+</pre></div>
+
+            <ul class="dk-list mb-60">
+                <li>Navigation:</li>
+                <li>- <code>.dk-navbar-sticky</code> - sticky navbar on page scroll;</li>
+                <li>- <code>.dk-navbar-transparent</code> - Transparent background;</li>
+                <li>- <code>.dk-navbar-white</code> - The text will turn white;</li>
+                <li>- <code>.dk-navbar-fullscreen</code> || <code>.dk-navbar-(xl, lg, md, sm)-fullscreen</code> - Media requests.</li>
+            </ul>
+
+            <h3 id="navbarFullscreen">Fullscreen Navigation</h3>
+            <p class="dk-gallery">
+                <a href="images/navbar-fullscreen.png" class="dk-gallery-item">
+                    <img src="images/navbar-fullscreen.png" alt="" class="dk-img">
+                </a>
+            </p>
+
+            <p>HTML Example:</p>
+
+            <div class="mb-60" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #999988; font-style: italic">&lt;!--</span>
+<span style="color: #999988; font-style: italic">    START: Navbar</span>
+
+<span style="color: #999988; font-style: italic">    Additional Classes:</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-sticky</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-transparent</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-white</span>
+<span style="color: #999988; font-style: italic">        .dk-navbar-fullscreen || .dk-navbar-(xl, lg, md, sm)-fullscreen</span>
+<span style="color: #999988; font-style: italic">--&gt;</span>
+<span style="color: #000080">&lt;nav</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-navbar dk-navbar-fixed dk-navbar-transparent dk-navbar-fullscreen&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;container&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav-content&quot;</span><span style="color: #000080">&gt;</span>
+            ...
+        <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #000080">&lt;/nav&gt;</span>
+<span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-navbar dk-navbar-fullscreen&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;container&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;d-block&quot;</span><span style="color: #000080">&gt;&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-nav-content&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #999988; font-style: italic">&lt;!-- This will copy the contents of the dk-nav-content --&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;ul</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-links text-center&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-facebook&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-facebook-f&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-twitter&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-twitter&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-google-plus&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-google-plus-g&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-behance&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-behance&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-pinterest&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-pinterest&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+            <span style="color: #000080">&lt;li&gt;&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-social-instagram&quot;</span><span style="color: #000080">&gt;&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;fab fa-instagram&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+        <span style="color: #000080">&lt;/ul&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #999988; font-style: italic">&lt;!-- END: Navbar --&gt;</span>
+</pre></div>
+
+            <h3 id="portfolioItem">Portfolio Item</h3>
+            <p>
+                <img src="images/portfolio-item.png" alt="">
+            </p>
+
+            <p>HTML Example:</p>
+
+            <div class="mb-30" style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;portfolio-single-7.html&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item-image&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item-image-size&quot;</span> <span style="color: #008080">data-portfolio-size=</span><span style="color: #bb8844">&quot;80%&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;</span>
+        <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item-overlay&quot;</span> <span style="color: #008080">style=</span><span style="color: #bb8844">&quot;background-color: rgba(255, 255, 255, .35)&quot;</span><span style="color: #000080">&gt;&lt;/span&gt;</span>
+        <span style="color: #000080">&lt;img</span> <span style="color: #008080">src=</span><span style="color: #bb8844">&quot;assets/images/portfolio-2-lg.png&quot;</span> <span style="color: #008080">alt=</span><span style="color: #bb8844">&quot;&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;/span&gt;</span>
+
+    <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item-info&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;h3 dk-portfolio-item-title&quot;</span><span style="color: #000080">&gt;</span>Perfuma Mockup<span style="color: #000080">&lt;/span&gt;</span>
+        <span style="color: #000080">&lt;span</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-portfolio-item-category&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;span&gt;</span>Mockups<span style="color: #000080">&lt;/span&gt;</span>
+        <span style="color: #000080">&lt;/span&gt;</span>
+    <span style="color: #000080">&lt;/span&gt;</span>
+<span style="color: #000080">&lt;/a&gt;</span>
+</pre></div>
+
+            <ul class="dk-list mb-60">
+                <li>Additional classes:</li>
+                <li>
+                    - <code>.dk-portfolio-item-style-1</code> || <code>.dk-portfolio-item-style-2</code>
+                    || <code>.dk-portfolio-item-style-3</code> || <code>.dk-portfolio-item-style-4</code>
+                    || <code>.dk-portfolio-item-style-5</code> || <code>.dk-portfolio-item-style-6</code>
+                    - 6 options for portfolio items;
+                </li>
+                <li>
+                    - <code>.dk-portfolio-item-left</code> || <code>.dk-portfolio-item-center</code> || <code>.dk-portfolio-item-right</code>
+                    - 3 position options;
+                </li>
+                <li>
+                    - <code>.dk-portfolio-item-image-size</code> - You can remove this block to make the picture responsive;
+                </li>
+                <li>
+                    - <code>.dk-portfolio-item-light</code> || <code>.dk-portfolio-item-dark</code>
+                    - Dark or light?
+                </li>
+            </ul>
+
+
+            <h3 id="footer">Footer</h3>
+            <p class="dk-gallery">
+                <a href="images/footer.png" class="dk-gallery-item">
+                    <img src="images/footer.png" alt="">
+                </a>
+            </p>
+
+            <p>HTML Example:</p>
+
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #999988; font-style: italic">&lt;!-- START: Footer --&gt;</span>
+<span style="color: #000080">&lt;footer</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-footer&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-box-2&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;container&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;row vertical-gap md-gap&quot;</span><span style="color: #000080">&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-sm-6 col-md-6 col-lg col-xl-3&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-footer&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-title&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;h3</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;h5&quot;</span><span style="color: #000080">&gt;</span>Mimilism Design, Inc.<span style="color: #000080">&lt;/h3&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-text&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;p</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;mb-0&quot;</span><span style="color: #000080">&gt;</span>Land living saying bearing after over replenish seas. Likeness midst every she&#39;d lights one is.<span style="color: #000080">&lt;/p&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-md-1 col-xl-2 d-none d-md-block d-lg-none d-xl-block&quot;</span><span style="color: #000080">&gt;&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-sm-6 col-md-auto&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-footer&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-list&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>hello@mimilismtheme.com<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>+44 987 065 908<span style="color: #000080">&lt;/a&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col d-none d-xl-block&quot;</span><span style="color: #000080">&gt;&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-auto&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-footer&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-list&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Projects<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>About<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Services<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Career<span style="color: #000080">&lt;/a&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-auto&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-footer&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-list&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>News<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Events<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Contact<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Legals<span style="color: #000080">&lt;/a&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col d-lg-none d-xl-block&quot;</span><span style="color: #000080">&gt;&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-auto&quot;</span><span style="color: #000080">&gt;</span>
+                    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-footer&quot;</span><span style="color: #000080">&gt;</span>
+                        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-widget-list&quot;</span><span style="color: #000080">&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Facebook<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Twitter<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Instagram<span style="color: #000080">&lt;/a&gt;</span>
+                            <span style="color: #000080">&lt;a</span> <span style="color: #008080">href=</span><span style="color: #bb8844">&quot;#&quot;</span><span style="color: #000080">&gt;</span>Dribbble<span style="color: #000080">&lt;/a&gt;</span>
+                        <span style="color: #000080">&lt;/div&gt;</span>
+                    <span style="color: #000080">&lt;/div&gt;</span>
+                <span style="color: #000080">&lt;/div&gt;</span>
+            <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-footer-copyright&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;container&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;p</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;mb-0&quot;</span><span style="color: #000080">&gt;</span><span style="color: #800080">&amp;copy;</span> 2018 Mimilism. All rights reserved. Code by dexad. Designed by unvab.<span style="color: #000080">&lt;/p&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+<span style="color: #000080">&lt;/footer&gt;</span>
+<span style="color: #999988; font-style: italic">&lt;!-- END: Footer --&gt;</span>
+</pre></div>
+        </div>
+    </div>
+
+    <div class="dk-box-1 dk-padding-bot">
+        <div class="container">
+            <h2 id="form">AJAX Form</h2>
+
+            <p>To configure contact form you should change file <code>php/contact.php</code></p>
+
+            <p>HTML Example:</p>
+            <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #000080">&lt;form</span> <span style="color: #008080">action=</span><span style="color: #bb8844">&quot;php/contact.php&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-form&quot;</span> <span style="color: #008080">method=</span><span style="color: #bb8844">&quot;post&quot;</span><span style="color: #000080">&gt;</span>
+    <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;row vertical-gap&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-md-6&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;input</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;form-control&quot;</span> <span style="color: #008080">type=</span><span style="color: #bb8844">&quot;text&quot;</span> <span style="color: #008080">name=</span><span style="color: #bb8844">&quot;name&quot;</span> <span style="color: #008080">value=</span><span style="color: #bb8844">&quot;&quot;</span> <span style="color: #008080">placeholder=</span><span style="color: #bb8844">&quot;Your Name&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-md-6&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;input</span> <span style="color: #008080">type=</span><span style="color: #bb8844">&quot;email&quot;</span> <span style="color: #008080">name=</span><span style="color: #bb8844">&quot;email&quot;</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;form-control&quot;</span> <span style="color: #008080">aria-describedby=</span><span style="color: #bb8844">&quot;emailHelp&quot;</span> <span style="color: #008080">placeholder=</span><span style="color: #bb8844">&quot;Your Email&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-12&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;input</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;form-control&quot;</span> <span style="color: #008080">type=</span><span style="color: #bb8844">&quot;text&quot;</span> <span style="color: #008080">name=</span><span style="color: #bb8844">&quot;title&quot;</span> <span style="color: #008080">value=</span><span style="color: #bb8844">&quot;&quot;</span> <span style="color: #008080">placeholder=</span><span style="color: #bb8844">&quot;Your Title&quot;</span><span style="color: #000080">&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-12&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;textarea</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;form-control&quot;</span> <span style="color: #008080">name=</span><span style="color: #bb8844">&quot;message&quot;</span> <span style="color: #008080">rows=</span><span style="color: #bb8844">&quot;8&quot;</span> <span style="color: #008080">cols=</span><span style="color: #bb8844">&quot;80&quot;</span> <span style="color: #008080">placeholder=</span><span style="color: #bb8844">&quot;Your Comment&quot;</span><span style="color: #000080">&gt;&lt;/textarea&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;col-12&quot;</span><span style="color: #000080">&gt;</span>
+            <span style="color: #000080">&lt;div</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-form-result&quot;</span><span style="color: #000080">&gt;&lt;/div&gt;</span>
+        <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;/div&gt;</span>
+    <span style="color: #000080">&lt;button</span> <span style="color: #008080">class=</span><span style="color: #bb8844">&quot;dk-btn dk-btn-md&quot;</span> <span style="color: #008080">type=</span><span style="color: #bb8844">&quot;submit&quot;</span> <span style="color: #008080">name=</span><span style="color: #bb8844">&quot;sumbit&quot;</span><span style="color: #000080">&gt;</span>Send Message<span style="color: #000080">&lt;/button&gt;</span>
+<span style="color: #000080">&lt;/form&gt;</span>
+</pre></div>
+
+        </div>
+    </div>
+
+    <div class="dk-box-1 dk-padding-bot">
+        <div class="container">
+            <h2 id="plugins">Plugins</h2>
+
+            <ul class="dk-list">
+                <li><code>jQuery</code> – <a href="https://github.com/jquery/jquery" target="_blank">https://github.com/jquery/jquery</a></li>
+                <li><code>Bootstrap</code> – <a href="https://github.com/twbs/bootstrap/tree/v4-dev" target="_blank">https://github.com/twbs/bootstrap/tree/v4-dev</a></li>
+                <li><code>Tether</code> – <a href="https://github.com/HubSpot/tether" target="_blank">https://github.com/HubSpot/tether</a></li>
+                <li><code>Popper</code> – <a href="https://github.com/FezVrasta/popper.js" target="_blank">https://github.com/FezVrasta/popper.js</a></li>
+                <li><code>Imagesloaded</code> – <a href="https://github.com/desandro/imagesloaded" target="_blank">https://github.com/desandro/imagesloaded</a></li>
+                <li><code>Object Fit Images</code> – <a href="https://github.com/bfred-it/object-fit-images" target="_blank">https://github.com/bfred-it/object-fit-images</a></li>
+                <li><code>Swiper</code> – <a href="https://github.com/nolimits4web/swiper" target="_blank">https://github.com/nolimits4web/swiper</a></li>
+                <li><code>Jarallax</code> – <a href="https://github.com/nk-o/jarallax" target="_blank">https://github.com/nk-o/jarallax</a></li>
+                <li><code>Isotope</code> – <a href="https://github.com/metafizzy/isotope" target="_blank">https://github.com/metafizzy/isotope</a></li>
+                <li><code>Font-Awesome</code> – <a href="https://github.com/FortAwesome/Font-Awesome" target="_blank">https://github.com/FortAwesome/Font-Awesome</a></li>
+                <li><code>7 Stroke Icons</code> – <a href="http://themes-pixeden.com/font-demos/7-stroke/" target="_blank">http://themes-pixeden.com/font-demos/7-stroke/</a></li>
+                <li><code>Lightgallery</code> – <a href="https://github.com/sachinchoolur/lightGallery" target="_blank">https://github.com/sachinchoolur/lightGallery</a></li>
+                <li><code>Jquery Form</code> – <a href="https://github.com/jquery-form/form" target="_blank">https://github.com/jquery-form/form</a></li>
+                <li><code>Sticky-kit</code> – <a href="https://github.com/leafo/sticky-kit" target="_blank">https://github.com/leafo/sticky-kit</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="dk-box-1 dk-padding-bot">
+        <div class="container">
+            <h2 id="thankyou">Thank You!</h2>
+            <p>Thanks for using Mimilism. We take great pride in creating solid templates and strongly believe in robust customer service practices. Should you have a question that neither this documentation file nor Themeforest’s forums can resolve and we’ll do our very best to assist you.</p>
+            <p>If you like our template, please take 1 minute to rate it on Themeforest:</p>
+            <ul class="dk-list ml-10 mb-20">
+                <li>1. Go to <a href="https://themeforest.net/user/unvab/portfolio" target="_blank">Themeforest</a> and login with your credentials.</li>
+                <li>2. Hover on your account name in the top right corner of the screen. Click Downloads link and you will see your purchases list.</li>
+                <li>3. Click stars next to our template to leave your rating.</li>
+            </ul>
+            <p>It will help us a lot to keep being motivated to release new template updates and improvements for free.</p>
+            <p class="mb-0">We hope you will enjoy using it for your next project!</p>
+        </div>
+    </div>
+
+    <!-- START: Scripts -->
+
+    <!-- Object Fit Polyfill -->
+    <script src="../assets/vendor/object-fit-images/dist/ofi.min.js"></script>
+
+    <!-- Popper -->
+    <script src="../assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../assets/vendor/tether/dist/js/tether.min.js"></script>
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Sticky Kit -->
+    <script src="../assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
+
+    <!-- Jarallax -->
+    <script src="../assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="../assets/vendor/jarallax/dist/jarallax-video.min.js"></script>
+
+    <!-- Isotope -->
+    <script src="../assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
+
+    <!-- ImagesLoaded -->
+    <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+
+    <!-- Lightgallery -->
+    <script src="../assets/vendor/lightgallery/dist/js/lightgallery.min.js"></script>
+    <script src="../assets/vendor/lg-fullscreen/dist/lg-fullscreen.min.js"></script>
+    <script src="../assets/vendor/lg-video/dist/lg-video.min.js"></script>
+
+    <!-- Swiper -->
+    <script src="../assets/vendor/swiper/dist/js/swiper.min.js"></script>
+
+    <!-- The Mimilism -->
+    <script src="../assets/js/mimilism.min.js"></script>
+    <script src="../assets/js/mimilism-init.js"></script>
+    <!-- END: Scripts -->
+</body>
+</html>
