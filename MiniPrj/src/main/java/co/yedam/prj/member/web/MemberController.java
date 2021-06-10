@@ -20,7 +20,6 @@ public class MemberController {
 		
 		return "member/test";
 	}
-	
 
 	@RequestMapping("/memberInfo.do")
 	public String memberInfo(Model model) {
@@ -52,9 +51,6 @@ public class MemberController {
 	public String memberCeoSignup() {
 		return "member/memberCeoSignup";
 	}
-
-
-
 
 	
 }

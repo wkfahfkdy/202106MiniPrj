@@ -9,7 +9,7 @@
 <script>
 	// 페이지 넘기기
 	function goPage(page){
-		location.href = "inqBoardList.do?page=" + page;
+		location.href = "inqBoardList.do?start=" + page;
 	}
 	
 	function frmSubmit() {
@@ -44,15 +44,10 @@
 				<button type="button" onclick="location.href='revBoardForm.do'">작성하기</button>
 			</div> -->
 			<!-- paging -->
-			<jsp:include page="../common/paging.jsp" flush="true">
-				<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
-				<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
-				<jsp:param name="startPageNo" value="${paging.startPageNo}" />
-				<jsp:param name="pageNo" value="${paging.pageNo}" />
-				<jsp:param name="endPageNo" value="${paging.endPageNo}" />
-				<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
-				<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-			</jsp:include>
+			<c:forEach items="${bolist }" var="list">
+				${list.firstRecordIndex }
+				${list.totalCnt }<br>
+			</c:forEach>
 		</div>
 	</form>
 </body>

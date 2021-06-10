@@ -35,7 +35,7 @@ public class revBoardController {
 		vo.setLastRecordIndex(10*start);
 		vo.setTotalCnt(dao.tableCount());
 		
-		model.addAttribute("list",dao.revBoardSelectListPaging(vo));
+		model.addAttribute("bolist",dao.revBoardSelectListPaging(vo));
 		
 		
 		return "revBoard/revBoardList";

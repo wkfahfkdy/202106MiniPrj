@@ -13,7 +13,7 @@
 	<a href="mypage.do">마이페이지</a>
 	<a href="memberInfo.do">멤버정보</a>
 	<a href="memberLogin.do">로그인</a>
-	<a href="revBoardList.do">게시판</a>
+	<a href="revBoardListPaging.do">게시판</a>
 	<a href="review.do">리뷰</a>
 	<a href="businessMemberPage.do">사업자정보</a>
 </body>

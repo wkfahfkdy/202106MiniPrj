@@ -2753,6 +2753,7 @@ h6,
 
  -------------------------------------------------------------------*/
 .dk-navbar {
+	
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2763,7 +2764,7 @@ h6,
     height: 100px;
     padding: 29px 35px;
     font-family: "Nunito", sans-serif;
-    background-color: #fff;
+    background-color: rgba(32, 32, 32, .6);
     -webkit-box-shadow: 0 1px 0 transparent;
             box-shadow: 0 1px 0 transparent;
     -webkit-transition: background-color .2s ease;
@@ -3155,9 +3156,9 @@ h6,
     }
 }
 
-.dk-navbar.dk-navbar-transparent {
+/*.dk-navbar.dk-navbar-transparent {
     background-color: inherit;
-}
+}*/
 
 .dk-navbar.dk-navbar-scroll {
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
