@@ -12,5 +12,7 @@
 	<a href="memberList.do">리스트</a>
 	<a href="mypage.do">마이페이지</a>
 	<a href="memberInfo.do">멤버정보</a>
+	
+	<a href="revBoardList.do">게시판</a>
 </body>
 </html>
