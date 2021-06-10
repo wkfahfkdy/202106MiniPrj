@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.yedam.prj.common.Paging;
 import co.yedam.prj.revBoard.service.revBoardService;
 import co.yedam.prj.revBoard.vo.revBoardVO;
 
@@ -19,6 +20,12 @@ public class revBoardServiceImpl implements revBoardService{
 	public List<revBoardVO> revBoardSelectList() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("revBoardList");
+	}
+
+	@Override
+	public List<revBoardVO> revBoardSelectListPaging(Paging paging) {
+		
+		return null;
 	}
 
 	@Override

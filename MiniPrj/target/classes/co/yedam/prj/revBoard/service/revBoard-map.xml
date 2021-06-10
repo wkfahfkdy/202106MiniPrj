@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.yedam.prj.revBoard.serivce.member-map">
+<mapper namespace="co.yedam.prj.revBoard.service.revBoard-map">
 	
 	<select id="revBoardList" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
 		select * from testRevBoard
+	</select>
+	
+	<select id="revBoardListPaging" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
+		select b.* 
+		from ( 
+			select rownum rn, a.* 
+			from ( select * from testRevBoard order by rb_num) a 
+			) b
+		<if test="firstRecordIndex !=null and lastRecordIndex != null">
+		where b.rn between #{startPageNo} and #{finalPageNo}
+		</if>
 	</select>
 	
 </mapper>
