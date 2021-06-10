@@ -19,26 +19,26 @@
 		<div align="center">
 			<table>
 				<tr>
-					<th>게시글 번호</th>
+					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일자</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach items="" var="vo">
+				<c:forEach items="list" var="vo">
 					<tr>
-						<td></td>
-						<td onclick="frmSubmit()">$</td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>${vo.rb_num }</td>
+						<td onclick="frmSubmit()">${vo.rb_title }</td>
+						<td>${vo.u_id }</td>
+						<td>${vo.rb_regdate }</td>
+						<td>${vo.rb_hit }</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<div>
-				<!-- c:if 로 조건 달기 -->
+			<!-- <div>
+				c:if 로 조건 달고 작성하기 버튼 만들기? - 다른 경로를 통해 리뷰를 작성한다면 필요x
 				<button type="button" onclick="location.href='revBoardForm.do'">작성하기</button>
-			</div>
+			</div> -->
 			<!-- paging -->
 			<jsp:include page="../common/paging.jsp" flush="true">
 				<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
