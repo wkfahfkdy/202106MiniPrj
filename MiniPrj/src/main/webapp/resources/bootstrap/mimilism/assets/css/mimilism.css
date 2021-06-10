@@ -2764,7 +2764,7 @@ h6,
     height: 100px;
     padding: 29px 35px;
     font-family: "Nunito", sans-serif;
-    background-color: rgba(32, 32, 32, .6);
+    background-color: #5e5e5e;
     -webkit-box-shadow: 0 1px 0 transparent;
             box-shadow: 0 1px 0 transparent;
     -webkit-transition: background-color .2s ease;
