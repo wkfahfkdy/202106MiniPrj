@@ -14,7 +14,7 @@ public class HomeController {
 		String asd = "test";
 		model.addAttribute("test", asd );
 		
-		return "home";
+		return "views/template";
 	}
 	
 	@RequestMapping("/mypage.do")
