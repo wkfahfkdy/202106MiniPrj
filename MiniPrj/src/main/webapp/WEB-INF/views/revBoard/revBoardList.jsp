@@ -27,11 +27,11 @@
 				</tr>
 				<c:forEach items="" var="vo">
 					<tr>
-						<td>${ }</td>
-						<td onclick="frmSubmit('${}')">${ }</td>
-						<td>${ }</td>
-						<td>${ }</td>
-						<td>${ }</td>
+						<td></td>
+						<td onclick="frmSubmit()">$</td>
+						<td></td>
+						<td></td>
+						<td></td>
 					</tr>
 				</c:forEach>
 			</table>
