@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,10 +47,15 @@
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/jquery/dist/jquery.min.js"></script>
-
+<script type="text/javascript">
+	function joinWait() {
+		
+	}
+</script>
 
 </head>
 <body>
+<div >
 	<div class="dk-box-1 dk-padding-top">
 		<div class="container">
 			<ul class="dk-isotope-filter text-center">
@@ -60,29 +66,125 @@
 			</ul>
 		</div>
 	</div>
-	<div class="dk-box-2 dk-padding-bot">
-		<div class="row no-gutters vertical-gap dk-isotope-grid">
+	
+
+	
+	<div>
+		<div>
+		<div class="row no-gutters vertical-gap dk-isotope-grid" align="center" style="width:100%">
+			<div class="col-12 col-sm-6 col-md-4 col-lg-3 dk-isotope-grid-item branding">
+				<div class="dk-portfolio-item dk-portfolio-item-style-6 dk-portfolio-item-center dk-portfolio-item-light">
+      			  	
+      			  	<table  class="table">
+						<c:forEach items="${members }" var="member">
+						<c:if test="${member.joinwait eq 'Y' }">
+						<tr>
+							<th>아이디</th>
+							<td>${member.u_id }</td>
+							<th>이름</th>
+							<td colspan="3">${member.u_name }</td>
+						</tr>
+						<tr>
+							<th>주소</th>
+							<td>${member.u_adr }</td>
+							<th>우편번호</th>
+							<td colspan="3">${member.u_adrcode }</td>
+						</tr>
+						<tr>	
+							<th>전화번호</th>
+							<td>${member.u_tel }</td>
+							<th>메일</th>
+							<td>${member.u_mail }</td>
+							<th>가입일자</th>
+							<td>${member.regdate }</td>
+						</tr>
+						<c:if test="${member.s_reg eq 'Y' }">
+							<tr>
+								<td colspan="6"><button>사업자관리</button></td>
+							</tr>
+						</c:if>
+							<tr>
+								<td colspan="6"><button onclick="joinWait()">가입승인</button></td>
+							</tr>
+						</c:if> 	
+						</c:forEach>
+					</table>
+       			  
+  	
+				</div>
+            </div>		
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3 dk-isotope-grid-item design">
+				<div class="dk-portfolio-item dk-portfolio-item-style-6 dk-portfolio-item-center dk-portfolio-item-light">
+        			<table  class="table">
+						<c:forEach items="${members }" var="member">
+						<c:if test="${member.s_reg eq 'Y' }">
+						<tr>
+							<th>아이디</th>
+							<td>${member.u_id }</td>
+							<th>이름</th>
+							<td colspan="3">${member.u_name }</td>
+						</tr>
+						<tr>
+							<th>주소</th>
+							<td>${member.u_adr }</td>
+							<th>우편번호</th>
+							<td colspan="3">${member.u_adrcode }</td>
+						</tr>
+						<tr>	
+							<th>전화번호</th>
+							<td>${member.u_tel }</td>
+							<th>메일</th>
+							<td>${member.u_mail }</td>
+							<th>가입일자</th>
+							<td>${member.regdate }</td>
+						</tr>
+							<tr>
+								<td colspan="6"><button>사업자관리</button></td>
+							</tr>
+						</c:if>
+						</c:forEach>
+					</table>
+				</div>
+            </div>	
+					
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3 dk-isotope-grid-item mockups">
 				<div class="dk-portfolio-item dk-portfolio-item-style-6 dk-portfolio-item-center dk-portfolio-item-light">
-					<a href="portfolio-single-1.html" class="dk-portfolio-item-image">
-						<span class="dk-portfolio-item-image-size"data-portfolio-size="100%"></span> 
-						<span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span> 
-						<img src="assets/images/portfolio-2-md.png" alt="">
-					</a>
-					<div class="dk-portfolio-item-info">
-						<h2 class="h3 dk-portfolio-item-title">
-							<a href="portfolio-single-1.html">Perfuma Mockup</a>
-						</h2>
-						<ul class="dk-portfolio-item-category">
-							<li><a href="#">Mockups</a></li>
-						</ul>
-					</div>
+					<table  class="table">
+						<c:forEach items="${members }" var="member">
+						<tr>
+							<th>아이디</th>
+							<td>${member.u_id }</td>
+							<th>이름</th>
+							<td colspan="3">${member.u_name }</td>
+						</tr>
+						<tr>
+							<th>주소</th>
+							<td>${member.u_adr }</td>
+							<th>우편번호</th>
+							<td colspan="3">${member.u_adrcode }</td>
+						</tr>
+						<tr>	
+							<th>전화번호</th>
+							<td>${member.u_tel }</td>
+							<th>메일</th>
+							<td>${member.u_mail }</td>
+							<th>가입일자</th>
+							<td>${member.regdate }</td>
+						</tr>
+						<tr>
+							<td colspan="6"><button>회원관리</button></td>
+						</tr>
+						</c:forEach>
+					</table>
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
-
-
+	<div class="text-center">
+    	<a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-50">Load More</a>
+   	</div>
+</div>	
 	<!-- START: Scripts -->
 
 	<!-- Object Fit Images -->
@@ -123,5 +225,6 @@
 	<script src="${pageContext.request.contextPath }/resources/css/mimilism/assets/js/mimilism.min.js"></script>
 	<script src="${pageContext.request.contextPath }/resources/css/mimilism/assets/js/mimilism-init.js"></script>
 	<!-- END: Scripts -->
+
 </body>
 </html>

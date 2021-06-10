@@ -24,9 +24,4 @@ public class HomeController {
 		return "mypage";
 	}
 	
-	@RequestMapping("/review.do")
-	public String review() {
-		return "review/review";
-	}
-	
 }

@@ -16,5 +16,6 @@
 	<a href="revBoardList.do">게시판</a>
 	<a href="review.do">리뷰</a>
 
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 </body>
 </html>
