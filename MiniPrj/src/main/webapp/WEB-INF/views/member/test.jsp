@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<H1>home</H1>
-	${test }
-	<a href="memberList.do">리스트</a>
+	${members }
 </body>
 </html>
