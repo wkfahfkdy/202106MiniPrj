@@ -12,7 +12,10 @@
 	<a href="memberList.do">리스트</a>
 	<a href="mypage.do">마이페이지</a>
 	<a href="memberInfo.do">멤버정보</a>
-	
+	<a href="memberLogin.do">로그인</a>
 	<a href="revBoardList.do">게시판</a>
+	<a href="review.do">리뷰</a>
+
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 </body>
 </html>

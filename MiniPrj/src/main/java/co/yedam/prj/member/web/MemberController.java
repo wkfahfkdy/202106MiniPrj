@@ -19,7 +19,43 @@ public class MemberController {
 		model.addAttribute("members", dao.memberSelectList());
 		
 		return "member/test";
-		
 	}
+	
+
+	@RequestMapping("/memberInfo.do")
+	public String memberInfo() {
+		
+		return "member/memberInfo";
+	}
+
+	@RequestMapping("/memberLogin.do")
+	public String memberLogin() {
+		return "member/memberLogin";
+	}
+
+	@RequestMapping("/memberSignup.do")
+	public String memberSignup() {
+		return "member/memberSignup";
+	}
+
+	@RequestMapping("/memberNormalSignup.do")
+	public String memberNormalSignup() {
+		return "member/memberNormalSignup";
+	}
+
+	@RequestMapping("/memberCeoSignup.do")
+	public String memberCeoSignup() {
+		return "member/memberCeoSignup";
+	}
+
+	@RequestMapping("/memberInfo.do")
+	public String memberInfo(Model model) {
+		model.addAttribute("members", dao.memberSelectList());
+
+		return "member/memberInfo";
+	}
+
+
+
 	
 }

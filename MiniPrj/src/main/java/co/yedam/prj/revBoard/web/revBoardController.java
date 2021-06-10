@@ -1,5 +1,7 @@
 package co.yedam.prj.revBoard.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,10 @@ public class revBoardController {
 		return "revBoard/revBoardList";
 	}
 	
-	//@RequestMappinga("/revBoardListPaging.do")
+//	@RequestMappinga("/revBoardListPaging.do")
+//	public String revBoardListPaging(Model model) {
+//		
+//		model.addAttribute("list", dao.revBoardSelectListPaging(0))
+//	}
 	
 }

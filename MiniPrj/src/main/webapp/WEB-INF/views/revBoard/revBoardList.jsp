@@ -11,6 +11,10 @@
 	function goPage(page){
 		location.href = "inqBoardList.do?page=" + page;
 	}
+	
+	function frmSubmit() {
+		return;
+	}
 </script>
 </head>
 <body>
@@ -19,16 +23,16 @@
 		<div align="center">
 			<table>
 				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>작성일자</th>
-					<th>조회수</th>
+					<th width="50px">번호</th>
+					<th width="300px">제목</th>
+					<th width="100px">작성자</th>
+					<th width="250px">작성일자</th>
+					<th width="50px">조회수</th>
 				</tr>
-				<c:forEach items="list" var="vo">
+				<c:forEach items="${list }" var="vo">
 					<tr>
 						<td>${vo.rb_num }</td>
-						<td onclick="frmSubmit()">${vo.rb_title }</td>
+						<td onclick="frmSubmit('${vo.rb_num}')">${vo.rb_title }</td>
 						<td>${vo.u_id }</td>
 						<td>${vo.rb_regdate }</td>
 						<td>${vo.rb_hit }</td>
