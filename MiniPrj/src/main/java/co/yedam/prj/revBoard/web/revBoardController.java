@@ -23,10 +23,10 @@ public class revBoardController {
 		return "revBoard/revBoardList";
 	}
 	
-	@RequestMappinga("/revBoardListPaging.do")
-	public String revBoardListPaging(Model model) {
-		
-		model.addAttribute("list", dao.revBoardSelectListPaging(0))
-	}
+//	@RequestMappinga("/revBoardListPaging.do")
+//	public String revBoardListPaging(Model model) {
+//		
+//		model.addAttribute("list", dao.revBoardSelectListPaging(0))
+//	}
 	
 }
