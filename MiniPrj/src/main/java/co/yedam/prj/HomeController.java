@@ -34,6 +34,19 @@ public class HomeController {
 	public String memberLogin() {
 		return "member/memberLogin";
 	}
-	
-	
+
+	@RequestMapping("/memberSignup.do")
+	public String memberSignup() {
+		return "member/memberSignup";
+	}
+
+	@RequestMapping("/memberNormalSignup.do")
+	public String memberNormalSignup() {
+		return "member/memberNormalSignup";
+	}
+
+	@RequestMapping("/memberCeoSignup.do")
+	public String memberCeoSignup() {
+		return "member/memberCeoSignup";
+	}
 }
