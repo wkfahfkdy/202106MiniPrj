@@ -24,6 +24,10 @@ public class HomeController {
 		return "mypage";
 	}
 	
+<<<<<<< HEAD
+	
+	
+=======
 	@RequestMapping("/memberInfo.do")
 	public String memberInfo() {
 		
@@ -34,6 +38,20 @@ public class HomeController {
 	public String memberLogin() {
 		return "member/memberLogin";
 	}
-	
-	
+
+	@RequestMapping("/memberSignup.do")
+	public String memberSignup() {
+		return "member/memberSignup";
+	}
+
+	@RequestMapping("/memberNormalSignup.do")
+	public String memberNormalSignup() {
+		return "member/memberNormalSignup";
+	}
+
+	@RequestMapping("/memberCeoSignup.do")
+	public String memberCeoSignup() {
+		return "member/memberCeoSignup";
+	}
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 }
