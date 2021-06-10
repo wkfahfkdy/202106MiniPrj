@@ -24,29 +24,9 @@ public class HomeController {
 		return "mypage";
 	}
 	
-	@RequestMapping("/memberInfo.do")
-	public String memberInfo() {
-		
-		return "member/memberInfo";
+	@RequestMapping("/review.do")
+	public String review() {
+		return "review/review";
 	}
-
-	@RequestMapping("/memberLogin.do")
-	public String memberLogin() {
-		return "member/memberLogin";
-	}
-
-	@RequestMapping("/memberSignup.do")
-	public String memberSignup() {
-		return "member/memberSignup";
-	}
-
-	@RequestMapping("/memberNormalSignup.do")
-	public String memberNormalSignup() {
-		return "member/memberNormalSignup";
-	}
-
-	@RequestMapping("/memberCeoSignup.do")
-	public String memberCeoSignup() {
-		return "member/memberCeoSignup";
-	}
+	
 }
