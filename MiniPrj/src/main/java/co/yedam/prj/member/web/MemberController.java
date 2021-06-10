@@ -22,9 +22,14 @@ public class MemberController {
 	}
 
 	@RequestMapping("/memberInfo.do")
-	public String memberInfo() {
-		
+	public String memberInfo(Model model) {
+		model.addAttribute("members", dao.memberSelectList());
 		return "member/memberInfo";
+	}
+	@RequestMapping("/businessMemberPage.do")
+	public String businessMemberPage(Model model) {
+		
+		return "member/businessMemberPage";
 	}
 
 	@RequestMapping("/memberLogin.do")
@@ -46,7 +51,6 @@ public class MemberController {
 	public String memberCeoSignup() {
 		return "member/memberCeoSignup";
 	}
-
 
 	
 }
