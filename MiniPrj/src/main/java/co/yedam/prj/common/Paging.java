@@ -3,191 +3,196 @@ package co.yedam.prj.common;
 //출처: https://unabated.tistory.com/entry/JSP-게시판-구현-시-Paging-처리-하기 [랄라라]
 
 public class Paging {
-    private int pageSize; // 게시 글 수
-    private int firstPageNo; // 첫 번째 페이지 번호
-    private int prevPageNo; // 이전 페이지 번호
-    private int startPageNo; // 시작 페이지 (페이징 네비 기준)
-    private int pageNo; // 페이지 번호
-    private int endPageNo; // 끝 페이지 (페이징 네비 기준)
-    private int nextPageNo; // 다음 페이지 번호
-    private int finalPageNo; // 마지막 페이지 번호
-    private int totalCount; // 게시 글 전체 수
-
-    /**
-     * @return the pageSize
-     */
+	 // 현재페이지
+    private int currentPage;
+    // 페이지당 출력할 페이지 갯수
+    private int cntPerPage;
+    // 화면 하단 페이지 사이즈 1~10, 10~20 20~30 ...
+    private int pageSize;
+    // 전체 데이터 개수 
+    private int totalRecordCount;
+    // 전체 페이지 개수 
+    private int totalPageCount;
+    // 페이지 리스트의 첫 페이지 번호
+    private int firstPage;
+    // 페이지 리스트의 마지막 페이지 번호
+    private int lastPage;
+    // SQL의 조건절에 사용되는 첫 RNUM
+    private int firstRecordIndex;
+    // SQL의 조건절에 사용되는 마지막 RNUM
+    private int lastRecordIndex;
+    // 이전 페이지 존재 여부 
+    private boolean hasPreviousPage;
+    // 다음 페이지 존재 여부
+    private boolean hasNextPage;
+    
+    public Paging(int currentPage, int cntPerPage, int pageSize) {
+        //강제입력방지
+        if (currentPage < 1) {
+            currentPage = 1;
+        }
+        //10,20,30개 단위 이외 처리 방지
+        if (cntPerPage != 10 && cntPerPage != 20 && cntPerPage != 30) {
+            cntPerPage = 10;
+        }
+        // 하단 페이지 갯수 10개로 제한
+        if (pageSize != 10) {
+            pageSize = 10;
+        }
+        this.currentPage = currentPage;
+        this.cntPerPage = cntPerPage;
+        this.pageSize = pageSize;
+        
+    }
+ 
+    public void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
+ 
+        if (totalRecordCount > 0) {
+            calculation();
+        }
+    }
+ 
+    private void calculation() {
+ 
+        // 전체 페이지 수 (현재 페이지 번호가 전체 페이지 수보다 크면 현재 페이지 번호에 전체 페이지 수를 저장)
+        totalPageCount = ((totalRecordCount - 1) / this.getCntPerPage()) + 1;
+        if (this.getCurrentPage() > totalPageCount) {
+            this.setCurrentPage(totalPageCount);
+        }
+ 
+        // 페이지 리스트의 첫 페이지 번호
+        firstPage = ((this.getCurrentPage() - 1) / this.getPageSize()) * this.getPageSize() + 1;
+ 
+        // 페이지 리스트의 마지막 페이지 번호 (마지막 페이지가 전체 페이지 수보다 크면 마지막 페이지에 전체 페이지 수를 저장)
+        lastPage = firstPage + this.getPageSize() - 1;
+        if (lastPage > totalPageCount) {
+            lastPage = totalPageCount;
+        }
+ 
+        // SQL의 조건절에 사용되는 첫 RNUM
+        firstRecordIndex = (this.getCurrentPage() - 1) * this.getCntPerPage();
+ 
+        // SQL의 조건절에 사용되는 마지막 RNUM
+        lastRecordIndex = this.getCurrentPage() * this.getCntPerPage();
+ 
+        // 이전 페이지 존재 여부
+        hasPreviousPage = firstPage == 1 ? false : true;
+        if(hasPreviousPage == false) {
+            if(currentPage != firstPage) {
+                hasPreviousPage = true;
+            }else {
+                hasPreviousPage = false;
+            }
+        }
+ 
+        // 다음 페이지 존재 여부
+        hasNextPage = (lastPage * this.getCntPerPage()) >= totalRecordCount ? false : true;
+        if(hasNextPage == false) {
+            //마지막 페이지에서 현재페이지가 마지막 페이지가 아닌경우 next처리
+            if(currentPage != lastPage) {
+                hasNextPage = true;
+            }else {
+                hasNextPage = false;
+            }
+        }
+    }
+    
+    
+/*
+GETTER SETTER
+//*/    
+    
+    public int getCurrentPage() {
+        return currentPage;
+    }
+ 
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+ 
+    public int getCntPerPage() {
+        return cntPerPage;
+    }
+ 
+    public void setCntPerPage(int cntPerPage) {
+        this.cntPerPage = cntPerPage;
+    }
+ 
     public int getPageSize() {
         return pageSize;
     }
-
-    /**
-     * @param pageSize the pageSize to set
-     */
+ 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
     }
-
-    /**
-     * @return the firstPageNo
-     */
-    public int getFirstPageNo() {
-        return firstPageNo;
+    
+    public int getTotalPageCount() {
+        return totalPageCount;
     }
-
-    /**
-     * @param firstPageNo the firstPageNo to set
-     */
-    public void setFirstPageNo(int firstPageNo) {
-        this.firstPageNo = firstPageNo;
+ 
+    public void setTotalPageCount(int totalPageCount) {
+        this.totalPageCount = totalPageCount;
     }
-
-    /**
-     * @return the prevPageNo
-     */
-    public int getPrevPageNo() {
-        return prevPageNo;
+ 
+    public int getFirstPage() {
+        return firstPage;
     }
-
-    /**
-     * @param prevPageNo the prevPageNo to set
-     */
-    public void setPrevPageNo(int prevPageNo) {
-        this.prevPageNo = prevPageNo;
+ 
+    public void setFirstPage(int firstPage) {
+        this.firstPage = firstPage;
     }
-
-    /**
-     * @return the startPageNo
-     */
-    public int getStartPageNo() {
-        return startPageNo;
+ 
+    public int getLastPage() {
+        return lastPage;
     }
-
-    /**
-     * @param startPageNo the startPageNo to set
-     */
-    public void setStartPageNo(int startPageNo) {
-        this.startPageNo = startPageNo;
+ 
+    public void setLastPage(int lastPage) {
+        this.lastPage = lastPage;
     }
-
-    /**
-     * @return the pageNo
-     */
-    public int getPageNo() {
-        return pageNo;
+ 
+    public int getFirstRecordIndex() {
+        return firstRecordIndex;
     }
-
-    /**
-     * @param pageNo the pageNo to set
-     */
-    public void setPageNo(int pageNo) {
-        this.pageNo = pageNo;
+ 
+    public void setFirstRecordIndex(int firstRecordIndex) {
+        this.firstRecordIndex = firstRecordIndex;
     }
-
-    /**
-     * @return the endPageNo
-     */
-    public int getEndPageNo() {
-        return endPageNo;
+ 
+    public int getLastRecordIndex() {
+        return lastRecordIndex;
     }
-
-    /**
-     * @param endPageNo the endPageNo to set
-     */
-    public void setEndPageNo(int endPageNo) {
-        this.endPageNo = endPageNo;
+ 
+    public void setLastRecordIndex(int lastRecordIndex) {
+        this.lastRecordIndex = lastRecordIndex;
     }
-
-    /**
-     * @return the nextPageNo
-     */
-    public int getNextPageNo() {
-        return nextPageNo;
+ 
+    public boolean isHasPreviousPage() {
+        return hasPreviousPage;
     }
-
-    /**
-     * @param nextPageNo the nextPageNo to set
-     */
-    public void setNextPageNo(int nextPageNo) {
-        this.nextPageNo = nextPageNo;
+ 
+    public void setHasPreviousPage(boolean hasPreviousPage) {
+        this.hasPreviousPage = hasPreviousPage;
     }
-
-    /**
-     * @return the finalPageNo
-     */
-    public int getFinalPageNo() {
-        return finalPageNo;
+ 
+    public boolean isHasNextPage() {
+        return hasNextPage;
     }
-
-    /**
-     * @param finalPageNo the finalPageNo to set
-     */
-    public void setFinalPageNo(int finalPageNo) {
-        this.finalPageNo = finalPageNo;
+ 
+    public void setHasNextPage(boolean hasNextPage) {
+        this.hasNextPage = hasNextPage;
     }
-
-    /**
-     * @return the totalCount
-     */
-    public int getTotalCount() {
-        return totalCount;
-    }
-
-    /**
-     * @param totalCount the totalCount to set
-     */
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
-        this.makePaging();
-    }
-
-    /**
-     * 페이징 생성
-     */
-    private void makePaging() {
-        if (this.totalCount == 0) return; // 게시 글 전체 수가 없는 경우
-        if (this.pageNo == 0) this.setPageNo(1); // 기본 값 설정
-        if (this.pageSize == 0) this.setPageSize(10); // 기본 값 설정
-
-        int finalPage = (totalCount + (pageSize - 1)) / pageSize; // 마지막 페이지
-        if (this.pageNo > finalPage) this.setPageNo(finalPage); // 기본 값 설정
-
-        if (this.pageNo < 0 || this.pageNo > finalPage) this.pageNo = 1; // 현재 페이지 유효성 체크
-
-        boolean isNowFirst = pageNo == 1 ? true : false; // 시작 페이지 (전체)
-        boolean isNowFinal = pageNo == finalPage ? true : false; // 마지막 페이지 (전체)
-
-        int startPage = ((pageNo - 1) / 10) * 10 + 1; // 시작 페이지 (페이징 네비 기준)
-        int endPage = startPage + 10 - 1; // 끝 페이지 (페이징 네비 기준)
-
-        if (endPage > finalPage) { // [마지막 페이지 (페이징 네비 기준) > 마지막 페이지] 보다 큰 경우
-            endPage = finalPage;
-        }
-
-        this.setFirstPageNo(1); // 첫 번째 페이지 번호
-
-        if (isNowFirst) {
-            this.setPrevPageNo(1); // 이전 페이지 번호
-        } else {
-            this.setPrevPageNo(((pageNo - 1) < 1 ? 1 : (pageNo - 1))); // 이전 페이지 번호
-        }
-
-        this.setStartPageNo(startPage); // 시작 페이지 (페이징 네비 기준)
-        this.setEndPageNo(endPage); // 끝 페이지 (페이징 네비 기준)
-
-        if (isNowFinal) {
-            this.setNextPageNo(finalPage); // 다음 페이지 번호
-        } else {
-            this.setNextPageNo(((pageNo + 1) > finalPage ? finalPage : (pageNo + 1))); // 다음 페이지 번호
-        }
-
-        this.setFinalPageNo(finalPage); // 마지막 페이지 번호
+ 
+    public int getTotalRecordCount() {
+        return totalRecordCount;
     }
 
 	@Override
 	public String toString() {
-		return "Paging [pageSize=" + pageSize + ", firstPageNo=" + firstPageNo + ", prevPageNo=" + prevPageNo
-				+ ", startPageNo=" + startPageNo + ", pageNo=" + pageNo + ", endPageNo=" + endPageNo + ", nextPageNo="
-				+ nextPageNo + ", finalPageNo=" + finalPageNo + ", totalCount=" + totalCount + "]";
+		return "Paging [currentPage=" + currentPage + ", cntPerPage=" + cntPerPage + ", pageSize=" + pageSize
+				+ ", totalRecordCount=" + totalRecordCount + ", totalPageCount=" + totalPageCount + ", firstPage="
+				+ firstPage + ", lastPage=" + lastPage + ", firstRecordIndex=" + firstRecordIndex + ", lastRecordIndex="
+				+ lastRecordIndex + ", hasPreviousPage=" + hasPreviousPage + ", hasNextPage=" + hasNextPage + "]";
 	}
 
 }

@@ -23,9 +23,9 @@ public class revBoardServiceImpl implements revBoardService{
 	}
 
 	@Override
-	public List<revBoardVO> revBoardSelectListPaging(Paging paging) {
+	public List<revBoardVO> revBoardSelectListPaging(revBoardVO vo) {
 		
-		return null;
+		return sqlSession.selectList("revBoardListPaging");
 	}
 
 	@Override
@@ -50,6 +50,12 @@ public class revBoardServiceImpl implements revBoardService{
 	public int updateRevBoard(revBoardVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public int tableCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("testTableCount");
 	}
 
 }

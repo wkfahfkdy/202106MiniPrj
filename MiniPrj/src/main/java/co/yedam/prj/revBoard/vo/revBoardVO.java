@@ -11,6 +11,28 @@ public class revBoardVO {
 	private Date rb_regdate;
 	private int rb_hit;
 	
+	private int firstRecordIndex;
+	private int lastRecordIndex;
+	private int totalCnt;
+	
+	public int getFirstRecordIndex() {
+		return firstRecordIndex;
+	}
+	public void setFirstRecordIndex(int firstRecordIndex) {
+		this.firstRecordIndex = firstRecordIndex;
+	}
+	public int getLastRecordIndex() {
+		return lastRecordIndex;
+	}
+	public void setLastRecordIndex(int lastRecordIndex) {
+		this.lastRecordIndex = lastRecordIndex;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
 	public int getRb_num() {
 		return rb_num;
 	}

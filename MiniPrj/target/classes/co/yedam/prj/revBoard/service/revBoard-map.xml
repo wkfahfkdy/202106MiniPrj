@@ -6,15 +6,22 @@
 		select * from testRevBoard
 	</select>
 	
-	<select id="revBoardListPaging" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
-		select b.* 
-		from ( 
-			select rownum rn, a.* 
-			from ( select * from testRevBoard order by rb_num) a 
-			) b
-		<if test="firstRecordIndex !=null and lastRecordIndex != null">
-		where b.rn between #{startPageNo} and #{finalPageNo}
-		</if>
+	<select id="revBoardListPaging" parameterType="co.yedam.prj.revBoard.vo.revBoardVO" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
+		SELECT *
+        FROM (
+        SELECT ROW_NUMBER() OVER(ORDER by rb_num DESC) AS
+        row_num
+        ,a.*
+        FROM testRevBoard a
+        )
+        <if test="firstRecordIndex !=null and lastRecordIndex != null">
+            WHERE row_num BETWEEN #{firstRecordIndex} AND
+            #{lastRecordIndex}
+        </if>
 	</select>
+	
+	<select id="testTableCount" resultType="int">
+        SELECT count(*) FROM testRevBoard
+    </select>
 	
 </mapper>
