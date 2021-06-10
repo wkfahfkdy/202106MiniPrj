@@ -19,9 +19,11 @@ public class HomeController {
 	
 	@RequestMapping("/mypage.do")
 	public String mypage() {
-		
-		
 		return "mypage";
+	}
+	@RequestMapping("/ad_popup.do")
+	public String adpopup() {
+		return "ad_popup";
 	}
 	
 	@RequestMapping("/memberInfo.do")
