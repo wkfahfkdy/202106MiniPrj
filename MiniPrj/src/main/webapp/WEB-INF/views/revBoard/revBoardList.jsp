@@ -22,7 +22,7 @@
 <style>
 .pagination {
 	display : inline-block;
-}
+} 
 
 .pagination a {
 	color : black;
