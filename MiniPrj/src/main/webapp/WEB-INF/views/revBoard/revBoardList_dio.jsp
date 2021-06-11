@@ -9,10 +9,14 @@
 <script>
 	// 페이지 넘기기
 	function goPage(page){
-		location.href = "inqBoardList.do?start=" + page;
+		location.href = "revBoardList.do?page=" + page;
 	}
 	
 	function frmSubmit() {
+		
+		frm.id.value = revBoardID;
+		frm.submit();
+		
 		return;
 	}
 </script>
@@ -41,7 +45,7 @@
 			</table>
 			
 			
-			<div>
+			<%-- <div>
 				<jsp:include page="../common/paging.jsp" flush="true">
 					<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
 					<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
@@ -54,7 +58,17 @@
 				
 			
 			
-			</div>
+			</div> --%>
+			
+						<jsp:include page = "../common/paging.jsp" flush = "true">
+				<jsp:param value="${bolist.firstPageNo }" name="firstPageNo"/>
+				<jsp:param value="${bolist.prevPageNo }" name="prevPageNo"/>
+				<jsp:param value="${bolist.startPageNo }" name="startPageNo"/>
+				<jsp:param value="${bolist.pageNo }" name="pageNo"/>
+				<jsp:param value="${bolist.endPageNo }" name="endPageNo"/>
+				<jsp:param value="${bolist.nextPageNo }" name="nextPageNo"/>
+				<jsp:param value="${bolist.finalPageNo }" name="finalPageNo"/>
+			</jsp:include>
 			
 			
 			<!-- <div>

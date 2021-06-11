@@ -37,7 +37,7 @@ public class revBoardServiceImpl implements revBoardService{
 	@Override
 	public int insertRevBoard(revBoardVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert("revBoardInsert", vo);
 	}
 
 	@Override

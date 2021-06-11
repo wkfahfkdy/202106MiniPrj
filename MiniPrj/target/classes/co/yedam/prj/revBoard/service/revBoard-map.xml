@@ -20,5 +20,9 @@
 	<select id="testTableCount" resultType="int">
         SELECT count(*) totalPageCount FROM testRevBoard
     </select>
+    
+    <insert id="revBoardInsert" parameterType="co.yedam.prj.revBoard.vo.revBoardVO">
+    	insert into revBoard values (test_rBoard_seq.nextval, #{rb_title}, 'admin', #{rb_content}, sysdate, 0, '0')
+    </insert>
 	
 </mapper>

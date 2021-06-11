@@ -10,11 +10,18 @@ public class revBoardVO {
 	private String u_id;
 	private Date rb_regdate;
 	private int rb_hit;
+	private String rb_content;
 	
 	private int firstRecordIndex;
 	private int lastRecordIndex;
-	private int totalCnt;
+	private int totalCnt; // 게시글 전체 수
 	
+	public String getRb_content() {
+		return rb_content;
+	}
+	public void setRb_content(String rb_content) {
+		this.rb_content = rb_content;
+	}
 	public int getFirstRecordIndex() {
 		return firstRecordIndex;
 	}
@@ -67,7 +74,8 @@ public class revBoardVO {
 	@Override
 	public String toString() {
 		return "revBoardVO [rb_num=" + rb_num + ", rb_title=" + rb_title + ", u_id=" + u_id + ", rb_regdate="
-				+ rb_regdate + ", rb_hit=" + rb_hit + "]";
+				+ rb_regdate + ", rb_hit=" + rb_hit + ", rb_content=" + rb_content + ", firstRecordIndex="
+				+ firstRecordIndex + ", lastRecordIndex=" + lastRecordIndex + ", totalCnt=" + totalCnt + "]";
 	}
 	
 }
