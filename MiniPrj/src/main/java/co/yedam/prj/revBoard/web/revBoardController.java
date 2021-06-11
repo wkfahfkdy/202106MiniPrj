@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import co.yedam.prj.revBoard.service.RevBoardService;
-import co.yedam.prj.revBoard.vo.RevBoardVO;
+import co.yedam.prj.revBoard.service.revBoardService;
+import co.yedam.prj.revBoard.vo.revBoardVO;
 
 @Controller
-public class RevBoardController {
+public class revBoardController {
 	
 	@Autowired
-	private RevBoardService dao;
+	private revBoardService dao;
 	
 	@RequestMapping("/revBoardList.do")
 	public String revBoardList(Model model) {
@@ -29,11 +29,16 @@ public class RevBoardController {
 	}
 	
 	@RequestMapping("/revBoardListPaging.do")
-	public String revBoardListPaging(Model model, RevBoardVO vo,@RequestParam(value = "start", required = false, defaultValue="1") int start) {
+	public String revBoardListPaging(Model model, revBoardVO vo,@RequestParam(value = "start", required = false, defaultValue="1") int start) {
+		
+		System.out.println(start);
 		
 		vo.setFirstRecordIndex(1 + (start-1)*10);
 		vo.setLastRecordIndex(10*start);
 		vo.setTotalCnt(dao.tableCount());
+		
+		System.out.println(vo.getFirstRecordIndex());
+		System.out.println(vo.getLastRecordIndex());
 		
 		model.addAttribute("bolist",dao.revBoardSelectListPaging(vo));
 		

@@ -61,13 +61,6 @@
 							<c:if test="${member.joinwait eq 'N' and member.s_reg eq 'N'  }">
 							<th><button onclick="joinWait(${member.u_id })">회원관리</button></th>
 							</c:if>
-							<c:if test="${member.joinwait eq 'Y' }">
-							<th><button onclick="joinWait(${member.u_id })">가입승인</button></th>
-							</c:if>
-							<c:if test="${member.s_reg eq 'Y' }">
-							<th><button onclick="location.href='businessMemberPage.do'">사업자관리</button></th>
-							</c:if>
-							
 						</tr>
 					</c:forEach>
 		</table>

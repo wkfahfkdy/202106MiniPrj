@@ -7,47 +7,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.common.Paging;
-import co.yedam.prj.revBoard.service.RevBoardService;
-import co.yedam.prj.revBoard.vo.RevBoardVO;
+import co.yedam.prj.revBoard.service.revBoardService;
+import co.yedam.prj.revBoard.vo.revBoardVO;
 
 @Repository("revBoardDao")
-public class RevBoardServiceImpl implements RevBoardService{
+public class revBoardServiceImpl implements revBoardService{
 
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<RevBoardVO> revBoardSelectList() {
+	public List<revBoardVO> revBoardSelectList() {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("revBoardList");
 	}
 
 	@Override
-	public List<RevBoardVO> revBoardSelectListPaging(RevBoardVO vo) {
+	public List<revBoardVO> revBoardSelectListPaging(revBoardVO vo) {
 		
-		return sqlSession.selectList("revBoardListPaging");
+		return sqlSession.selectList("revBoardListPaging", vo);
 	}
 
 	@Override
-	public RevBoardVO revBoardSelect(RevBoardVO vo) {
+	public revBoardVO revBoardSelect(revBoardVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insertRevBoard(RevBoardVO vo) {
+	public int insertRevBoard(revBoardVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int deleteRevBoard(RevBoardVO vo) {
+	public int deleteRevBoard(revBoardVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int updateRevBoard(RevBoardVO vo) {
+	public int updateRevBoard(revBoardVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
