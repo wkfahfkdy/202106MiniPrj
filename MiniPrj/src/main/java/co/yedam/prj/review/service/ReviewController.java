@@ -1,4 +1,4 @@
-package co.yedam.prj.review.web;
+package co.yedam.prj.review.service;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +10,18 @@ public class ReviewController {
 	
 	
 	@RequestMapping("/review.do")
-	public String revBoardList(Model model) {
+	public String review(Model model) {
 		
 		return "review/review";
 	}
+	
+	@RequestMapping("/reviewDetail.do")
+	public String reviewDetail(Model model) {
+		
+		return "review/reviewDetail";
+	}
+	
+	
 	
 }
 

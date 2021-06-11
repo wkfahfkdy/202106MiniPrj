@@ -11,6 +11,10 @@
 		frm.submit();
 	}
 </script>
+
+<br><br>
+
+<div align="center">
 <div  class="containerCh" align="center">
 	<h1>login</h1>
 	<br>
@@ -38,7 +42,7 @@
 </div>
 
 
-
+</div>
 
 
 

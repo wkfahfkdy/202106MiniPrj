@@ -39,6 +39,24 @@
 					</tr>
 				</c:forEach>
 			</table>
+			
+			
+			<div>
+				<jsp:include page="../common/paging.jsp" flush="true">
+					<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
+					<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
+					<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
+					<jsp:param value="${paging.PageNo }" name="pageNo"/>
+					<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
+					<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
+					<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
+				</jsp:include>
+				
+			
+			
+			</div>
+			
+			
 			<!-- <div>
 				c:if 로 조건 달고 작성하기 버튼 만들기? - 다른 경로를 통해 리뷰를 작성한다면 필요x
 				<button type="button" onclick="location.href='revBoardForm.do'">작성하기</button>
