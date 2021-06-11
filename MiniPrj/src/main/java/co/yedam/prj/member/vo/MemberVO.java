@@ -15,6 +15,9 @@ public class MemberVO {
 	private String s_reg;
 	private int s_pay;
 	private Date regdate;
+	private String s_file;
+	private int mileage;
+	private String u_adr2;
 	
 	public String getU_id() {
 		return u_id;
@@ -88,6 +91,24 @@ public class MemberVO {
 		return "MemberVO [u_id=" + u_id + ", u_pwd=" + u_pwd + ", u_name=" + u_name + ", u_adr=" + u_adr
 				+ ", u_adrcode=" + u_adrcode + ", u_tel=" + u_tel + ", u_mail=" + u_mail + ", joinwait=" + joinwait
 				+ ", s_reg=" + s_reg + ", s_pay=" + s_pay + ", regdate=" + regdate + "]";
+	}
+	public String getS_file() {
+		return s_file;
+	}
+	public void setS_file(String s_file) {
+		this.s_file = s_file;
+	}
+	public int getMileage() {
+		return mileage;
+	}
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
+	}
+	public String getU_adr2() {
+		return u_adr2;
+	}
+	public void setU_adr2(String u_adr2) {
+		this.u_adr2 = u_adr2;
 	}
 	
 }

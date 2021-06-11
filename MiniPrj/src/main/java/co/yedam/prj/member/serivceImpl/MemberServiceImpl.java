@@ -37,14 +37,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO memberSelect(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public int memberSelect(MemberVO vo) {
+		
+		return sqlSession.selectOne("memberSelect", vo);
 	}
 
 	@Override
 	public int insertMember(MemberVO vo) {
-		return 0;
+		
+		return sqlSession.insert("memberInsert", vo);
+	}
+	
+	@Override
+	public int insertCeo(MemberVO vo) {
+
+		return sqlSession.insert("ceoInsert", vo);
 	}
 
 	@Override
@@ -58,5 +65,11 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	@Override
+	public int memberIdCheck(MemberVO vo) {
+		
+		return sqlSession.selectOne("memberIdCheck", vo);
+	}
+
 
 }

@@ -12,7 +12,7 @@
 	}
 </script>
 <div  class="containerCh" align="center">
-	<h1>login</h1>
+	<h1>아이디 또는 비밀번호를 확인해 주세요.</h1>
 	<br>
 
 	<div class="container">

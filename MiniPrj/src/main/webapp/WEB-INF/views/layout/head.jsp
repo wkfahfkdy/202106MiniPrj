@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,11 +138,18 @@ font-family: ui-serif;
             <a href="businessMemberPage.do">
                 사업자정보
             </a></li>
+            <c:if test="${id eq null }">
             <li class="dk-drop-item">
             <a href="memberLogin.do">
                 Login
             </a></li>    
-        
+        	</c:if>
+        	 <c:if test="${id ne null }">
+            <li class="dk-drop-item">
+            <a href="memberLogOut.do">
+                Logout
+            </a></li>    
+        	</c:if>
             </ul>
             
         </div>
