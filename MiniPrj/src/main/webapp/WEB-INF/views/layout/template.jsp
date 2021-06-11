@@ -3,9 +3,9 @@
     <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html class="html1">
 <head>
-    <title>빵맨</title>
+    <title>빵맨 # 대구 빵가게</title>
 
     <meta name="description" content="Mimilism - Bootstrap template for portfolio and works">
     <meta name="keywords" content="portfolio, works, template, HTML template, responsive, Bootstrap, premium">
@@ -47,32 +47,21 @@
 
     <!-- jQuery -->
     <script src="resources/bootstrap/mimilism/assets/vendor/jquery/dist/jquery.min.js"></script> 
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-   
-
 
 
 
 
 <meta charset="UTF-8">
-<title>빵맨</title>
 </head>
 <body>
 <div class="dk-main">
 	<tiles:insertAttribute name="head">
-	</tiles:insertAttribute>
-	<tiles:insertAttribute name="main">
-	</tiles:insertAttribute>
 
+	</tiles:insertAttribute>
+		<div class="containerA">
+		<tiles:insertAttribute name="content">
+	</tiles:insertAttribute>
+		</div>
 	<tiles:insertAttribute name="foot">
 	</tiles:insertAttribute>
 	</div>
