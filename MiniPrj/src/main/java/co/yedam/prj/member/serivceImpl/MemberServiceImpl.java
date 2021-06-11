@@ -12,9 +12,21 @@ import co.yedam.prj.member.vo.MemberVO;
 @Repository("memberDao")
 public class MemberServiceImpl implements MemberService {
 	
+	
 	@Autowired
 	private SqlSession sqlSession;
 	
+
+	@Override
+	public int mileAgeUp(MemberVO vo) {
+		return sqlSession.update("mileAgeU",vo);
+	}
+
+	@Override
+	public int mileAgeDown(MemberVO vo) {
+		
+		return sqlSession.update("mileAgeD",vo);
+	}
 	@Override
 	public List<MemberVO> memberSelectList() {
 		// TODO Auto-generated method stub

@@ -15,7 +15,29 @@ public class MemberVO {
 	private String s_reg;
 	private int s_pay;
 	private Date regdate;
+	private int mileage;
+	private int mileageU;
+	private int mileageD;
 	
+	
+	public int getMileageU() {
+		return mileageU;
+	}
+	public void setMileageU(int mileageU) {
+		this.mileageU = mileageU;
+	}
+	public int getMileageD() {
+		return mileageD;
+	}
+	public void setMileageD(int mileageD) {
+		this.mileageD = mileageD;
+	}
+	public int getMileage() {
+		return mileage;
+	}
+	public void setMileage(int mileage) {
+		this.mileage = mileage;
+	}
 	public String getU_id() {
 		return u_id;
 	}

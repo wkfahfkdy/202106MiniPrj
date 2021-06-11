@@ -46,8 +46,7 @@
 							<th>전화번호</th>
 							<th>메일</th>
 							<th>가입일자</th>
-							<th>비고</th>
-							
+							<th>비고</th>						
 						</tr>
 					<c:forEach items="${members }" var="member">
 						<tr>
@@ -60,6 +59,7 @@
 							<td>${member.regdate }</td>
 							<c:if test="${member.joinwait eq 'N' and member.s_reg eq 'N'  }">
 							<th><button onclick="joinWait(${member.u_id })">회원관리</button></th>
+
 							</c:if>
 						</tr>
 					</c:forEach>

@@ -1,11 +1,15 @@
 package co.yedam.prj.member.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.member.serivce.MemberService;
+import co.yedam.prj.member.vo.MemberVO;
 
 @Controller
 public class MemberController {
@@ -77,5 +81,34 @@ public class MemberController {
 	public String adpopup() {
 		return "member/memberAdPopup";
 	}
+		
 	
+	
+	//마일리지
+	@RequestMapping("/memberMileage.do")
+	public String memberMileage(Model model) {
+		model.addAttribute("mileage", dao.memberSelectListM());
+		return "member/mileage/memberMileage";
+
+		//+1000마일리지
+	}
+	@RequestMapping("/memberMileageUp.do")
+	public String memberMileageUp(MemberVO vo){
+		dao.mileAgeUp(vo);
+		return "member/mileage/memberMileageUpS";
+	}
+		//-1000마일리지
+	@RequestMapping("/memberMileageDown.do")
+	public String memberMileageDown(MemberVO vo) {
+		dao.mileAgeDown(vo);
+		return "member/mileage/memberMileageDownS";
+	}
+	
+		//리뷰 작성시 자동지급 
+	
+		//댓글 작성시 자동지급
+	
+	//마일리지 수동 + 
+	
+	//마일리지 수동 -
 }
