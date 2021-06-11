@@ -8,20 +8,17 @@
 	
 	<select id="revBoardListPaging" parameterType="co.yedam.prj.revBoard.vo.revBoardVO" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
 		SELECT *
-        FROM (
-        SELECT ROW_NUMBER() OVER(ORDER by rb_num DESC) AS
-        row_num
-        ,a.*
-        FROM testRevBoard a
-        )
-        <if test="firstRecordIndex !=null and lastRecordIndex != null">
-            WHERE row_num BETWEEN #{firstRecordIndex} AND
-            #{lastRecordIndex}
-        </if>
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by rb_num DESC) AS
+ 		   row_num
+  		  ,a.*
+  		  FROM testRevBoard a
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
 	<select id="testTableCount" resultType="int">
-        SELECT count(*) totalCnt FROM testRevBoard
+        SELECT count(*) totalPageCount FROM testRevBoard
     </select>
 	
 </mapper>

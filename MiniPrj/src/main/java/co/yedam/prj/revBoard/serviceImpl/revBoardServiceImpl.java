@@ -25,7 +25,7 @@ public class revBoardServiceImpl implements revBoardService{
 	@Override
 	public List<revBoardVO> revBoardSelectListPaging(revBoardVO vo) {
 		
-		return sqlSession.selectList("revBoardListPaging");
+		return sqlSession.selectList("revBoardListPaging", vo);
 	}
 
 	@Override
