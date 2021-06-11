@@ -9,17 +9,32 @@
 <script>
 	// 페이지 넘기기
 	function goPage(page){
-		location.href = "inqBoardList.do?start=" + page;
+		location.href = "revBoardListPaging.do?page=" + page;
 	}
 	
-	function frmSubmit() {
-		return;
+	function frmSubmit(revBoardID) {
+		
+		frm.rb_num.value = revBoardID;
+		frm.submit();
+		
 	}
 </script>
+<style>
+.pagination {
+	display : inline-block;
+} 
+
+.pagination a {
+	color : black;
+	float : left;
+	padding : 8px 16px;
+	text-decoration : none;
+}
+</style>
 </head>
 <body>
 	<h3>review</h3>
-	<form id="frm" action="frmSubmit.do" method="post">
+	<form id="frm" method="post"> <!-- action="revBoardSelect.do" -->
 		<div align="center">
 			<table>
 				<tr>
@@ -39,10 +54,6 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<!-- <div>
-				c:if 로 조건 달고 작성하기 버튼 만들기? - 다른 경로를 통해 리뷰를 작성한다면 필요x
-				<button type="button" onclick="location.href='revBoardForm.do'">작성하기</button>
-			</div> -->
 			<!-- paging -->
 			<%-- <c:forEach items="${bolist }" var="list">
 				${list.rb_num }
@@ -51,11 +62,23 @@
 				${list.rb_regdate }
 				${list.rb_hit }<br>
 			</c:forEach> --%>
+
+			<jsp:include page = "../common/paging.jsp" flush = "true">
+				<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
+				<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
+				<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
+				<jsp:param value="${paging.pageNo }" name="pageNo"/>
+				<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
+				<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
+				<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
+			</jsp:include>
+			
 			<%-- <c:if test="${!empty id }">
-					나중에 session에 있는 id 값 뭔지 보고 empty 뒤에 지정. 이후에 아래의 등록 버튼 여기에 위치
-			</c:if> --%>
-			<button onclick="location.href = 'revBoardForm.do'">등록</button>
+				나중에 session에 있는 id 값 뭔지 보고 empty 뒤에 지정. 이후에 아래의 등록 버튼 여기에 위치
+		</c:if> --%>
+			<button type="button" onclick="location.href='revBoardForm.do'">등록</button>
 		</div>
+		
 	</form>
 </body>
 </html>
