@@ -2,7 +2,7 @@ package co.yedam.prj.revBoard.vo;
 
 import java.util.Date;
 
-public class revBoardVO {
+public class RevBoardVO {
 	// 테스트용 DB테이블로 만들어서 VO 재작성해야할 수도
 	
 	private int rb_num;
