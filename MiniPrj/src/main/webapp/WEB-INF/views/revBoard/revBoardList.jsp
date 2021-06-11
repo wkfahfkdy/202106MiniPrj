@@ -27,9 +27,9 @@
 					<th width="300px">제목</th>
 					<th width="100px">작성자</th>
 					<th width="250px">작성일자</th>
-					<th width="50px">조회수</th>
+					<th width="100px">조회수</th>
 				</tr>
-				<c:forEach items="${list }" var="vo">
+				<c:forEach items="${bolist }" var="vo">
 					<tr>
 						<td>${vo.rb_num }</td>
 						<td onclick="frmSubmit('${vo.rb_num}')">${vo.rb_title }</td>
@@ -44,10 +44,13 @@
 				<button type="button" onclick="location.href='revBoardForm.do'">작성하기</button>
 			</div> -->
 			<!-- paging -->
-			<c:forEach items="${bolist }" var="list">
-				${list.firstRecordIndex }
-				${list.totalCnt }<br>
-			</c:forEach>
+			<%-- <c:forEach items="${bolist }" var="list">
+				${list.rb_num }
+				${list.rb_title }
+				${list.u_id }
+				${list.rb_regdate }
+				${list.rb_hit }<br>
+			</c:forEach> --%>
 		</div>
 	</form>
 </body>

@@ -31,9 +31,14 @@ public class revBoardController {
 	@RequestMapping("/revBoardListPaging.do")
 	public String revBoardListPaging(Model model, revBoardVO vo,@RequestParam(value = "start", required = false, defaultValue="1") int start) {
 		
+		System.out.println(start);
+		
 		vo.setFirstRecordIndex(1 + (start-1)*10);
 		vo.setLastRecordIndex(10*start);
 		vo.setTotalCnt(dao.tableCount());
+		
+		System.out.println(vo.getFirstRecordIndex());
+		System.out.println(vo.getLastRecordIndex());
 		
 		model.addAttribute("bolist",dao.revBoardSelectListPaging(vo));
 		
