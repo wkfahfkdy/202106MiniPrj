@@ -23,17 +23,17 @@ public class MemberController {
 
 	@RequestMapping("/memberInfoWait.do")
 	public String memberInfoWait(Model model) {
-		model.addAttribute("members", dao.memberSelectList());
+		model.addAttribute("members", dao.memberSelectListWait());
 		return "member/memberInfoWait";
 	}
 	@RequestMapping("/memberInfoBM.do")
 	public String memberInfoBM(Model model) {
-		model.addAttribute("members", dao.memberSelectList());
+		model.addAttribute("members", dao.memberSelectListBM());
 		return "member/memberInfoBM";
 	}
 	@RequestMapping("/memberInfoM.do")
 	public String memberInfoM(Model model) {
-		model.addAttribute("members", dao.memberSelectList());
+		model.addAttribute("members", dao.memberSelectListM());
 		return "member/memberInfoM";
 	}
 	@RequestMapping("/memberInfo.do")

@@ -20,6 +20,21 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList("memberList");
 	}
+	@Override
+	public List<MemberVO> memberSelectListWait() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("memberListWait");
+	}
+	@Override
+	public List<MemberVO> memberSelectListBM() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("memberListBM");
+	}
+	@Override
+	public List<MemberVO> memberSelectListM() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("memberListM");
+	}
 
 	@Override
 	public MemberVO memberSelect(MemberVO vo) {
