@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.yedam.prj.revBoard.service.RevBoard-map">
+<mapper namespace="co.yedam.prj.revBoard.service.revBoard-map">
 	
-	<select id="revBoardList" resultType="co.yedam.prj.revBoard.vo.RevBoardVO">
+	<select id="revBoardList" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
 		select * from testRevBoard
 	</select>
 	
-	<select id="revBoardListPaging" parameterType="co.yedam.prj.revBoard.vo.RevBoardVO" resultType="co.yedam.prj.revBoard.vo.RevBoardVO">
+	<select id="revBoardListPaging" parameterType="co.yedam.prj.revBoard.vo.revBoardVO" resultType="co.yedam.prj.revBoard.vo.revBoardVO">
 		SELECT *
         FROM (
         SELECT ROW_NUMBER() OVER(ORDER by rb_num DESC) AS

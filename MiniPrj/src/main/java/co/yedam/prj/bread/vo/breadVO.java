@@ -6,14 +6,13 @@ public class breadVO {
 	
 	private String store_name; //이름
 	private String store_addr; //주소
-	private String store_hit; // 방문자수
 	private String store_like; // 좋아요 수
 	private String store_num; // 전화번호
 	private String store_info; // 상세정보 혹은 사장님이 남기고 싶은 코멘트
 	private String store_region; //스토어 위치
 	private String store_img; // 스토어 사진
 
-	
+	private String store_hit; // 방문자수 넣을지 말지?
 	
 	// 빵 관련
 	

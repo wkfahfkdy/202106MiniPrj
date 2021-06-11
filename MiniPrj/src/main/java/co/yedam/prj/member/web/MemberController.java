@@ -21,6 +21,21 @@ public class MemberController {
 		return "member/test";
 	}
 
+	@RequestMapping("/memberInfoWait.do")
+	public String memberInfoWait(Model model) {
+		model.addAttribute("members", dao.memberSelectList());
+		return "member/memberInfoWait";
+	}
+	@RequestMapping("/memberInfoBM.do")
+	public String memberInfoBM(Model model) {
+		model.addAttribute("members", dao.memberSelectList());
+		return "member/memberInfoBM";
+	}
+	@RequestMapping("/memberInfoM.do")
+	public String memberInfoM(Model model) {
+		model.addAttribute("members", dao.memberSelectList());
+		return "member/memberInfoM";
+	}
 	@RequestMapping("/memberInfo.do")
 	public String memberInfo(Model model) {
 		model.addAttribute("members", dao.memberSelectList());

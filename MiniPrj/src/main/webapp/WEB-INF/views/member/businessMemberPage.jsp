@@ -10,54 +10,11 @@
 <title>회원정보</title>
 </head>
 <body>
-	
+
 	<div class="dk-box-1">
 		<div class="container mnt-8 mnb-8">
 			<div class="row justify-content-between">
 				<h2>[사업자 관리]</h2>
-			</div>
-		</div>
-	</div>
-	<div class="dk-box-2">
-		<div class="container">
-			<div class="row no-gutters vertical-gap align-items-md-center justify-content-between">
-				<div class="col-12 col-md-6 dk-gallery">
-					<a href="assets/images/img-home-7.png" class="dk-gallery-item"><img
-						class="dk-img"
-						src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/images/img-home-7.png"
-						alt=""></a>
-				</div>
-				<div class="col-12 col-md-5 col-lg-5">
-					<div class="dk-box">
-						<div class="dk-gap-1 d-block d-md-none"></div>
-						<h2 class="mnt-8 mb-30">Professional skils</h2>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								UI/UX Design<span><span class="dk-count-number">75</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Web development<span><span class="dk-count-number">90</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Marketing<span><span class="dk-count-number">65</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -104,6 +61,65 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="dk-box-2">
+		<div class="container">
+			<div
+				class="row no-gutters vertical-gap align-items-md-center justify-content-between">
+				<div
+					class="row align-items-center justify-content-between vertical-gap">
+					<div class="col-lg-5">
+						<div class="dk-box">
+							<h2 class="mt-2 mb-30">Web & UI / UX Design</h2>
+							<p class="lead">Firmament first without, in it also lesser
+								brought. Can't green from firmament unto shall i. Beginning
+								living together light blessed sixth place behold without make
+								had upon for dry, made rule Second.</p>
+							<p class="lead mb-0">Own won't said every gathered herb third
+								replenish face seas days moved. Form over rule light created
+								they're.</p>
+						</div>
+						<div class="dk-gap d-block d-lg-none mnt-5"></div>
+					</div>
+					<div class="col-lg-6">
+						<img class="dk-img" src="assets/images/img-3.png" alt="">
+					</div>
+				</div>
+				<div class="col-12 col-md-5 col-lg-5">
+					<div class="dk-box">
+						<div class="dk-gap-1 d-block d-md-none"></div>
+						<h2 class="mnt-8 mb-30">Professional skils</h2>
+						<div class="dk-progress dk-count" data-count-speed="2000">
+							<div class="dk-progress-title">
+								UI/UX Design<span><span class="dk-count-number">75</span>%</span>
+							</div>
+							<div class="dk-progress">
+								<span class="dk-count-progress"></span>
+							</div>
+						</div>
+						<div class="dk-progress dk-count" data-count-speed="2000">
+							<div class="dk-progress-title">
+								Web development<span><span class="dk-count-number">90</span>%</span>
+							</div>
+							<div class="dk-progress">
+								<span class="dk-count-progress"></span>
+							</div>
+						</div>
+						<div class="dk-progress dk-count" data-count-speed="2000">
+							<div class="dk-progress-title">
+								Marketing<span><span class="dk-count-number">65</span>%</span>
+							</div>
+							<div class="dk-progress">
+								<span class="dk-count-progress"></span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 
 </body>
 </html>
