@@ -1,7 +1,9 @@
 package co.yedam.prj.member.web;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
@@ -99,7 +103,29 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/ceoSignupSubmit.do")
-	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req) {
+	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
+//		int size = 10 * 1024 * 1024;
+//		String path = "c:/tmp";
+//						//  ┌> request로 넘어오니까 이렇게
+//		ServletContext sc = req.getServletContext();
+//		path = sc.getRealPath("upload"); // 서버 상의 경로
+//		String fileName = "";
+//
+//		MultipartRequest multi = null;
+//		try {
+//			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+//			Enumeration files = multi.getFileNames();
+//			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
+//			while (files.hasMoreElements()) {
+//				String itemImage = (String) files.nextElement();
+//				fileName = multi.getFilesystemName(itemImage);
+//				// fileName에 itemImage값이 들어가있다.
+//				System.out.println(itemImage+" fileName: " + fileName);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		int r = dao.insertCeo(vo);
 		System.out.println(r + "건 입력");
