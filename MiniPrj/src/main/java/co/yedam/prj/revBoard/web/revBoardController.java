@@ -45,5 +45,22 @@ public class revBoardController {
 		
 		return "revBoard/revBoardList";
 	}
+	@RequestMapping("revBoardList_dio.do")
+	public String revBoardList_dio(Model model, revBoardVO vo,@RequestParam(value = "start", required = false, defaultValue="1") int start) {
+		
+		System.out.println(start);
+		
+		vo.setFirstRecordIndex(1 + (start-1)*10);
+		vo.setLastRecordIndex(10*start);
+		vo.setTotalCnt(dao.tableCount());
+		
+		System.out.println(vo.getFirstRecordIndex());
+		System.out.println(vo.getLastRecordIndex());
+		
+		model.addAttribute("bolist",dao.revBoardSelectListPaging(vo));
+		
+		
+		return "revBoard/revBoardList_dio";
+	}
 	
 }

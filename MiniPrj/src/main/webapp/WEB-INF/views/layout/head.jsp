@@ -121,6 +121,10 @@ font-family: ui-serif;
             <a href="revBoardListPaging.do">
                 게시판
             </a></li>
+             <li class="dk-drop-item">
+            <a href="revBoardList_dio.do">
+                게시판2
+            </a></li>
         <li class="dk-drop-item">
             <a href="review.do">
                 리뷰
