@@ -51,6 +51,10 @@
 				${list.rb_regdate }
 				${list.rb_hit }<br>
 			</c:forEach> --%>
+			<%-- <c:if test="${!empty id }">
+					나중에 session에 있는 id 값 뭔지 보고 empty 뒤에 지정. 이후에 아래의 등록 버튼 여기에 위치
+			</c:if> --%>
+			<button onclick="location.href = 'revBoardForm.do'">등록</button>
 		</div>
 	</form>
 </body>
