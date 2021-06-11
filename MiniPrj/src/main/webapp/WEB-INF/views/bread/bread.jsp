@@ -10,13 +10,18 @@
 			<div class="container">
 				<div class="dk-box-2">
 					<div class="bg-image bg-image-parallax">
-						<img class="jarallax-img"
+						<!-- <img class="jarallax-img"
 							src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/rank.png"
 							alt="">
+							 -->
+							
+								
+							
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-lg-8">
 							<h1 class="display-3 text-center">글자 넣어 말아</h1>
+					
 						</div>
 					</div>
 					<div class="dk-gap-6"></div>
