@@ -14,8 +14,7 @@ public class HomeController {
 		String asd = "test";
 		model.addAttribute("test", asd );
 		
-		return "views/template";
+		return "layout/main";
 	}
-
 	
 }

@@ -5,6 +5,69 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<style>
+
+
+
+.thin { font-weight: 300; }
+.thick { font-weight: 900; }
+
+.headA {
+  text-transform: uppercase;
+  font-size: 36px;
+  color: cornsilk;
+  text-decoration: none;
+  position: relative;
+  display: block;
+}
+	
+.wrapper {
+  display: table;
+  height: 100%; width: 100%;
+}
+
+.stage {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tabled, .middled {
+  text-align: center;
+  margin: 0 auto;
+}
+[class^="link-"] {
+  display: inline-block;
+  margin: 2em
+}
+
+/* linkone */
+.link-1 .headA:before, .link-1 .headA:after {
+  content: '';
+  border-bottom: solid 1px cornsilk;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+}
+.link-1{
+font-family: ui-serif;
+}
+
+.link-1 .headA:before { left: 0; }
+.link-1 .headA:after { right: 0; }
+
+.link-1 .headA:hover:before, .link-1 .headA:hover:after {
+  width: 50%;
+}
+
+.link-1 .headA:before, .link-1 .headA:after {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+
+
+</style>
 </head>
 <body>
 
@@ -21,12 +84,20 @@
         .dk-navbar-white
         .dk-navbar-fullscreen || .dk-navbar-(xl, lg, md, sm)-fullscreen
 -->
+
+         
+
 <nav class="dk-navbar dk-navbar-fixed dk-navbar-transparent dk-navbar-white dk-navbar-lg-fullscreen">
+   <div class="link-1">
+        <div class="headA" >     
+          <span class="thin">BREAD</span><span class="thick">MEN</span>
+        </div>
+      </div>
     <div class="container">
         <div class="dk-nav-content">
             
-            <a href="index.html" class="dk-nav-logo">빵맨</a>
             
+           
             
             
             <ul class="dk-nav dk-nav-align-right">
@@ -36,10 +107,7 @@
                 Home
             </a>
         </li>
-          <li class="dk-drop-item">
-            <a href="">
-            </a>
-        </li>
+         
         <li class="dk-drop-item">
             <a href="about-us.html">
                리스트
@@ -50,7 +118,7 @@
                 멤버정보
             </a></li>
         <li class="dk-drop-item">
-            <a href="revBoardListPaging.do">
+            <a href="revBoardList.do">
                 게시판
             </a></li>
         <li class="dk-drop-item">

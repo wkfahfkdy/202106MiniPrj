@@ -5,19 +5,44 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<head>
 <style>
+@keyframes tipsy {
+  0 {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+}
 
 </style>
+ <link rel="stylesheet" href="resources/bootstrap/mimilism/assets/css/main.css">
 </head>
-<body>
+<body class="mainBody">
 
-
- <div class="dk-box-2" style="background-color: #eaeaea;">
-    
+ <div class="dk-box-2" style="background-color:white;">
+ 
+ <div class="effect"></div>
+ <div class="effect2">
+   <svg viewBox="0 0 1000 700">
+  <!-- Symbol-->
+  <symbol id="s-text">
+    <text text-anchor="middle" x="650px" y="500px" dy=".35em">BEST OF BEST</text>
+  </symbol>
+  <!-- Duplicate symbols-->
+  <use class="text" xlink:href="#s-text"></use>
+  <use class="text" xlink:href="#s-text"></use>
+  <use class="text" xlink:href="#s-text"></use>
+  <use class="text" xlink:href="#s-text"></use>
+  <use class="text" xlink:href="#s-text"></use>
+</svg>
+</div>
+	
 
         <!-- START: Slider Reviews
 
-            Additional Classes:
+            Additional Cz`lasses:
             .dk-swiper-fullscreen
             .dk-swiper-slides-auto
 
@@ -25,7 +50,7 @@
             data-swiper-arrows
             data-swiper-speed
             data-swiper-space
-            data-swiper-slides || data-swiper-slidesAuto
+            data-swiper-slides || data-swiper-slidesAutoz`
             data-swiper-loop
             data-swiper-freeMode
             data-swiper-autoHeight
@@ -37,7 +62,9 @@
             data-swiper-speed="600"
             data-swiper-space="30"
             data-swiper-autoHeight="true"
-            data-swiper-loop="true">
+            data-swiper-loop="true"
+           
+            >
 
             <div class="swiper-wrapper">
                 
@@ -109,7 +136,21 @@
     
        <div class="dk-box-2" style="background-color: #f3f3f3;">
         <div class="container mnb-35">
-            <h2 class="text-center mnt-8 mb-60"> 빈공간</h2>
+           <div class="monthIngi">
+  <h1><span>B</span>
+ 	 <span>E</span>
+  	<span>S</span>
+  	<span>T</span>
+ 	 <span></span>
+ 	 <span>O</span>
+ 	<span>F</span>
+ 	 <span></span>
+ 	  <span>M</span>
+ 	   <span>O</span>
+ 	    <span>N</span>
+ 	     <span>T</span>
+ 	      <span>H</span></h1>
+  </div>
 
             <div class="row vertical-gap justify-content-center">
                 
@@ -431,6 +472,6 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 </html>

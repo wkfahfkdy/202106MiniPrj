@@ -44,7 +44,7 @@
   13. Social Links
   14. Elements
     - Element Buttons
-    - Element Feature
+    -  Feature
     - Element Content Boxes
     - Element Pagination
     - Element Blockquotes
@@ -61,6 +61,7 @@
   Base
 
  -------------------------------------------------------------------*/
+
 body {
     position: relative;
     height: 100%;
@@ -148,7 +149,7 @@ body.dk-open-fullscreen {
     color: #131313;
     text-decoration: none;
     text-transform: uppercase;
-    border-bottom: 2px solid #c5b2a2;
+    /*border-bottom: 2px solid #c5b2a2;*/
     -webkit-transition: border-color .2s ease;
     -o-transition: border-color .2s ease;
     transition: border-color .2s ease;
@@ -2764,7 +2765,7 @@ h6,
     height: 100px;
     padding: 29px 35px;
     font-family: "Nunito", sans-serif;
-    background-color: #5e5e5e;
+    background-color:#2E2E2E;
     -webkit-box-shadow: 0 1px 0 transparent;
             box-shadow: 0 1px 0 transparent;
     -webkit-transition: background-color .2s ease;
@@ -2966,7 +2967,7 @@ h6,
 }
 
 .dk-navbar .dk-nav-content .dk-nav a:hover, .dk-navbar .dk-nav-content .dk-nav a:focus, .dk-navbar .dk-nav-content .dk-nav a.active {
-    color: #c5b2a2;
+    color: cornsilk;
     text-decoration: none;
 }
 
@@ -3363,7 +3364,7 @@ div.dk-navbar-fullscreen.dk-navbar-fullscreen .dk-nav li.dk-drop-item > a:hover:
 
 div.dk-navbar-fullscreen .dk-nav li.dk-drop-item.active > a::after,
 div.dk-navbar-fullscreen.dk-navbar-fullscreen .dk-nav li.dk-drop-item.active > a::after {
-    border-left-color: #cfbfb2;
+   border-left-color: #cfbfb2;
 }
 
 div.dk-navbar-fullscreen .dk-nav li.dk-drop-item > .dk-dropdown,
@@ -5177,6 +5178,7 @@ div.dk-navbar-fullscreen.dk-navbar-fullscreen.dk-open-fullscreen .dk-navbar-burg
 }
 
 .dk-box-2 {
+	
     padding: 110px 0 110px;
 }
 
@@ -5289,7 +5291,7 @@ div.dk-navbar-fullscreen.dk-navbar-fullscreen.dk-open-fullscreen .dk-navbar-burg
 .dk-pagination .dk-pagination-next:focus {
     color: #c5b2a2;
     text-decoration: none;
-}
+}	
 
 .dk-pagination .dk-pagination-prev {
     padding: 20px 20px 20px 0;
@@ -6039,6 +6041,7 @@ button:focus {
     Plugin Swiper
  ----------------------------*/
 .dk-swiper .swiper-slide {
+	margin-top:150px;
     position: relative;
     background-repeat: no-repeat;
     background-position: center center;
@@ -6461,7 +6464,10 @@ button:focus {
 .dk-isotope-filter.dk-isotope-filter-white > li.active {
     color: #c5b2a2;
 }
-
+	.containerA{
+	margin-top:50px;
+	margin-bottom:50px;
+	}
 .dk-isotope-filter > li {
     display: inline-block;
     padding: 10px 0 0;
