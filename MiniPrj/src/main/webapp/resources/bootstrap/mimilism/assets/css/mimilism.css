@@ -8,7 +8,9 @@
     License: You must have a valid license purchased only from ThemeForest (the above link) in order to legally use the theme for your project.
     Copyright 2018.
 -------------------------------------------------------------------*/
+
     /*------------------------------------------------------------------
+    
   [Typography]
 
   Body:     16px/1.5 Nunito, sans-serif;
@@ -3190,11 +3192,11 @@ h6,
 }
 
 .dk-navbar.dk-navbar-white:not(.dk-navbar-transparent) .dk-nav > li > a {
-    color: #131313;
+    color: cornsilk;
 }
 
 .dk-navbar.dk-navbar-white:not(.dk-navbar-transparent) .dk-nav > li > a:hover, .dk-navbar.dk-navbar-white:not(.dk-navbar-transparent) .dk-nav > li > a:focus, .dk-navbar.dk-navbar-white:not(.dk-navbar-transparent) .dk-nav > li > a.active {
-    color: #c5b2a2;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -5179,7 +5181,7 @@ div.dk-navbar-fullscreen.dk-navbar-fullscreen.dk-open-fullscreen .dk-navbar-burg
 
 .dk-box-2 {
 	
-    padding: 70px 0 70px;
+    padding: 130px 0 130px;
 }
 
 .dk-box-2.dk-padding-top {

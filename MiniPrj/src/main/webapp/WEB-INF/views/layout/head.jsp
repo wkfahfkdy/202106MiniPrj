@@ -153,14 +153,6 @@ font-family: ui-serif;
         <div class="dk-nav-content">
 
         </div>
-        <ul class="dk-social-links text-center">
-            <li><a href="#" class="dk-social-facebook"><span class="fab fa-facebook-f"></span></a></li>
-            <li><a href="#" class="dk-social-twitter"><span class="fab fa-twitter"></span></a></li>
-            <li><a href="#" class="dk-social-google-plus"><span class="fab fa-google-plus-g"></span></a></li>
-            <li><a href="#" class="dk-social-behance"><span class="fab fa-behance"></span></a></li>
-            <li><a href="#" class="dk-social-pinterest"><span class="fab fa-pinterest"></span></a></li>
-            <li><a href="#" class="dk-social-instagram"><span class="fab fa-instagram"></span></a></li>
-        </ul>
     </div>
 </div>
 <!-- END: Navbar -->
