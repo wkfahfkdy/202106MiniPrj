@@ -126,8 +126,12 @@ font-family: ui-serif;
                 리뷰
             </a></li>
         <li class="dk-drop-item">
-            <a href="mypage.do">
+            <a href="memberMypage.do">
                 마이페이지
+            </a></li>
+              <li class="dk-drop-item">
+            <a href="bread.do">
+                빵
             </a></li>
         <li class="dk-drop-item">
             <a href="businessMemberPage.do">
