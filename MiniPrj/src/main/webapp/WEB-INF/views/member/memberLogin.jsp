@@ -3,6 +3,8 @@
 
 
 <br><br>
+
+<div class="dk-main">
 <div align="center">
 	<h1>login</h1>
 	<br>
@@ -29,7 +31,7 @@
 </div>
 
 
-
+</div>
 
 
 
