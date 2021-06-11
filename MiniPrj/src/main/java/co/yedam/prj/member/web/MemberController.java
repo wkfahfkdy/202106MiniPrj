@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartRequest;
+
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
@@ -104,29 +105,29 @@ public class MemberController {
 	
 	@RequestMapping("/ceoSignupSubmit.do")
 	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
-//		int size = 10 * 1024 * 1024;
-//		String path = "c:/tmp";
-//						//  ┌> request로 넘어오니까 이렇게
-//		ServletContext sc = req.getServletContext();
-//		path = sc.getRealPath("upload"); // 서버 상의 경로
-//		String fileName = "";
-//
-//		MultipartRequest multi = null;
-//		try {
-//			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
-//			Enumeration files = multi.getFileNames();
-//			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
-//			while (files.hasMoreElements()) {
-//				String itemImage = (String) files.nextElement();
-//				fileName = multi.getFilesystemName(itemImage);
-//				// fileName에 itemImage값이 들어가있다.
-//				System.out.println(itemImage+" fileName: " + fileName);
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
+		int size = 10 * 1024 * 1024;
+		String path = "C:\\tmp";
+						//  ┌> request로 넘어오니까 이렇게
+		ServletContext sc = req.getServletContext();
+		path = sc.getRealPath("upload"); // 서버 상의 경로
+		String fileName = "";
+
+		com.oreilly.servlet.MultipartRequest multi = null;
+		try {
+			multi = new com.oreilly.servlet.MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+				// fileName에 itemImage값이 들어가있다.
+				System.out.println(itemImage+" fileName: " + fileName);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		vo.setS_file(fileName);
 		int r = dao.insertCeo(vo);
 		System.out.println(r + "건 입력");
 		HttpSession session = req.getSession();
