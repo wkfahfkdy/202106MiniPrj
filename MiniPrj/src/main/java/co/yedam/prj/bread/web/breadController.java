@@ -11,9 +11,12 @@ public class breadController {
 	public String bread() {
 		
 		return "bread/bread";
-	
-	
-}
+	}
+	@RequestMapping("/breadStore.do")
+	public String breadStore() {
+		return "bread/breadStore";
+	}
+
 	
 	
 	
