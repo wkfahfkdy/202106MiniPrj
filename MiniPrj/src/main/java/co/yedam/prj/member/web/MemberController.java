@@ -1,15 +1,12 @@
 package co.yedam.prj.member.web;
 
-<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
-=======
 import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;

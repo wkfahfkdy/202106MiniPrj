@@ -15,16 +15,11 @@ public class MemberVO {
 	private String s_reg;
 	private int s_pay;
 	private Date regdate;
-<<<<<<< HEAD
 	private int mileage;
 	private int mileageU;
 	private int mileageD;
-=======
 	private String s_file;
-	private int mileage;
 	private String u_adr2;
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
-	
 	
 	public int getMileageU() {
 		return mileageU;
@@ -38,12 +33,8 @@ public class MemberVO {
 	public void setMileageD(int mileageD) {
 		this.mileageD = mileageD;
 	}
-	public int getMileage() {
-		return mileage;
-	}
-	public void setMileage(int mileage) {
-		this.mileage = mileage;
-	}
+
+	
 	public String getU_id() {
 		return u_id;
 	}

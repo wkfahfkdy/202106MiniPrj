@@ -38,8 +38,6 @@
 		select * from member where S_REG='Y'
 	</select>
 	
-<<<<<<< HEAD
-=======
 	<select id="memberIdCheck" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="int">
 		select count(*)
 		from member 
@@ -51,6 +49,5 @@
 		from member
 		where u_id = #{u_id} and u_pwd = #{u_pwd}
 	</select>
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	
 </mapper>
