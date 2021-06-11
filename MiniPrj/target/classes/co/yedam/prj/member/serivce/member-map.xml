@@ -2,9 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.prj.member.serivce.member-map">
 	
-	<insert id="memberInsert" parameterType="co.yedam.prj.member.vo.MemberVO">
-		insert into member values (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, #{joinwait}, #{s_reg}, #{s_pay}, #{regdate})
-	</insert> <!-- 필요없는 컬럼도 다 기입해뒀습니다. 사용시 수정 필요 -->
+	<insert id="memberInsert" parameterType="co.yedam.prj.member.vo.MemberVO" >
+		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL)
+		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail})
+	</insert> 
+	
+	<insert id="ceoInsert" parameterType="co.yedam.prj.member.vo.MemberVO" >
+		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL, JOINWAIT, S_FILE)
+		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', ${s_file})
+	</insert>
 	
 	<!--  마일리지 증가 -->
 	<update id="mileAgeU" parameterType="co.yedam.prj.member.vo.MemberVO">
@@ -32,5 +38,19 @@
 		select * from member where S_REG='Y'
 	</select>
 	
+<<<<<<< HEAD
+=======
+	<select id="memberIdCheck" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="int">
+		select count(*)
+		from member 
+		where U_ID = #{u_id}
+	</select>
+	
+	<select id="memberSelect" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="int">
+		select count(*)
+		from member
+		where u_id = #{u_id} and u_pwd = #{u_pwd}
+	</select>
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	
 </mapper>

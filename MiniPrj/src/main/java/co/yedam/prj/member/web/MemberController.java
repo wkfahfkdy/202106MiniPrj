@@ -1,12 +1,23 @@
 package co.yedam.prj.member.web;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
+=======
+import java.io.IOException;
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
@@ -55,10 +66,88 @@ public class MemberController {
 	public String memberLogin() {
 		return "member/memberLogin";
 	}
+	
+	@RequestMapping("/memberLoginB.do")
+	public String memberLoginB(Model model, MemberVO vo, HttpServletRequest req) {
+		String path = "";
+		if(dao.memberSelect(vo) != 0) {
+			HttpSession session = req.getSession();
+			session.setAttribute("id", vo.getU_id());
+			path = "layout/main";
+		}else {
+			path = "member/memberLoginFail";
+		};
+		
+		return path;
+	}
+	
+	@RequestMapping("/memberLogOut.do")
+	public String memberLogOut(HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		
+		return "layout/main";
+	}
+	
 
 	@RequestMapping("/memberSignup.do")
 	public String memberSignup() {
 		return "member/memberSignup";
+	}
+	
+	@RequestMapping("/memberSignupSubmit.do")
+	public String memberSignupSubmit(Model model, MemberVO vo, HttpServletRequest req) {
+		
+		int r = dao.insertMember(vo);
+		System.out.println(r + "건 입력");
+		HttpSession session = req.getSession();
+		session.setAttribute("id", vo.getU_id());
+		model.addAttribute("member", vo);
+		return "layout/main";
+	}
+	
+	@RequestMapping("/ceoSignupSubmit.do")
+	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
+//		int size = 10 * 1024 * 1024;
+//		String path = "c:/tmp";
+//						//  ┌> request로 넘어오니까 이렇게
+//		ServletContext sc = req.getServletContext();
+//		path = sc.getRealPath("upload"); // 서버 상의 경로
+//		String fileName = "";
+//
+//		MultipartRequest multi = null;
+//		try {
+//			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+//			Enumeration files = multi.getFileNames();
+//			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
+//			while (files.hasMoreElements()) {
+//				String itemImage = (String) files.nextElement();
+//				fileName = multi.getFilesystemName(itemImage);
+//				// fileName에 itemImage값이 들어가있다.
+//				System.out.println(itemImage+" fileName: " + fileName);
+//			}
+//
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+		
+		int r = dao.insertCeo(vo);
+		System.out.println(r + "건 입력");
+		HttpSession session = req.getSession();
+		session.setAttribute("id", vo.getU_id());
+		model.addAttribute("member", vo);
+		return "layout/main";
+	}
+	
+	@RequestMapping("/memberIdCheck.do")
+	public void memberIdCheck(MemberVO vo, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		int cnt = 0; //존재하지않으면 0 존재하면 1이 리턴
+		if(dao.memberIdCheck(vo) == 1) {
+			cnt = 1;
+		}
+		resp.getWriter().print(cnt);
 	}
 
 	@RequestMapping("/memberNormalSignup.do")
