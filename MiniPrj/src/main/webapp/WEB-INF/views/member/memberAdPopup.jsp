@@ -90,10 +90,11 @@
   </script>
 <!-- END: Scripts -->
 
-
-
+<body>
+<img src="">
 <h3 align="center">메인 페이지 배너광고 신청하기<button>2주 40만원</button></h3>
 <h3 align="center">메인 페이지 배너광고 신청하기<button>4주 55만원</button></h3>
 <h3 align="center">메인 페이지 프리미엄 쇼업 신청하기<button>2주 20만원</button></h3>
 <h3 align="center">메인 페이지 프리미엄 쇼업 신청하기<button>4주 35만원</button></h3>
 
+</body>
