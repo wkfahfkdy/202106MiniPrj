@@ -50,7 +50,7 @@
                 멤버정보
             </a></li>
         <li class="dk-drop-item">
-            <a href="revBoardList.do">
+            <a href="revBoardListPaging.do">
                 게시판
             </a></li>
         <li class="dk-drop-item">

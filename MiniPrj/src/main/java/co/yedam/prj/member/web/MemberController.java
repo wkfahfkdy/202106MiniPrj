@@ -53,4 +53,14 @@ public class MemberController {
 	}
 
 	
+	
+	@RequestMapping("/memberMypage.do")
+	public String mypage() {
+		return "member/memberMypage";
+	}
+	@RequestMapping("/memberAdPopup.do")
+	public String adpopup() {
+		return "member/memberAdPopup";
+	}
+	
 }
