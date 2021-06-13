@@ -34,12 +34,39 @@
                 Review
             </a>
         </li>
+        <c:if test="${id eq null }">
         <li>
             <a href="memberLogin.do">
-                login
+                Login
             </a>
-        </li>
-            </ul>
+        </li>    
+        </c:if>
+        <c:if test="${id ne null and id eq 'admin'}">
+        <li>
+        	<a href="memberInfo.do">
+                MyPage
+            </a>
+        </li>   
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
+        </c:if>
+         <c:if test="${id ne null and id ne 'admin'}">
+        <li>
+        	<a href="memberMypage.do">
+                MyPage
+            </a>
+        </li>   
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
+        </c:if>
+        
+          </ul>
             
         </div>
     </div>
