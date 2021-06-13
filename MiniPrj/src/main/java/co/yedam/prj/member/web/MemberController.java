@@ -108,20 +108,16 @@ public class MemberController {
 	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		int size = 10 * 1024 * 1024;
 		String path = "C:\\tmp";
-						//  �뵆> request濡� �꽆�뼱�삤�땲源� �씠�젃寃�
 		ServletContext sc = req.getServletContext();
-		path = sc.getRealPath("upload"); // �꽌踰� �긽�쓽 寃쎈줈
 		String fileName = "";
 
 		com.oreilly.servlet.MultipartRequest multi = null;
 		try {
 			multi = new com.oreilly.servlet.MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration files = multi.getFileNames();
-			// item image媛� input type file濡� �꽆�뼱�삤湲� �븣臾몄뿉 �뿬湲곗꽌 �븿 泥섎━�빐以�.
 			while (files.hasMoreElements()) {
 				String itemImage = (String) files.nextElement();
 				fileName = multi.getFilesystemName(itemImage);
-				// fileName�뿉 itemImage媛믪씠 �뱾�뼱媛��엳�떎.
 				System.out.println(itemImage+" fileName: " + fileName);
 			}
 

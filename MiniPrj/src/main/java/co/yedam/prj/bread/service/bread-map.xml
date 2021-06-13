@@ -130,7 +130,7 @@
 		칠곡 		  8
 		남구		  9
   		  			
-	
+	-->
 	
 	<!-- 동구
 	 	<select id="breadStoreList_1" resultType="co.yedam.prj.bread.vo.BreadVO">
@@ -141,45 +141,44 @@
 	<!--		 수성구
 	 	<select id="breadStoreList_2" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '2';
-	</select>
+	</select> -->
 	
 	<!-- 	중구
 	 	<select id="breadStoreList_3" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '3';
-	</select>
+	</select> -->
 	
 	
 	<!-- 서구
 	 	<select id="breadStoreList_4" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '4';
-	</select>
+	</select>-->
 	
 	<!-- 달서구
 	 	<select id="breadStoreList_5" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '5';
-	</select>
+	</select>-->
 	
 	<!-- 달성군
 	 	<select id="breadStoreList_6" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '6';
-	</select>
+	</select>-->
 	
 	<!-- 북구
 	 	<select id="breadStoreList_7" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '7';
-	</select>
+	</select>-->
 	
 	<!-- 칠곡
 	 	<select id="breadStoreList_8" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '8';
-	</select>
+	</select>-->
 	
 	<!-- 남구
 	 	<select id="breadStoreList_9" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store where region_n = '9';
 	</select>
+	-->
 	
 	
 	
-	
-</mapper>	 -->
