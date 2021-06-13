@@ -18,5 +18,7 @@ public interface MemberService {
 	public int updateMember(MemberVO vo);
 	public int mileAgeUp(MemberVO vo);
 	public int mileAgeDown(MemberVO vo);
+	public int mileAgeManualUp(MemberVO vo);
+	public int mileAgeManualDown(MemberVO vo);
 	
 }
