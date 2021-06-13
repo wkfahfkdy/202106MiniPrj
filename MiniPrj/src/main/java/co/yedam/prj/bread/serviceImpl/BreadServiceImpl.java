@@ -17,124 +17,105 @@ public class BreadServiceImpl implements BreadService{
 
 	@Override
 	public List<BreadVO> breadSelectList() {
-		// TODO Auto-generated method stub
 		return SqlSession.selectList("breadList");
 	}
 
 	@Override
 	public List<BreadVO> breadRankList() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return SqlSession.selectList("breadRankList");
 	}
 
 	@Override
-	public int BreadInsert(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int breadInsert(BreadVO vo) {
+		return SqlSession.insert("breadInsert", vo);
 	}
 
 	@Override
-	public int BreadDelete(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int breadDelete(BreadVO vo) {
+	return SqlSession.insert("breadDelete", vo);
 	}
 
 	@Override
-	public int BreadUpdate(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int breadUpdate(BreadVO vo) {
+		return SqlSession.update("breadUpdate", vo);
+	}
+
+	@Override
+	public int storeInsert(BreadVO vo) {
+		return SqlSession.insert("storeInsert", vo);
+	}
+
+	@Override
+	public int storeDelete(BreadVO vo) {
+		return SqlSession.delete("storeDelete", vo);
+	}
+
+	@Override
+	public int storeUpdate(BreadVO vo) {
+		return SqlSession.update("storeUpdate", vo);
 	}
 
 	@Override
 	public List<BreadVO> storeSelectList() {
-		// TODO Auto-generated method stub
-		return null;
+	return SqlSession.selectList("storeList");
 	}
 
 	@Override
 	public List<BreadVO> storeRankList() {
-		// TODO Auto-generated method stub
-		return null;
+	return SqlSession.selectList("storeRankList");
 	}
 
 	@Override
 	public List<BreadVO> storeOpenList() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("storeOpenList");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_1() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_1");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_2() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_2");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_3() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_3");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_4() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_4");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_5() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return SqlSession.selectList("breadStoreList_5");
+		}
 
 	@Override
 	public List<BreadVO> breadStoreList_6() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_6");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_7() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_7");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_8() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_8");
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_9() {
-		// TODO Auto-generated method stub
-		return null;
+		return SqlSession.selectList("breadStoreList_9");
 	}
 
-	@Override
-	public int StoreInsert(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int StoreDelete(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int StoreUpdate(BreadVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 
 
 }
