@@ -13,7 +13,7 @@
 	        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
 	        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
 	        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-2-md.png" alt="">
-		    </span>
+		</span>
 		</a>
 	</div>
     </div>

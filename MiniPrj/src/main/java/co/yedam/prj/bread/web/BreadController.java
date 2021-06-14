@@ -15,7 +15,8 @@ public class BreadController {
 
 	@RequestMapping("/bread.do")
 	public String bread(Model model) {
-		model.addAttribute("bread", dao.breadSelectList());
+		//model.addAttribute("bread", dao.breadSelectList());
+		//경로이동이안돼서 일단 막아뒀어여! -담이
 		return "bread/bread";
 	}
 	

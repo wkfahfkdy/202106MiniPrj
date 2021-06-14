@@ -16,17 +16,33 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private SqlSession sqlSession;
 	
-
+	//마일리지 +1000 
 	@Override
 	public int mileAgeUp(MemberVO vo) {
 		return sqlSession.update("mileAgeU",vo);
 	}
 
+	//마일리지 -1000
 	@Override
 	public int mileAgeDown(MemberVO vo) {
 		
-		return sqlSession.update("mileAgeD",vo);
+		return sqlSession.update("mileAgeD",vo);	
 	}
+	//마일리지 +수동
+	@Override
+	public int mileAgeManualUp(MemberVO vo) {
+		
+		return sqlSession.update("manualUp",vo);
+	}
+	//마일리지 -수동
+		@Override
+		public int mileAgeManualDown(MemberVO vo) {
+			
+			return sqlSession.update("manualDown",vo);
+		}
+		
+	
+	
 	@Override
 	public List<MemberVO> memberSelectList() {
 		// TODO Auto-generated method stub
