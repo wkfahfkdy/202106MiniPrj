@@ -15,44 +15,51 @@ public class NoticeServiceImpl implements NoticeService {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	// 게시글 Size 구할 때 필요
 	@Override
 	public List<NoticeVO> noticeSelectList() {
 		
 		return sqlSession.selectList("noticeList");
 	}
-
+	
+	// Paging
 	@Override
 	public List<NoticeVO> noticeSelectListPaging(NoticeVO vo) {
 		
-		return sqlSession.selectList("noitceListPaging", vo);
+		return sqlSession.selectList("noticeListPaging", vo);
 	}
 
+	// 게시글 전체 수 Count
 	@Override
 	public int tableCount() {
 		
 		return sqlSession.selectOne("TableCount");
 	}
 
+	// 작성한 게시글로 이동
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	// 게시글 작성
 	@Override
-	public int insertnotice(NoticeVO vo) {
+	public int insertNotice(NoticeVO vo) {
 		
 		return sqlSession.insert("noticeInsert", vo);
 	}
 
+	// 게시글 삭제
 	@Override
-	public int deletenotice(NoticeVO vo) {
+	public int deleteNotice(NoticeVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	// 게시글 수정
 	@Override
-	public int updatenotice(NoticeVO vo) {
+	public int updateNotice(NoticeVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

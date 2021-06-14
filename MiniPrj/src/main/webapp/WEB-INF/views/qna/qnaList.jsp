@@ -9,12 +9,12 @@
 <script>
 	// 페이지 넘기기
 	function goPage(page){
-		location.href = "noticeListPaging.do?page=" + page;
+		location.href = "qnaListPaging.do?page=" + page;
 	}
 	
-	function frmSubmit(noticeID) {
+	function frmSubmit(qnaID) {
 		
-		frm.nt_num.value = noticeID;
+		frm.qn_num.value = qnaID;
 		frm.submit();
 		
 	}
@@ -47,11 +47,11 @@
 						</tr>
 						<c:forEach items="${bolist }" var="vo">
 							<tr>
-								<td>${vo.nt_num }</td>
-								<td onclick="frmSubmit('${vo.nt_num}')">${vo.nt_title }</td>
+								<td>${vo.qn_num }</td>
+								<td onclick="frmSubmit('${vo.qn_num}')">${vo.qn_title }</td>
 								<td>${vo.u_id }</td>
-								<td>${vo.nt_regdate }</td>
-								<td>${vo.nt_hit }</td>
+								<td>${vo.qn_regdate }</td>
+								<td>${vo.qn_hit }</td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -70,7 +70,7 @@
 					<%-- <c:if test="${!empty id }">
 						나중에 session에 있는 id 값 뭔지 보고 empty 뒤에 지정. 이후에 아래의 등록 버튼 여기에 위치
 				</c:if> --%>
-					<button type="button" onclick="location.href='noticeForm.do'">등록</button>
+					<button type="button" onclick="location.href='qnaForm.do'">등록</button>
 				</div>
 			</div>
 		</div>

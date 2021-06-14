@@ -11,7 +11,7 @@ public interface NoticeService {
 	public List<NoticeVO> noticeSelectListPaging(NoticeVO vo);
 	public int tableCount();
 	public NoticeVO noticeSelect(NoticeVO vo);
-	public int insertnotice(NoticeVO vo);
-	public int deletenotice(NoticeVO vo);
-	public int updatenotice(NoticeVO vo);
+	public int insertNotice(NoticeVO vo);
+	public int deleteNotice(NoticeVO vo);
+	public int updateNotice(NoticeVO vo);
 }

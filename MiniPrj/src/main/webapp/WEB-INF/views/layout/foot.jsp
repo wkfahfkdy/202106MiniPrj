@@ -29,8 +29,8 @@
                     <div class="dk-widget-footer">
                         <div class="dk-widget-list">
                         	<h5 style="color:white;">Service</h5>
-                            <a href="revBoardListPaging.do">notice</a>
-                            <a href="#">Q&nbsp;&&nbsp;A</a>
+                            <a href="noticeListPaging.do">notice</a>
+                            <a href="qnaListPaging.do">Q&nbsp;&&nbsp;A</a>
                         </div>
                     </div>
                 </div>

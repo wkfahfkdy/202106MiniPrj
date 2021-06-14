@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.prj.qna.service.Qna-map">
+	
+	<!-- 게시글 Size 구할 때 필요 -->
+	<select id="qnaList" resultType="co.yedam.prj.qna.vo.QnaVO">
+		select * from qna
+	</select>
+	
+	<!-- Paging -->
+	<select id="qnaListPaging" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="co.yedam.prj.qna.vo.QnaVO">
+		SELECT *
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by qn_num DESC) AS
+ 		   row_num
+  		  ,a.*
+  		  FROM qna a
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
+	</select>
+	
+	<!-- 게시글 Count -->
+	<select id="TableCnt" resultType="int">
+        SELECT count(*) totalPageCount FROM qna
+    </select>
+    
+    <!-- 게시글 작성 -->
+    <insert id="qnaInsert" parameterType="co.yedam.prj.qna.vo.QnaVO">
+    	insert into qna values (qna_seq.nextval, #{qn_title}, 'admin', #{qn_content}, sysdate, 0, '0')
+    </insert>
+	
+</mapper>

@@ -2,10 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.prj.notice.service.Notice-map">
 	
+	<!-- 게시글 Size 구할 때 필요 -->
 	<select id="noticeList" resultType="co.yedam.prj.notice.vo.NoticeVO">
 		select * from notice
 	</select>
 	
+	<!-- Paging -->
 	<select id="noticeListPaging" parameterType="co.yedam.prj.notice.vo.NoticeVO" resultType="co.yedam.prj.notice.vo.NoticeVO">
 		SELECT *
 		FROM (
@@ -17,10 +19,12 @@
 		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
+	<!-- 게시글 Count -->
 	<select id="TableCount" resultType="int">
         SELECT count(*) totalPageCount FROM notice
     </select>
     
+    <!-- 게시글 작성 -->
     <insert id="noticeInsert" parameterType="co.yedam.prj.notice.vo.NoticeVO">
     	insert into notice values (notice_seq.nextval, #{nt_title}, 'admin', #{nt_content}, sysdate, 0, '0')
     </insert>

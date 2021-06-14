@@ -1,4 +1,4 @@
-package co.yedam.prj.notice.web;
+package co.yedam.prj.qna.web;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,35 +11,35 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.common.Paging;
-import co.yedam.prj.notice.service.NoticeService;
-import co.yedam.prj.notice.vo.NoticeVO;
+import co.yedam.prj.qna.service.QnaService;
+import co.yedam.prj.qna.vo.QnaVO;
 
 @Controller
-public class NoticeController {
+public class QnaController {
 
 	@Autowired
-	private NoticeService dao;
+	private QnaService dao;
 	
 	// Paging 처리
-	@RequestMapping("/noticeListPaging.do")
-	public String noticeListpaging(Model model, HttpServletRequest request) {
+	@RequestMapping("/qnaListPaging.do")
+	public String qnaListPaging(Model model, HttpServletRequest request) {
 		
 		String page = request.getParameter("page");
 		
-		List<NoticeVO> list = new ArrayList<>();
-		List<NoticeVO> total = new ArrayList<>();
+		List<QnaVO> list = new ArrayList<>();
+		List<QnaVO> total = new ArrayList<>();
 		
 		if (page == null) page = "1";
 		
 		int ipage = Integer.parseInt(page);
 		
-		NoticeVO vo = new NoticeVO();
+		QnaVO vo = new QnaVO();
 		vo.setFirstRecordIndex(1 + (ipage-1)*10);
 		vo.setLastRecordIndex(10*ipage);
-		vo.setTotalCnt(dao.tableCount());
+		vo.setTotalCnt(dao.tableCnt());
 		
-		list = dao.noticeSelectListPaging(vo);
-		total = dao.noticeSelectList();
+		list = dao.qnaSelectListPaging(vo);
+		total = dao.qnaSelectList();
 		
 		Paging paging = new Paging();
 		paging.setPageNo(ipage);
@@ -50,25 +50,25 @@ public class NoticeController {
 		model.addAttribute("paging", paging);
 		
 		System.out.println(list);
-
-		return "notice/noticeList";
+		
+		return "qna/qnaList";
 	}
 	
-	// 공지사항 작성 페이지 이동
-	@RequestMapping("noticeForm.do")
+	// Qna 게시글 작성 페이지 이동
+	@RequestMapping("qnaForm.do")
 	public String noticeForm(Model model) {
 		
-		return "notice/noticeForm";
+		return "qna/qnaForm";
 		
 	}
 	
-	// 공지사항 작성
-	@RequestMapping("/noticeInsert.do")
-	public String noticeInsert(Model model, NoticeVO vo) {
+	// Qna 게시글 작성
+	@RequestMapping("/qnaInsert.do")
+	public String noticeInsert(Model model, QnaVO vo) {
 		
-		int r = dao.insertNotice(vo);
+		int r = dao.insertQna(vo);
 		System.out.println(r + "건 입력");
 		
-		return "redirect:noticeListPaging.do";
+		return "redirect:qnaListPaging.do";
 	}
 }
