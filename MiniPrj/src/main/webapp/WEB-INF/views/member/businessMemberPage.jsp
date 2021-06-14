@@ -10,13 +10,20 @@
 <title>회원정보</title>
 </head>
 <body>
-
-	<div class="dk-box-1">
-		<div class="container mnt-8 mnb-8">
-			<div class="row justify-content-between">
-				<h2>[사업자 관리]</h2>
-			</div>
-		</div>
+	<br>
+	<br>
+	<br>
+	<div >
+		<h2>[사업자 관리]</h2>
+		<table class="table">
+			<tr>
+				<th>이용중인 서비스</th><td>item1</td>			
+			</tr>
+			<tr>
+				<th>유효기간</th><td>item1</td>			
+			</tr>
+		</table>
+		<button onclick="#">탈퇴</button>
 	</div>
 	<div class="dk-box-1">
 		<div class="bg-image bg-pattern">
@@ -38,7 +45,7 @@
 
 					<div class="dk-numbers dk-count" data-count-speed="1000">
 						<div class="dk-numbers-title dk-count-number">1465</div>
-						<div class="dk-numbers-text">Working Hours</div>
+						<div class="dk-numbers-text">문의사항</div>
 					</div>
 
 				</div>
