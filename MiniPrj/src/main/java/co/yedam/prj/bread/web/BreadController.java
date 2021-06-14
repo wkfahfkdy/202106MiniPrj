@@ -1,6 +1,8 @@
 package co.yedam.prj.bread.web;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,9 +135,9 @@ public class BreadController {
 		vo.setB_comment(b_comment);
 		vo.setB_image(b_image);
 		
-		
+		List<BreadVO> list = dao.storeSelectList(vo);
 
-		model.addAttribute("store",dao.storeSelectList(vo));
+		model.addAttribute("store", list);
 		return "bread/breadStore";
 	}
 

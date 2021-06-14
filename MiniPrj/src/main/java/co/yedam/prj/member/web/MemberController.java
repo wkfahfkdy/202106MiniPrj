@@ -215,7 +215,6 @@ public class MemberController {
 		vo.setU_mail(mail);
 		vo.setU_adr(adr);
 		vo.setU_adrcode(Integer.parseInt(adrcode));
-		
 		int r = dao.updateMember(vo);
 		System.out.println(r + "건 수정");
 		

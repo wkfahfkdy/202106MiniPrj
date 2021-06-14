@@ -80,7 +80,7 @@
 		select b.b_comment,b_name, a.*
 		from store a join product b
 		on a.s_id = b.s_id
-		where a.s_id = ${s_id}
+		where a.s_id = #{s_id}
 	</select>
 
 
@@ -91,7 +91,7 @@
 		select b.b_comment,b_name, a.*
 		from store a join product b
 		on a.s_id = b.s_id
-		where a.s_id = ${s_id}
+		where a.s_id = #{s_id}
 	</select>
 
 
