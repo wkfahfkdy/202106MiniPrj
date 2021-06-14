@@ -14,5 +14,6 @@ public interface QnaService {
 	public int insertQna(QnaVO vo);
 	public int deleteQna(QnaVO vo);
 	public int updateQna(QnaVO vo);
+	public int hitCount(QnaVO vo);
 
 }

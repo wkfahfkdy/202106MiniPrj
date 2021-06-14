@@ -32,11 +32,7 @@
 </head>
 <body>
 	<div align = "center">
-		<div>
-			<h1>review</h1>
-		</div>
-		
-		<div>
+		<div style="margin-top: 150px">
 			<form id = "frm" action = "qnaInsert.do" method = "POST">
 				<input type = "hidden" name = "u_id" id = "u_id" value = "${id }">
 				<div>

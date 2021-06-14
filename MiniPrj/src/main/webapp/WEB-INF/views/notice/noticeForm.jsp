@@ -32,7 +32,7 @@
 </head>
 <body>
 	<div align = "center">
-		<div>
+		<div style="margin-top: 150px">
 			<form id = "frm" action = "noticeInsert.do" method = "POST">
 				<input type = "hidden" name = "u_id" id = "u_id" value = "${id }">
 				<div>

@@ -39,8 +39,8 @@ public class QnaServiceImpl implements QnaService {
 	// 작성한 게시글로 이동
 	@Override
 	public QnaVO qnaSelect(QnaVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSession.selectOne("qnaSelect", vo);
 	}
 
 	// 게시글 작성
@@ -53,15 +53,22 @@ public class QnaServiceImpl implements QnaService {
 	// 게시글 삭제
 	@Override
 	public int deleteQna(QnaVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete("qnaDelete", vo);
 	}
 
 	// 게시글 수정
 	@Override
 	public int updateQna(QnaVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.update("qnaUpdate", vo);
+	}
+
+	// 게시글 조회수
+	@Override
+	public int hitCount(QnaVO vo) {
+		
+		return sqlSession.update("qnaHit", vo);
 	}
 	
 	

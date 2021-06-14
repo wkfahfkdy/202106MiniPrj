@@ -39,8 +39,8 @@ public class NoticeServiceImpl implements NoticeService {
 	// 작성한 게시글로 이동
 	@Override
 	public NoticeVO noticeSelect(NoticeVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSession.selectOne("noticeSelect", vo);
 	}
 
 	// 게시글 작성
@@ -53,15 +53,22 @@ public class NoticeServiceImpl implements NoticeService {
 	// 게시글 삭제
 	@Override
 	public int deleteNotice(NoticeVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete("noticeDelete", vo);
 	}
 
 	// 게시글 수정
 	@Override
 	public int updateNotice(NoticeVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.update("noticeUpdate", vo);
 	}
 
+	// 게시글 조회수
+	@Override
+	public int hitcount(NoticeVO vo) {
+		
+		return sqlSession.update("noticeHit", vo);
+	}
+	
 }

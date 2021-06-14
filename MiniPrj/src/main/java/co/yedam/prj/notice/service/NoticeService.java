@@ -14,4 +14,5 @@ public interface NoticeService {
 	public int insertNotice(NoticeVO vo);
 	public int deleteNotice(NoticeVO vo);
 	public int updateNotice(NoticeVO vo);
+	public int hitcount(NoticeVO vo);
 }

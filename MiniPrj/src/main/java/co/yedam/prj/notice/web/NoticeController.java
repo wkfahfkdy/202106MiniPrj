@@ -49,8 +49,6 @@ public class NoticeController {
 		model.addAttribute("bolist", list);
 		model.addAttribute("paging", paging);
 		
-		System.out.println(list);
-
 		return "notice/noticeList";
 	}
 	
@@ -71,4 +69,52 @@ public class NoticeController {
 		
 		return "redirect:noticeListPaging.do";
 	}
+	
+	// 작성한 게시글 조회
+	@RequestMapping("/noticeSelect.do")
+	public String noticeSelect(Model model, HttpServletRequest request, NoticeVO vo) {
+		
+		String nt_num = request.getParameter("nt_num");
+		String nt_hit = request.getParameter("nt_hit");
+		
+		vo.setNt_num(Integer.parseInt(nt_num));
+		vo.setNt_hit(Integer.parseInt(nt_hit));
+		
+		dao.hitcount(vo);
+		
+		NoticeVO select = dao.noticeSelect(vo);
+		model.addAttribute("vo", select);
+		
+		return "notice/noticeSelect";
+	}
+	
+	// 게시글 삭제
+	@RequestMapping("noticeDelete.do")
+	public String noticeDelete(HttpServletRequest request, NoticeVO vo) {
+		
+		String nt_num = request.getParameter("nt_num");
+		vo.setNt_num(Integer.parseInt(nt_num));
+		
+		dao.deleteNotice(vo);
+		
+		return "redirect:noticeListPaging.do";
+	}
+	
+	// 게시글 수정
+	@RequestMapping("noticeUpdate.do")
+	public String noticeUpdate(HttpServletRequest request, NoticeVO vo) {
+		
+		String nt_num = request.getParameter("nt_num");
+		String nt_title = request.getParameter("nt_title");
+		String nt_content = request.getParameter("nt_content");
+		
+		vo.setNt_num(Integer.parseInt(nt_num));
+		vo.setNt_title(nt_title);
+		vo.setNt_content(nt_content);
+		
+		dao.updateNotice(vo);
+		
+		return "redirect:noticeListPaging.do";
+	}
+	
 }
