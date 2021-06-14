@@ -138,7 +138,7 @@
 
 	<div class="container">
 	<div class="">
-            <form action="ceoSignupSubmit.do" class="dk-form" method="post" id="frm">
+            <form action="ceoSignupSubmit.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data">
                 <div >
                     <div class="col-md-6">
 						<input style="width: 50%;" class="form-control" type="text"

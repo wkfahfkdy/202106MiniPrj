@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartRequest;
 
+import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
@@ -109,11 +108,16 @@ public class MemberController {
 		int size = 10 * 1024 * 1024;
 		String path = "C:\\tmp";
 		ServletContext sc = req.getServletContext();
+		path = sc.getRealPath("upload");
+		System.out.println(path);
 		String fileName = "";
-
-		com.oreilly.servlet.MultipartRequest multi = null;
+		MultipartRequest multi = null;
 		try {
-			multi = new com.oreilly.servlet.MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			multi = new MultipartRequest(req,
+														  path, 
+														  size, 
+														  "utf-8", 
+														  new DefaultFileRenamePolicy());
 			Enumeration files = multi.getFileNames();
 			while (files.hasMoreElements()) {
 				String itemImage = (String) files.nextElement();
@@ -124,9 +128,24 @@ public class MemberController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		String id = multi.getParameter("u_id");
+		String pwd = multi.getParameter("u_pwd");
+		String name = multi.getParameter("u_name");
+		String tel = multi.getParameter("u_tel");
+		String mail = multi.getParameter("u_mail");
+		String adr = multi.getParameter("u_adr");
+		String adrcode = multi.getParameter("u_adrcode");
+		
+		vo.setU_id(id);
+		vo.setU_pwd(pwd);
+		vo.setU_name(name);
+		vo.setU_tel(tel);
+		vo.setU_mail(mail);
+		vo.setU_adr(adr);
+		vo.setU_adrcode(Integer.parseInt(adrcode));
 		vo.setS_file(fileName);
 		int r = dao.insertCeo(vo);
-		System.out.println(r + "嫄� �엯�젰");
+		System.out.println(r + "건 입력");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("member", vo);
@@ -137,7 +156,7 @@ public class MemberController {
 	public void memberIdCheck(MemberVO vo, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
-		int cnt = 0; //議댁옱�븯吏��븡�쑝硫� 0 議댁옱�븯硫� 1�씠 由ы꽩
+		int cnt = 0; 
 		if(dao.memberIdCheck(vo) == 1) {
 			cnt = 1;
 		}

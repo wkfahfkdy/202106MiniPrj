@@ -9,7 +9,7 @@
 	
 	<insert id="ceoInsert" parameterType="co.yedam.prj.member.vo.MemberVO" >
 		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL, JOINWAIT, S_FILE)
-		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', ${s_file})
+		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', #{s_file})
 	</insert>
 	
 	<!--  마일리지 증가 -->
