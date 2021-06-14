@@ -52,6 +52,11 @@
                 Logout
             </a>
         </li>    
+        <li>
+        	<a href="message.do">
+                MS
+            </a>
+        </li>  
         </c:if>
          <c:if test="${id ne null and id ne 'admin'}">
         <li>
@@ -63,7 +68,12 @@
         	<a href="memberLogOut.do">
                 Logout
             </a>
-        </li>    
+        </li>   
+        <li>
+        	<a href="message.do">
+                MS
+            </a>
+        </li>   
         </c:if>
         
           </ul>

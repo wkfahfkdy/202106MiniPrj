@@ -9,12 +9,7 @@
 
 <title>회원정보</title>
 
-<script type="text/javascript">
-	function joinWait(id) {
-		console.log(id)
-		location.href="#"
-	}
-</script>
+
 
 <script type="text/javascript">
 	function businessMemberPage() {
@@ -62,7 +57,7 @@
 							<th><button onclick="joinWait(${member.u_id })">회원관리</button></th>
 							</c:if>
 							<c:if test="${member.joinwait eq 'Y' }">
-							<th><button onclick="joinWait(${member.u_id })">가입승인</button></th>
+							<th><button onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
 							</c:if>
 							<c:if test="${member.s_reg eq 'Y' }">
 							<th><button onclick="location.href='businessMemberPage.do'">사업자관리</button></th>

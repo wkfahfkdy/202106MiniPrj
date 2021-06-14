@@ -17,9 +17,12 @@ public class BreadVO {
 	private String b_id; //빵 코드
 	private String b_name; //빵 이름
 	private String b_qty; //빵 수량
+
+
+	private String b_comment; //빵 설명
 	// 빵이 있는 가게 S_id 가져오기
 	private String b_image; // 빵 이미지
-	private String p_like; // ????더 추가할 내용
+	private String b_like; // ????더 추가할 내용
 	private String b_price; // 빵 가격
 	
 	
@@ -103,11 +106,12 @@ public class BreadVO {
 	public void setB_image(String b_image) {
 		this.b_image = b_image;
 	}
-	public String getP_like() {
-		return p_like;
+	
+	public String getB_like() {
+		return b_like;
 	}
-	public void setP_like(String p_like) {
-		this.p_like = p_like;
+	public void setB_like(String b_like) {
+		this.b_like = b_like;
 	}
 	public String getB_price() {
 		return b_price;
@@ -115,6 +119,22 @@ public class BreadVO {
 	public void setB_price(String b_price) {
 		this.b_price = b_price;
 	}
+	
+	public String getB_comment() {
+		return b_comment;
+	}
+	public void setB_comment(String b_comment) {
+		this.b_comment = b_comment;
+	}
+	@Override
+	public String toString() {
+		return "BreadVO [s_id=" + s_id + ", s_name=" + s_name + ", s_adr=" + s_adr + ", s_like=" + s_like + ", s_tel="
+				+ s_tel + ", s_content=" + s_content + ", s_region=" + s_region + ", s_image=" + s_image
+				+ ", store_hit=" + store_hit + ", b_id=" + b_id + ", b_name=" + b_name + ", b_qty=" + b_qty
+				+ ", b_comment=" + b_comment + ", b_image=" + b_image + ", b_like=" + b_like + ", b_price=" + b_price
+				+ "]";
+	}
+	
 	
 }
 

@@ -10,7 +10,7 @@
 
 <script>
 	$(function(){
-		CKEDITOR.replace('rb_content',{
+		CKEDITOR.replace('nt_content',{
 			filebrowserUploadUrl : '${pageContext.request.contextPath}/imageUpload.do',
 			height : '600px',
 			width : '800px'
@@ -32,28 +32,24 @@
 </head>
 <body>
 	<div align = "center">
-		<div>
-			<h1>review</h1>
-		</div>
-		
-		<div>
-			<form id = "frm" action = "revBoardInsert.do" method = "POST">
+		<div style="margin-top: 150px">
+			<form id = "frm" action = "noticeInsert.do" method = "POST">
 				<input type = "hidden" name = "u_id" id = "u_id" value = "${id }">
 				<div>
 					<table border = "1">
 						<tr>
 							<th width = "150">제목</th>
-							<td width = "300"><input type = "text" id = "rb_title" name = "rb_title"></td>
+							<td width = "300"><input type = "text" id = "nt_title" name = "nt_title"></td>
 						</tr>
 						<tr>
 							<th width = "150">내용</th>
-							<td width = "300"><textarea id = "rb_content" name = "rb_content"></textarea></td>					
+							<td width = "300"><textarea id = "nt_content" name = "nt_content"></textarea></td>					
 						</tr>
 					</table>
 				</div>
 				<div>
 					<button type = "button" onclick = "formCheck()">등록</button>
-					<button type = "button" onclick = "location.href = 'revBoardListPaging.do'">뒤로 가기</button>
+					<button type = "button" onclick = "location.href = 'noticeListPaging.do'">뒤로 가기</button>
 				</div>
 			</form>
 		</div>

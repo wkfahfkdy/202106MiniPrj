@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.prj.qna.service.Qna-map">
+	
+	<!-- 게시글 Size 구할 때 필요 -->
+	<select id="qnaList" resultType="co.yedam.prj.qna.vo.QnaVO">
+		select * from qna
+	</select>
+	
+	<!-- Paging -->
+	<select id="qnaListPaging" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="co.yedam.prj.qna.vo.QnaVO">
+		SELECT *
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by qn_num DESC) AS
+ 		   row_num
+  		  ,a.*
+  		  FROM qna a
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
+	</select>
+	
+	<!-- 게시글 Count -->
+	<select id="TableCnt" resultType="int">
+        SELECT count(*) totalPageCount FROM qna
+    </select>
+    
+    <!-- 게시글 작성 -->
+    <insert id="qnaInsert" parameterType="co.yedam.prj.qna.vo.QnaVO">
+    	insert into qna values (qna_seq.nextval, #{qn_title}, #{u_id}, #{qn_content}, sysdate, 0, '0')
+    </insert>
+    
+    <!-- 작성된 게시글 조회 -->
+    <select id="qnaSelect" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="co.yedam.prj.qna.vo.QnaVO">
+    	select * from qna where qn_num = #{qn_num}
+    </select>
+    
+    <!-- 게시글 삭제 -->
+	<delete id="qnaDelete" parameterType="co.yedam.prj.qna.vo.QnaVO">
+		delete from qna where qn_num = #{qn_num}		
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="qnaUpdate" parameterType="co.yedam.prj.qna.vo.QnaVO">
+		update qna set qn_title = #{qn_title}, qn_content = #{qn_content} where qn_num = #{qn_num}
+	</update>
+	
+	<!-- 게시글 조회수 -->
+	<update id="qnaHit" parameterType="co.yedam.prj.qna.vo.QnaVO">
+		update qna set qn_hit = #{qn_hit} +1 where qn_num = #{qn_num}
+	</update>
+	
+</mapper>

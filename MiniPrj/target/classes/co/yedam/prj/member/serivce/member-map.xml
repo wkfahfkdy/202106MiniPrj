@@ -9,7 +9,7 @@
 	
 	<insert id="ceoInsert" parameterType="co.yedam.prj.member.vo.MemberVO" >
 		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL, JOINWAIT, S_FILE)
-		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', ${s_file})
+		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', #{s_file})
 	</insert>
 	
 	<!--  마일리지 증가 -->
@@ -29,16 +29,20 @@
 		update member set mileage= mileage - #{mileageD} where u_id= #{u_id}
 	</update>
 	
+	<!-- 가입승인 -->
+	<update id="joinWaitUpdate" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set JOINWAIT = 'N', S_REG = 'Y' 
+		where u_id= #{u_id}
+	</update>
 	
 	
 	
 	
-	
-	
-	
-	
-	
-	
+	<select id="memberSelectJW" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+		select *
+		from member 
+		where U_ID = #{u_id}
+	</select>
 	
 	<select id="memberList" resultType="co.yedam.prj.member.vo.MemberVO">
 		select * from member

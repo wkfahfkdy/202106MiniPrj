@@ -9,18 +9,9 @@
 
 <title>회원정보</title>
 
-<script type="text/javascript">
-	function joinWait(id) {
-		console.log(id)
-		location.href="#"
-	}
-</script>
 
-<script type="text/javascript">
-	function businessMemberPage() {
-		
-	}
-</script>
+
+
 
 </head>
 <body style="align:center">
@@ -52,7 +43,7 @@
 						</tr>
 					<c:forEach items="${members }" var="member">
 						<tr>
-							<td>${member.u_id }</td>
+							<td id="${member.u_id }">${member.u_id }</td>
 							<td>${member.u_name }</td>
 							<td>${member.u_adr }</td>
 							<td>${member.u_adrcode }</td>
@@ -61,10 +52,9 @@
 							<td>${member.regdate }</td>
 						
 							<c:if test="${member.joinwait eq 'Y' }">
-							<th><button onclick="joinWait(${member.u_id })">가입승인</button></th>
+							<th><button onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
 							</c:if>
 						
-							
 						</tr>
 					</c:forEach>
 		</table>

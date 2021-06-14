@@ -4,181 +4,139 @@
 
 
 
-<mapper namespace="co.yedam.prj.bread.serivce.breadservice"> 
-</mapper>
 
-	
-	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO">
- 		insert into Product values (#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, #{b_qty}, #{b_like}) 
-	</insert> 필요없는 컬럼도 다 기입해뒀습니다. 사용시 수정 필요 -->
-	
-	<!--========================================================================== ========================================================================== 
-	==========================================================================
-	==========================================================================-->
-	
-	<!--  service 순서대로 기입 -->
-	
-	<!--  
-		parameter 값 => hashmap? 
-		
-		
-		select => 조회, 보여주는 값에 대한 return type 은??
-		
-	  	DAO
-	  	
-	  	
-	  	 / DTD(VO)
-	  	data transfer object  = value object 
-	 -->
-	
-		<!-- 빵 리스트 
-	<select id="breadSelectList"resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from Product
+<mapper namespace="co.yedam.prj.bread.service.breadservice">
+
+	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO"> 
+		insert into Product values (#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
+		#{b_qty}, #{b_like}) </insert> 필요없는 컬럼도 다 기입해뒀습니다. 사용시 수정 필요 -->
+
+	<!--========================================================================== 
+		========================================================================== 
+		========================================================================== 
+		========================================================================== -->
+
+	<!-- service 순서대로 기입 -->
+
+	<!-- 빵 리스트 -->
+
+
+
+
+	<select id="breadSelectList"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.s_name, a.s_image, a.s_id, b.b_like, b.b_name
+		from store a
+		join (select s_id, b_name, b_like
+		from (
+		select s_id, b_name, b_like, row_number() over(partition by s_id order by
+		b_like desc) as bidx
+		from product)
+		where bidx = 1) b
+		on a.s_id = b.s_id
 	</select>
-	-->
 
-	<!-- 빵 좋아요 순위 리스트  
-	<select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from Product where  order by #{S_like}
+	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from Product where order by #{S_like} </select> -->
+
+
+	<!-- 빵 추가 <insert id="breadInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		insert into product values(#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
+		#{b_qty}, #{b_like}) </insert> -->
+
+
+
+	<!-- 빵 수정 <update id="breadUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		update product (b_name,b_image,b_price, b_qty) values(#{b_name}, #{b_image}, 
+		#{b_price}, #{b_qty}) </update> -->
+
+
+	<!--========================================================================== 
+		========================================================================== 
+		========================================================================== 
+		========================================================================== -->
+
+
+	<!-- 스토어 관련 -->
+
+
+	<!-- 상점 추가 <insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		insert into store values(#{s_id}, #{s_name}, #{s_image}, #{s_content}, #{s_region}, 
+		#{s_region_n}, #{s_tel}, #{s_adr}, #{s_opendate}) </insert> -->
+
+	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		delete </insert> -->
+
+	<!-- 상점 수정 <updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		update </update> -->
+
+
+
+	<!-- 상점 리스트 -->
+
+	<select id="storeSelect"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select b.b_comment,b_name, a.*
+		from store a join product b
+		on a.s_id = b.s_id
+		where a.s_id = ${s_id}
 	</select>
-	 -->
-
-	
-	<!-- 빵 추가 
-	<insert id="breadInsert" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		insert into product values(#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, #{b_qty}, #{b_like})
-	</insert>
-	-->
-	
-	<!--  빵 삭제
-		<delete id="breadDelete" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		delete 
-		</delete>
-		-->
-		
-		<!--  빵 수정 
-			<update id="breadUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO">
-			update product (b_name,b_image,b_price, b_qty)   values(#{b_name}, #{b_image}, #{b_price},  #{b_qty})
-			</update>
-			-->
-			
-			
-		<!--========================================================================== ========================================================================== 
-	==========================================================================
-	==========================================================================-->
-	
-	
-	<!-- 스토어 관련  -->		
-			
-			
-	<!-- 상점 추가 
-	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		insert into store values(#{s_id}, #{s_name}, #{s_image}, #{s_content}, #{s_region}, #{s_region_n}, #{s_tel}, #{s_adr}, #{s_opendate})
-	</insert>
-	-->
-
-<!-- 상점 삭제 
-	<delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		delete 
-	</insert>
-	-->
-	
-	<!-- 상점 수정
-	<updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		update
-	</update>
-	-->
 
 
 
-	<!-- 상점 리스트 
-	
-	<select id="storeSelectList" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store
+	<select id="storeSelectList"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select b.b_comment,b_name, a.*
+		from store a join product b
+		on a.s_id = b.s_id
+		where a.s_id = ${s_id}
 	</select>
-	-->
-	
-	
-	<!-- 상점 좋아요 순위 리스트
-	<select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where order by #{S_like}
-	</select>
-	 -->
-	 
-	 
-	<!-- 상점 신규 점포 순 리스트 
-	<select id="storeOpenList" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where order by #{S_opendate}
-	</select>
-	
-	-->
-	
-	
-	
-	
+
+
+	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where order by #{S_like} </select> -->
+
+
+	<!-- 상점 신규 점포 순 리스트 <select id="storeOpenList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where order by #{S_opendate} </select> -->
+
+
+
+
 	<!-- 지역별 점포 리스트 -->
-	
-	
-	<!--
-		동구       1 
-		수성구	  2
-		중구		  3	 
-		서구 		  4	
-		달서구  	  5
-		달성군 	  6
-		북구 		  7	
-		칠곡 		  8
-		남구		  9
-  		  			
-	-->
-	
-	<!-- 동구
-	 	<select id="breadStoreList_1" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '1';
-	</select>
-	 -->
-	
-	<!--		 수성구
-	 	<select id="breadStoreList_2" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '2';
-	</select> -->
-	
-	<!-- 	중구
-	 	<select id="breadStoreList_3" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '3';
-	</select> -->
-	
-	
-	<!-- 서구
-	 	<select id="breadStoreList_4" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '4';
-	</select>-->
-	
-	<!-- 달서구
-	 	<select id="breadStoreList_5" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '5';
-	</select>-->
-	
-	<!-- 달성군
-	 	<select id="breadStoreList_6" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '6';
-	</select>-->
-	
-	<!-- 북구
-	 	<select id="breadStoreList_7" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '7';
-	</select>-->
-	
-	<!-- 칠곡
-	 	<select id="breadStoreList_8" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '8';
-	</select>-->
-	
-	<!-- 남구
-	 	<select id="breadStoreList_9" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from store where region_n = '9';
-	</select>
-	-->
-	
-	
+
+
+	<!-- 동구 1 수성구 2 중구 3 서구 4 달서구 5 달성군 6 북구 7 칠곡 8 남구 9 -->
+
+	<!-- 동구 <select id="breadStoreList_1" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '1'; </select> -->
+
+	<!-- 수성구 <select id="breadStoreList_2" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '2'; </select> -->
+
+	<!-- 중구 <select id="breadStoreList_3" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '3'; </select> -->
+
+
+	<!-- 서구 <select id="breadStoreList_4" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '4'; </select> -->
+
+	<!-- 달서구 <select id="breadStoreList_5" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '5'; </select> -->
+
+	<!-- 달성군 <select id="breadStoreList_6" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '6'; </select> -->
+
+	<!-- 북구 <select id="breadStoreList_7" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '7'; </select> -->
+
+	<!-- 칠곡 <select id="breadStoreList_8" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '8'; </select> -->
+
+	<!-- 남구 <select id="breadStoreList_9" resultType="co.yedam.prj.bread.vo.BreadVO"> 
+		select * from store where region_n = '9'; </select> -->
+
+</mapper>
 	
