@@ -19,8 +19,26 @@
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-lg-8">
-							<h1 class="display-3 text-center">글자 넣어 말아</h1>
+												
 					
+					
+					
+						
+<table align="center">
+						
+						<c:forEach items="${bread }" var="vo">
+							<tr>
+								<td>${vo.b_image }</td>
+								<td>${vo.b_name }</td>
+								<td>${vo.b_price }</td>
+								<td>${vo.b_like }</td>
+								</tr>
+						</c:forEach>
+					</table>
+					
+					
+					
+				
 						</div>
 					</div>
 					<div class="dk-gap-6"></div>
@@ -35,9 +53,10 @@
 			<div class="container">
 				<ul class="dk-isotope-filter text-center">
 					<li class="active" data-filter="*">All</li>
-					<li data-filter=".branding">인기순</li>
-					<li data-filter=".design">지역별</li>
 					<li data-filter=".mockups">신규순</li>
+					<li data-filter=".branding">인기순</li>
+					<li data-filter=".design">지역별 / 언더 메뉴바 만들어서 구 이름 나열 후 구 클릭 시 해당하는 스토어만 보여주기</li>
+				
 
 				</ul>
 			</div>
@@ -51,7 +70,7 @@
 			<div class="container">
 				<div class="row vertical-gap dk-isotope-grid">
 
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups">
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups"> // 신규순 = mockups
 
 
 
@@ -75,7 +94,7 @@
 				
 				
 				
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding">
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> // 인기순 = branding
 						<a href="breadStore.do"
 							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 							<span class="dk-portfolio-item-image"> <span
@@ -99,7 +118,7 @@
 					
 					
 					<div
-						class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item photography">
+						class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item photography"> 포토그래피
 						<a href="breadStore.do"
 							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 							<span class="dk-portfolio-item-image"> <span
@@ -120,8 +139,8 @@
 					
 					
 					
-					
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item design">
+					 
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> 브랜딩
 						<a href="breadStore.do"
 							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 							<span class="dk-portfolio-item-image"> <span
@@ -143,10 +162,7 @@
 					
 					
 					
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item design">
-
-
-
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item design"> design
 						<a href="breadStore.do"
 							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 							<span class="dk-portfolio-item-image"> <span
@@ -167,10 +183,7 @@
 
 
 
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding">
-
-
-
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> 브랜딩
 						<a href="breadStore.do"
 							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 							<span class="dk-portfolio-item-image"> <span

@@ -19,7 +19,7 @@ public class BreadVO {
 	private String b_qty; //빵 수량
 	// 빵이 있는 가게 S_id 가져오기
 	private String b_image; // 빵 이미지
-	private String p_like; // ????더 추가할 내용
+	private String b_like; // ????더 추가할 내용
 	private String b_price; // 빵 가격
 	
 	
@@ -103,11 +103,12 @@ public class BreadVO {
 	public void setB_image(String b_image) {
 		this.b_image = b_image;
 	}
-	public String getP_like() {
-		return p_like;
+	
+	public String getB_like() {
+		return b_like;
 	}
-	public void setP_like(String p_like) {
-		this.p_like = p_like;
+	public void setB_like(String b_like) {
+		this.b_like = b_like;
 	}
 	public String getB_price() {
 		return b_price;

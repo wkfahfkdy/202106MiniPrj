@@ -5,7 +5,7 @@
 
 
 <mapper namespace="co.yedam.prj.bread.serivce.breadservice"> 
-</mapper>
+
 
 	
 	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO">
@@ -31,11 +31,11 @@
 	  	data transfer object  = value object 
 	 -->
 	
-		<!-- 빵 리스트 
-	<select id="breadSelectList"resultType="co.yedam.prj.bread.vo.BreadVO">
+		<!--   빵 리스트--> 
+	<select id="breadSelectList" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from Product
 	</select>
-	-->
+	
 
 	<!-- 빵 좋아요 순위 리스트  
 	<select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO">
@@ -91,12 +91,12 @@
 
 
 
-	<!-- 상점 리스트 
+	<!-- 상점 리스트 -->
 	
 	<select id="storeSelectList" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from store
 	</select>
-	-->
+	
 	
 	
 	<!-- 상점 좋아요 순위 리스트
@@ -180,5 +180,5 @@
 	</select>
 	-->
 	
-	
+	</mapper>
 	
