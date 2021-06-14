@@ -5,18 +5,22 @@
 
 
 <body>
-	<div class="dk-main">
 		<div style="margin-top: 150px">
 			<div class="container">
 				<div class="dk-box-2">
 					<div class="bg-image bg-image-parallax">
-						<img class="jarallax-img"
+						<!-- <img class="jarallax-img"
 							src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/rank.png"
 							alt="">
+							 -->
+							
+								
+							
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-lg-8">
 							<h1 class="display-3 text-center">글자 넣어 말아</h1>
+					
 						</div>
 					</div>
 					<div class="dk-gap-6"></div>
@@ -192,54 +196,6 @@
 				</div>
 			</div>
 		</div>
-
-
-	</div>
-
-
-
-
-	<!-- START: Scripts -->
-
-	<!-- Object Fit Images -->
-	<script src="assets/vendor/object-fit-images/dist/ofi.min.js"></script>
-
-	<!-- Popper -->
-	<script src="assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-
-	<!-- Bootstrap -->
-	<script src="assets/vendor/tether/dist/js/tether.min.js"></script>
-	<script src="assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
-	<!-- Sticky Kit -->
-	<script src="assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
-
-	<!-- Jarallax -->
-	<script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
-	<script src="assets/vendor/jarallax/dist/jarallax-video.min.js"></script>
-
-	<!-- Isotope -->
-	<script src="assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
-
-	<!-- ImagesLoaded -->
-	<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-	<!-- Lightgallery -->
-	<script src="assets/vendor/lightgallery/dist/js/lightgallery.min.js"></script>
-	<script src="assets/vendor/lg-fullscreen/dist/lg-fullscreen.min.js"></script>
-	<script src="assets/vendor/lg-video/dist/lg-video.min.js"></script>
-
-	<!-- Swiper -->
-	<script src="assets/vendor/swiper/dist/js/swiper.min.js"></script>
-
-	<!-- Jquery Form -->
-	<script src="assets/vendor/jquery-form/dist/jquery.form.min.js"></script>
-
-	<!-- The Mimilism -->
-	<script src="assets/js/mimilism.min.js"></script>
-	<script src="assets/js/mimilism-init.js"></script>
-	<!-- END: Scripts -->
-
 
 
 </body>

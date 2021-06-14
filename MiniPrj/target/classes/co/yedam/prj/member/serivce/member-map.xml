@@ -12,6 +12,34 @@
 		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', ${s_file})
 	</insert>
 	
+	<!--  마일리지 증가 -->
+	<update id="mileAgeU" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= mileage + 1000 where u_id= #{u_id}
+	</update>
+	<!-- 마일리지 차감 -->
+	<update id="mileAgeD" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= CASE WHEN  mileage-1000 &lt; 0 THEN 0 ELSE mileage-1000 END where u_id= #{u_id}
+	</update>
+	<!--  마일리지 수동증가 -->
+	<update id="manualUp" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= mileage + #{mileageU} where u_id= #{u_id}
+	</update>
+	<!--  마일리지 수동감소 -->
+	<update id="manualDown" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= mileage - #{mileageD} where u_id= #{u_id}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<select id="memberList" resultType="co.yedam.prj.member.vo.MemberVO">
 		select * from member
 	</select>
