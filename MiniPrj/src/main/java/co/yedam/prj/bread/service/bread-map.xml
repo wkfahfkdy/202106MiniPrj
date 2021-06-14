@@ -4,9 +4,8 @@
 
 
 
-<mapper namespace="co.yedam.prj.bread.serivce.breadservice">
 
-
+<mapper namespace="co.yedam.prj.bread.service.breadservice">
 
 	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO"> 
 		insert into Product values (#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
@@ -20,14 +19,20 @@
 	<!-- service 순서대로 기입 -->
 
 	<!-- 빵 리스트 -->
-	
-	
 
 
-	<select id="breadSelectList" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select a.b_name, b.*
-		from product a
-		join store b
+
+
+	<select id="breadSelectList"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.s_name, a.s_image, a.s_id, b.b_like, b.b_name
+		from store a
+		join (select s_id, b_name, b_like
+		from (
+		select s_id, b_name, b_like, row_number() over(partition by s_id order by
+		b_like desc) as bidx
+		from product)
+		where bidx = 1) b
 		on a.s_id = b.s_id
 	</select>
 
@@ -39,7 +44,7 @@
 		insert into product values(#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
 		#{b_qty}, #{b_like}) </insert> -->
 
- 	
+
 
 	<!-- 빵 수정 <update id="breadUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		update product (b_name,b_image,b_price, b_qty) values(#{b_name}, #{b_image}, 
@@ -69,15 +74,25 @@
 
 	<!-- 상점 리스트 -->
 
+	<select id="storeSelect"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select b.b_comment,b_name, a.*
+		from store a join product b
+		on a.s_id = b.s_id
+		where a.s_id = ${s_id}
+	</select>
+
+
+
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		select b.b_comment, a.* 
-		from store a join product b 
+		select b.b_comment,b_name, a.*
+		from store a join product b
 		on a.s_id = b.s_id
-		where a.s_id = #{s_id}
+		where a.s_id = ${s_id}
 	</select>
-
 
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
