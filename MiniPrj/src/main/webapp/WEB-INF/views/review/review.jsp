@@ -1,28 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	    
 <!DOCTYPE html>
-
+<head>
+	<style>
+		.hr1{
+			border-top: 3px solid rgba(0,0,0,.1);
+		}
+	.row.vertical-gap {
+    margin-top: -0px;
+}
+	.dk-box-2-r{
+		margin-left:-100px;
+	}
+	.dk-btn-r{
+		float:right;
+	}
+	</style>
+</head>
         
 <div style="margin-top: 150px">
+
 <div align="center">
 	<h1>Review</h1>
-	<br><br><br>
+	<br><br>
+		<c:if test="${id ne null}">
+		<a href="revBoardEnrollment.do" class="dk-btn dk-btn-r">리뷰 등록</a>
+		</c:if>
+	<br><br>
 </div>
 </div>
+<div class="endDiv">
+	 
 <div>
 
-                
+              
  <div class="dk-box-2 dk-padding-bot">
+  <hr class="hr1">
         <div class="container">
-            <div class="row vertical-gap dk-isotope-grid">
-			<h4> &nbsp; Best Review</h4>
+        <h4 align="center"> &nbsp; Best Review</h4> 
+            <div class="row vertical-gap dk-isotope-grid dk-box-2-r">
+           
+			 
+			
                 <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item mockups">
 					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
+					   
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
 					        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-					        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-2-md.png" alt="">
+					        <img src="resources/bootstrap/mimilism/assets/images/portfolio-2-md.png" alt="">
 					    </span>
 					    
 					   	<span class="dk-portfolio-item-info">
@@ -31,57 +58,31 @@
 					            	<span>very good bread!</span>
 					        	</span>
 					    </span>
+					    
 					</a>
+					
 				</div>
               
-              
-              	<div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item branding">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-				    <span class="dk-portfolio-item-image">
-					    <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-				        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-				        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-1-md.png" alt="">
-				    </span>
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Twenty Seven</span>
-				    <span class="dk-portfolio-item-category">
-				            <span>Branding</span>
-				    </span>
-				    </span>
-				</a>
-				</div>
-                
-                
-				<div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item photography">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-				    <span class="dk-portfolio-item-image">
-				        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-				        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-						<img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-4-md.png" alt="">
-				    </span>
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Creative Cup</span>
-				        <span class="dk-portfolio-item-category">
-				            <span>Photography</span>
-				        </span>
-				    </span>
-					</a>
-				</div>
-                
+         
+			
             </div>
 
         </div>
+        <hr class="hr1">
     </div>
 				
 
 </div>
         
         
-    <div class="dk-box-2 dk-padding-bot">
+    <div class="dk-box-2 dk-padding-bot ">
         <div class="container">
+        <h4 align="center"> &nbsp; Review!!</h4>
             <div class="row vertical-gap dk-isotope-grid">
-			<h4> &nbsp; Review!!</h4>
+			
+			<c:forEach items="${list }" var="list">
                 <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item mockups">
+                 
 					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
@@ -90,114 +91,33 @@
 					    </span>
 					    
 					   	<span class="dk-portfolio-item-info">
-						        <span class="h3 dk-portfolio-item-title">Perfuma Mockup</span>
+						        <span class="h3 dk-portfolio-item-title">${list.rb_title }</span>
 						        <span class="dk-portfolio-item-category">
-					            	<span>Mockups</span>
+					            	<span>${list.u_id }</span>
 					        	</span>
 					    </span>
 					</a>
+					   
 				</div>
               
-              
-              	<div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item branding">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-				    <span class="dk-portfolio-item-image">
-					    <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-				        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-				        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-1-md.png" alt="">
-				    </span>
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Twenty Seven</span>
-				    <span class="dk-portfolio-item-category">
-				            <span>Branding</span>
-				    </span>
-				    </span>
-				</a>
-				</div>
-                
-                
-				<div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item photography">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-				    <span class="dk-portfolio-item-image">
-				        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-				        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-						<img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-4-md.png" alt="">
-				    </span>
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Creative Cup</span>
-				        <span class="dk-portfolio-item-category">
-				            <span>Photography</span>
-				        </span>
-				    </span>
-					</a>
-				</div>
-                
-                
-                <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item design">
-                    <a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-    					<span class="dk-portfolio-item-image">
-				        	<span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-        				<span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-        				<img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-3-md.png" alt="">
-						</span>
-					<span class="dk-portfolio-item-info">
-	        			<span class="h3 dk-portfolio-item-title">Paper Tube</span>
-					    <span class="dk-portfolio-item-category">
-           				<span>Design</span>
-        			</span>
-        
-    				</span>
-    
-					</a>
-				</div>
+               </c:forEach>
+              	
 				
 				
-				
-                <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item design">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-					<span class="dk-portfolio-item-image">
-					    <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-	        			<span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-						<img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-5-md.png" alt="">
-    				</span>
-    
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Paper Pouch</span>
-				        <span class="dk-portfolio-item-category">
-				            <span>Design</span>
-				        </span>
-				    </span>
-					</a>
-				</div>
-				
-				
-				
-                <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item branding">
-                	<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
-				    <span class="dk-portfolio-item-image">
-				        
-				        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-				        
-				        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-				        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-6-md.png" alt="">
-				    </span>
-    
-				    <span class="dk-portfolio-item-info">
-				        <span class="h3 dk-portfolio-item-title">Hunter Boxes</span>
-				        
-				        <span class="dk-portfolio-item-category">
-				            <span>Branding</span>
-				        </span>
-				        
-				    </span>
-    
-					</a>
-				</div>
             </div>
-
+ 				
             <div class="text-center">
-                <a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-50">Load More</a>
-            </div>
-        </div>
-    </div>
+                <a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-50">Load More</a> 
+                
+                 <table border="1">
+                
+                
+                 
+                 </table>
+                 
+     	   </div>
     
+    </div>
+    </div>
+
+  </div>

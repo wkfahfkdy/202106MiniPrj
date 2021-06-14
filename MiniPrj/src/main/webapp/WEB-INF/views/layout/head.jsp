@@ -30,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="review.do">
+            <a href="review2.do">
                 Review
             </a>
         </li>

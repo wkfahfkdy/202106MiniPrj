@@ -11,6 +11,9 @@ public class revBoardVO {
 	private Date rb_regdate;
 	private int rb_hit;
 	private String rb_content;
+	private int rb_like;
+	
+	
 	
 	private int firstRecordIndex;
 	private int lastRecordIndex;
@@ -76,6 +79,12 @@ public class revBoardVO {
 		return "revBoardVO [rb_num=" + rb_num + ", rb_title=" + rb_title + ", u_id=" + u_id + ", rb_regdate="
 				+ rb_regdate + ", rb_hit=" + rb_hit + ", rb_content=" + rb_content + ", firstRecordIndex="
 				+ firstRecordIndex + ", lastRecordIndex=" + lastRecordIndex + ", totalCnt=" + totalCnt + "]";
+	}
+	public int getRb_like() {
+		return rb_like;
+	}
+	public void setRb_like(int rb_like) {
+		this.rb_like = rb_like;
 	}
 	
 }
