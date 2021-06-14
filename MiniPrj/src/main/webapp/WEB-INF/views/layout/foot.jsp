@@ -18,10 +18,9 @@
                             <h3 class="h5">BbangMan</h3>
                         </div>
                         <div class="dk-widget-text" >
-                        	<a>Tel. 053-555-5959 / FAX. 070-555-5959 <br>
-							80, Dalgubeol-daero 447-gil, Republic of Korea</a><br>
+                        	<a>Tel. 053-555-5959 
+                        	<br>FAX. 070-555-5959 <br></a>
                             <a href="#">hello@mimilismtheme.com</a><br>
-                            <a href="#">+44 987 065 908</a>
                         </div>
                     </div>
                 </div>
