@@ -53,14 +53,34 @@
     }
 </script>
 <script>
+	$(function(){
+    	$('#u_pwd').keyup(function(){
+      	$('#chkNotice').html('');
+   	  });
+
+	    $('#u_pwdChk').keyup(function(){
+
+    	    if($('#u_pwd').val() != $('#u_pwdChk').val()){
+        	  $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+          	  $('#chkNotice').attr('color', '#f82a2aa3');
+            } else{
+              $('#chkNotice').html('비밀번호 일치함<br><br>');
+              $('#chkNotice').attr('color', '#199894b3');
+        }
+
+       });
+    });
+	
+
 	function deleteInfo() {
-		let result = confirm("탈퇴하시겠습니까?")
-		if(result) {
+		var userInput = prompt("비밀번호 입력시 탈퇴 처리됩니다.");
+		if(userInput == ${member.u_pwd} && userInput != null) {
 			location.href="memberDelete.do";
 			alert("탈퇴되었습니다.")
 		}else {
-			alert("취소하였습니다.")
+			alert("취소되었습니다.")
 		}
+		
 	}
 	
 	function memberUpdateInfo() {
@@ -73,7 +93,7 @@
 			let adrcode = document.getElementById("sample6_postcode").value;
 			
 			frm.u_pwd.value = passwd;
-			frm.u_tel.value = name;
+			frm.u_tel.value = tel;
 			frm.u_mail.value = mail;
 			frm.u_adr.value = adr;
 			frm.u_adrcode.value = adrcode;
@@ -115,9 +135,10 @@
 									value="${member.u_pwd} " placeholder="New password">
 							</div>
 							<div class="col-md-6">
-								<input class="form-control" type="password"
+								<input class="form-control" type="password" id="u_pwdChk"
 									name="check_password" value=""
 									placeholder="Again input New password">
+								<font id="chkNotice" size="2"></font>
 							</div>
 							<div class="col-12">
 								<input class="form-control" type="text" value="${member.u_tel}"
