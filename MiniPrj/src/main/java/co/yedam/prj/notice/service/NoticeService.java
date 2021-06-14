@@ -1,0 +1,17 @@
+package co.yedam.prj.notice.service;
+
+import java.util.List;
+
+import co.yedam.prj.notice.vo.NoticeVO;
+
+
+public interface NoticeService {
+	
+	public List<NoticeVO> noticeSelectList();
+	public List<NoticeVO> noticeSelectListPaging(NoticeVO vo);
+	public int tableCount();
+	public NoticeVO noticeSelect(NoticeVO vo);
+	public int insertnotice(NoticeVO vo);
+	public int deletenotice(NoticeVO vo);
+	public int updatenotice(NoticeVO vo);
+}
