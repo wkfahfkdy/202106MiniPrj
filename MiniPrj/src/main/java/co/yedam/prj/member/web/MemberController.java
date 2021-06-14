@@ -66,6 +66,17 @@ public class MemberController {
 		return "member/memberLogin";
 	}
 	
+	@RequestMapping("/memberDelete.do")
+	public String memberDelete(HttpServletRequest req, MemberVO vo) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setU_id(id);
+		int r = dao.deleteMember(vo);
+		System.out.println(r + "건 삭제");
+		
+		return "redirect:memberLogOut.do";
+	}
+	
 	@RequestMapping("/memberLoginB.do")
 	public String memberLoginB(Model model, MemberVO vo, HttpServletRequest req) {
 		String path = "";
@@ -188,11 +199,38 @@ public class MemberController {
 	public String memberCeoSignup() {
 		return "member/memberCeoSignup";
 	}
-
+	@RequestMapping("/memberUpdateInfo.do")
+	public String memberUpdateInfo(Model model, MemberVO vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		String pwd = req.getParameter("u_pwd");
+		String tel = req.getParameter("u_tel");
+		String mail = req.getParameter("u_mail");
+		String adr = req.getParameter("u_adr");
+		String adrcode = req.getParameter("u_adrcode");
+		
+		vo.setU_id(id);
+		vo.setU_pwd(pwd);
+		vo.setU_tel(tel);
+		vo.setU_mail(mail);
+		vo.setU_adr(adr);
+		vo.setU_adrcode(Integer.parseInt(adrcode));
+		
+		int r = dao.updateMember(vo);
+		System.out.println(r + "건 수정");
+		
+		model.addAttribute("member", dao.memberSelectJW(vo));
+		return "member/memberMypage";
+	}
 	
 	
 	@RequestMapping("/memberMypage.do")
-	public String mypage() {
+	public String mypage(Model model, MemberVO vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setU_id(id);
+		
+		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberMypage";
 	}
 	@RequestMapping("/memberAdPopup.do")

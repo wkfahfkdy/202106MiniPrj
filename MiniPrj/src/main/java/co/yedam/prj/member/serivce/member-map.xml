@@ -72,4 +72,12 @@
 		where u_id = #{u_id} and u_pwd = #{u_pwd}
 	</select>
 	
+	<delete id="memberDelete" parameterType="co.yedam.prj.member.vo.MemberVO">
+		delete from member where u_id = #{u_id}
+	</delete>
+	
+	<update id="memberUpdate" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set u_pwd = #{u_pwd}, u_tel = #{u_tel}, u_mail=#{u_mail}, u_adr = #{u_adr}, u_adrcode = #{u_adrcode}
+		where u_id=#{u_id}
+	</update>
 </mapper>
