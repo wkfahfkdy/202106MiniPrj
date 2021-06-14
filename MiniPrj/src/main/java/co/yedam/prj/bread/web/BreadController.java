@@ -1,6 +1,5 @@
 package co.yedam.prj.bread.web;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,6 +27,8 @@ public class BreadController {
 	
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
+		
+		
 		
 		model.addAttribute("bread", dao.breadSelectList(vo));
 		//경로이동이안돼서 일단 막아뒀어여! -담이
@@ -133,11 +134,7 @@ public class BreadController {
 		vo.setB_image(b_image);
 		
 		
-		model.addAttribute("s_id", s_id);
-		model.addAttribute("s_content", s_content);
-		model.addAttribute("s_name", s_name);
-		model.addAttribute("b_comment", b_comment);
-		model.addAttribute("b_iamage", b_image);
+
 		model.addAttribute("store",dao.storeSelectList(vo));
 		return "bread/breadStore";
 	}

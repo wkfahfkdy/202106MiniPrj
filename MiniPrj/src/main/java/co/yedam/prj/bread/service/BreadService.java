@@ -24,7 +24,11 @@ public interface BreadService {
 	public int storeUpdate(BreadVO vo); // 스토어 수정
 	
 	
-	public BreadVO storeSelectList(BreadVO vo); //스토어 리스트
+	public BreadVO storeSelect(BreadVO vo); //스토어 셀렉트(빵 페이지 하단 스토어)
+	
+	public List<BreadVO> storeSelectList(BreadVO vo); //스토어 리스트(메뉴 나옴)
+	
+	
 	public List<BreadVO> storeSelectListPaging(BreadVO vo); //스토어 리스트 페이징
 	
 	

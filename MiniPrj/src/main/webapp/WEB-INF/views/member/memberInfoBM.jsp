@@ -21,6 +21,7 @@
 				<li onclick="location.href='memberInfoWait.do'">가입승인대기</li>
 				<li onclick="location.href='memberInfoBM.do'">사업자</li>
 				<li onclick="location.href='memberInfoM.do'">회원</li>
+				<li onclick="location.href='memberMileage.do'">마일리지관리</li>
 				
 			</ul>
 		</div>

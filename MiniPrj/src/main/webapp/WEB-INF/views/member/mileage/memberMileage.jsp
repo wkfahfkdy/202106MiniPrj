@@ -27,7 +27,7 @@
 		frm2.mileageU.value=intVal;
 		
 		if($('#manualU').val()==""){
-	 			alert('값을 입력해주세요.')
+	 			alert('값을 입력해주세요.');
 		}else{
 		
 		
@@ -40,7 +40,27 @@
 		}
 		}
 	}
-	function manualDown(id){
+	function manualUp2(id){
+		frm2.u_id.value=id;
+		var inputMileageDownVal = prompt('값을 입력하세요','');
+		
+		frm2.mileageU.value=parseInt(inputMileageDownVal);
+		console.log(inputMileageDownVal);
+		if(!inputMileageDownVal){
+ 			alert('값을 입력해주세요.');
+		}else{
+
+		var result= confirm('* '+id+' *'+'님 +'+inputMileageDownVal+' (마일리지) 지급 하시겠습니까?');
+		if(result){
+		frm2.submit();
+		}else{  //취소
+			
+		
+		}
+		}
+	}
+	/* function manualDown(id){
+		
 		frm3.u_id.value=id;
 		var manualDownVal = $('#manualD').val();
 		
@@ -60,8 +80,26 @@
 		}
 		}
 
-	}
+	}*/
 	
+	function manualDown2(id){
+		frm3.u_id.value=id;
+		var inputMileageDownVal = prompt('값을 입력하세요','');
+		
+		frm3.mileageD.value=parseInt(inputMileageDownVal);
+		console.log(inputMileageDownVal);
+		if(	!inputMileageDownVal){
+ 			alert('값을 입력해주세요.');
+		}else{
+		
+		var result= confirm('* '+id+' *'+'님 -'+inputMileageDownVal+' (마일리지) 차감 하시겠습니까?');
+		if(result){
+		frm3.submit();
+		}else{  //취소
+		
+		}
+		}
+	}
 </script>
 <style>
 	#td1{
@@ -74,8 +112,8 @@
 	}
 
 	#button{
-		margin-left:50px;
-		width:50px;
+		margin-left:20px;
+		width:100px;
 	}
 	#divM{
 		margin-bottom:130px;
@@ -108,11 +146,6 @@
 							<th>마일리지+ 수동</th>
 							<th>마일리지- 수동</th>			
 						</tr>
-						<tr>
-							<td colspan="5"></td>
-							<td><input type="number" id="manualU" name="ManualU"placeholder="+수동값 입력"/></td>
-							<td><input type="number" id="manualD" name="manualD"placeholder="-수동값 입력"/></td>
-						</tr>
 					<c:forEach items="${mileage }" var="member">
 						<c:set var="Di" value="${Di+1 }"/>
 						<tr>
@@ -122,8 +155,8 @@
 							
 							<td id="td1"><button type="button"  onclick="FormSubmit('${member.u_id }')">UP</button></td>
 							<td id="td1"><button type="button" onclick="MileageDown('${member.u_id}')">DOWN</button></td>
-							<td id="td2"><button type="button" id="button"onclick="manualUp('${member.u_id }')">+</button></td>
-							<td id="td2"><button type="button" id="button" onclick="manualDown('${member.u_id }')">-</button></td>
+							<td id="td2"><button type="button" id="button"onclick="manualUp2('${member.u_id }')">+수동!</button></td>
+							<td id="td2"><button type="button" id="button" onclick="manualDown2('${member.u_id }')">-수동!</button></td>
 							</tr>
 					</c:forEach>
 		</table>

@@ -80,6 +80,10 @@
 				</div>
 			</form>
 		</div>
+		<div align="left">
+			<h4>댓글</h4>
+				
+		</div>
 	</div>
 </body>
 </html>

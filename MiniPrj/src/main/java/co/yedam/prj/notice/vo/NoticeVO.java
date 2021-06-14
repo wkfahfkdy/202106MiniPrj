@@ -3,6 +3,8 @@ package co.yedam.prj.notice.vo;
 import java.util.Date;
 
 public class NoticeVO {
+	
+	// Notice 게시글 VO
 	private int nt_num;			// 게시글 번호
 	private String nt_title;	// 게시글 제목
 	private String u_id;		// 유저 ID
@@ -10,9 +12,11 @@ public class NoticeVO {
 	private int nt_hit;			// 게시글 조회수
 	private String nt_content;	// 게시글 내용
 	
+	// Paging VO
 	private int firstRecordIndex;	// Paging 게시판 버튼 index
 	private int lastRecordIndex;	// Paging 게시판 버튼 index
 	private int totalCnt; // 게시글 전체 수
+
 	
 	public int getNt_num() {
 		return nt_num;
