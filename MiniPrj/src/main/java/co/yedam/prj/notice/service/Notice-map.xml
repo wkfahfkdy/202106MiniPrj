@@ -49,4 +49,15 @@
     	update notice set nt_hit = #{nt_hit} +1 where nt_num = #{nt_num}
     </update>
 	
+	<!-- 댓글 조회 -->
+	<select id="noticeReplyList" parameterType="co.yedam.prj.notice.vo.NoticeReplyVO" resultType="co.yedam.prj.notice.vo.NoticeReplyVO">
+	 	<![CDATA[
+			select  A.ntb_num, A.ntr_num, A.ntr_numch, A.u_id, A.ntr_content, A.ntr_DEPTH, A.ntr_REGDATE, level
+			from notice_reply A
+			where ntb_num = #{ntb_num}
+			start with ntr_numch = 0
+			connect by prior ntr_num = ntr_numch
+		]]>
+	</select>
+	
 </mapper>

@@ -33,6 +33,12 @@
 		});
 	}
 </script>
+<style>
+	.inRp {
+	text-align : left;
+	width : 842px;
+	}
+</style>
 <body>
 	<div align = "center">
 		<div style="margin-top: 150px">
@@ -71,6 +77,27 @@
 						</td>
 					</tr>
 				</table><br>
+				<div class = "inRp">
+					<h5>댓글</h5>
+					<c:forEach items="${replyList }" var="rlist">
+						<div>
+							<div>
+								&nbsp;${rlist.u_id }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<c:if test="${rlist.ntr_depth != 0 }">
+									<c:forEach begin="1" end="${rlist.ntr_depth }"><img src = "resources/image/up.png" width = "15px" height = "15px" /></c:forEach>
+								</c:if>
+								${rlist.ntr_content }
+								<c:if test="${id != null }">
+										<textarea style="display:none;" rows="1" cols="70" name="addCommentsArea" id="${vo.cid }" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)addComment(${vo.cid }, ${vo.bid }, ${vo.group_id }, '${id }', ${vo.depth })"></textarea>
+								</c:if>
+							</div>
+						</div>
+					</c:forEach><br>
+					<c:if test="${id != null }">
+						<h6>새 댓글 쓰기</h6>
+						<textarea rows="2" cols="75" id="newCommentsArea" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)newComment(${vo.nt_num }, '${id }')"></textarea>
+					</c:if>
+				</div><br>
 				<div>
 					<button type = "button" onclick = "location.href = 'noticeListPaging.do'">목록 보기</button>
 					<c:if test = "${id eq vo.u_id || id eq 'admin' }">

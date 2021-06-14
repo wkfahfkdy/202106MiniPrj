@@ -2,6 +2,7 @@ package co.yedam.prj.notice.service;
 
 import java.util.List;
 
+import co.yedam.prj.notice.vo.NoticeReplyVO;
 import co.yedam.prj.notice.vo.NoticeVO;
 
 
@@ -15,4 +16,5 @@ public interface NoticeService {
 	public int deleteNotice(NoticeVO vo);
 	public int updateNotice(NoticeVO vo);
 	public int hitcount(NoticeVO vo);
+	public List<NoticeReplyVO> replyList(NoticeReplyVO vo);
 }

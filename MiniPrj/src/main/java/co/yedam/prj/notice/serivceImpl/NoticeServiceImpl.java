@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.notice.service.NoticeService;
+import co.yedam.prj.notice.vo.NoticeReplyVO;
 import co.yedam.prj.notice.vo.NoticeVO;
 
 @Repository("NoticeDao")
@@ -69,6 +70,12 @@ public class NoticeServiceImpl implements NoticeService {
 	public int hitcount(NoticeVO vo) {
 		
 		return sqlSession.update("noticeHit", vo);
+	}
+
+	@Override
+	public List<NoticeReplyVO> replyList(NoticeReplyVO vo) {
+		
+		return sqlSession.selectList("noticeReplyList", vo);
 	}
 	
 }

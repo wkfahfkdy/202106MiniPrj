@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.common.Paging;
 import co.yedam.prj.notice.service.NoticeService;
+import co.yedam.prj.notice.vo.NoticeReplyVO;
 import co.yedam.prj.notice.vo.NoticeVO;
 
 @Controller
@@ -72,18 +74,26 @@ public class NoticeController {
 	
 	// 작성한 게시글 조회
 	@RequestMapping("/noticeSelect.do")
-	public String noticeSelect(Model model, HttpServletRequest request, NoticeVO vo) {
+	public String noticeSelect(Model model, HttpServletRequest request, NoticeVO vo1, NoticeReplyVO vo2) {
 		
+		// 작성한 게시글 조회
 		String nt_num = request.getParameter("nt_num");
 		String nt_hit = request.getParameter("nt_hit");
+		String ntb_num = request.getParameter("nt_num");
 		
-		vo.setNt_num(Integer.parseInt(nt_num));
-		vo.setNt_hit(Integer.parseInt(nt_hit));
+		vo1.setNt_num(Integer.parseInt(nt_num));
+		vo1.setNt_hit(Integer.parseInt(nt_hit));
+		vo2.setNtb_num(Integer.parseInt(ntb_num));
 		
-		dao.hitcount(vo);
+		dao.hitcount(vo1);
 		
-		NoticeVO select = dao.noticeSelect(vo);
+		NoticeVO select = dao.noticeSelect(vo1);
 		model.addAttribute("vo", select);
+		
+		// 작성한 게시글의 댓글 리스트
+		
+		List<NoticeReplyVO> replyList = dao.replyList(vo2);
+		model.addAttribute("replyList", replyList);
 		
 		return "notice/noticeSelect";
 	}
