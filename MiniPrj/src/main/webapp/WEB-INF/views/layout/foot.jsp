@@ -32,7 +32,7 @@
                             <a href="qnaListPaging.do">Q&nbsp;&&nbsp;A</a>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-auto">
                     <div class="dk-widget-footer">
                         <div class="dk-widget-list">
