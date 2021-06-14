@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartRequest;
+
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
@@ -96,7 +97,7 @@ public class MemberController {
 	public String memberSignupSubmit(Model model, MemberVO vo, HttpServletRequest req) {
 		
 		int r = dao.insertMember(vo);
-		System.out.println(r + "건 입력");
+		System.out.println(r + "嫄� �엯�젰");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("member", vo);
@@ -105,31 +106,27 @@ public class MemberController {
 	
 	@RequestMapping("/ceoSignupSubmit.do")
 	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
-//		int size = 10 * 1024 * 1024;
-//		String path = "c:/tmp";
-//						//  ┌> request로 넘어오니까 이렇게
-//		ServletContext sc = req.getServletContext();
-//		path = sc.getRealPath("upload"); // 서버 상의 경로
-//		String fileName = "";
-//
-//		MultipartRequest multi = null;
-//		try {
-//			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
-//			Enumeration files = multi.getFileNames();
-//			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
-//			while (files.hasMoreElements()) {
-//				String itemImage = (String) files.nextElement();
-//				fileName = multi.getFilesystemName(itemImage);
-//				// fileName에 itemImage값이 들어가있다.
-//				System.out.println(itemImage+" fileName: " + fileName);
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-		
+		int size = 10 * 1024 * 1024;
+		String path = "C:\\tmp";
+		ServletContext sc = req.getServletContext();
+		String fileName = "";
+
+		com.oreilly.servlet.MultipartRequest multi = null;
+		try {
+			multi = new com.oreilly.servlet.MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+				System.out.println(itemImage+" fileName: " + fileName);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		vo.setS_file(fileName);
 		int r = dao.insertCeo(vo);
-		System.out.println(r + "건 입력");
+		System.out.println(r + "嫄� �엯�젰");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("member", vo);
@@ -140,7 +137,7 @@ public class MemberController {
 	public void memberIdCheck(MemberVO vo, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
-		int cnt = 0; //존재하지않으면 0 존재하면 1이 리턴
+		int cnt = 0; //議댁옱�븯吏��븡�쑝硫� 0 議댁옱�븯硫� 1�씠 由ы꽩
 		if(dao.memberIdCheck(vo) == 1) {
 			cnt = 1;
 		}
@@ -170,31 +167,41 @@ public class MemberController {
 		
 	
 	
-	//마일리지
+	//留덉씪由ъ�
 	@RequestMapping("/memberMileage.do")
 	public String memberMileage(Model model) {
 		model.addAttribute("mileage", dao.memberSelectListM());
 		return "member/mileage/memberMileage";
 
-		//+1000마일리지
+		//+1000留덉씪由ъ�
 	}
 	@RequestMapping("/memberMileageUp.do")
 	public String memberMileageUp(MemberVO vo){
 		dao.mileAgeUp(vo);
 		return "member/mileage/memberMileageUpS";
 	}
-		//-1000마일리지
+		//-1000留덉씪由ъ�
 	@RequestMapping("/memberMileageDown.do")
 	public String memberMileageDown(MemberVO vo) {
 		dao.mileAgeDown(vo);
 		return "member/mileage/memberMileageDownS";
 	}
 	
-		//리뷰 작성시 자동지급 
+	// 마일리지 수동 +
+	@RequestMapping("/mileAgeManualUp.do")
+		public String mileAgeManualUp(MemberVO vo) {
+
+			dao.mileAgeManualUp(vo);
+			
+		return "member/mileage/manualUp";
+		}
+	// 마일리지 수동 -
+		@RequestMapping("/mileAgeManualDown.do")
+			public String mileAgeManualDown(MemberVO vo) {
+			
+				dao.mileAgeManualDown(vo);
+				
+			return "member/mileage/manualDown";
+			}
 	
-		//댓글 작성시 자동지급
-	
-	//마일리지 수동 + 
-	
-	//마일리지 수동 -
 }

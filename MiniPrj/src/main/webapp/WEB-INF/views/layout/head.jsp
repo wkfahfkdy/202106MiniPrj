@@ -7,6 +7,72 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<nav class="dk-navbar dk-navbar-fixed dk-navbar-transparent dk-navbar-white dk-navbar-lg-fullscreen">
+<!-- 화면작아졌을때 서브메뉴 -->
+
+    <div class="container">
+        <div class="dk-nav-content">
+            
+            <a href="home.do" class="dk-nav-logo">BbangMan</a>
+            
+            
+            
+            <ul class="dk-nav dk-nav-align-right">
+                
+        <li class="dk-drop-item">
+            <a href="home.do">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="bread.do">
+                Bbang
+            </a>
+        </li>
+        <li>
+            <a href="review.do">
+                Review
+            </a>
+        </li>
+        <c:if test="${id eq null }">
+        <li>
+            <a href="memberLogin.do">
+                Login
+            </a>
+        </li>    
+        </c:if>
+        <c:if test="${id ne null and id eq 'admin'}">
+        <li>
+        	<a href="memberInfo.do">
+                MyPage
+            </a>
+        </li>   
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
+        </c:if>
+         <c:if test="${id ne null and id ne 'admin'}">
+        <li>
+        	<a href="memberMypage.do">
+                MyPage
+            </a>
+        </li>   
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
+        </c:if>
+        
+          </ul>
+            
+        </div>
+    </div>
+</nav>
+
+<!-- 
 <style>
 
 
@@ -76,7 +142,6 @@ font-family: ui-serif;
             
 
 
-<!--
     START: Navbar
 
     Additional Classes:
@@ -84,7 +149,7 @@ font-family: ui-serif;
         .dk-navbar-transparent
         .dk-navbar-white
         .dk-navbar-fullscreen || .dk-navbar-(xl, lg, md, sm)-fullscreen
--->
+
 
          
 
@@ -167,9 +232,6 @@ font-family: ui-serif;
         </div>
     </div>
 </div>
-<!-- END: Navbar -->
 
 
-
-</body>
-</html>
+-->

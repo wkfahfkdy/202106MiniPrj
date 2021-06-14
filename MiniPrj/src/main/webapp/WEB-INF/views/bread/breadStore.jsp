@@ -55,8 +55,9 @@
 <body>
     <div class="dk-main">
         
-          
+<div style="margin-top: 150px">     
     <div class="dk-box dk-header">
+
         <div class="container">
             <div class="row no-gutters" style="background-color: #f3f3f3;">
                 <div class="col-12 col-lg-6 text-center dk-gallery">
@@ -248,9 +249,9 @@
 
 
 
-    <h1>지도 부분인데 시간 없어서 api대충 가져왔는데 나중에 수정해야해요</h1>
+  <!--   <h1>지도 부분인데 시간 없어서 api대충 가져왔는데 나중에 수정해야해요</h1>
 
-    <div id="map" style="width:500px;height:400px;"></div>
+   <div id="map" style="width:500px;height:400px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=265d717979f0ee2bafbd9360806bb508"></script>
 	<script>
 		var container = document.getElementById('map');
@@ -261,7 +262,7 @@
 
 		var map = new kakao.maps.Map(container, options);
 	</script>
-
+ -->
 
 
 
@@ -276,21 +277,6 @@
     <div class="dk-box-1 dk-padding-only-bot">
         <!-- START: Slider Reviews
 
-    Additional Classes:
-        .dk-swiper-fullscreen
-
-    Additional Attributes:
-        data-swiper-arrows
-        data-swiper-arrows-clone
-        data-swiper-speed
-        data-swiper-space
-        data-swiper-slides
-        data-swiper-loop
-        data-swiper-freeMode
-        data-swiper-autoHeight
-        data-swiper-breakpoints
-        data-swiper-grabCursor
-        data-swiper-lazy
 
 -->
 <div class="swiper-container dk-swiper dk-swiper-reviews"
@@ -314,7 +300,7 @@
                             <div class="dk-reviews">
                                 <div class="dk-reviews-icon"><span class="icon icon-quote"></span></div>
                                 <div class="dk-reviews-text">
-                                    <p class="mb-0">대기업 빵은 더이상 먹지 않겠습니다. 제빵왕 이담</p>
+                                    <p class="mb-0">대기업 빵은 더이상 </p>
                                 </div>
                                 <div class="dk-reviews-name">정모</div>
                             </div>
@@ -333,7 +319,7 @@
                             <div class="dk-reviews">
                                 <div class="dk-reviews-icon"><span class="icon icon-quote"></span></div>
                                 <div class="dk-reviews-text">
-                                    <p class="mb-0">빵을 사랑하게 되었습니다. 제빵왕 이담님의 다른 빵가게도 꼭 가보겠습니다</p>
+                                    <p class="mb-0">빵을 사랑하게 되었습니다. </p>
                                 </div>
                                 <div class="dk-reviews-name">근우</div>
                             </div>
@@ -352,7 +338,7 @@
                             <div class="dk-reviews">
                                 <div class="dk-reviews-icon"><span class="icon icon-quote"></span></div>
                                 <div class="dk-reviews-text">
-                                    <p class="mb-0">30년 인생 중 가장 맛있고 부드러운 빵이었어요 널리널리 알릴게요</p>
+                                    <p class="mb-0">30년 인생 중 </p>
                                 </div>
                                 <div class="dk-reviews-name">도현</div>
                             </div>
@@ -373,7 +359,7 @@
     </div>
 
 
-
+</div>
 
     </div>
 
@@ -423,6 +409,5 @@
 <!-- END: Scripts -->
 
 
-    
-</body>
+    </body>
 </html>

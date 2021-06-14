@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.prj.notice.service.Notice-map">
+	
+	<select id="noticeList" resultType="co.yedam.prj.notice.vo.NoticeVO">
+		select * from notice
+	</select>
+	
+	<select id="noticeListPaging" parameterType="co.yedam.prj.notice.vo.NoticeVO" resultType="co.yedam.prj.notice.vo.NoticeVO">
+		SELECT *
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by nt_num DESC) AS
+ 		   row_num
+  		  ,a.*
+  		  FROM notice a
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
+	</select>
+	
+	<select id="TableCount" resultType="int">
+        SELECT count(*) totalPageCount FROM notice
+    </select>
+    
+    <insert id="noticeInsert" parameterType="co.yedam.prj.notice.vo.NoticeVO">
+    	insert into notice values (notice_seq.nextval, #{nt_title}, 'admin', #{nt_content}, sysdate, 0, '0')
+    </insert>
+	
+</mapper>
