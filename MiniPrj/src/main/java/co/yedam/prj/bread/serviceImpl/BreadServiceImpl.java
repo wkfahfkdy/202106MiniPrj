@@ -78,8 +78,8 @@ public class BreadServiceImpl implements BreadService{
 	
 	
 	@Override
-	public List<BreadVO> storeSelectList(BreadVO vo) {
-		return SqlSession.selectList("storeSelectList", vo);
+	public BreadVO storeSelectList(BreadVO vo) {
+		return SqlSession.selectOne("storeSelectList", vo);
 	}
 
 	

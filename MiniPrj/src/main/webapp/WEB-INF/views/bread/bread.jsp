@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
 
+
+<html>
 
 <body>
 		<div style="margin-top: 150px">
 			<div class="container">
 				<div class="dk-box-2">
 					<div class="bg-image bg-image-parallax">
-						<!-- <img class="jarallax-img"
+						 <img class="jarallax-img"
 							src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/rank.png"
 							alt="">
-							 -->
-							
+							 
+						
 								
 							
 					</div>
@@ -21,12 +22,7 @@
 						<div class="col-lg-8">
 												
 					
-					
-					
-						
-<table align="center">
-						
-						<c:forEach items="${bread }" var="vo">
+							<c:forEach items="${bread }" var="vo">
 							<tr>
 								<td>${vo.b_image }</td>
 								<td>${vo.b_name }</td>
@@ -34,7 +30,9 @@
 								<td>${vo.b_like }</td>
 								</tr>
 						</c:forEach>
-					</table>
+					
+						<h1>되니?</h1>
+					
 					
 					
 					
@@ -70,137 +68,39 @@
 			<div class="container">
 				<div class="row vertical-gap dk-isotope-grid">
 
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups"> // 신규순 = mockups
-
-
-
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-2-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 A</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 A</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
+					<c:forEach items="${bread }" var="vo">
+						<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups"> // 신규순 = mockups
+	
+							<form id="frm" action="breadStore.do">
+								<input type="hidden" value="${vo.s_id }">
+								
+								<button type ="button" onclick="location.href='breadStore.do?s_id=${vo.s_id }'"
+									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
+									<span class="dk-portfolio-item-image"> <span
+										class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
+		
+										<span class="dk-portfolio-item-overlay"
+										style="background-color: rgba(255, 255, 255, .85)"></span> <img
+										src="assets/images/portfolio-2-md.png" alt="">
+								</span> <span class="dk-portfolio-item-info"> <span
+										class="h3 dk-portfolio-item-title">${vo.b_name }</span> <span
+										class="dk-portfolio-item-category"> <span>from ${vo.s_name }</span>
+									</span>
+		
+								</span>
+								</button>
+							</form>
+	<table>
+						
+						
+					</table>
+						</div>
+					</c:forEach>
+			
 				
 				
 				
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> // 인기순 = branding
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-1-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 b</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 b</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
-					
-					
-					
-					
-					
-					<div
-						class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item photography"> 포토그래피
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-4-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 c</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 c</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
-					
-					
-					
-					 
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> 브랜딩
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-3-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 d</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 d</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
-					
-					
-					
-					
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item design"> design
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-5-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 e</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 e</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
-
-
-
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item branding"> 브랜딩
-						<a href="breadStore.do"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="assets/images/portfolio-6-md.png" alt="">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">스토어 f</span> <span
-								class="dk-portfolio-item-category"> <span>스토어 f</span>
-							</span>
-
-						</span>
-
-						</a>
-					</div>
+				
 				</div>
 
 				<div class="text-center">

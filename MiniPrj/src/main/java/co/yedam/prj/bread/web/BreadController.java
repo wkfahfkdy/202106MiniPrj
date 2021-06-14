@@ -1,5 +1,9 @@
 package co.yedam.prj.bread.web;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +26,23 @@ public class BreadController {
 	//빵 리스트 출력 ( 페이징 처리 할지 말지?)
 	
 	
-	@RequestMapping("/bread.do")	//페이징 처리 해야하나 말아야하나?
+	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
+		
 		model.addAttribute("bread", dao.breadSelectList(vo));
 		//경로이동이안돼서 일단 막아뒀어여! -담이
 		return "bread/bread";
 	}
+	
+	
+	@RequestMapping("/bread_page.do")	
+	public String breadstore_page(Model model,BreadVO vo) {
+		
+		model.addAttribute("bread", dao.breadSelectList(vo));
+		//경로이동이안돼서 일단 막아뒀어여! -담이
+		return "bread/bread";
+	}
+	
 	
 	//빵 리스트 페이징 
 //	@RequestMapping("/breadpaging.do")	//페이징 처리 해야하나 말아야하나?
@@ -103,8 +118,27 @@ public class BreadController {
 	// 스토어 리스트 출력 (페이징 처리 할지 말지?)
 	
 	@RequestMapping("/breadStore.do")
-	public String breadStoreList(Model model, BreadVO vo) {
-		model.addAttribute("bread",dao.storeSelectList(vo));
+	public String breadStoreList(Model model, BreadVO vo, HttpServletRequest request) {
+		
+		String s_name = request.getParameter("s_name");
+		String s_content = request.getParameter("s_content");
+		String s_id = request.getParameter("s_id");
+		String b_comment= request.getParameter("b_comment");
+		String b_image = request.getParameter("b_image");
+		
+		vo.setS_name(s_name);
+		vo.setS_content(s_content);
+		vo.setS_id(s_id);
+		vo.setB_comment(b_comment);
+		vo.setB_image(b_image);
+		
+		
+		model.addAttribute("s_id", s_id);
+		model.addAttribute("s_content", s_content);
+		model.addAttribute("s_name", s_name);
+		model.addAttribute("b_comment", b_comment);
+		model.addAttribute("b_iamage", b_image);
+		model.addAttribute("store",dao.storeSelectList(vo));
 		return "bread/breadStore";
 	}
 
