@@ -11,12 +11,16 @@ public interface MemberService {
 	public List<MemberVO> memberSelectListWait();
 	public List<MemberVO> memberSelectListBM();
 	public List<MemberVO> memberSelectListM();
+	public MemberVO memberSelectJW(MemberVO vo);
 	public int memberSelect(MemberVO vo);
 	public int insertMember(MemberVO vo);
 	public int insertCeo(MemberVO vo);
 	public int deleteMember(MemberVO vo);
 	public int updateMember(MemberVO vo);
+	public int joinWaitUpadte(MemberVO vo);
 	public int mileAgeUp(MemberVO vo);
 	public int mileAgeDown(MemberVO vo);
+	public int mileAgeManualUp(MemberVO vo);
+	public int mileAgeManualDown(MemberVO vo);
 	
 }

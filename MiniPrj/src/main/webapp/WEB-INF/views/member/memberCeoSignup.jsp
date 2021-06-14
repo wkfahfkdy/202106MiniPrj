@@ -131,14 +131,13 @@
 	}
 </script>
 
-<br><br>
 <div class="sJoin" align="center">
 	<h3>사업자 회원가입</h3>
 	<br>
 
 	<div class="container">
 	<div class="">
-            <form action="ceoSignupSubmit.do" class="dk-form" method="post" id="frm">
+            <form action="ceoSignupSubmit.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data">
                 <div >
                     <div class="col-md-6">
 						<input style="width: 50%;" class="form-control" type="text"
@@ -167,7 +166,7 @@
 							placeholder="e-mail" required>
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
+					<input class="dk-btn dk-btn-md" style="width: 50%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
 					</div>
 					<div class="col-md-6">
 					<input style="width: 50%;" type="text" id="sample6_postcode" name="u_adrcode" placeholder="우편번호" class="form-control">

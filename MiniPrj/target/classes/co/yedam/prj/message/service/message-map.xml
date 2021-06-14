@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.yedam.prj.message.serivce.message-map">
+
+	<!-- 전체조회 -->
+	<select id="messageSelectList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where receiver_Name = #{receiver_name}  or sender_Name = #{receiver_name} order by ms_num desc
+	</select>
+	
+	<!-- 보낸메세지조회 -->
+	<select id="messageSelectReceiver" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where receiver_Name = #{receiver_name} order by ms_num desc
+	</select>
+	
+	<!-- 받은메세지조회 -->
+	<select id="messageSelectSenderList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where sender_Name = #{receiver_name} order by ms_num desc
+	</select>
+	
+	<!-- 한건조회 -->
+	<select id="messageSerlect" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where ms_num = #{ms_num}
+	</select>
+	
+</mapper>

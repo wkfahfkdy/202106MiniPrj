@@ -9,18 +9,7 @@
 
 <title>회원정보</title>
 
-<script type="text/javascript">
-	function joinWait(id) {
-		console.log(id)
-		location.href="#"
-	}
-</script>
 
-<script type="text/javascript">
-	function businessMemberPage() {
-		
-	}
-</script>
 
 </head>
 <body style="align:center">
@@ -32,6 +21,7 @@
 				<li onclick="location.href='memberInfoWait.do'">가입승인대기</li>
 				<li onclick="location.href='memberInfoBM.do'">사업자</li>
 				<li onclick="location.href='memberInfoM.do'">회원</li>
+				<li onclick="location.href='memberMileage.do'">마일리지관리</li>
 				
 			</ul>
 		</div>
@@ -60,7 +50,7 @@
 							<td>${member.regdate }</td>
 						
 							<c:if test="${member.s_reg eq 'Y' }">
-							<th><button onclick="location.href='businessMemberPage.do'">사업자관리</button></th>
+							<th><button onclick="location.href='businessMemberPage.do?id=${member.u_id }'">사업자관리</button></th>
 							</c:if>
 							
 						</tr>

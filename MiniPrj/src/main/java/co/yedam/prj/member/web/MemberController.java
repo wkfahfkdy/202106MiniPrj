@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartRequest;
 
+import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
@@ -55,7 +54,9 @@ public class MemberController {
 		return "member/memberInfo";
 	}
 	@RequestMapping("/businessMemberPage.do")
-	public String businessMemberPage(Model model) {
+	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req) {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
 		
 		return "member/businessMemberPage";
 	}
@@ -63,6 +64,17 @@ public class MemberController {
 	@RequestMapping("/memberLogin.do")
 	public String memberLogin() {
 		return "member/memberLogin";
+	}
+	
+	@RequestMapping("/memberDelete.do")
+	public String memberDelete(HttpServletRequest req, MemberVO vo) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setU_id(id);
+		int r = dao.deleteMember(vo);
+		System.out.println(r + "건 삭제");
+		
+		return "redirect:memberLogOut.do";
 	}
 	
 	@RequestMapping("/memberLoginB.do")
@@ -77,6 +89,23 @@ public class MemberController {
 		};
 		
 		return path;
+	}
+	//가입승인페이지로 이동
+	@RequestMapping("/memberJoinWait.do")
+	public String memberJoinWait(Model medel, MemberVO vo, HttpServletRequest req){
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		vo = dao.memberSelectJW(vo);
+		medel.addAttribute("member", vo);
+		return "member/memberJoinWait";	
+	}
+	//가입승인
+	@RequestMapping("/memberJoinWaitUpdate.do")
+	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req) {
+		int r = dao.joinWaitUpadte(vo);
+		System.out.println(r + "건 수정");
+		
+		return "redirect:memberInfoWait.do";
 	}
 	
 	@RequestMapping("/memberLogOut.do")
@@ -97,7 +126,7 @@ public class MemberController {
 	public String memberSignupSubmit(Model model, MemberVO vo, HttpServletRequest req) {
 		
 		int r = dao.insertMember(vo);
-		System.out.println(r + "건 입력");
+		System.out.println(r + "嫄� �엯�젰");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("member", vo);
@@ -108,26 +137,39 @@ public class MemberController {
 	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		int size = 10 * 1024 * 1024;
 		String path = "C:\\tmp";
-						//  ┌> request로 넘어오니까 이렇게
-		ServletContext sc = req.getServletContext();
-		path = sc.getRealPath("upload"); // 서버 상의 경로
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
 		String fileName = "";
-
-		com.oreilly.servlet.MultipartRequest multi = null;
+		MultipartRequest multi = null;
 		try {
-			multi = new com.oreilly.servlet.MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			multi = new MultipartRequest(req,
+														  path, 
+														  size, 
+														  "utf-8", 
+														  new DefaultFileRenamePolicy());
 			Enumeration files = multi.getFileNames();
-			// item image가 input type file로 넘어오기 때문에 여기서 함 처리해줌.
 			while (files.hasMoreElements()) {
 				String itemImage = (String) files.nextElement();
 				fileName = multi.getFilesystemName(itemImage);
-				// fileName에 itemImage값이 들어가있다.
-				System.out.println(itemImage+" fileName: " + fileName);
 			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		String id = multi.getParameter("u_id");
+		String pwd = multi.getParameter("u_pwd");
+		String name = multi.getParameter("u_name");
+		String tel = multi.getParameter("u_tel");
+		String mail = multi.getParameter("u_mail");
+		String adr = multi.getParameter("u_adr");
+		String adrcode = multi.getParameter("u_adrcode");
+		
+		vo.setU_id(id);
+		vo.setU_pwd(pwd);
+		vo.setU_name(name);
+		vo.setU_tel(tel);
+		vo.setU_mail(mail);
+		vo.setU_adr(adr);
+		vo.setU_adrcode(Integer.parseInt(adrcode));
 		vo.setS_file(fileName);
 		int r = dao.insertCeo(vo);
 		System.out.println(r + "건 입력");
@@ -141,7 +183,7 @@ public class MemberController {
 	public void memberIdCheck(MemberVO vo, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
-		int cnt = 0; //존재하지않으면 0 존재하면 1이 리턴
+		int cnt = 0; 
 		if(dao.memberIdCheck(vo) == 1) {
 			cnt = 1;
 		}
@@ -157,11 +199,38 @@ public class MemberController {
 	public String memberCeoSignup() {
 		return "member/memberCeoSignup";
 	}
-
+	@RequestMapping("/memberUpdateInfo.do")
+	public String memberUpdateInfo(Model model, MemberVO vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		String pwd = req.getParameter("u_pwd");
+		String tel = req.getParameter("u_tel");
+		String mail = req.getParameter("u_mail");
+		String adr = req.getParameter("u_adr");
+		String adrcode = req.getParameter("u_adrcode");
+		
+		vo.setU_id(id);
+		vo.setU_pwd(pwd);
+		vo.setU_tel(tel);
+		vo.setU_mail(mail);
+		vo.setU_adr(adr);
+		vo.setU_adrcode(Integer.parseInt(adrcode));
+		
+		int r = dao.updateMember(vo);
+		System.out.println(r + "건 수정");
+		
+		model.addAttribute("member", dao.memberSelectJW(vo));
+		return "member/memberMypage";
+	}
 	
 	
 	@RequestMapping("/memberMypage.do")
-	public String mypage() {
+	public String mypage(Model model, MemberVO vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setU_id(id);
+		
+		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberMypage";
 	}
 	@RequestMapping("/memberAdPopup.do")
@@ -171,31 +240,41 @@ public class MemberController {
 		
 	
 	
-	//마일리지
+	//留덉씪由ъ�
 	@RequestMapping("/memberMileage.do")
 	public String memberMileage(Model model) {
 		model.addAttribute("mileage", dao.memberSelectListM());
 		return "member/mileage/memberMileage";
 
-		//+1000마일리지
+		//+1000留덉씪由ъ�
 	}
 	@RequestMapping("/memberMileageUp.do")
 	public String memberMileageUp(MemberVO vo){
 		dao.mileAgeUp(vo);
 		return "member/mileage/memberMileageUpS";
 	}
-		//-1000마일리지
+		//-1000留덉씪由ъ�
 	@RequestMapping("/memberMileageDown.do")
 	public String memberMileageDown(MemberVO vo) {
 		dao.mileAgeDown(vo);
 		return "member/mileage/memberMileageDownS";
 	}
 	
-		//리뷰 작성시 자동지급 
+	// 마일리지 수동 +
+	@RequestMapping("/mileAgeManualUp.do")
+		public String mileAgeManualUp(MemberVO vo) {
+
+			dao.mileAgeManualUp(vo);
+			
+		return "member/mileage/manualUp";
+		}
+	// 마일리지 수동 -
+		@RequestMapping("/mileAgeManualDown.do")
+			public String mileAgeManualDown(MemberVO vo) {
+			
+				dao.mileAgeManualDown(vo);
+				
+			return "member/mileage/manualDown";
+			}
 	
-		//댓글 작성시 자동지급
-	
-	//마일리지 수동 + 
-	
-	//마일리지 수동 -
 }

@@ -16,17 +16,33 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private SqlSession sqlSession;
 	
-
+	//���ϸ��� +1000 
 	@Override
 	public int mileAgeUp(MemberVO vo) {
 		return sqlSession.update("mileAgeU",vo);
 	}
 
+	//���ϸ��� -1000
 	@Override
 	public int mileAgeDown(MemberVO vo) {
 		
-		return sqlSession.update("mileAgeD",vo);
+		return sqlSession.update("mileAgeD",vo);	
 	}
+	//���ϸ��� +����
+	@Override
+	public int mileAgeManualUp(MemberVO vo) {
+		
+		return sqlSession.update("manualUp",vo);
+	}
+	//���ϸ��� -����
+		@Override
+		public int mileAgeManualDown(MemberVO vo) {
+			
+			return sqlSession.update("manualDown",vo);
+		}
+		
+	
+	
 	@Override
 	public List<MemberVO> memberSelectList() {
 		// TODO Auto-generated method stub
@@ -68,19 +84,31 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int deleteMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete("memberDelete", vo);
 	}
 
 	@Override
 	public int updateMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.update("memberUpdate", vo);
 	}
 	@Override
 	public int memberIdCheck(MemberVO vo) {
 		
 		return sqlSession.selectOne("memberIdCheck", vo);
+	}
+
+	@Override
+	public MemberVO memberSelectJW(MemberVO vo) {
+		
+		return sqlSession.selectOne("memberSelectJW", vo);
+	}
+
+	@Override
+	public int joinWaitUpadte(MemberVO vo) {
+		
+		return sqlSession.update("joinWaitUpdate", vo);
 	}
 
 
