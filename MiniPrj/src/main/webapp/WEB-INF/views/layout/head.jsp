@@ -30,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="review.do">
+            <a href="review2.do">
                 Review
             </a>
         </li>
@@ -48,15 +48,15 @@
             </a>
         </li>   
         <li>
-        	<a href="memberLogOut.do">
-                Logout
-            </a>
-        </li>    
-        <li>
         	<a href="message.do">
                 MS
             </a>
         </li>  
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
         </c:if>
          <c:if test="${id ne null and id ne 'admin'}">
         <li>
@@ -65,15 +65,15 @@
             </a>
         </li>   
         <li>
-        	<a href="memberLogOut.do">
-                Logout
-            </a>
-        </li>   
-        <li>
         	<a href="message.do">
                 MS
             </a>
-        </li>   
+        </li>  
+        <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li>    
         </c:if>
         
           </ul>

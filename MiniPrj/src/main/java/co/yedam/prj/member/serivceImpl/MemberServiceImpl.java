@@ -84,14 +84,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int deleteMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete("memberDelete", vo);
 	}
 
 	@Override
 	public int updateMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.update("memberUpdate", vo);
 	}
 	@Override
 	public int memberIdCheck(MemberVO vo) {
