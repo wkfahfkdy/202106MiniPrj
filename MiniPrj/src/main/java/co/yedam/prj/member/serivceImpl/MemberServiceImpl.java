@@ -16,25 +16,25 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	//¸¶ÀÏ¸®Áö +1000 
+	//ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ +1000 
 	@Override
 	public int mileAgeUp(MemberVO vo) {
 		return sqlSession.update("mileAgeU",vo);
 	}
 
-	//¸¶ÀÏ¸®Áö -1000
+	//ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ -1000
 	@Override
 	public int mileAgeDown(MemberVO vo) {
 		
 		return sqlSession.update("mileAgeD",vo);	
 	}
-	//¸¶ÀÏ¸®Áö +¼öµ¿
+	//ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ +ï¿½ï¿½ï¿½ï¿½
 	@Override
 	public int mileAgeManualUp(MemberVO vo) {
 		
 		return sqlSession.update("manualUp",vo);
 	}
-	//¸¶ÀÏ¸®Áö -¼öµ¿
+	//ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ -ï¿½ï¿½ï¿½ï¿½
 		@Override
 		public int mileAgeManualDown(MemberVO vo) {
 			
@@ -97,6 +97,18 @@ public class MemberServiceImpl implements MemberService {
 	public int memberIdCheck(MemberVO vo) {
 		
 		return sqlSession.selectOne("memberIdCheck", vo);
+	}
+
+	@Override
+	public MemberVO memberSelectJW(MemberVO vo) {
+		
+		return sqlSession.selectOne("memberSelectJW", vo);
+	}
+
+	@Override
+	public int joinWaitUpadte(MemberVO vo) {
+		
+		return sqlSession.update("joinWaitUpdate", vo);
 	}
 
 

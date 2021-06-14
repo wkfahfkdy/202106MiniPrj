@@ -131,7 +131,6 @@
 	}
 </script>
 
-<br><br>
 <div class="sJoin" align="center">
 	<h3>사업자 회원가입</h3>
 	<br>

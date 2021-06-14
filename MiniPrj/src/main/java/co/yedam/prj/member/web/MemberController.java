@@ -54,7 +54,9 @@ public class MemberController {
 		return "member/memberInfo";
 	}
 	@RequestMapping("/businessMemberPage.do")
-	public String businessMemberPage(Model model) {
+	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req) {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
 		
 		return "member/businessMemberPage";
 	}
@@ -76,6 +78,23 @@ public class MemberController {
 		};
 		
 		return path;
+	}
+	//가입승인페이지로 이동
+	@RequestMapping("/memberJoinWait.do")
+	public String memberJoinWait(Model medel, MemberVO vo, HttpServletRequest req){
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		vo = dao.memberSelectJW(vo);
+		medel.addAttribute("member", vo);
+		return "member/memberJoinWait";	
+	}
+	//가입승인
+	@RequestMapping("/memberJoinWaitUpdate.do")
+	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req) {
+		int r = dao.joinWaitUpadte(vo);
+		System.out.println(r + "건 수정");
+		
+		return "redirect:memberInfoWait.do";
 	}
 	
 	@RequestMapping("/memberLogOut.do")
@@ -107,9 +126,7 @@ public class MemberController {
 	public String ceoSignupSubmit(Model model, MemberVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		int size = 10 * 1024 * 1024;
 		String path = "C:\\tmp";
-		ServletContext sc = req.getServletContext();
-		path = sc.getRealPath("upload");
-		System.out.println(path);
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
 		String fileName = "";
 		MultipartRequest multi = null;
 		try {
@@ -122,7 +139,6 @@ public class MemberController {
 			while (files.hasMoreElements()) {
 				String itemImage = (String) files.nextElement();
 				fileName = multi.getFilesystemName(itemImage);
-				System.out.println(itemImage+" fileName: " + fileName);
 			}
 
 		} catch (IOException e) {
