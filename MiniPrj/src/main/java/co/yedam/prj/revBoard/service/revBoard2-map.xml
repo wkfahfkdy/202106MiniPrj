@@ -3,8 +3,18 @@
 <mapper namespace="co.yedam.prj.revBoard.service.revBoard2-map">
 	
 	<select id="revBoardList2" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
-		select * from review
+		select * from review order by 1 desc
 	</select>
 	
+	<insert id="revBoardInsert2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+	insert into review (rb_num,rb_title,u_id,rb_content,rb_image) values(numseq.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image})
+	</insert>
 	
+	<update id="revBoardLikeUp" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+	update review set rb_like= rb_like +1 where rb_num=#{rb_num}
+	</update>
+	
+	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		
+	</select>
 </mapper>

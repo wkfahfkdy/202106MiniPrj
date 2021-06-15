@@ -22,6 +22,19 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		return sqlSession.selectList("revBoardList2");
 	}
 
+	@Override
+	public int insertRevBoard(revBoardVO2 vo) {
 		
+		return sqlSession.insert("revBoardInsert2",vo);
+	}
+
+	@Override
+	public int reviewLike(revBoardVO2 vo) {
+		
+		
+		return sqlSession.update("revBoardLikeUp",vo);
+	}
+	
+	
 	
 }

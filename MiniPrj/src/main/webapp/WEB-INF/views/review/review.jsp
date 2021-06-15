@@ -17,6 +17,21 @@
 		float:right;
 	}
 	</style>
+	  <script>
+	function likeBtn(rblike,id,rbnum){
+		console.log(rbnum);
+		console.log(id);
+		if(!id){
+			alert("로그인후 이용이 가능합니다!");
+		}else{
+		frm.rb_like.value=rblike;
+		frm.rb_num.value=rbnum;
+		frm.submit();
+		}
+	}
+	</script>
+	
+	
 </head>
         
 <div style="margin-top: 150px">
@@ -44,7 +59,7 @@
 			 
 			
                 <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item mockups">
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
+					<a href="red1.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					   
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
@@ -83,21 +98,22 @@
 			<c:forEach items="${list }" var="list">
                 <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item mockups">
                  
-					<a href="reviewDetail.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
+					<div class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
 					        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
-					        <img src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/portfolio-2-md.png" alt="">
+					        <img src="resources/reviewUpload/${list.rb_image }" alt="">
 					    </span>
+					    
 					    
 					   	<span class="dk-portfolio-item-info">
 						        <span class="h3 dk-portfolio-item-title">${list.rb_title }</span>
 						        <span class="dk-portfolio-item-category">
-					            	<span>${list.u_id }</span>
+					            	<span>${list.u_id }</span><span><button type="button" onclick="likeBtn('${list.rb_like}','${id}','${list.rb_num }');">좋아요&nbsp&nbsp&nbsp ${list.rb_like }</button></span>
 					        	</span>
 					    </span>
-					</a>
-					   
+					
+					   </div>
 				</div>
               
                </c:forEach>
@@ -107,17 +123,16 @@
             </div>
  				
             <div class="text-center">
-                <a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-50">Load More</a> 
-                
+                <a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-50">Load More</a>              
                  <table border="1">
-                
-                
-                 
-                 </table>
-                 
+                 </table>                
      	   </div>
     
     </div>
     </div>
 
+	<form id="frm" name="frm" action="reviewLike.do" method="post">
+		<input type="hidden" id="rb_like" name="rb_like">
+		<input type="hidden" id="rb_num" name="rb_num">
+	</form>
   </div>
