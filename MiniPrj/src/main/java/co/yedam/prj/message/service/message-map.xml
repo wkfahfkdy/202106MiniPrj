@@ -7,12 +7,13 @@
 		select * from message where receiver_Name = #{receiver_name}  or sender_Name = #{receiver_name} order by ms_num desc
 	</select>
 	
-	<!-- 보낸메세지조회 -->
+	<!-- 받은메세지조회 -->
 	<select id="messageSelectReceiver" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
-		select * from message where receiver_Name = #{receiver_name} order by ms_num desc
+
+		select * from message where receiver_Name = #{receiver_name} order by ms_num desc	
 	</select>
 	
-	<!-- 받은메세지조회 -->
+	<!-- 보낸메세지조회 -->
 	<select id="messageSelectSenderList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
 		select * from message where sender_Name = #{receiver_name} order by ms_num desc
 	</select>
@@ -21,5 +22,15 @@
 	<select id="messageSerlect" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
 		select * from message where ms_num = #{ms_num}
 	</select>
+	
+	<!-- 쪽지보내기(insert) -->
+	<insert id="messageInsert" parameterType="co.yedam.prj.message.vo.MessageVO" >
+		insert into message values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AM HH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval)
+	</insert>
+	
+	<!-- 쪽지삭제(delete) -->
+	<delete id="messageDelete" parameterType="co.yedam.prj.message.vo.MessageVO">
+		delete from message where ms_num = #{ms_num}
+	</delete>
 	
 </mapper>

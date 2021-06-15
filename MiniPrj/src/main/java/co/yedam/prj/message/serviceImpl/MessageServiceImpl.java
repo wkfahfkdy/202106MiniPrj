@@ -40,16 +40,16 @@ public class MessageServiceImpl implements MessageService {
 		return sqlSession.selectOne("messageSelect", vo);
 	}
 	
-	@Override
+	@Override // 쪽지작성
 	public int messageInsert(MessageVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.insert("messageInsert", vo);
 	}
 
-	@Override
+	@Override // 쪽지삭제
 	public int messageDelete(MessageVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return sqlSession.delete("messageDelete", vo);
 	}
 
 

@@ -78,8 +78,25 @@ public class MessageController {
 		return "message/form";
 	}
 	
+	// 쪽지작성
+	@RequestMapping("/messageInsert.do")
+	private String messageInsert(Model model, MessageVO vo) {
+		
+		int r = dao.messageInsert(vo);
+		System.out.println(r + "건 입력!");
+		
+		return "message/insert";
+	}
 	
-	
+	// 쪽지삭제
+	@RequestMapping("/messageDelete.do")
+	private String messageDelete(HttpServletRequest request, Model model, MessageVO vo) {
+
+		String ms_num = request.getParameter("ms_num");
+		vo.setMs_num(Integer.parseInt(ms_num));
+		
+		return "redirect:messageSelectSenderList.do";
+	}
 	
 	
 	
