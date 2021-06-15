@@ -54,9 +54,9 @@
 		<table>
 			<tr>
 				<th>
-					<a href="messageReceiverList.do" style="color: #fff;">받은쪽지</a></th>
+					<a href="receiverPaging.do" style="color: #fff;">받은쪽지</a></th>
 				<th>
-					<a href="messageSelectSenderList.do" style="color: #fff;">보낸쪽지</a></th>
+					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
 					<a href="#" style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
