@@ -5,16 +5,9 @@
 <script>
 	// 페이지 넘기기
 	function goPage(page){
-		location.href = "noticeListPaging.do?page=" + page;
+		location.href = "senderPaging.do?page=" + page;
 	}
 	
-	function frmSubmit(noticeNum, noticeHit) {
-		
-		frm.nt_num.value = noticeNum;
-		frm.nt_hit.value = noticeHit;
-		frm.submit();
-		
-	}
 </script>
 <style>
 	th {
@@ -58,7 +51,8 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a href="#" style="color: #fff;">쪽지쓰기</a></th>
+					<a onclick="window.open('messageInsert.do','MS','width=550,height=500,location=no,status=no,scrollbars=no');" 
+					style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
 		</table>
 	</div>
@@ -73,7 +67,7 @@
 				<td width="8%">관리</td>
 			</tr>
 			<tr style="height: 10px;"></tr>
-			<c:forEach items="${list }" var="vo">
+			<c:forEach items="${bolist }" var="vo">
 			<tr>
 				<td>${vo.receiver_name }</td>
 				<td style="text-align: left;">${vo.content }</td>

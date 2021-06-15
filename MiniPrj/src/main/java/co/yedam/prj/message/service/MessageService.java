@@ -20,6 +20,8 @@ public interface MessageService {
 	public List<MessageVO> senderPaging(MessageVO vo);
 	public int ReceiverCount();
 	public int SenderCount();
+	public List<MessageVO> ReceiverList(MessageVO vo);
+	public List<MessageVO> SenderList(MessageVO vo);
 	
 	
 }

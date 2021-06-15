@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- 
 <div align="center">
 	<h3>쪽지쓰기</h3>
 	<div>
@@ -13,7 +14,7 @@
 	<input type="submit" value="보내기" onclick="window.close()">
 	<input type="button" value="창닫기" onclick="window.close()">
 </div>
-
+ -->
 
 <div align="center">
 	<h3>쪽지쓰기</h3>
@@ -25,7 +26,7 @@
 			<td>
 				<select name="받는사람">
 				<c:forEach items="${list }" var="vo">
-				<!-- <option value="HTML">${ }</option> -->	
+				<!-- <option value="HTML"> }</option> -->	
 				</c:forEach>
 				</select>
 			</td>

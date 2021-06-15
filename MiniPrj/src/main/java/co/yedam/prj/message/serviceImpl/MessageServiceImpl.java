@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.message.service.MessageService;
 import co.yedam.prj.message.vo.MessageVO;
-import co.yedam.prj.notice.vo.NoticeVO;
 
 
 @Repository("messageDao")
@@ -64,8 +63,19 @@ public class MessageServiceImpl implements MessageService {
 		return sqlSession.selectOne("ReceiverCount");
 	}
 
-	@Override // 보낸쪽지 게시글 전체 수 Count
+	@Override
 	public int SenderCount() {
 		return sqlSession.selectOne("SenderCount");
 	}
+	
+	@Override // 받은쪽지 게시글 전체 수 Count
+	public List<MessageVO> ReceiverList(MessageVO vo) {
+		return sqlSession.selectList("ReceiverList", vo);
+	}
+
+	@Override // 보낸쪽지 게시글 전체 수 Count
+	public List<MessageVO> SenderList(MessageVO vo) {
+		return sqlSession.selectList("SenderList", vo);
+	}
+
 }
