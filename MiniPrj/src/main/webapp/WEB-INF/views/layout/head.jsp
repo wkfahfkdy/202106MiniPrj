@@ -48,7 +48,7 @@
             </a>
         </li>   
         <li>
-        	<a href="messageReceiverList.do">
+        	<a href="receiverPaging.do">
                 MS
             </a>
         </li>  
@@ -65,7 +65,7 @@
             </a>
         </li>   
         <li>
-        	<a href="messageReceiverList.do">
+        	<a href="receiverPaging.do">
                 MS
             </a>
         </li>  
