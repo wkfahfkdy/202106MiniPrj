@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -126,5 +125,39 @@ public class NoticeController {
 		
 		return "redirect:noticeListPaging.do";
 	}
+	
+	// 댓글 작성
+	@RequestMapping("ntAddComment.do")
+	public String addComment(HttpServletRequest request, NoticeReplyVO vo) {
+		
+		String want = request.getParameter("want");
+		
+		String u_id = request.getParameter("u_id");
+		String ntr_content = request.getParameter("ntr_content");
+		int ntb_num = Integer.parseInt(request.getParameter("ntb_num"));
+		
+		vo.setU_id(u_id);
+		vo.setNtr_content(ntr_content);
+		vo.setNtb_num(ntb_num);
+		
+		if(want.equals("new")) {
+			
+			dao.InsertnoticeReply(vo);
+			
+		} else if(want.equals("add")) {
+			
+			int ntr_depth = Integer.parseInt(request.getParameter("ntr_depth"));
+			int ntr_num = Integer.parseInt(request.getParameter("ntr_num"));
+			
+			vo.setNtr_depth(ntr_depth);
+			vo.setNtr_num(ntr_num);
+			
+			dao.InsertnoticeReplyAdd(vo);
+			
+		}
+		
+		return "redirect:noticeListPaging.do";
+	}
+	
 	
 }

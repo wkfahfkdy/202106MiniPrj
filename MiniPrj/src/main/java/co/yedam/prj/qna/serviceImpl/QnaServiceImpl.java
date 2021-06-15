@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.qna.service.QnaService;
+import co.yedam.prj.qna.vo.QnaReplyVO;
 import co.yedam.prj.qna.vo.QnaVO;
 
 @Repository("QnaDao")
@@ -69,6 +70,27 @@ public class QnaServiceImpl implements QnaService {
 	public int hitCount(QnaVO vo) {
 		
 		return sqlSession.update("qnaHit", vo);
+	}
+
+	// 댓글 리스트 조회
+	@Override
+	public List<QnaReplyVO> replyList(QnaReplyVO vo) {
+		
+		return sqlSession.selectList("qnaReplyList", vo);
+	}
+
+	// 댓글 입력
+	@Override
+	public int insertQnaReply(QnaReplyVO vo) {
+		
+		return sqlSession.insert("qnaReplyInsert", vo);
+	}
+
+	// 대댓글 입력
+	@Override
+	public int insertQnaReplyAdd(QnaReplyVO vo) {
+		
+		return sqlSession.insert("qnaReplyInsertAdd", vo);
 	}
 	
 	

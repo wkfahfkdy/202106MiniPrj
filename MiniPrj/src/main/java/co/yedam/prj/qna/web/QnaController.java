@@ -11,8 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.common.Paging;
-import co.yedam.prj.notice.vo.NoticeVO;
+import co.yedam.prj.notice.vo.NoticeReplyVO;
 import co.yedam.prj.qna.service.QnaService;
+import co.yedam.prj.qna.vo.QnaReplyVO;
 import co.yedam.prj.qna.vo.QnaVO;
 
 @Controller
@@ -73,7 +74,7 @@ public class QnaController {
 	
 	// 작성한 게시글 조회
 	@RequestMapping("/qnaSelect.do")
-	public String qnaSelect(Model model, HttpServletRequest request, QnaVO vo) {
+	public String qnaSelect(Model model, HttpServletRequest request, QnaVO vo, QnaReplyVO vo2) {
 		
 		String qn_num = request.getParameter("qn_num");
 		String qn_hit = request.getParameter("qn_hit");
@@ -87,6 +88,11 @@ public class QnaController {
 		
 		System.out.println(select);
 		model.addAttribute("vo", select);
+		
+		// 작성한 게시글의 댓글 리스트
+		
+		List<QnaReplyVO> replyList = dao.replyList(vo2);
+		model.addAttribute("replyList", replyList);
 		
 		return "qna/qnaSelect";
 	}
@@ -116,6 +122,39 @@ public class QnaController {
 		vo.setQn_content(qn_content);
 		
 		dao.updateQna(vo);
+		
+		return "redirect:qnaListPaging.do";
+	}
+	
+	// 댓글 작성
+	@RequestMapping("qnAddComment.do")
+	public String addComment(HttpServletRequest request, QnaReplyVO vo) {
+		
+		String want = request.getParameter("want");
+		
+		String u_id = request.getParameter("u_id");
+		String qnr_content = request.getParameter("qnr_content");
+		int qnb_num = Integer.parseInt(request.getParameter("qnb_num"));
+		
+		vo.setU_id(u_id);
+		vo.setQnr_content(qnr_content);
+		vo.setQnb_num(qnb_num);
+		
+		if(want.equals("new")) {
+			
+			dao.insertQnaReply(vo);
+			
+		} else if(want.equals("add")) {
+			
+			int qnr_depth = Integer.parseInt(request.getParameter("qnr_depth"));
+			int qnr_num = Integer.parseInt(request.getParameter("qnr_num"));
+			
+			vo.setQnr_depth(qnr_depth);
+			vo.setQnr_num(qnr_num);
+			
+			dao.insertQnaReplyAdd(vo);
+			
+		}
 		
 		return "redirect:qnaListPaging.do";
 	}

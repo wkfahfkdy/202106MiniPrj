@@ -72,10 +72,25 @@ public class NoticeServiceImpl implements NoticeService {
 		return sqlSession.update("noticeHit", vo);
 	}
 
+	// 댓글 리스트 조회
 	@Override
 	public List<NoticeReplyVO> replyList(NoticeReplyVO vo) {
 		
 		return sqlSession.selectList("noticeReplyList", vo);
+	}
+	
+	// 댓글 입력
+	@Override
+	public int InsertnoticeReply(NoticeReplyVO vo) {
+		
+		return sqlSession.insert("noticeReplyInsert", vo);
+	}
+
+	// 대댓글 입력
+	@Override
+	public int InsertnoticeReplyAdd(NoticeReplyVO vo) {
+		
+		return sqlSession.insert("noticeReplyInsertAdd", vo);
 	}
 	
 }

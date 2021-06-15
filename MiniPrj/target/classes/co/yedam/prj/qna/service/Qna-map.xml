@@ -48,5 +48,26 @@
 	<update id="qnaHit" parameterType="co.yedam.prj.qna.vo.QnaVO">
 		update qna set qn_hit = #{qn_hit} +1 where qn_num = #{qn_num}
 	</update>
+
+	<!-- 댓글 조회 -->
+	<select id="qnaReplyList" parameterType="co.yedam.prj.qna.vo.QnaReplyVO" resultType="co.yedam.prj.qna.vo.QnaReplyVO">
+	 	<![CDATA[
+			select  A.qnb_num, A.qnr_num, A.qnr_numch, A.u_id, A.qnr_content, A.qnr_DEPTH, A.qnr_REGDATE, level
+			from qna_reply A
+			where qnb_num = #{qnb_num}
+			start with qnr_numch = 0
+			connect by prior qnr_num = qnr_numch
+		]]>
+	</select>
+	
+	<!-- 댓글 입력 -->
+	<insert id="qnaReplyInsert" parameterType="co.yedam.prj.qna.vo.QnaReplyVO">
+		insert into qna_reply values (#{qnb_num}, qnr_seq.nextval, 0, #{u_id}, #{qnr_content}, 0, sysdate)
+	</insert>
+	
+	<!-- 댓글 입력 -->
+	<insert id="qnaReplyInsertAdd" parameterType="co.yedam.prj.qna.vo.QnaReplyVO">
+		insert into qna_reply values (#{qnb_num}, qnr_seq.nextval, #{qnr_num}, #{u_id}, #{qnr_content}, #{qnr_depth}, sysdate)
+	</insert>
 	
 </mapper>
