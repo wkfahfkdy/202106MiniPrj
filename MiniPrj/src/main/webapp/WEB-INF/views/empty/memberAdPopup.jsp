@@ -14,7 +14,7 @@
 <script>
   function showPopup() { window.open("ad_popup2.jsp", "a", "width=400, height=300, left=100, top=50"); }
   
-  function iamport(){
+  function iamport(icode){
       //가맹점 식별코드
       IMP.init('imp07808434');
       IMP.request_pay({
@@ -79,7 +79,7 @@
 				<td>${service.i_pay}원 </td>
 				<td>${service.week}주 </td>
 				<td><button class="dk-btn dk-btn-md" style="width:100%" 
-				onclick="iamport()">API결제</button></td>
+				onclick="iamport('${service.i_code}')">API결제</button></td>
 				<td><button class="dk-btn dk-btn-md" style="width:100%" 
 				onclick="purchase('${service.i_code}')">가상결제</button></td>
 				
