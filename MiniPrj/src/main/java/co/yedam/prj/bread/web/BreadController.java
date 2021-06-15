@@ -48,7 +48,12 @@ public class BreadController {
 	
 	
 	@RequestMapping("/test.do")
-	public String test() {
+	public String test(Model model, BreadVO vo) {
+		
+		vo = dao.testAdr();
+		String testAdr = vo.getS_adr();
+		
+		model.addAttribute("testAdr", testAdr);
 		
 		return "bread/test";
 	}
