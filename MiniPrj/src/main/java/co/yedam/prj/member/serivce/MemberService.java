@@ -12,6 +12,7 @@ public interface MemberService {
 	public List<MemberVO> memberSelectListBM();
 	public List<MemberVO> memberSelectListM();
 	public MemberVO memberSelectJW(MemberVO vo);
+	public MemberVO memberSelectSID(MemberVO vo);
 	public int memberSelect(MemberVO vo);
 	public int insertMember(MemberVO vo);
 	public int insertCeo(MemberVO vo);

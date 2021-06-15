@@ -111,5 +111,11 @@ public class MemberServiceImpl implements MemberService {
 		return sqlSession.update("joinWaitUpdate", vo);
 	}
 
+	@Override
+	public MemberVO memberSelectSID(MemberVO vo) {
+		
+		return sqlSession.selectOne("memberSelectSID", vo);
+	}
+
 
 }

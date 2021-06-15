@@ -3,4 +3,12 @@
 <mapper namespace="co.yedam.prj.member.serivce.member-map">
 	
 	
+	<select id="serviceSelectList" resultType="co.yedam.prj.service.vo.ServiceVO">
+		select * from service
+	</select>
+	
+	<select id="serviceSelect" parameterType="co.yedam.prj.service.vo.ServiceVO" resultType="co.yedam.prj.service.vo.ServiceVO">
+		select * from service 
+		where i_code=#{i_code}
+	</select>
 </mapper>

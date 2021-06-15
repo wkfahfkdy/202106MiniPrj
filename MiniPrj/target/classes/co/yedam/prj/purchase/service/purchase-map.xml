@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.prj.member.serivce.member-map">
+	<insert id="insertPurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		insert into purchase (u_id, s_id, i_code, i_regdate, e_date, i_pay)
+		values (#{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+14, #{i_pay})
+	</insert>
 	
+	<insert id="insertPurchaseT" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		insert into purchase (u_id, s_id, i_code, i_regdate, e_date, i_pay)
+		values (#{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+28, #{i_pay})
+	</insert>
+	
+	<select id="purchaseSelectList" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
+		select a.*, b.I_NAME
+		from purchase a join service b
+		on a.i_code = b.i_code
+		where a.u_id = #{u_id}
+	</select>
 	
 </mapper>
