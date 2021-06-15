@@ -87,7 +87,7 @@
 			<div class="dk-box dk-header">
 
 				<div class="container">
-					<c:forEach items="${store}" var="vo" begin="1" end="1">
+					<c:forEach items="${store}" var="vo">
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
@@ -119,7 +119,8 @@
 							
 								<div class="dk-box dk-header-info">
 											<div>
-												<h4 class="display-3 mnt-8">${vo.s_name }</h4>
+												<h4 class="display-3 mnt-8">${vo.s_name }foreach표현식쓰니까
+													db내 빵 가지수 따라서 증식함 해결필요</h4>
 											</div>
 		
 											<div>
@@ -142,9 +143,9 @@
 
 
 
-					<c:forEach items="${store}" var="vo">
+					<c:forEach items="bread" var="vo">
 						<div class="row no-gutters">
-								<div class="col-12 col-lg-6">
+							<div class="col-12 col-lg-6">
 
 								<a href="portfolio-single-1.html"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
@@ -152,9 +153,9 @@
 										class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 
 										<span class="dk-portfolio-item-overlay"
-										style="background-color: rgba(255, 255, 255, .85)">${vo.s_name}</span> <img
+										style="background-color: rgba(255, 255, 255, .85)"></span> <img
 										src="">빵 이미지 삽입
-								</span> <span class="dk-portfolio-item-info"> ${vo.b_comment }<span
+								</span> <span class="dk-portfolio-item-info"> <span
 										class="h3 dk-portfolio-item-title"></span> <span
 										class="dk-portfolio-item-category"> <span></span>
 									</span>

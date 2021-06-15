@@ -84,13 +84,13 @@ public class NoticeController {
 		vo1.setNt_hit(Integer.parseInt(nt_hit));
 		vo2.setNtb_num(Integer.parseInt(ntb_num));
 		
+		// 선택한 글을 들어갈 시 조회수 +1
 		dao.hitcount(vo1);
 		
 		NoticeVO select = dao.noticeSelect(vo1);
 		model.addAttribute("vo", select);
 		
 		// 작성한 게시글의 댓글 리스트
-		
 		List<NoticeReplyVO> replyList = dao.replyList(vo2);
 		model.addAttribute("replyList", replyList);
 		
@@ -98,7 +98,7 @@ public class NoticeController {
 	}
 	
 	// 게시글 삭제
-	@RequestMapping("noticeDelete.do")
+	@RequestMapping("/noticeDelete.do")
 	public String noticeDelete(HttpServletRequest request, NoticeVO vo) {
 		
 		String nt_num = request.getParameter("nt_num");
@@ -110,7 +110,7 @@ public class NoticeController {
 	}
 	
 	// 게시글 수정
-	@RequestMapping("noticeUpdate.do")
+	@RequestMapping("/noticeUpdate.do")
 	public String noticeUpdate(HttpServletRequest request, NoticeVO vo) {
 		
 		String nt_num = request.getParameter("nt_num");
@@ -127,10 +127,11 @@ public class NoticeController {
 	}
 	
 	// 댓글 작성
-	@RequestMapping("ntAddComment.do")
+	@RequestMapping("/ntAddComment.do")
 	public String addComment(HttpServletRequest request, NoticeReplyVO vo) {
 		
-		String want = request.getParameter("want");
+		// 댓글(want : new) - 대댓글(want : add) 구별을 위한 값
+		String want = request.getParameter("want");	
 		
 		String u_id = request.getParameter("u_id");
 		String ntr_content = request.getParameter("ntr_content");
@@ -140,10 +141,12 @@ public class NoticeController {
 		vo.setNtr_content(ntr_content);
 		vo.setNtb_num(ntb_num);
 		
+		// want : new = 댓글이라면
 		if(want.equals("new")) {
 			
 			dao.InsertnoticeReply(vo);
-			
+		
+		// want : add = 대댓글이라면
 		} else if(want.equals("add")) {
 			
 			int ntr_depth = Integer.parseInt(request.getParameter("ntr_depth"));

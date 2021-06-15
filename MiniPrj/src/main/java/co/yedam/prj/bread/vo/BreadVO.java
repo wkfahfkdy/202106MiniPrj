@@ -22,7 +22,7 @@ public class BreadVO {
 	private String b_comment; //빵 설명
 	// 빵이 있는 가게 S_id 가져오기
 	private String b_image; // 빵 이미지
-	private String b_like; // ????더 추가할 내용
+	private String b_like; // 빵 인기도
 	private String b_price; // 빵 가격
 	
 	
