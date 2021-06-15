@@ -17,6 +17,7 @@
  -->
 
 <div align="center">
+	<br><br>
 	<h3>쪽지쓰기</h3>
 	<table>
 		<tr>
@@ -25,9 +26,17 @@
 			</td>
 			<td>
 				<select name="받는사람">
-				<c:forEach items="${list }" var="vo">
-				<!-- <option value="HTML"> }</option> -->	
-				</c:forEach>
+				<!--<c:forEach items="${list }" var="vo">-->
+					<option value="">store1</option>	
+					<option value="">store2</option>	
+					<option value="">store3</option>	
+					<option value="">store4</option>	
+					<option value="">store5</option>	
+					<option value="">store6</option>	
+					<option value="">store7</option>	
+					<option value="">store8</option>	
+					<option value="">store9</option>	
+				<!--</c:forEach>-->
 				</select>
 			</td>
 		</tr>
