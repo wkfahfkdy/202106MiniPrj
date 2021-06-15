@@ -59,7 +59,7 @@
 							<td>${member.u_mail }</td>
 							<td>${member.regdate }</td>
 							<c:if test="${member.joinwait eq 'N' and member.s_reg eq 'N'  }">
-							<th><button onclick="joinWait(${member.u_id })">회원관리</button></th>
+							<th><button class="dk-btn dk-btn-md" onclick="joinWait(${member.u_id })">회원관리</button></th>
 
 							</c:if>
 						</tr>

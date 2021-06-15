@@ -61,10 +61,10 @@
 	    $('#u_pwdChk').keyup(function(){
 
     	    if($('#u_pwd').val() != $('#u_pwdChk').val()){
-        	  $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+        	  $('#chkNotice').html('비밀번호 일치하지 않음');
           	  $('#chkNotice').attr('color', '#f82a2aa3');
             } else{
-              $('#chkNotice').html('비밀번호 일치함<br><br>');
+              $('#chkNotice').html('비밀번호 일치함');
               $('#chkNotice').attr('color', '#199894b3');
         }
 
@@ -160,9 +160,7 @@
 							<div class="col-md-12">
 							<input style="width: 50%;" type="hidden" id="sample6_extraAddress" placeholder="상세주소" class="form-control">
 							</div>
-							<div class="col-12">
-							<div class="dk-result"></div>
-							</div>
+						
 						</div>
 
 						<!-- 마일리지 확인 파트 -->
@@ -174,21 +172,32 @@
 
 						<!-- 마일리지 확인 파트 끝-->
 						
-						<div>
-							<c:if test="${member.s_reg eq 'N' }">
-								<button class="dk-btn dk-btn-md" type="submit" name="check_mileage">적립금 확인하기</button>
+						<div class="row vertical-gap" >
+							<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
+								<div class="col-12">
+									<button style="width: 50%;" class="dk-btn dk-btn-md" type="submit" name="check_mileage">적립금 확인하기</button>
+								</div>
 							</c:if>	
 							<c:if test="${member.s_reg eq 'Y' and member.s_pay eq 0}">
-								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
-								onclick="window.open('memberAdPopup.do','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
-								신청하러가기</button>
-							</c:if>
-							<c:if test="${member.s_reg eq 'Y' and member.s_pay > 0}">
-								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
-								onclick="#">이용중인 광고 조회</button>
+								<div class="col-12">
+									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+									onclick="window.open('memberAdPopup.do','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
+									신청하러가기</button>
+								</div>
 							</c:if>	
-							<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정하기</button>
-							<button class="dk-btn dk-btn-md" name="deleteInfo" onclick="deleteInfo()">탈퇴하기</button>
+							<c:if test="${member.s_reg eq 'Y' and member.s_pay > 0}">
+								<div class="col-12">	
+									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+									onclick="#">이용중인 광고조회</button>
+									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+									onclick="window.open('memberAdPopup.do','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
+									신청</button>
+								</div>
+							</c:if>	
+							<div class="col-12">
+								<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정</button>
+								<button class="dk-btn dk-btn-md" name="deleteInfo" onclick="deleteInfo()">탈퇴하기</button>
+							</div>
 						</div>
 				</div>
 			</div>
@@ -199,6 +208,7 @@
 	<!-- 페이지 상단 부분 정보 끝 -->
 
 	<!-- 리뷰 사진 파트 -->
+	<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
 	<div class="dk-box-2" style="background-color: #f3f3f3;">
 		<div class="container mnb-35">
 			<h2 class="text-center mnt-8 mb-60">My Review 내 리뷰</h2>
@@ -243,7 +253,7 @@
 
 				</div>
 				<!-- 두번째 박스 끝 -->
-
+		
 
 
 				<!-- 세번째 박스 -->
@@ -332,11 +342,11 @@
 		</div>
 	</div>
 
-
+	</c:if>
 
 
 	<!-- 사업자 관리 페이지 추가 부분 -->
-
+	<c:if test="${member.s_reg eq 'Y' }">
 	<h3 align="center">관리자 페이지 추가 부분입니다.</h3>
 
 	<div class="dk-box-1">
@@ -385,11 +395,10 @@
 
 	<div class="dk-box-2">
 		<div class="container">
-			<div
-				class="row no-gutters vertical-gap align-items-md-center justify-content-between">
+			<div class="row no-gutters vertical-gap align-items-md-center justify-content-between">
 				<div class="col-12 col-md-6 dk-gallery">
 					<a
-						href="${pageContext.request.contextPath }/${pageContext.request.contextPath }/resources/css/mimilism/assets/images/img-home-7.png"
+						href="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/img-home-7.png"
 						class="dk-gallery-item"><img class="dk-img"
 						src="assets/images/img-home-7.png" alt=""></a>
 				</div>
@@ -448,7 +457,7 @@
 
 
 
-
+	</c:if>
 
 	<!-- 사업자 관리 페이지 추가 부분 끝 -->
 

@@ -52,7 +52,7 @@
 							<td>${member.regdate }</td>
 						
 							<c:if test="${member.joinwait eq 'Y' }">
-							<th><button onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
+							<th><button class="dk-btn dk-btn-md" onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
 							</c:if>
 						
 						</tr>

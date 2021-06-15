@@ -234,7 +234,8 @@ public class MemberController {
 	}
 	@RequestMapping("/memberAdPopup.do")
 	public String adpopup() {
-		return "member/memberAdPopup";
+		
+		return "empty/memberAdPopup";
 	}
 		
 	
