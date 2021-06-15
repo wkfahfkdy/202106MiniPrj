@@ -31,7 +31,7 @@ public class QnaController {
 		List<QnaVO> list = new ArrayList<>();
 		List<QnaVO> total = new ArrayList<>();
 		
-		if (page == null) page = "1";
+		if (page == null) page = "1"; 
 		
 		int ipage = Integer.parseInt(page);
 		
