@@ -60,4 +60,14 @@
 		]]>
 	</select>
 	
+	<!-- 댓글 입력 -->
+	<insert id="noticeReplyInsert" parameterType="co.yedam.prj.notice.vo.NoticeReplyVO">
+		insert into notice_reply values (#{ntb_num}, ntr_seq.nextval, 0, #{u_id}, #{ntr_content}, 0, sysdate)
+	</insert>
+	
+	<!-- 댓글 입력 -->
+	<insert id="noticeReplyInsertAdd" parameterType="co.yedam.prj.notice.vo.NoticeReplyVO">
+		insert into notice_reply values (#{ntb_num}, ntr_seq.nextval, #{ntr_num}, #{u_id}, #{ntr_content}, #{ntr_depth}, sysdate)
+	</insert>
+	
 </mapper>
