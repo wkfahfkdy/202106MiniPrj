@@ -14,7 +14,8 @@
 	update review set rb_like= rb_like +1 where rb_num=#{rb_num}
 	</update>
 	
-	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
-		
+	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">	
+	select * from (select * from review order by rb_like desc) where rownum &lt;=3
 	</select>
+
 </mapper>

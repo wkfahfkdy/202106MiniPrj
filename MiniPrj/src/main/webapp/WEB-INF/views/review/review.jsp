@@ -29,6 +29,8 @@
 		frm.submit();
 		}
 	}
+	
+	 function showPopup() { window.open("reviewClick.do", "리뷰클릭페이지", "width=1000, height=800, left=300, top=100"); }
 	</script>
 	
 	
@@ -57,29 +59,31 @@
             <div class="row vertical-gap dk-isotope-grid dk-box-2-r">
            
 			 
-			
+			<c:forEach items="${top }" var="top">
+				<c:set var="i" value="${i+1 }"/>
                 <div class="col-12 col-md-6 col-lg-4 dk-isotope-grid-item mockups">
-					<a href="red1.do" class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
+                	<h2>TOP ${i }</h2>
+					<div class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					   
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-					        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
+					        <a href="#" onclick="showPopup();"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
 					        <img src="resources/bootstrap/mimilism/assets/images/portfolio-2-md.png" alt="">
 					    </span>
 					    
 					   	<span class="dk-portfolio-item-info">
-						        <span class="h3 dk-portfolio-item-title">USER1</span>
+						        <span class="h3 dk-portfolio-item-title">${top.rb_title }</span>
 						        <span class="dk-portfolio-item-category">
-					            	<span>very good bread!</span>
+					            	<span>${top.u_id }</span>
 					        	</span>
 					    </span>
 					    
-					</a>
+					</div>
 					
 				</div>
               
          
-			
+				</c:forEach>
             </div>
 
         </div>
@@ -101,7 +105,7 @@
 					<div class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-					        <span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></span>
+					        <a href="#" onclick="showPopup();"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
 					        <img src="resources/reviewUpload/${list.rb_image }" alt="">
 					    </span>
 					    
