@@ -61,7 +61,9 @@
 	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/js/mimilism-init.js"></script>
 
 
+
 <style type="text/css">
+
 ul, li {
 	margin: 0;
 	padding: 0;
@@ -81,11 +83,13 @@ ul, li {
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
+	z-index: 1000;
 }
 
 #sub-menu>li {
 	padding: 16px 28px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	z-index: 1001;
 }
 
 #sub-menu>li>a {
@@ -102,7 +106,7 @@ ul, li {
 }
 
 .minibox {
-	height: 130px;
+	height: 260px;
 	width: 555px;
 	float: left;
 }
@@ -118,24 +122,23 @@ ul, li {
 <body>
 
 
-	<div style="margin-top: 150px">
+	
 		<div class="container">
 			<div class="dk-box-2">
 
 
 				<div class="minibox">
-					<h1>쨘 사진 넣을꺼</h1>
+					<img src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/images/breadMain2.png">
 				</div>
 
 
 
 				<div class="minibox">
-					<table>
+					<table align="center">
 						<tr>
-
-							<th width="300px">순위</th>
-							<th width="100px">빵 이름</th>
-							<th width="250px">베이커리</th>
+							<th width="100px">순위</th>
+							<th width="200px">빵 이름</th>
+							<th width="200px">베이커리</th>
 							<th width="100px">인기도</th>
 						</tr>
 						<c:forEach items="${bread }" var="vo">
@@ -147,65 +150,47 @@ ul, li {
 							</tr>
 						</c:forEach>
 					</table>
-
 				</div>
+				
 			</div>
 
 
 
 
 		</div>
-	</div>
-	</div>
+
+
 
 
 
 
 	<div class="dk-box">
-		<div class="container">
+		<div class="container" z-index="1">
 
 			<ul class="dk-isotope-filter text-center" id="main-menu">
 				<li class="active" data-filter="*"><a href="">All</a></li>
 				<li class="active" data-filter=".mockups"><a href="">신규순</a></li>
 				<li class="active" data-filter=".branding"><a href="">인기순</a></li>
-
-
-				<!--  dk-nav dk-nav-align-right -->
-
 				<li class="active" data-filter=".design"><a href="">지역별</a>
 
 					<ul id="sub-menu">
 
-						<li data-filter=".num_1"><a href="">동구</a></li>
-						<li data-filter=".num_2"><a href="">수성구</a></li>
-						<li data-filter=".num_3"><a href="">중구</a></li>
-						<li data-filter=".num_4"><a href="">서구</a></li>
-						<li data-filter=".num_5"><a href="">달서구</a></li>
-						<li data-filter=".num_6"><a href="">달성군</a></li>
-						<li data-filter=".num_7"><a href="">북구</a></li>
-						<li data-filter=".num_8"><a href="">칠곡</a></li>
-						<li data-filter=".num_9"><a href="">남구</a></li>
+						<li data-filter=".num_1" aria-label="submenu"><a href="">동구</a></li>
+						<li data-filter=".num_2" aria-label="submenu"><a href="">수성구</a></li>
+						<li data-filter=".num_3" aria-label="submenu"><a href="">중구</a></li>
+						<li data-filter=".num_4" aria-label="submenu"><a href="">서구</a></li>
+						<li data-filter=".num_5" aria-label="submenu"><a href="">달서구</a></li>
+						<li data-filter=".num_6" aria-label="submenu"><a href="">달성군</a></li>
+						<li data-filter=".num_7" aria-label="submenu"><a href="">북구</a></li>
+						<li data-filter=".num_8" aria-label="submenu"><a href="">칠곡</a></li>
+						<li data-filter=".num_9" aria-label="submenu"><a href="">남구</a></li>
 
 
-					</ul></li>
+					</ul>
+				</li>
 			</ul>
-
-
-
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
