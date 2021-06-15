@@ -30,6 +30,7 @@
 		<h1 align="center">가입승인대기</h1>
 		<input type="hidden" id="u_id" name="u_id" value="${member.u_id }">
 		<div align="center" >
+			<div class="col-12 col-md-6 dk-gallery">
 			<table border="1" class="table">
 				<tr>
 					<th>아이디</th>
@@ -42,15 +43,18 @@
 				<tr>	
 					<th>사업자 등록증</th>
 					<td>
-						<img src="resources/upload/${member.s_file }" width="600px" height="300px"/>
+						<a href="resources/upload/${member.s_file }" class="dk-gallery-item" style="width:600px;height:300px;">
+							<img class="dk-img" src="resources/upload/${member.s_file }" />
+						</a>
 					</td>
 				</tr>
-			</table>		
+			</table>	
+			</div>	
 		</div>
 	</form>
 	<div align="center">
-		<button onclick="submit()">승인</button>
-		<button onclick="location.href='memberInfoWait.do'" >취소</button>
+		<button class="dk-btn dk-btn-md" onclick="submit()">승인</button>
+		<button class="dk-btn dk-btn-md" onclick="location.href='memberInfoWait.do'" >취소</button>
 	</div>
 </body>
 </html>

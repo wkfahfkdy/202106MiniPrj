@@ -50,7 +50,7 @@
 							<td>${member.regdate }</td>
 						
 							<c:if test="${member.s_reg eq 'Y' }">
-							<th><button onclick="location.href='businessMemberPage.do?id=${member.u_id }'">사업자관리</button></th>
+							<th><button class="dk-btn dk-btn-md" onclick="location.href='businessMemberPage.do?id=${member.u_id }'">사업자관리</button></th>
 							</c:if>
 							
 						</tr>

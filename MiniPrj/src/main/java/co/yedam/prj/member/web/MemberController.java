@@ -233,8 +233,9 @@ public class MemberController {
 		return "member/memberMypage";
 	}
 	@RequestMapping("/memberAdPopup.do")
-	public String adpopup() {
-		return "member/memberAdPopup";
+	public String adpopup(Model model, MemberVO vo , HttpServletRequest req) {
+		
+		return "memberAdPopup";
 	}
 		
 	

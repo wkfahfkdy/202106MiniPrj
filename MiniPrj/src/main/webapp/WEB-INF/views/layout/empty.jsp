@@ -19,10 +19,6 @@
 	</style>
 </head>
 <body>
-
-	<div id="ehead"></div>
-	<div id="ebody">
 	<tiles:insertAttribute name="content1"></tiles:insertAttribute>
-	</div>
 </body>
 </html>
