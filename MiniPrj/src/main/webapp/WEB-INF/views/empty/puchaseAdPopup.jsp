@@ -8,6 +8,16 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function showPopup() { window.open("ad_popup2.jsp", "a", "width=400, height=300, left=100, top=50"); }
+	
+	function purchaseUpdate(icode) {
+		let result = confirm("서비스를 연장하시겠습니까?")
+		if(result) {
+			location.href="#";
+			alert("연장되었습니다.");
+		}else {
+			alert("취소되었습니다.");
+		}
+	}
 </script>
 </head>
 <body>
@@ -20,6 +30,7 @@
 				<th>가격</th>
 				<th>서비스 시작 일자</th>
 				<th>서비스 종료 일자</th>
+				<th>서비스 연장</th>
 			</tr>
 			<c:forEach items="${purchaseList }" var="purchase">
 			<tr>
@@ -27,6 +38,7 @@
 				<td>${purchase.i_pay }</td>
 				<td>${purchase.i_regdate }</td>
 				<td>${purchase.e_date }</td>
+				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')">서비스 연장</button></td>
 			</tr>	
 			</c:forEach>
 		</table>
