@@ -8,6 +8,6 @@ import co.yedam.prj.purchase.service.PurchaseService;
 @Controller
 public class PurchaseController {
 	
-	@Autowired
-	private PurchaseService dao;
+//	@Autowired
+//	private PurchaseService dao;
 }

@@ -8,8 +8,8 @@ import co.yedam.prj.service.service.ServiceService;
 @Controller
 public class ServiceController {
 	
-	@Autowired
-	private ServiceService dao;
+//	@Autowired
+//	private ServiceService dao;
 	
 	
 }
