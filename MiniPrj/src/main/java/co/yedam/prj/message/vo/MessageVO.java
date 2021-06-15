@@ -11,7 +11,30 @@ public class MessageVO {
 	private String content;	// 내용
 	private String sender_name;	// 보낸사람
 	
+	// Paging VO
+	private int firstRecordIndex;	// Paging 게시판 버튼 index
+	private int lastRecordIndex;	// Paging 게시판 버튼 index
+	private int totalCnt; // 게시글 전체 수
 	
+	
+	public int getFirstRecordIndex() {
+		return firstRecordIndex;
+	}
+	public void setFirstRecordIndex(int firstRecordIndex) {
+		this.firstRecordIndex = firstRecordIndex;
+	}
+	public int getLastRecordIndex() {
+		return lastRecordIndex;
+	}
+	public void setLastRecordIndex(int lastRecordIndex) {
+		this.lastRecordIndex = lastRecordIndex;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
 	public String getTitle() {
 		return title;
 	}

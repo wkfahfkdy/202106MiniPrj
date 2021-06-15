@@ -48,7 +48,7 @@
             </a>
         </li>   
         <li>
-        	<a href="message.do">
+        	<a href="receiverPaging.do">
                 MS
             </a>
         </li>  
@@ -65,13 +65,18 @@
             </a>
         </li>   
         <li>
-        	<a href="message.do">
+        	<a href="receiverPaging.do">
                 MS
             </a>
         </li>  
         <li>
         	<a href="memberLogOut.do">
                 Logout
+            </a>
+        </li>    
+         <li>
+        	<a href="test.do">
+                TestPage
             </a>
         </li>    
         </c:if>

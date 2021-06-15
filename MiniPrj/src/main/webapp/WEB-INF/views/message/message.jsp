@@ -2,20 +2,6 @@
 <%@ page session="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script>
-	// 페이지 넘기기
-	function goPage(page){
-		location.href = "noticeListPaging.do?page=" + page;
-	}
-	
-	function frmSubmit(noticeNum, noticeHit) {
-		
-		frm.nt_num.value = noticeNum;
-		frm.nt_hit.value = noticeHit;
-		frm.submit();
-		
-	}
-</script>
 <style>
 	th {
 		color: white;
@@ -53,9 +39,12 @@
 	<div align="left" style="width: 60%; background-color: #474747;">
 		<table>
 			<tr>
-				<th>받은쪽지</th>
-				<th>보낸쪽지</th>
-				<th>쪽지쓰기</th>
+				<th>
+					<a href="messageReceiverList.do" style="color: #fff;">받은쪽지</a></th>
+				<th>
+					<a href="messageSelectSenderList.do" style="color: #fff;">보낸쪽지</a></th>
+				<th>
+					<a href="#" style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
 		</table>
 	</div>
@@ -90,64 +79,3 @@
 </div>
 
 
-
-<!-- 페이징 -->
-<div align="center">
-	<jsp:include page = "../common/paging.jsp" flush = "true">
-		<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
-		<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
-		<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
-		<jsp:param value="${paging.pageNo }" name="pageNo"/>
-		<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
-		<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
-		<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
-	</jsp:include>
-</div>
-<br><br>
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<script>	
-	function frmSubmit(ms_uum) {
-		
-		frm.ms_num.value = ms_num;
-		frm.submit();
-		
-	}
-</script>
-
-
-<form id="frm" action="messageSelect.do" method="post"> 
-	<input type="hidden" id="ms_num" name="ms_num">
-</form>
-	
-<div align="center" style="margin-top: 150px; height: 700px; ">
-	<div class="dk-box dk-header">
-		<div>
-			<form>
-				<button type = "button" onclick = "location.href = 'messageReceiverList.do'">받은메세지</button>
-				<button type = "button" onclick = "location.href = 'messageSelectSenderList.do'">보낸메세지</button>
-			</form>
-		</div>
-       	<div class="container">
-			<c:forEach items="${list }" var="vo">
-	           	<div class="row no-gutters" style="background-color: #f3f3f3;">
-	              	<div style="height: 100px;"></div>
-					<a onclick="frmSubmit('${vo.ms_num }')">${vo.sender_name }<br>
-							제목 : ${vo.title } <br>
-							날짜 : ${vo.ms_date } <br></a>
-			    </div>
-			</c:forEach>
-		</div>
-	</div>
-</div>
-
- -->

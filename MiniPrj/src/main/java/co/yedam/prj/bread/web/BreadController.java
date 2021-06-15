@@ -47,6 +47,17 @@ public class BreadController {
 	}
 	
 	
+	@RequestMapping("/test.do")
+	public String test(Model model, BreadVO vo) {
+		
+		vo = dao.testAdr();
+		String testAdr = vo.getS_adr();
+		
+		model.addAttribute("testAdr", testAdr);
+		
+		return "bread/test";
+	}
+	
 	//빵 리스트 페이징 
 //	@RequestMapping("/breadpaging.do")	//페이징 처리 해야하나 말아야하나?
 //	public String breadSelectListPaging(Model model,BreadVO vo) {

@@ -7,9 +7,9 @@ public class QnaReplyVO {
 	// Qna 댓글 VO
 	private int qnb_num;		// 게시글 번호
 	private int qnr_num;		// 댓글 번호
-	private int qnr_numch;		// 댓글 자식 번호(계층)
+	private int qnr_numch;		// 댓글 자식 번호(계층) - 해당 대댓글이 어느 상위 댓글의 자식인지
 	private String qnr_content;	// 댓글 내용
-	private int qnr_depth;		// 댓글 깊이(계층)
+	private int qnr_depth;		// 댓글 깊이(계층) - 댓글 : 0, 대댓글 : 1, 대대댓글 : 2 ...
 	private Date qnr_regdate;	// 댓글 작성일자
 	private String u_id;
 	
