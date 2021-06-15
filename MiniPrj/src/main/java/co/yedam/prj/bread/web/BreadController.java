@@ -47,6 +47,12 @@ public class BreadController {
 	}
 	
 	
+	@RequestMapping("/test.do")
+	public String test() {
+		
+		return "bread/test";
+	}
+	
 	//빵 리스트 페이징 
 //	@RequestMapping("/breadpaging.do")	//페이징 처리 해야하나 말아야하나?
 //	public String breadSelectListPaging(Model model,BreadVO vo) {
