@@ -5,60 +5,11 @@
 <!DOCTYPE html>
 
 			<head>
-			
-				<script type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=265d717979f0ee2bafbd9360806bb508">
-				<!-- 지도 라이브러리 -->
-				</script>
-				
-				<script type="text/javascript" 
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=265d717979f0ee2bafbd9360806bb508"></script>
-			<!-- 서비스 라이브러리 -->
-				<script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=265d717979f0ee2bafbd9360806bb508&libraries=services"></script>
 			
 			
-						
-							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-							    mapOption = {
-							        center: new kakao.maps.LatLng(37.56421, 126.97897), // 지도의 중심좌표
-							        level: 3, // 지도의 확대 레벨
-							        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-							    }; 
-							// 지도를 생성한다 
-							var map = new kakao.maps.Map(mapContainer, mapOption); 
-						    
-							   var geocoder = new kakao.maps.services.Geocoder();
-							
-							// 주소로 좌표를 검색합니다
-							geocoder.addressSearch('대구 중구 국채보상로 537 덕성빌딩 5층', function(result, status) {
-								
-								
-							//위에 주소 기입 부분에 ${S_adr}로 매번 자동으로 바뀌게끔 설정
-							//장소 아이디로 검색하는 방향이 있는데 장소id확인 방법 이해 못함
-							
-							
-						    // 정상적으로 검색이 완료됐으면 
-						     if (status === kakao.maps.services.Status.OK) {
-						
-						        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-						
-						        // 결과값으로 받은 위치를 마커로 표시합니다
-						        var marker = new kakao.maps.Marker({
-						            map: map,
-						            position: coords
-						        });
-						
-						        // 인포윈도우로 장소에 대한 설명을 표시합니다
-						        var infowindow = new kakao.maps.InfoWindow({
-						            content: '<div style="width:150px;text-align:center;padding:6px 0;">베이커리</div>'
-						        });
-						        infowindow.open(map, marker);
-						
-						        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-						        map.setCenter(coords);
-						    } 
-						});    
-					</script>
 				
 	<script> // 번호 복사 기능
 				function copyToClipboard(val) {
@@ -126,7 +77,7 @@
 												<p class="lead mb-0">${vo.s_content }</p>
 											</div>
 										<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${vo.s_tel }
-											연락처 복사하기</button>
+											</button>
 								</div>
 							</div>
 						</div>
@@ -152,7 +103,7 @@
 										class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 
 										<span class="dk-portfolio-item-overlay"
-										style="background-color: rgba(255, 255, 255, .85)">${vo.s_name}</span> <img
+										style="background-color: rgba(255, 255, 255, .85)">${vo.b_name}</span> <img
 										src="">빵 이미지 삽입
 								</span> <span class="dk-portfolio-item-info"> ${vo.b_comment }<span
 										class="h3 dk-portfolio-item-title"></span> <span
@@ -173,12 +124,20 @@
 
 
 		<!-- 지도 api -->
-
-		<div id="map" style="width: 750px; height: 350px;"></div>
+<div class="container" align="center">
+	<div align="center" id="map" style="width: 1000px; height: 400px;"></div>
+	</div>
+	<div>
+		<input type="hidden" id="search_name" value="${s_adr }">
+	</div>
+	<div>
+		<input type="hidden" id="search_lat">
+		<input type="hidden" id="search_lng">
+	</div>
 
 		<div align="center">
 			<button type="button"
-				onclick='window.open("https://map.kakao.com/link/to/18577585")'>길찾기
+				onclick='window.open("https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212")'>길찾기
 			</button>
 			<button type="button"
 				onclick='window.open("kakaomap://route?sp=37.537229,127.005515&ep=37.4979502,127.0276368&by=CAR"'>대중교통길찾기(카카오지도
@@ -193,7 +152,53 @@
 
 
 	</div>
-
+<script>
+		var mapContainer = document.getElementById('map'),
+		mapOption={
+				center:new kakao.maps.LatLng(33.450701, 126.570667),
+				level:3
+		};
+		
+		// 지도 생성
+		var map = new kakao.maps.Map(mapContainer,mapOption);
+		
+		// 주소-좌표 변환 객체 생성
+		var geocoder = new kakao.maps.services.Geocoder();
+		
+ 		$(function() {
+ 			
+			var add_search = document.getElementById('search_name').value;
+			geocoder.addressSearch(add_search, function(result,status){
+				
+				//정상 검색 완료
+				if(status === kakao.maps.services.Status.OK) {
+					
+					var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+					
+					// 결과값 받은 위치 마커 표시
+					var marker = new kakao.maps.Marker({
+						map:map,
+						position:coords
+					});
+					
+					document.getElementById('search_lat').value=result[0].y;
+					document.getElementById('search_lng').value=result[0].x;
+					
+					var infowindow = new kakao.maps.InfoWindow({
+						
+						content:'<div style="width:150px;text-align:center;padding:6px 0;">가게 위치</div>'
+						
+					});
+					
+					infowindow.open(map,marker);
+					
+					//지도 중심결과 받은 위치 이동
+					map.setCenter(coords);
+				}
+				
+			});
+ 		})
+		</script>
 
 
 

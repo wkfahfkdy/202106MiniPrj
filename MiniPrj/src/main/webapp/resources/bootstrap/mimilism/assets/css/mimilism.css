@@ -5180,16 +5180,18 @@ div.dk-navbar-fullscreen.dk-navbar-fullscreen.dk-open-fullscreen .dk-navbar-burg
 }
 
 .dk-box-2 {
-	
+    z-index: 1;
     padding: 130px 0 130px;
 }
 
 .dk-box-2.dk-padding-top {
     padding: 110px 0 0;
+    z-index: 1;
 }
 
 .dk-box-2.dk-padding-bot {
     padding: 0 0 40px;
+    z-index: 1;
 }
 
 .dk-box-3 {

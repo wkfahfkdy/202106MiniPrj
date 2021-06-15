@@ -4,63 +4,11 @@
 
 <!-- START: Scripts -->
 
-<!-- Object Fit Images -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/object-fit-images/dist/ofi.min.js"></script>
-
-<!-- Popper -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-
-<!-- Bootstrap -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/tether/dist/js/tether.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Sticky Kit -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
-
-<!-- Jarallax -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/jarallax/dist/jarallax.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/jarallax/dist/jarallax-video.min.js"></script>
-
-<!-- Isotope -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
-
-<!-- ImagesLoaded -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-<!-- Lightgallery -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/lightgallery/dist/js/lightgallery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/lg-fullscreen/dist/lg-fullscreen.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/lg-video/dist/lg-video.min.js"></script>
-
-<!-- Swiper -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/swiper/dist/js/swiper.min.js"></script>
-
-<!-- Jquery Form -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/vendor/jquery-form/dist/jquery.form.min.js"></script>
-
-<!-- The Mimilism -->
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/js/mimilism.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/js/mimilism.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/js/mimilism-init.js"></script>
-
-
+<script type="text/javascript">
+    $(".container ul li").hover(function() {
+      $(this).find("ul").stop().fadeToggle(500);
+    });
+  </script>
 
 <style type="text/css">
 
@@ -94,15 +42,19 @@ ul, li {
 
 #sub-menu>li>a {
 	text-decoration: none;
+	z-index: 1001;
 }
 
 #main-menu>li:hover #sub-menu {
 	opacity: 1;
 	visibility: visible;
+	position:absolute;
+	z-index: 1001;
 }
 
 #sub-menu>li>a:hover {
-	text-decoration: underline;
+	position:absolute;
+	z-index: 1001;
 }
 
 .minibox {
@@ -110,8 +62,11 @@ ul, li {
 	width: 555px;
 	float: left;
 }
-</style>
 
+
+
+
+</style>
 
 
 
@@ -165,13 +120,14 @@ ul, li {
 
 
 	<div class="dk-box">
-		<div class="container" z-index="1">
-
+		<div class="container">
+			
 			<ul class="dk-isotope-filter text-center" id="main-menu">
+			
 				<li class="active" data-filter="*"><a href="">All</a></li>
-				<li class="active" data-filter=".mockups"><a href="">신규순</a></li>
-				<li class="active" data-filter=".branding"><a href="">인기순</a></li>
-				<li class="active" data-filter=".design"><a href="">지역별</a>
+				<li class="active" data-filter=".open"><a href="">신규순</a></li>
+				<li class="active" data-filter=".favorite"><a href="">인기순</a></li>
+				<li class="active" data-filter=".region"><a href="">지역별</a>
 
 					<ul id="sub-menu">
 
@@ -189,20 +145,21 @@ ul, li {
 					</ul>
 				</li>
 			</ul>
-		</div>
+		
 	</div>
+</div>
 
 
 
 
  
-	<div class="dk-box-2 dk-padding-bot">
+	<div class="dk-box-2 dk-padding-bot"> <!-- z-index: 1 값으로 준 상태 -->
 		<div class="container">
 			<div class="row vertical-gap dk-isotope-grid">
 
 				<c:forEach items="${bread }" var="vo">
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups">
-<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->						// 신규순 = mockups
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item open">
+<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->
 
 						<form id="frm" action="breadStore.do">
 							<input type="hidden" value="${vo.s_id }">
