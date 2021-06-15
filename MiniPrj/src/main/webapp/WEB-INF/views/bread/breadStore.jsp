@@ -64,10 +64,13 @@ geocoder.addressSearch('대구 중구 국채보상로 537 덕성빌딩 5층', fu
 								</button>
 
 								<div class="dk-box dk-header-info">
+									<div>
+										<h4 class="display-3 mnt-8">${vo.s_name }foreach표현식 쓰니까 두개로 적혀짐</h4>
+									</div>
 
-									<h4 class="display-3 mnt-8">${vo.s_name }</h4>
-									<br> <br>
-									<p class="lead mb-0">${vo.s_content }</p>
+									<div>
+										<p class="lead mb-0">${vo.s_content }</p>
+									</div>
 									<a href="contact.html" class="dk-btn dk-btn-md mt-35">${vo.s_tel }
 										연락하기(전화로 바로 연결버튼 하면 좋을듯 아니면 복사하기라도)</a>
 								</div>
