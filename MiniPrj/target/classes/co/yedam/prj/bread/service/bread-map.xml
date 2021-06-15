@@ -93,6 +93,10 @@
 		on a.s_id = b.s_id
 		where a.s_id = #{s_id}
 	</select>
+	
+	<select id="adrTest" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select s_adr from store where s_id = 'S_101'
+	</select>
 
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 

@@ -17,4 +17,6 @@ public interface NoticeService {
 	public int updateNotice(NoticeVO vo);
 	public int hitcount(NoticeVO vo);
 	public List<NoticeReplyVO> replyList(NoticeReplyVO vo);
+	public int InsertnoticeReply(NoticeReplyVO vo);
+	public int InsertnoticeReplyAdd(NoticeReplyVO vo);
 }

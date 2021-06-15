@@ -20,6 +20,7 @@ public class MemberVO {
 	private int mileageD;
 	private String s_file;
 	private String u_adr2;
+	private String s_id; 
 	
 	public int getMileageU() {
 		return mileageU;
@@ -125,6 +126,12 @@ public class MemberVO {
 	}
 	public void setU_adr2(String u_adr2) {
 		this.u_adr2 = u_adr2;
+	}
+	public String getS_id() {
+		return s_id;
+	}
+	public void setS_id(String s_id) {
+		this.s_id = s_id;
 	}
 	
 }

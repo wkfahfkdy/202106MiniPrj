@@ -232,11 +232,6 @@ public class MemberController {
 		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberMypage";
 	}
-	@RequestMapping("/memberAdPopup.do")
-	public String adpopup() {
-		return "member/memberAdPopup";
-	}
-		
 	
 	
 	//留덉씪由ъ�

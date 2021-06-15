@@ -4,187 +4,162 @@
 
 <!-- START: Scripts -->
 
-<!-- Object Fit Images -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/object-fit-images/dist/ofi.min.js"></script>
+<script type="text/javascript">
+    $(".container ul li").hover(function() {
+      $(this).find("ul").stop().fadeToggle(500);
+    });
+  </script>
 
-<!-- Popper -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+<style type="text/css">
 
-<!-- Bootstrap -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/tether/dist/js/tether.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
 
-<!-- Sticky Kit -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/sticky-kit/dist/sticky-kit.min.js"></script>
+#main-menu>li>a {
+	font-size: 0.85rem;
+	text-align: center;
+	text-decoration: none;
+	letter-spacing: 0.05em;
+	display: block;
+	padding: 14px 36px;
+}
 
-<!-- Jarallax -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/jarallax/dist/jarallax.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/jarallax/dist/jarallax-video.min.js"></script>
+#sub-menu {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1000;
+}
 
-<!-- Isotope -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/isotope-layout/dist/isotope.pkgd.min.js"></script>
+#sub-menu>li {
+	padding: 16px 28px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+	z-index: 1001;
+}
 
-<!-- ImagesLoaded -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+#sub-menu>li>a {
+	text-decoration: none;
+	z-index: 1001;
+}
 
-<!-- Lightgallery -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/lightgallery/dist/js/lightgallery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/lg-fullscreen/dist/lg-fullscreen.min.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/lg-video/dist/lg-video.min.js"></script>
+#main-menu>li:hover #sub-menu {
+	opacity: 1;
+	visibility: visible;
+	position:absolute;
+	z-index: 1001;
+}
 
-<!-- Swiper -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/swiper/dist/js/swiper.min.js"></script>
+#sub-menu>li>a:hover {
+	position:absolute;
+	z-index: 1001;
+}
 
-<!-- Jquery Form -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/vendor/jquery-form/dist/jquery.form.min.js"></script>
+.minibox {
+	height: 260px;
+	width: 555px;
+	float: left;
+}
 
-<!-- The Mimilism -->
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/js/mimilism.min.js"></script>
-	<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/js/mimilism.js"></script>
-<script
-	src="${pageContext.request.contextPath }/resources/css/mimilism/assets/js/mimilism-init.js"></script>
+
+
+
+</style>
+
+
+
 <!-- END: Scripts -->
 
 
 <html>
-
 <body>
-	<div style="margin-top: 150px">
+
+
+	
 		<div class="container">
 			<div class="dk-box-2">
-				<div class="bg-image bg-image-parallax">
-					<img class="jarallax-img"
-						src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/rank.png"
-						alt="">
 
 
-
-
+				<div class="minibox">
+					<img src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/images/breadMain2.png">
 				</div>
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
 
 
+
+				<div class="minibox">
+					<table align="center">
+						<tr>
+							<th width="100px">순위</th>
+							<th width="200px">빵 이름</th>
+							<th width="200px">베이커리</th>
+							<th width="100px">인기도</th>
+						</tr>
 						<c:forEach items="${bread }" var="vo">
 							<tr>
-								<td>${vo.b_image }</td>
+								<td>랭크?</td>
 								<td>${vo.b_name }</td>
-								<td>${vo.b_price }</td>
+								<td>${vo.s_name }</td>
 								<td>${vo.b_like }</td>
 							</tr>
 						</c:forEach>
-
-						<h1>되니?</h1>
-
-
-
-
-
-					</div>
+					</table>
 				</div>
-				<div class="dk-gap-6"></div>
+				
 			</div>
+
+
+
+
 		</div>
-	</div>
+
+
 
 
 
 
 	<div class="dk-box">
 		<div class="container">
+			
+			<ul class="dk-isotope-filter text-center" id="main-menu">
+			
+				<li class="active" data-filter="*"><a href="">All</a></li>
+				<li class="active" data-filter=".open"><a href="">신규순</a></li>
+				<li class="active" data-filter=".favorite"><a href="">인기순</a></li>
+				<li class="active" data-filter=".region"><a href="">지역별</a>
 
-			<div class="dk-nav-content">
-						<ul class="dk-nav dk-nav-align-right">
-				<ul class="dk-isotope-filter text-center">
-					<li class="active" data-filter="*"><a
-							href="">All</a></li>
-					<li class="dk-drop-item" data-filter=".mockups"><a
-							href="">신규순</a></li>
-					<li class="active" data-filter=".branding"><a
-							href="">인기순</a></li>
+					<ul id="sub-menu">
+
+						<li data-filter=".num_1" aria-label="submenu"><a href="">동구</a></li>
+						<li data-filter=".num_2" aria-label="submenu"><a href="">수성구</a></li>
+						<li data-filter=".num_3" aria-label="submenu"><a href="">중구</a></li>
+						<li data-filter=".num_4" aria-label="submenu"><a href="">서구</a></li>
+						<li data-filter=".num_5" aria-label="submenu"><a href="">달서구</a></li>
+						<li data-filter=".num_6" aria-label="submenu"><a href="">달성군</a></li>
+						<li data-filter=".num_7" aria-label="submenu"><a href="">북구</a></li>
+						<li data-filter=".num_8" aria-label="submenu"><a href="">칠곡</a></li>
+						<li data-filter=".num_9" aria-label="submenu"><a href="">남구</a></li>
 
 
-<!--  dk-nav dk-nav-align-right -->
-
-					<li data-filter=".design" class="dk-drop-item"><a href="">지역별</a>
-					<ul class="dk-dropdown">
-				
-
-						
-						<ul class="dk-dropdown">
-
-							<li data-filter=".num_1"><a
-									href="">동구</a></li>
-							<li  data-filter=".num_2"><a
-									href="">수성구</a></li>
-							<li data-filter=".num_3"><a
-									href="">중구</a></li>
-							<li  data-filter=".num_4"><a
-									href="">서구</a></li>
-							<li  data-filter=".num_5"><a
-									href="">달서구</a></li>
-							<li  data-filter=".num_6"><a
-									href="">달성군</a></li>
-							<li data-filter=".num_7"><a
-									href="">북구</a></li>
-							<li  data-filter=".num_8"><a
-									href="">칠곡</a></li>
-							<li  data-filter=".num_9"><a
-									href="">남구</a></li>
-									
-																								<!-- 	<ul class="dk-dropdown">
-																	
-																											<li><a href=""> Style 1 </a>
-																											</li>
-																	
-																										</ul>
-																										 -->
-							</ul>
-						</ul>
 					</ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-				</ul>
-				</ul>
-			</div>
-		</div>
+				</li>
+			</ul>
+		
 	</div>
+</div>
 
 
-	<div class="dk-box-2 dk-padding-bot">
+
+
+ 
+	<div class="dk-box-2 dk-padding-bot"> <!-- z-index: 1 값으로 준 상태 -->
 		<div class="container">
 			<div class="row vertical-gap dk-isotope-grid">
 
 				<c:forEach items="${bread }" var="vo">
-					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item mockups">
-						// 신규순 = mockups
+					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item open">
+<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->
 
 						<form id="frm" action="breadStore.do">
 							<input type="hidden" value="${vo.s_id }">

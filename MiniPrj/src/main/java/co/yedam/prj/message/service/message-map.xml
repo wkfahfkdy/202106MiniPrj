@@ -4,22 +4,78 @@
 
 	<!-- 전체조회 -->
 	<select id="messageSelectList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
-		select * from message where receiver_Name = #{receiver_name}  or sender_Name = #{receiver_name} order by ms_num desc
-	</select>
-	
-	<!-- 보낸메세지조회 -->
-	<select id="messageSelectReceiver" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
-		select * from message where receiver_Name = #{receiver_name} order by ms_num desc
+		select * from message where receiver_Name = #{receiver_name} 
 	</select>
 	
 	<!-- 받은메세지조회 -->
+	<select id="messageSelectReceiver" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where receiver_Name = #{receiver_name}
+	</select>
+	
+	<!-- 보낸메세지조회 -->
 	<select id="messageSelectSenderList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
-		select * from message where sender_Name = #{receiver_name} order by ms_num desc
+		select * from message where sender_Name = #{receiver_name}
 	</select>
 	
 	<!-- 한건조회 -->
 	<select id="messageSerlect" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
 		select * from message where ms_num = #{ms_num}
 	</select>
+	
+	<!-- 쪽지보내기(insert) -->
+	<insert id="messageInsert" parameterType="co.yedam.prj.message.vo.MessageVO" >
+		insert into message values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AMHH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval)
+	</insert>
+	
+	<!-- 쪽지삭제(delete) -->
+	<delete id="messageDelete" parameterType="co.yedam.prj.message.vo.MessageVO">
+		delete from message where ms_num = #{ms_num}
+	</delete>
+	
+	
+	<!-- 페이징관련 -->
+	
+	<!-- 게시글 Size 구할 때 필요 -->
+	<select id="ReceiverList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where receiver_Name = #{receiver_name}
+	</select>
+	
+	<select id="SenderList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from message where sender_Name = #{receiver_name}
+	</select>
+	
+	<!-- 페이징 -->	
+	<select id="receiverPaging" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		SELECT *
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by ms_num DESC) AS
+ 		   row_num
+  		  ,a.*
+  		  FROM message a
+  		  where receiver_name = #{receiver_name}
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
+	</select>
+	
+	<select id="senderPaging" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		SELECT *
+		FROM (
+	 		  SELECT ROW_NUMBER() OVER(ORDER by ms_num DESC) AS
+			   row_num
+	 		  ,a.*
+	 		  FROM message a
+  			  where sender_name = #{receiver_name}
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
+	</select>
+	
+	<!-- 게시글 Count -->
+	<select id="ReceiverCount" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="int">
+        SELECT count(*) totalPageCount FROM message where receiver_Name = #{receiver_name}
+    </select>
+    
+	<select id="SenderCount" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="int">
+        SELECT count(*) totalPageCount FROM message where sender_Name = #{receiver_name}
+    </select>
 	
 </mapper>

@@ -18,6 +18,7 @@
 		});
 	});
 	
+	// 공지사항 삭제
 	function noticeDelete(nt_num){
 		
 		$.ajax({
@@ -32,12 +33,94 @@
 			}
 		});
 	}
+	
+	// 클릭 시 대댓글창 출력
+	function showComment(ntr_num){
+		var ntr_num = ntr_num; // 변수명들은 VO에 설명
+		
+		// 클릭 부분의 display를 바꿔주기 전에 나머지를 전부 숨긴다
+		var areaList = document.getElementsByName('addCommentsArea');
+		areaList.forEach(function(item){
+			item.style.display = "none";
+		});
+		
+		// 만약에 클릭한 부분의 display가 none이면 show로 바꾸어라
+		if(document.getElementById(ntr_num).style.display == "none"){
+			document.getElementById(ntr_num).style.display = "block";
+		}	
+	}
+	
+	// 댓글 작성
+	function newComment(ntb_num, id){
+		var ntb_num = ntb_num;
+		var ntr_content = document.getElementById('newCommentsArea').value;
+		// 줄넘김을 표시하기 위한 것
+		ntr_content = ntr_content.replace(/(\n|\r\n)/g, '<br>');
+		var u_id = id;
+		
+		$.ajax({
+			url:'ntAddComment.do',
+			type:'post',
+			data:{
+				ntb_num:ntb_num,
+				u_id:u_id,
+				ntr_content:ntr_content,
+				want:'new'
+			},
+			success:function(result){
+				console.log('입력됨');
+				location.reload();
+			}
+		});
+	}
+	
+	// 대댓글 작성
+	function addComment(ntr_num, ntb_num, ntr_depth, id){
+		
+		var ntb_num = ntb_num;
+		var u_id = id;
+		var ntr_depth = ntr_depth +1;
+		var ntr_content = document.getElementById(ntr_num).value;
+		// 줄넘김을 표시하기 위한 것
+		ntr_content = ntr_content.replace(/(\n|\r\n)/g, '<br>');
+		var ntr_num = ntr_num;
+		
+		console.log(ntb_num, u_id, ntr_depth, ntr_content, ntr_num);
+		
+		$.ajax({
+			url:'ntAddComment.do',
+			type:'post',
+			data:{
+				ntb_num:ntb_num,
+				u_id:u_id,
+				ntr_depth:ntr_depth,
+				ntr_content:ntr_content,
+				ntr_num:ntr_num,
+				want:'add'
+			},
+			success:function(result){
+				console.log('입력됨');
+				location.reload();
+			}
+		});
+	}
 </script>
 <style>
 	.inRp {
 	text-align : left;
 	width : 842px;
 	}
+	
+	.iddiv {
+	width : 100px;
+	float : left;
+	}
+	
+	.condiv {
+	width : 400px;
+	float : left;
+	}
+	
 </style>
 <body>
 	<div align = "center">
@@ -77,21 +160,28 @@
 						</td>
 					</tr>
 				</table><br>
+				<!-- 댓글 -->
 				<div class = "inRp">
 					<h5>댓글</h5>
+					<!-- 댓글 리스트 출력 -->
 					<c:forEach items="${replyList }" var="rlist">
-						<div>
-							<div>
-								&nbsp;${rlist.u_id }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<!-- 대댓글 입력창은 기본적으로 숨겨져있게 만들었음. 클릭할 시에 나타나게 함 -->
+						<div onclick="showComment(${rlist.ntr_num })">
+							<div class = "iddiv">
+								${rlist.u_id }
+							</div>
+							<div class = "condiv">
 								<c:if test="${rlist.ntr_depth != 0 }">
+									<!-- 댓글의 깊이(몇번째 자식 댓글인지)에 따라 화살표 개수 추가 -->
 									<c:forEach begin="1" end="${rlist.ntr_depth }"><img src = "resources/image/up.png" width = "15px" height = "15px" /></c:forEach>
 								</c:if>
 								${rlist.ntr_content }
 								<c:if test="${id != null }">
-										<textarea style="display:none;" rows="1" cols="70" name="addCommentsArea" id="${vo.cid }" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)addComment(${vo.cid }, ${vo.bid }, ${vo.group_id }, '${id }', ${vo.depth })"></textarea>
+									<!-- enter, shift 키 먹히도록 -->
+									<textarea style="display:none;" rows="1" cols="70" name="addCommentsArea" id="${rlist.ntr_num }" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)addComment(${rlist.ntr_num }, ${rlist.ntb_num }, ${rlist.ntr_depth }, '${id }')"></textarea>
 								</c:if>
 							</div>
-						</div>
+						</div><br>
 					</c:forEach><br>
 					<c:if test="${id != null }">
 						<h6>새 댓글 쓰기</h6>
@@ -100,7 +190,7 @@
 				</div><br>
 				<div>
 					<button type = "button" onclick = "location.href = 'noticeListPaging.do'">목록 보기</button>
-					<c:if test = "${id eq vo.u_id || id eq 'admin' }">
+					<c:if test = "${id eq 'admin' }">
 						<button type = "submit">수정</button>
 						<button type = "button" onclick = "noticeDelete('${vo.nt_num}')">삭제</button>
 					</c:if>

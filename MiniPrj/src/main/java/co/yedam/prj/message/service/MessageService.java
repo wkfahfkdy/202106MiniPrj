@@ -15,4 +15,13 @@ public interface MessageService {
 	public int messageInsert(MessageVO vo); // 메세지보내기
 	public int messageDelete(MessageVO vo); // 메세지삭제
 	
+	//페이징
+	public List<MessageVO> receiverPaging(MessageVO vo);
+	public List<MessageVO> senderPaging(MessageVO vo);
+	public int ReceiverCount();
+	public int SenderCount();
+	public List<MessageVO> ReceiverList(MessageVO vo);
+	public List<MessageVO> SenderList(MessageVO vo);
+	
+	
 }

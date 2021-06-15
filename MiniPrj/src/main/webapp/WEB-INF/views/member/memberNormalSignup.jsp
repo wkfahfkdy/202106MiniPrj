@@ -50,7 +50,25 @@
 </script>
 
 <script type="text/javascript">
+$(function(){
+	$('#u_pwd').keyup(function(){
+  	$('#chkNotice').html('');
+	  });
 
+    $('#u_pwdChk').keyup(function(){
+
+	    if($('#u_pwd').val() != $('#u_pwdChk').val()){
+    	  $('#chkNotice').html('비밀번호 일치하지 않음');
+      	  $('#chkNotice').attr('color', '#f82a2aa3');
+        } else{
+          $('#chkNotice').html('비밀번호 일치함');
+          $('#chkNotice').attr('color', '#199894b3');
+    }
+
+   });
+});
+	
+	
 	$(function () {
 		$('#idcheck').click(function() {
 			if($('#u_id').val() == ""){
@@ -137,12 +155,18 @@
 					<div class="col-md-6">
 						<input style="width: 50%;" class="form-control" type="text"
 							name="u_id" id="u_id" value="" placeholder="Your id" >
-						<button style="width: 50%;" type="button" id="idcheck" value="unchecked" >중복체크</button>
+						<button class="dk-btn dk-btn-md" style="width: 50%;" type="button" id="idcheck" value="unchecked" >중복체크</button>
 					</div>
 					<div class="col-md-6">
 						<input style="width: 50%;" type="password" name="u_pwd"
 							 id="u_pwd" class="form-control" aria-describedby="emailHelp"
 							placeholder="Password" >
+					</div>
+					<div class="col-md-6">
+						<input style="width: 50%;" class="form-control" type="password" id="u_pwdChk"
+							name="check_password" value=""
+							placeholder="Again input New password">
+						<font id="chkNotice" size="2"></font>
 					</div>
 					<div class="col-md-6">
 						<input style="width: 50%;" type="text" name="u_name"

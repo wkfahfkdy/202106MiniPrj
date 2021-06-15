@@ -7,9 +7,9 @@ public class NoticeReplyVO {
 	// Notice 댓글 VO
 	private int ntb_num;		// 게시글 번호
 	private int ntr_num;		// 댓글 번호
-	private int ntr_numch;		// 댓글 자식 번호(계층)
+	private int ntr_numch;		// 댓글 자식 번호(계층) - 해당 대댓글이 어느 상위 댓글의 자식인지
 	private String ntr_content;	// 댓글 내용
-	private int ntr_depth;		// 댓글 깊이(계층)
+	private int ntr_depth;		// 댓글 깊이(계층) - 댓글 : 0, 대댓글 : 1, 대대댓글 : 2 ...
 	private Date ntr_regdate;	// 댓글 작성일자
 	private String u_id;
 	

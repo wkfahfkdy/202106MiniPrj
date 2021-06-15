@@ -36,7 +36,12 @@
 	</update>
 	
 	
-	
+	<select id="memberSelectSID" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+		select a.*, b.s_id
+		from member a join store b
+		on a.u_id = b.u_id
+		where a.u_id = #{u_id}
+	</select>
 	
 	<select id="memberSelectJW" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
 		select *
