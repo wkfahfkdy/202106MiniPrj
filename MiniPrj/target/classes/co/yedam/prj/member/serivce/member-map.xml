@@ -36,6 +36,15 @@
 	</update>
 	
 	
+	<select id="memberSelectListIC" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+		select m.*, j.i_code
+		from member m join (select a.*, b.i_name 
+           		            from purchase a join service b 
+                            on a.I_CODE = b.I_CODE) j
+		on m.u_id = j.u_id            
+		where m.u_id = #{u_id}
+	</select>
+	
 	<select id="memberSelectSID" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
 		select a.*, b.s_id
 		from member a join store b
