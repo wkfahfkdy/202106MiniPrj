@@ -31,6 +31,16 @@
 	padding : 8px 16px;
 	text-decoration : none;
 }
+th {
+	padding-bottom : 5px;
+}
+th,td {
+	text-align : center;
+}
+.tdcnt {
+	text-align : right;
+	padding-right : 10px;
+}
 </style>
 </head>
 <body>
@@ -43,20 +53,20 @@
 		<div style="margin-top: 150px">
 			<div align="center">
 				<table>
-					<tr>
+					<tr  style="border-bottom: 1px solid;">
 						<th width="50px">번호</th>
 						<th width="300px">제목</th>
 						<th width="100px">작성자</th>
 						<th width="250px">작성일자</th>
-						<th width="100px">조회수</th>
+						<th width="55px">조회수</th>
 					</tr>
 					<c:forEach items="${bolist }" var="vo">
 						<tr>
-							<td>${vo.qn_num }</td>
+							<td class="tdcnt">${vo.qn_num }</td>
 							<td onclick="frmSubmit('${vo.qn_num}', '${vo.qn_hit }')">${vo.qn_title }</td>
 							<td>${vo.u_id }</td>
 							<td>${vo.qn_regdate }</td>
-							<td>${vo.qn_hit }</td>
+							<td class="tdcnt">${vo.qn_hit }</td>
 						</tr>
 					</c:forEach>
 				</table>

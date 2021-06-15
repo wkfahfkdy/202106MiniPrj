@@ -36,7 +36,7 @@
 	
 	// 클릭 시 대댓글창 출력
 	function showComment(qnr_num){
-		var qnr_num = qnr_num;
+		var qnr_num = qnr_num; // 변수명들은 VO에 설명
 		
 		// 클릭 부분의 display를 바꿔주기 전에 나머지를 전부 숨긴다
 		var areaList = document.getElementsByName('addCommentsArea');
@@ -54,6 +54,7 @@
 	function newComment(qnb_num, id){
 		var qnb_num = qnb_num;
 		var qnr_content = document.getElementById('newCommentsArea').value;
+		// 줄넘김을 표시하기 위한 것
 		qnr_content = qnr_content.replace(/(\n|\r\n)/g, '<br>');
 		var u_id = id;
 		
@@ -80,6 +81,7 @@
 		var u_id = id;
 		var qnr_depth = qnr_depth +1;
 		var qnr_content = document.getElementById(qnr_num).value;
+		// 줄넘김을 표시하기 위한 것
 		qnr_content = qnr_content.replace(/(\n|\r\n)/g, '<br>');
 		var qnr_num = qnr_num;
 		
@@ -115,7 +117,7 @@
 	}
 	
 	.condiv {
-	width : 200px;
+	width : 400px;
 	float : left;
 	}
 	
@@ -158,20 +160,25 @@
 						</td>
 					</tr>
 				</table><br>
+				<!-- 댓글 -->
 				<div class = "inRp">
 					<h5>댓글</h5>
+					<!-- 댓글 리스트 출력 -->
 					<c:forEach items="${replyList }" var="rlist">
+						<!-- 대댓글 입력창은 기본적으로 숨겨져있게 만들었음. 클릭할 시에 나타나게 함 -->
 						<div onclick="showComment(${rlist.qnr_num })">
 							<div class = "iddiv">
 								${rlist.u_id }
 							</div>
 							<div class = "condiv">
 								<c:if test="${rlist.qnr_depth != 0 }">
+									<!-- 댓글의 깊이(몇번째 자식 댓글인지)에 따라 화살표 개수 추가 -->
 									<c:forEach begin="1" end="${rlist.qnr_depth }"><img src = "resources/image/up.png" width = "15px" height = "15px" /></c:forEach>
 								</c:if>
 								${rlist.qnr_content }
 								<c:if test="${id != null }">
-										<textarea style="display:none;" rows="1" cols="70" name="addCommentsArea" id="${rlist.qnr_num }" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)addComment(${rlist.qnr_num }, ${rlist.qnb_num }, ${rlist.qnr_depth }, '${id }')"></textarea>
+									<!-- enter, shift 키 먹히도록 -->
+									<textarea style="display:none;" rows="1" cols="70" name="addCommentsArea" id="${rlist.qnr_num }" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)addComment(${rlist.qnr_num }, ${rlist.qnb_num }, ${rlist.qnr_depth }, '${id }')"></textarea>
 								</c:if>
 							</div>
 						</div><br>
@@ -189,10 +196,6 @@
 					</c:if>
 				</div>
 			</form>
-		</div>
-		<div align="left">
-			<h4>댓글</h4>
-				
 		</div>
 	</div>
 </body>

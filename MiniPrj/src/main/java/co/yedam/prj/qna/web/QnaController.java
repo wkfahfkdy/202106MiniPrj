@@ -78,19 +78,20 @@ public class QnaController {
 		
 		String qn_num = request.getParameter("qn_num");
 		String qn_hit = request.getParameter("qn_hit");
+		String qnb_num = request.getParameter("qn_num");
 		
 		vo.setQn_num(Integer.parseInt(qn_num));
 		vo.setQn_hit(Integer.parseInt(qn_hit));
+		vo2.setQnb_num(Integer.parseInt(qnb_num));
 		
+		// 선택한 글을 들어갈 시 조회수 +1
 		dao.hitCount(vo);
 		
 		QnaVO select = dao.qnaSelect(vo);
 		
-		System.out.println(select);
 		model.addAttribute("vo", select);
 		
 		// 작성한 게시글의 댓글 리스트
-		
 		List<QnaReplyVO> replyList = dao.replyList(vo2);
 		model.addAttribute("replyList", replyList);
 		
@@ -110,7 +111,7 @@ public class QnaController {
 	}
 	
 	// 게시글 수정
-	@RequestMapping("qnaUpdate.do")
+	@RequestMapping("/qnaUpdate.do")
 	public String qnaUpdate(HttpServletRequest request, QnaVO vo) {
 		
 		String qn_num = request.getParameter("qn_num");
@@ -127,9 +128,10 @@ public class QnaController {
 	}
 	
 	// 댓글 작성
-	@RequestMapping("qnAddComment.do")
+	@RequestMapping("/qnAddComment.do")
 	public String addComment(HttpServletRequest request, QnaReplyVO vo) {
 		
+		// 댓글(want : new) - 대댓글(want : add) 구별을 위한 값
 		String want = request.getParameter("want");
 		
 		String u_id = request.getParameter("u_id");
@@ -140,10 +142,12 @@ public class QnaController {
 		vo.setQnr_content(qnr_content);
 		vo.setQnb_num(qnb_num);
 		
+		// want : new = 댓글이라면
 		if(want.equals("new")) {
 			
 			dao.insertQnaReply(vo);
-			
+		
+		// want : add = 대댓글이라면
 		} else if(want.equals("add")) {
 			
 			int qnr_depth = Integer.parseInt(request.getParameter("qnr_depth"));
