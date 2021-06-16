@@ -2,14 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	   
 <!DOCTYPE html>
-<html lang="zxx">
+<html>
 <head>
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 <style>
 	.header{
 	font-family: 'Nanum Pen Script', cursive;
@@ -30,8 +34,6 @@ blockquote {
     margin-block-end: 1em;
     margin-inline-start: 40px;
     margin-inline-end: 40px;
-    
-    
 	max-width: 1170px;
 	margin: 50px auto;
 	padding: 45px 45px 55px;
@@ -57,36 +59,72 @@ blockquote {
 		color:
 	}
 	.h4c{
-	font-family: 'Nanum Pen Script', cursive;
+	font-family: 'Single Day', cursive;
 	font-size:35px;
 	}
-	
-	.myButton {
-	margin-top:-20px;
-	box-shadow:inset 0px -3px 7px 0px #29bbff;
-	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-	background-color:#2dabf9;
-	border-radius:3px;
-	border:1px solid #0b0e07;
+	.textdiv1{
+		margin-top:10px;
+		float:left;
+		height:50px;
+		margin-right:20px;
+	}
+	.textdiv2{
+		margin-right: 10px;
+		float:right;
+	}
+	.texthr{
+		clear:both;
+		
+	}
+	.texthr1{
+	}
+.myButton {
+    margin-top: 10px;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:10px;
+	border:1px solid azure;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:9px 23px;
+	color:#777777;
+	font-family: 'Single Day', cursive;
+	font-size:20px;
+	font-weight:bold;
+	padding:8px 8px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #263666;
+	text-shadow:0px 1px 0px #ffffff;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-	background-color:#0688fa;
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
 }
 .myButton:active {
 	position:relative;
 	top:1px;
 }
-	
-	}
+.commentA{
+	float:left;
+}
+
+    .footer__section{
+    	margin-top:50px;
+    }
+    .textarea{
+        margin-top: 10px;
+    margin-left:30px;
+    font-size:24px;
+    font-family: 'Nanum Pen Script', cursive;
+    	border:none;
+    	/*border-top: 2px solid #d9d9d9;*/
+    	background-color:transparent;
+    }
+    .commentMain{
+    	clear:left;
+    }
+    .cm1{
+    	margin-top:30px;
+    }
 </style>
 	<title>Boto | Photography HTML Template</title>
 	<meta charset="UTF-8">
@@ -110,6 +148,16 @@ blockquote {
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
+
+<script>
+	function commentInsert(id){
+		frm.u_id.value=id;
+		var comment=$('#comment').val();
+		
+		frm.c_comment.value=comment;
+		frm.submit();
+	}
+	</script>
 </head>
 <body>
 	<!-- Page Preloder -->	
@@ -216,19 +264,36 @@ blockquote {
 				<br><br>
 				<h5 class="h4c" align="center">${Click.rb_content }</h5>
 			</blockquote>
-	<!-- Comment Section -->
+	<!-- Comment Head Section -->
 	<section  style="width:80%; margin:auto;">
-		<hr style="border:solid 1px #A9D0F5;">
+		
 		<div><p class="pC" >LIKE :</p></div>
 		<br>
 		<div><p style="font-size:20px;">Comments ..</p></div>
-		<div>
-		<textarea name="textarea" rows="2" cols="80"></textarea>&nbsp&nbsp&nbsp<button type="button" class="myButton">입력</button>
-		</div>
-		
+		<hr style="border:solid 1px #A9D0F5;">
+		<div class="commentA"></div>
 	</section>
 
+	<!-- Comment Main Section -->
+	<section style="width:80%; margin:auto;" class="commentMain">
+		<div class="cm1">${id }</div>
+	</section>
+	
+	<!-- Comment  -->
+	
+	<section style="width:80%; margin:auto; height:70px;margin-top: 70px; background-color:#EFEAEA;">
 
+	 <form action="commentInsert.do" id="frm" method="post">
+	 <input type="hidden" id="c_comment" name="c_comment">
+	 <input type="hidden" id="u_id" name="u_id">
+	<textarea class="textarea" style="resize: none;" id="comment" name="comment" rows="1" cols="60" placeholder="댓글 입력하는 곳 !"></textarea></div>
+	<div class="textdiv2"><button type="button" class="myButton" onclick="commentInsert('${id}');">등록</button></div>
+	</form>
+	
+	</section>
+	
+	
+	
 	<!-- Footer Section -->
 	<footer class="footer__section">
 		<div class="container">

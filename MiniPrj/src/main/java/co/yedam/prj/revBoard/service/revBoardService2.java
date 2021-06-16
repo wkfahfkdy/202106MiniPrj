@@ -2,6 +2,7 @@ package co.yedam.prj.revBoard.service;
 
 import java.util.List;
 
+import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
 
@@ -20,4 +21,6 @@ public interface revBoardService2 {
 	public int revBoardHit(revBoardVO2 vo);
 	
 	public int revBoardCount(revBoardVO2 vo);
+	
+	public int insertRevComment(RevCommentVO vo);
 }

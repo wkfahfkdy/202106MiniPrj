@@ -15,7 +15,7 @@
 	</update>
 	
 	<update id="revBoardHit" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
-	update review set rb_hit = rb_hit+ #{rb_hit} where rb_num=#{rb_num}
+	update review set rb_hit = rb_hit+ 1 where rb_num=#{rb_num}
 	</update>
 	
 	
@@ -30,4 +30,8 @@
 	<select id="revBoardCount" resultType="int">
 		select count(*) from review where u_id = #{u_id} 
 	</select>
+	
+	<insert id="revCommentInsert" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
+	insert into review_comment values(#{c_date},#{c_comment},#{u_id})
+	</insert>
 </mapper>
