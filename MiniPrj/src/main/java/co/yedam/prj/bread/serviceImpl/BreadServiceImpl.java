@@ -186,5 +186,11 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.insert("breadInsertMenu",vo);
 	}
 
+	@Override
+	public BreadVO storeSelectMP(BreadVO vo) {
+		
+		return sqlSession.selectOne("storeSelectMP",vo);
+	}
+
 
 }

@@ -39,7 +39,9 @@ public class BreadController {
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
 		
-		model.addAttribute("bread",dao.storeSelect(vo));
+		System.out.println(dao.storeSelectMP(vo));
+		
+		model.addAttribute("bread",dao.storeSelectMP(vo));
 		
 		return "breadStoreManage";
 	}

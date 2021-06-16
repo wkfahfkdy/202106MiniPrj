@@ -31,6 +31,8 @@ public interface BreadService {
 	public BreadVO storeAdr(BreadVO vo);	// 스토어 주소 가져오기
 
 	public BreadVO storeSelect(BreadVO vo); //스토어 셀렉트(빵 페이지 하단 스토어)
+	public BreadVO storeSelectMP(BreadVO vo);
+	
 	public List<BreadVO> storeTopThree();
 	
 	
