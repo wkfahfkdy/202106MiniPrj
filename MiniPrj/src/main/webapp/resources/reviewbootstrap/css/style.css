@@ -415,7 +415,7 @@ ol {
 
 .main__menu .nav__menu>li>a {
 	position: relative;
-	font-size: 28px;
+	font-size:  50px;
 	color: #7E858B;
 	font-weight: 700;
 	padding: 5px 2px;
@@ -980,7 +980,7 @@ only screen and (min-width: 576px) and (max-width: 767px) {
 	margin: 50px auto;
 	padding: 45px 45px 55px;
 	background-color: #EAEFE5;
-	background-image: url("../img/blog-single/quote.png");
+	background-image: url("resources/reviewbootstrap/img/blog-single/quote.png");
 	background-repeat: no-repeat;
 	background-position: right 60px bottom -10px;
 }
