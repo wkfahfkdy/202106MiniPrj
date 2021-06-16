@@ -43,7 +43,7 @@
         </c:if>
         <c:if test="${id ne null and id eq 'admin'}">
         <li>
-        	<a href="memberInfo.do">
+        	<a href="memberInfoListPaging.do">
                 MyPage
             </a>
         </li>   
