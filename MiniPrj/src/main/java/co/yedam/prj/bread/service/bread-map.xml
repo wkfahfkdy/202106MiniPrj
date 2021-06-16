@@ -83,7 +83,13 @@
 		where a.s_id = #{s_id}
 	</select>
 
-
+	<select id="storeSelectAll"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select *
+		from store
+		where u_id = #{u_id}
+	</select>
 
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
