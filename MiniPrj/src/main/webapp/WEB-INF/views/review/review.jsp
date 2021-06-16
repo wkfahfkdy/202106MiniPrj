@@ -32,10 +32,11 @@
 	}
 	
 	 function showPopup(num) {
-		 console.log(num);
-		 
-		 window.open("reviewClick.do?rb_num="+num, "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+			 window.open("reviewClick.do?rb_num="+num+"&rb_hit=1", "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+
 		 }
+	 
+	 
 	</script>
 	
 	
@@ -110,7 +111,7 @@
 					<div class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-					        <a href="#" onclick="showPopup();"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
+					        <a href="#" onclick="showPopup('${list.rb_num}');"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
 					        <img src="resources/reviewUpload/${list.rb_image }" alt="">
 					    </span>
 					    
@@ -142,9 +143,6 @@
 
 	<form id="frm" name="frm" action="reviewLike.do" method="post">
 		<input type="hidden" id="rb_like" name="rb_like">
-		<input type="hidden" id="rb_num" name="rb_num">
-	</form>
-	<form id="frm2" name="frm2" action="#" method="post">
 		<input type="hidden" id="rb_num" name="rb_num">
 	</form>
   </div>

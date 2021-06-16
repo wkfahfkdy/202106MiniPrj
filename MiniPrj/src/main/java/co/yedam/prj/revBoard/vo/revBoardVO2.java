@@ -1,13 +1,13 @@
 package co.yedam.prj.revBoard.vo;
 
-import java.util.Date;
+
 
 public class revBoardVO2 {
 	
 	private int rb_num;
 	private String rb_title;
 	private String u_id;
-	private Date rb_regdate;
+	private String rb_regdate;
 	private int rb_hit;
 	private String rb_content;
 	private int rb_like;
@@ -44,12 +44,18 @@ public class revBoardVO2 {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-	public Date getRb_regdate() {
+	
+	
+	public String getRb_regdate() {
 		return rb_regdate;
 	}
-	public void setRb_regdate(Date rb_regdate) {
+
+
+	public void setRb_regdate(String rb_regdate) {
 		this.rb_regdate = rb_regdate;
 	}
+
+
 	public int getRb_hit() {
 		return rb_hit;
 	}

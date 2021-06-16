@@ -8,6 +8,15 @@
 	.col-sm-4{
 		width:100px;
 	}
+	.liClass1{
+		font-size:4rem;
+	}
+	h4{
+	color:gray;
+	}
+	.hrclass{
+		width:
+	}
 </style>
 	<title>Boto | Photography HTML Template</title>
 	<meta charset="UTF-8">
@@ -22,6 +31,7 @@
 	<link rel="stylesheet" href="resources/reviewbootstrap/css/slick.css"/>
 
 	<!-- Main Stylesheets -->
+	
 	<link rel="stylesheet" href="resources/reviewbootstrap/css/style.css"/>
 
 
@@ -43,7 +53,7 @@
 			<div class="row">
 				<div class="col-sm-4 col-md-3 order-2 order-sm-1">
 					<div class="header__social">
-						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"></a>
 					</div>
 				</div>
 				<div class="col-sm-4 col-md-6 order-1  order-md-2 text-center">
@@ -53,7 +63,7 @@
 			</div>
 			<nav class="main__menu">
 				<ul class="nav__menu">
-					<li><a href="#" class="menu--active">${Click.rb_title}</a></li>
+					<li class="liClass1"><i class="fa fa-instagram"></i>&nbsp&nbsp<a href="#" class="menu--active">${Click.rb_title}</a></li>
 					
 					<!--<li><a href="./blog.html">Blog</a>
 						<ul class="sub__menu">
@@ -62,6 +72,12 @@
 					</li> -->
 					
 				</ul>
+				<div class="text-item">
+				<h4  align="right">작성자: ${Click.u_id }</h4><br><br><br>
+				<h5 align="right">방문횟수 자리 : ${Click.rb_hit }</h5>
+				<br>
+				<p align="right">${Click.rb_regdate }</p>
+			</div>
 			</nav>
 		</div>
 	</header>
@@ -71,73 +87,67 @@
 	<section class="hero__section">
 		<div class="hero-slider">
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/1.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#"  data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/1.jpg" alt="">
 				</a>
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/2.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#"  data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/2.jpg" alt="">
 					</a>
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/3.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#"  data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/3.jpg" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/4.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#" data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/4.jpg" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/5.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#"  data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/5.jpg" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/6.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#"  data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/6.jpg" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
-				<a class="fresco" href="img/hero-slider/7.jpg" data-fresco-group="projects">
+				<a class="fresco" href="#" " data-fresco-group="projects">
 					<img src="resources/reviewbootstrap/img/hero-slider/7.jpg" alt="">
 				</a>	
 			</div>
 		</div>
 		<div class="hero-text-slider">
 			<div class="text-item">
-				<h2>Nature</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Red Heartbeat</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Blue Dreem</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Christian Church</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Red Darkness</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Beauty with Brain</h2>
-				<p>Photography</p>
 			</div>
 			<div class="text-item">
-				<h2>Remarkable</h2>
-				<p>Photography</p>
 			</div>
 		</div>
 	</section>
 	<!-- Hero Section end -->
+
+	<!-- Comment Section -->
+	<section>
+		<hr style="border:solid 1px #A9D0F5;">
+		<br><br>
+		<div><p>Comments</p></div>
+	</section>
+
 
 	<!-- Footer Section -->
 	<footer class="footer__section">
@@ -150,7 +160,9 @@
 		</div>
 	</footer>
 	<!-- Footer Section end -->
-
+	
+	
+	
 	<!-- Search Begin -->
 	<div class="search-model">
 		<div class="h-100 d-flex align-items-center justify-content-center">
@@ -166,7 +178,6 @@
 	<script src="resources/reviewbootstrap/js/vendor/jquery-3.2.1.min.js"></script>
 	<script src="resources/reviewbootstrap/js/jquery.slicknav.min.js"></script>
 	<script src="resources/reviewbootstrap/js/slick.min.js"></script>
-	<script src="resources/reviewbootstrap/js/fresco.min.js"></script>
 	<script src="resources/reviewbootstrap/js/main.js"></script>
 
 	</body>
