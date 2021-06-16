@@ -6,7 +6,18 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<script>
+	function adminDelete(id) {
+		let result = confirm("삭제하시겠습니까?") 
+		if(result) {
+			location.href="adminDelete.do?id=" + id;
+			alert("삭제되었습니다.");
+		}else {
+			alert("취소되었습니다.");
+		}
+	}
+	
+</script>
 <title>회원정보</title>
 </head>
 <body>
@@ -18,7 +29,7 @@
 		<br>
 		<div>
 			<h3>회원 정보</h3>
-			<table  style="width:1000px;text-align:center;" class="table">
+			<table  style="width:1200px;text-align:center;" class="table">
 				<tr>
 					<th>회원아이디</th>
 					<th>이름</th>
@@ -36,7 +47,7 @@
 						<td>${sPay.u_adrcode }</td>
 						<td>${sPay.u_tel }</td>
 						<td>${sPay.u_mail }</td>
-						<td><button class="dk-btn dk-btn-md" onclick="#">회원삭제</button></td>			
+						<td><button class="dk-btn dk-btn-md" onclick="adminDelete('${sPay.u_id }')">회원삭제</button></td>			
 					</tr>
 			</table>
 			
@@ -45,7 +56,7 @@
 		<br>
 		<div>
 			<h3>서비스부분</h3>
-			<table  style="width:1000px;text-align:center;" class="table">
+			<table  style="width:1200px;text-align:center;" class="table">
 				<tr>
 					<th>이용중인 서비스</th>
 					<th>서비스 유효기간</th>
@@ -68,7 +79,7 @@
 		<br>
 		<div class="col-12 col-md-6 dk-gallery">
 			<h3>상점 정보</h3>
-			<table  style="width:1000px;text-align:center;" class="table">
+			<table  style="width:1200px;text-align:center;" class="table">
 				<tr>
 					<th>사업자 등록번호</th>
 					<td>${store.s_id }</td>
@@ -97,7 +108,10 @@
 				</tr>
 			</table>
 		</div>
+		작성글이있으면 표시
 	</div>
+	
+	
 	<div class="dk-box-1">
 		<div class="bg-image bg-pattern">
 			<div
@@ -141,64 +155,7 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="dk-box-2">
-		<div class="container">
-			<div
-				class="row no-gutters vertical-gap align-items-md-center justify-content-between">
-				<div
-					class="row align-items-center justify-content-between vertical-gap">
-					<div class="col-lg-5">
-						<div class="dk-box">
-							<h2 class="mt-2 mb-30">Web & UI / UX Design</h2>
-							<p class="lead">Firmament first without, in it also lesser
-								brought. Can't green from firmament unto shall i. Beginning
-								living together light blessed sixth place behold without make
-								had upon for dry, made rule Second.</p>
-							<p class="lead mb-0">Own won't said every gathered herb third
-								replenish face seas days moved. Form over rule light created
-								they're.</p>
-						</div>
-						<div class="dk-gap d-block d-lg-none mnt-5"></div>
-					</div>
-					<div class="col-lg-6">
-						<img class="dk-img" src="assets/images/img-3.png" alt="">
-					</div>
-				</div>
-				<div class="col-12 col-md-5 col-lg-5">
-					<div class="dk-box">
-						<div class="dk-gap-1 d-block d-md-none"></div>
-						<h2 class="mnt-8 mb-30">Professional skils</h2>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								UI/UX Design<span><span class="dk-count-number">75</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Web development<span><span class="dk-count-number">90</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Marketing<span><span class="dk-count-number">65</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	
 
 </body>

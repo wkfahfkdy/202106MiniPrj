@@ -57,6 +57,7 @@ public class MemberController {
 		model.addAttribute("members", dao.memberSelectList());
 		return "member/memberInfo";
 	}
+	
 	@RequestMapping("/businessMemberPage.do")
 	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
 		String id = req.getParameter("id");
@@ -69,10 +70,30 @@ public class MemberController {
 		
 		return "member/businessMemberPage";
 	}
+	
+	@RequestMapping("/memberPage.do")
+	public String memberPage(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		
+		model.addAttribute("member", dao.memberSelectJW(vo));
+		
+		return "member/memberPage";
+	}
 
 	@RequestMapping("/memberLogin.do")
 	public String memberLogin() {
 		return "member/memberLogin";
+	}
+	
+	@RequestMapping("/adminDelete.do")
+	public String adminDelete(HttpServletRequest req, MemberVO vo) {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		int r = dao.deleteMember(vo);
+		System.out.println(r + "건 삭제");
+		
+		return "redirect:memberInfo.do";
 	}
 	
 	@RequestMapping("/memberDelete.do")

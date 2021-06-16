@@ -6,18 +6,80 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<script>
+	function adminDelete(id) {
+		let result = confirm("삭제하시겠습니까?") 
+		if(result) {
+			location.href="adminDelete.do?id=" + id;
+			alert("삭제되었습니다.");
+		}else {
+			alert("취소되었습니다.");
+		}
+	}
+	
+</script>
 <title>회원정보</title>
 </head>
 <body>
-	
-	<div class="dk-box-1">
-		<div class="container mnt-8 mnb-8">
-			<div class="row justify-content-between">
-				<h2>[회원 관리]</h2>
-			</div>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<h2>[회원 관리]</h2>
+		<div>
+			<br>
+		<div>
+			<h3>회원 정보</h3>
+			<table  style="width:1200px;text-align:center;" class="table">
+				<tr>
+					<th>회원아이디</th>
+					<th>이름</th>
+					<th>주소</th>
+					<th>우편번호</th>
+					<th>전화번호</th>
+					<th>이메일</th>
+					<th>마일리지</th>
+					<th>비고</th>
+				
+				</tr>
+					<tr>
+						<td>${member.u_id }</td>
+						<td>${member.u_name }</td>
+						<td>${member.u_adr }</td>
+						<td>${member.u_adrcode }</td>
+						<td>${member.u_tel }</td>
+						<td>${member.u_mail }</td>
+						<td>${member.mileage }</td>
+						<td><button class="dk-btn dk-btn-md" onclick="adminDelete('${member.u_id }')">회원삭제</button></td>			
+					</tr>
+			</table>
+			
+		</div>		
+		</div>
+		<div>
+			<br>
+		<div>
+			<h3>마일리지 적립내역</h3>
+			<table  style="width:1200px;text-align:center;" class="table">
+				<tr>
+					<th>작성한 글</th>
+					<th>작성한 댓글</th>
+					<th>작성한 리뷰</th>
+					<th>적립된 마일리지</th>
+					
+				</tr>
+					<tr>
+						<td>${member.mileage }</td>
+						
+					</tr>
+			</table>
+			
+		</div>		
 		</div>
 	</div>
+	
+	
+	
 	<div class="dk-box-1">
 		<div class="bg-image bg-pattern">
 			<div
@@ -62,49 +124,7 @@
 		</div>
 	</div>
 	
-	<div class="dk-box-2">
-		<div class="container">
-			<div class="row no-gutters vertical-gap align-items-md-center justify-content-between">
-				<div class="col-12 col-md-6 dk-gallery">
-					<a href="assets/images/img-home-7.png" class="dk-gallery-item"><img
-						class="dk-img"
-						src="${pageContext.request.contextPath }/resources/css/mimilism/assets/images/img-home-7.png"
-						alt=""></a>
-				</div>
-				<div class="col-12 col-md-5 col-lg-5">
-					<div class="dk-box">
-						<div class="dk-gap-1 d-block d-md-none"></div>
-						<h2 class="mnt-8 mb-30">Professional skils</h2>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								UI/UX Design<span><span class="dk-count-number">75</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Web development<span><span class="dk-count-number">90</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-						<div class="dk-progress dk-count" data-count-speed="2000">
-							<div class="dk-progress-title">
-								Marketing<span><span class="dk-count-number">65</span>%</span>
-							</div>
-							<div class="dk-progress">
-								<span class="dk-count-progress"></span>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	
 
 </body>
