@@ -158,22 +158,13 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.selectOne("storeAdr", vo);
 	}
 
-<<<<<<< HEAD
+
 	@Override
-=======
-	@Override
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	public int storeInformUpdate(BreadVO vo) {
-	
-<<<<<<< HEAD
+
 		return sqlSession.update("storeInformUpdate", vo);
 	}
-=======
-		return SqlSession.update("storeInformUpdate",vo);
-	}
-	public List<BreadVO> storeTopThree() {
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
-		
+
 	
 	
 	
@@ -185,15 +176,9 @@ public class BreadServiceImpl implements BreadService {
 
 	@Override
 	public BreadVO storeSelectAll(BreadVO vo) {
-<<<<<<< HEAD
 
 		return sqlSession.selectOne("storeSelectAll", vo);
 
-=======
-		
-		return SqlSession.selectOne("storeSelectAll", vo);
-
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	}
 
 	@Override
