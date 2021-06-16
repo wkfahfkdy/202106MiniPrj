@@ -37,12 +37,12 @@
 	
 	
 	<select id="memberSelectListIC" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
-		select m.*, j.i_code
-		from member m join (select a.*, b.i_name 
-           		            from purchase a join service b 
-                            on a.I_CODE = b.I_CODE) j
-		on m.u_id = j.u_id            
-		where m.u_id = #{u_id}
+		select m.*, k.s_id, k.i_code, k.i_regdate, k.e_date, k.i_pay, k.i_name 
+		from member m join (select a.*, b.I_NAME
+                  			from purchase a join service b
+                  			on a.i_code = b.i_code
+                    		where a.u_id = 'business3') k
+		on m.u_id = #{u_id}   
 	</select>
 	
 	<select id="memberSelectSID" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">

@@ -87,7 +87,18 @@
 		where a.s_id = #{s_id}
 	</select>
 
-
+<<<<<<< HEAD
+	<select id="storeSelectAll"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select *
+		from store
+		where u_id = #{u_id}
+=======
+	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select * from (select * from store order by s_like desc) where rownum &lt;=3
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
+	</select>
 
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"

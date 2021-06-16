@@ -158,9 +158,21 @@ public class BreadServiceImpl implements BreadService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int storeInformUpdate(BreadVO vo) {
 	
 		return SqlSession.update("storeInformUpdate",vo);
+=======
+	public List<BreadVO> storeTopThree() {
+		
+		return SqlSession.selectList("storeTopThree");
+	}
+
+	@Override
+	public BreadVO storeSelectAll(BreadVO vo) {
+		
+		return SqlSession.selectOne("storeSelectAll", vo);
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	}
 
 }
