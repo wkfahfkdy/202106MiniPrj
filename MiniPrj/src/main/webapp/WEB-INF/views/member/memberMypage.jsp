@@ -450,6 +450,9 @@
 				<button class="dk-btn dk-btn-md" type="button"
 					onclick='location="home.do"' name="back_home">홈으로</button>
 				
+				
+				<button class="dk-btn dk-btn-md" type="button"
+					onclick='location="breadStoreManage.do"' name="back_home">My shop</button>
 			</div>
 		</div>
 	</div>

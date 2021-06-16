@@ -157,4 +157,10 @@ public class BreadServiceImpl implements BreadService {
 		return SqlSession.selectOne("storeAdr", vo);
 	}
 
+	@Override
+	public int storeInformUpdate(BreadVO vo) {
+	
+		return SqlSession.update("storeInformUpdate",vo);
+	}
+
 }
