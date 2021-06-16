@@ -110,53 +110,6 @@
 		</div>
 		작성글이있으면 표시
 	</div>
-	
-	
-	<div class="dk-box-1">
-		<div class="bg-image bg-pattern">
-			<div
-				style="background-color: #202020; background-image: url(assets/images/bg-pattern.png);"></div>
-		</div>
-		<div class="container">
-			<div class="row justify-content-center vertical-gap mnt-40 mnb-10">
-
-				<div class="col-sm-6 col-lg-3">
-
-					<div class="dk-numbers dk-count" data-count-speed="1000">
-						<div class="dk-numbers-title dk-count-number">548</div>
-						<div class="dk-numbers-text">페이지 방문수</div>
-					</div>
-
-				</div>
-				<div class="col-sm-6 col-lg-3">
-
-					<div class="dk-numbers dk-count" data-count-speed="1000">
-						<div class="dk-numbers-title dk-count-number">1465</div>
-						<div class="dk-numbers-text">문의사항</div>
-					</div>
-
-				</div>
-				<div class="col-sm-6 col-lg-3">
-
-					<div class="dk-numbers dk-count" data-count-speed="1000">
-						<div class="dk-numbers-title dk-count-number">612</div>
-						<div class="dk-numbers-text">피드백</div>
-					</div>
-
-				</div>
-				<div class="col-sm-6 col-lg-3">
-
-					<div class="dk-numbers dk-count" data-count-speed="1000">
-						<div class="dk-numbers-title dk-count-number">735</div>
-						<div class="dk-numbers-text">즐겨찾는 고객</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	
 
 </body>
 </html>

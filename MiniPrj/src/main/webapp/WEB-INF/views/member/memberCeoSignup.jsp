@@ -193,17 +193,30 @@ $(function(){
 					<input class="dk-btn dk-btn-md" style="width: 50%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_postcode" name="u_adrcode" placeholder="우편번호" class="form-control">
-					</div>
-					
-					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_address" name="u_adr" placeholder="주소" class="form-control">
+					<input style="width: 50%;" type="text" id="sample6_address" name="u_adr" placeholder="사업지 주소를 선택해주세요." class="form-control"  readonly>
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_extraAddress" name="u_adr2" placeholder="상세주소" class="form-control">
+					<input style="width: 50%;" type="text" id="sample6_postcode" name="u_adrcode" placeholder="우편번호" class="form-control" readonly>
 					</div>
+					<div class="col-md-6">
+					<input style="width: 50%;" type="text" id="sample6_extraAddress" name="u_adr2" placeholder="상세주소" class="form-control"  readonly>
+					</div>
+					 <div class="col-md-6">
+                        <select name="r_code" style="width: 50%;" class="form-control" id="r_code" >
+  							<option value='' selected>-- 선택 --</option>
+ 							<option value='1'>동구</option>
+  							<option value='2'>수성구</option>
+  							<option value='3'>중구</option>
+  							<option value='4'>서구</option>
+  							<option value='5'>달서구</option>
+  							<option value='6'>달성군</option>
+  							<option value='7'>북구</option>
+  							<option value='8'>칠곡</option>
+  							<option value='9'>남구</option>
+						</select>
+                    </div>
                     <div class="col-md-6">
-                        <input style = "width:50%;" type="file" name="s_file" class="form-control"placeholder="SFile">
+                        <input style = "width:50%;" type="file" name="s_file" class="form-control" placeholder="SFile">
                     </div>
                     <div class="col-12">
                         <div class="dk-result"></div>

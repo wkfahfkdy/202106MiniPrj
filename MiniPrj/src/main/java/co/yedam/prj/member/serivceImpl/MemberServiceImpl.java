@@ -44,24 +44,24 @@ public class MemberServiceImpl implements MemberService {
 	
 	
 	@Override
-	public List<MemberVO> memberSelectList() {
+	public List<MemberVO> memberSelectList(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("memberList");
+		return sqlSession.selectList("memberList", vo);
 	}
 	@Override
-	public List<MemberVO> memberSelectListWait() {
+	public List<MemberVO> memberSelectListWait(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("memberListWait");
+		return sqlSession.selectList("memberListWait", vo);
 	}
 	@Override
-	public List<MemberVO> memberSelectListBM() {
+	public List<MemberVO> memberSelectListBM(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("memberListBM");
+		return sqlSession.selectList("memberListBM", vo);
 	}
 	@Override
-	public List<MemberVO> memberSelectListM() {
+	public List<MemberVO> memberSelectListM(MemberVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList("memberListM");
+		return sqlSession.selectList("memberListM", vo);
 	}
 
 	@Override
@@ -121,6 +121,36 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberVO> memberSelectListIC(MemberVO vo) {
 		
 		return sqlSession.selectList("memberSelectListIC", vo);
+	}
+
+	@Override
+	public int tableCnt() {
+		
+		return sqlSession.selectOne("totalCnt");
+	}
+
+	@Override
+	public int tableCntWait() {
+
+		return sqlSession.selectOne("totalCntWait");
+	}
+
+	@Override
+	public int tableCntBM() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("totalCntBM");
+	}
+
+	@Override
+	public int tableCntM() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("totalCntM");
+	}
+
+	@Override
+	public List<MemberVO> memberSelectListAll() {
+		
+		return sqlSession.selectList("memberSelectListAll");
 	}
 
 
