@@ -38,7 +38,7 @@ public class BreadController {
 		
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
-		session.setAttribute("u_id", vo.getU_id());
+		
 		model.addAttribute("bread",dao.storeInformUpdate(vo));
 		
 		return "breadStoreManage";
@@ -203,7 +203,7 @@ public class BreadController {
 		
 		model.addAttribute("loc", vo2.getS_adr());
 		model.addAttribute("store", list);
-		return "breadstoreManage";
+		return "bread/breadStore";
 	}
 
 //	// 스토어 리스트 페이징 출력 
