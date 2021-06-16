@@ -94,6 +94,8 @@ public class MessageController {
 	// 쪽지작성폼
 	@RequestMapping("/form.do")
 	private String messageInsertForm(Model model, MessageVO vo) {
+		
+		
 				
 		return "messageForm";
 	}

@@ -35,6 +35,10 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		return sqlSession.update("revBoardLikeUp",vo);
 	}
 	
-	
+	@Override
+	public List<revBoardVO2> reviewLikeTop(){
+		
+		return sqlSession.selectList("revTopSelect");
+	}
 	
 }

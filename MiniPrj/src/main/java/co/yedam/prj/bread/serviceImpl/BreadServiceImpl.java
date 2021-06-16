@@ -152,9 +152,9 @@ public class BreadServiceImpl implements BreadService {
 	}
 
 	@Override
-	public BreadVO testAdr() {
+	public BreadVO storeAdr(BreadVO vo) {
 		
-		return SqlSession.selectOne("adrTest");
+		return SqlSession.selectOne("adrTest", vo);
 	}
 
 }

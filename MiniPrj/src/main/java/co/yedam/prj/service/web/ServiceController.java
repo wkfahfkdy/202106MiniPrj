@@ -16,8 +16,10 @@ public class ServiceController {
 	@Autowired
 	private ServiceService dao;
 	
+	
 	@RequestMapping("/memberAdPopup.do")
 	public String adpopup(Model model, MemberVO vo , HttpServletRequest req) {
+	
 		
 		model.addAttribute("service", dao.serviceSelectList());
 		return "memberAdPopup";

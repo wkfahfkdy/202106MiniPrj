@@ -62,7 +62,11 @@ ul, li {
 	width: 555px;
 	float: left;
 }
-
+.minibox2 {
+	height: 130px;
+	width: 555px;
+	float: left;
+}
 
 
 
@@ -83,29 +87,19 @@ ul, li {
 
 
 				<div class="minibox">
-					<img src="${pageContext.request.contextPath }/resources/bootstrap/mimilism/assets/images/breadMain2.png">
+					<img src="${pageContext.request.contextPath }/resources/image/blueberrychiffon.png">
 				</div>
 
 
 
-				<div class="minibox">
-					<table align="center">
-						<tr>
-							<th width="100px">순위</th>
-							<th width="200px">빵 이름</th>
-							<th width="200px">베이커리</th>
-							<th width="100px">인기도</th>
-						</tr>
-						<c:forEach items="${bread }" var="vo">
-							<tr>
-								<td>랭크?</td>
-								<td>${vo.b_name }</td>
-								<td>${vo.s_name }</td>
-								<td>${vo.b_like }</td>
-							</tr>
-						</c:forEach>
-					</table>
+				<div class="minibox2">
+					<img src="${pageContext.request.contextPath }/resources/image/strawberryCake.png">
 				</div>
+				
+				<div class="minibox2">
+					<img src="${pageContext.request.contextPath }/resources/image/Garlic.png">
+				</div>
+				
 				
 			</div>
 

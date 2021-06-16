@@ -64,7 +64,7 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a onclick="window.open('form.do','MS','width=550,height=500,location=no,status=no,scrollbars=no');" 
+					<a onclick="window.open('form.do','MS','width=550,height=400,location=no,status=no,scrollbars=no');" 
 					style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
 		</table>

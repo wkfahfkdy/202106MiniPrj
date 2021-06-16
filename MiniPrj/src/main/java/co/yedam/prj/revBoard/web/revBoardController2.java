@@ -33,12 +33,13 @@ public class revBoardController2 {
 	public String revBoardList(Model model) {
 		
 		model.addAttribute("list", dao.revBoardSelectList());
+		model.addAttribute("top",dao.reviewLikeTop());
 		
 		return "review/review";
 	}
 	
 	
-	//리뷰 등록페이지
+	//由щ럭 �벑濡앺럹�씠吏�
 	
 	@RequestMapping("/revBoardEnrollment.do")
 	public String revBoardEnrollment(Model model) {
@@ -49,7 +50,7 @@ public class revBoardController2 {
 	}
 	
 	
-	// 리뷰 이미지 저장경로 및 vo 값 저장
+	// 由щ럭 �씠誘몄� ���옣寃쎈줈 諛� vo 媛� ���옣
 	@RequestMapping("/revBoardSubmit.do")
 	public String revBoardSubmit(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) {
 			int size = 10 * 1024 * 1024;
@@ -79,7 +80,7 @@ public class revBoardController2 {
 				
 		
 				int r=dao.insertRevBoard(vo);
-				System.out.println(r+"건 입력");
+				System.out.println(r+"嫄� �엯�젰");
 				HttpSession session=req.getSession();
 				session.setAttribute("image", vo.getRb_image());
 				model.addAttribute("review",vo);
@@ -88,7 +89,7 @@ public class revBoardController2 {
 	}
 	
 	
-	// X   리뷰클릭시 나오는 화면
+	// X   由щ럭�겢由��떆 �굹�삤�뒗 �솕硫�
 	@RequestMapping("/red1.do")
 	public String red1(Model model) {
 		
@@ -98,7 +99,7 @@ public class revBoardController2 {
 	}
 	
 	
-	//좋아요 클릭시
+	//醫뗭븘�슂 �겢由��떆
 	@RequestMapping("reviewLike.do")
 	public String reviewLike(revBoardVO2 vo) {
 		
@@ -107,4 +108,9 @@ public class revBoardController2 {
 		return "redirect:review2.do";
 	}
 	
+	@RequestMapping("reviewClick.do")
+	public String reviewClick() {
+		return "review/empty/reviewClick/reviewClick";
+	}
+
 }

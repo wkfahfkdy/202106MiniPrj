@@ -12,5 +12,7 @@ public interface revBoardService2 {
 	public int insertRevBoard(revBoardVO2 vo);
 	
 	public int reviewLike(revBoardVO2 vo);
+
+	public List<revBoardVO2> reviewLikeTop();
 	
 }

@@ -94,8 +94,8 @@
 		where a.s_id = #{s_id}
 	</select>
 	
-	<select id="adrTest" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select s_adr from store where s_id = 'S_101'
+	<select id="storeAdr" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select s_adr from store where s_id = #{s_id}
 	</select>
 
 
