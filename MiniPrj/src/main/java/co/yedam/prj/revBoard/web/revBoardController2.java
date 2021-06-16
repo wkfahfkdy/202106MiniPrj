@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -72,16 +73,19 @@ public class revBoardController2 {
 				String id = multi.getParameter("u_id");
 				String content= multi.getParameter("rb_content");
 				String title= multi.getParameter("rb_title");
+				String rb_num=multi.getParameter("rb_num");
+				int rb_numr=Integer.parseInt(rb_num);
 				
 				vo.setU_id(id);
 				vo.setRb_content(content);
 				vo.setRb_title(title);
 				vo.setRb_image(fileName);
-				
+				vo.setRb_num(rb_numr);
 		
 				int r=dao.insertRevBoard(vo);
 				System.out.println(r+"嫄� �엯�젰");
 				HttpSession session=req.getSession();
+				session.setAttribute("rb_num", vo.getRb_num());
 				session.setAttribute("image", vo.getRb_image());
 				model.addAttribute("review",vo);
 	
@@ -103,14 +107,15 @@ public class revBoardController2 {
 	@RequestMapping("reviewLike.do")
 	public String reviewLike(revBoardVO2 vo) {
 		
-		
 		dao.reviewLike(vo);
 		return "redirect:review2.do";
 	}
 	
 	@RequestMapping("reviewClick.do")
-	public String reviewClick() {
+	public String reviewClick(Model model,revBoardVO2 vo) {
+		model.addAttribute("Click", dao.revClickSelect(vo));
 		return "review/empty/reviewClick/reviewClick";
 	}
-
+    
+	
 }

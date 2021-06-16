@@ -41,4 +41,8 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		return sqlSession.selectList("revTopSelect");
 	}
 	
-}
+	@Override
+	public revBoardVO2 revClickSelect(revBoardVO2 vo) {
+		return sqlSession.selectOne("revClickSelect",vo);
+	}
+}	
