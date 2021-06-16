@@ -60,9 +60,10 @@
 	<!-- 스토어 관련 -->
 
 
-	<!-- 상점 추가 <insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		insert into store values(#{s_id}, #{s_name}, #{s_image}, #{s_content}, #{s_region}, 
-		#{s_region_n}, #{s_tel}, #{s_adr}, #{s_opendate}) </insert> -->
+	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		insert into store (s_id, u_id, u_name, s_tel, s_adr, s_opendate)
+		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
+	</insert>
 
 	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		delete </insert> -->

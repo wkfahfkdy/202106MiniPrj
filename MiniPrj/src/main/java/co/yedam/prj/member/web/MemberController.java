@@ -20,9 +20,7 @@ import co.yedam.prj.bread.vo.BreadVO;
 import co.yedam.prj.common.Paging;
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
-import co.yedam.prj.revBoard.service.revBoardService;
 import co.yedam.prj.revBoard.service.revBoardService2;
-import co.yedam.prj.revBoard.vo.revBoardVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
 @Controller
@@ -113,11 +111,23 @@ public class MemberController {
 	}
 	//가입승인
 	@RequestMapping("/memberJoinWaitUpdate.do")
-	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req) {
+	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
 		int r = dao.joinWaitUpadte(vo);
 		System.out.println(r + "건 수정");
+		if(r > 0) {
+			//member테이블에 있는 모든 정보 1건 vo에 담고
+			vo = dao.memberSelectJW(vo);
+			
+			bvo.setU_id(vo.getU_id());
+			bvo.setU_name(vo.getU_name());
+			bvo.setS_tel(vo.getU_tel());
+			bvo.setS_adr(vo.getU_adr());
+			
+			int i = Dao.storeInsert(bvo);
+			System.out.println(i + "건 입력");
+		}
 		
-		return "redirect:memberInfoWait.do";
+		return "redirect:memberInfoWaitPaging.do";
 	}
 	
 	@RequestMapping("/memberLogOut.do")
