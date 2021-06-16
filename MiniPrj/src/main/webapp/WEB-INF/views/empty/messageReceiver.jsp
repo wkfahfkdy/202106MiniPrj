@@ -4,32 +4,23 @@
 
 <script>
 
-function formCheck(){
-	
 
-	if(frm.content.value == ""){
-		alert("내용을입력해주세요!");
-		frm.content.focus();
-		return false;
-	}
-	frm.submit();	
+function messageDelete(ms_num){
 	
 	$.ajax({
-		url : 'messageInsert.do',
-		data : {},
+		url : 'messageDelete.do',
+		data : {ms_num: ms_num},
 		type : 'POST',
 		success : function(resp){
+			//location.href = "receiverPaging.do";
 			opener.parent.location.reload();
 			window.close();
 		},
-		error : function(err) {
-			console.log(err)
+		error : function(err){
+			console.log(err);
 		}
 	});
-	//data: {id: $('#id').val()}
 }
-
-
 
 </script>
 
@@ -37,7 +28,7 @@ function formCheck(){
 <br>
 <div align="center" style="padding: 10px;" >
 	<div align="left" style="width:80%; height: 70px;" > 
-		<h5>쪽지보내기</h5>
+		<h5>받은쪽지</h5>
 		<hr size="5" noshade>
 	</div>
 	
@@ -59,14 +50,15 @@ function formCheck(){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="최대 100자 까지 등록 가능합니다." ></textarea>
+				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="${content}" readonly></textarea>
 				<!-- <div align="right"><span>(<em>0</em>/50)</span></div> -->
 			</td>
 		</tr>
 	</table>
 	</div>
 	<br>
-	<button type="button" onclick="formCheck()">보내기</button>
+	<button type="button" onclick="window.open('msReply.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">답장</button>
+	<button type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 	<input type="button" value="닫기" onclick="window.close()">
 	</form>
 </div>

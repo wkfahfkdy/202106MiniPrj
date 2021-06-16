@@ -17,8 +17,11 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.common.Paging;
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
+import co.yedam.prj.revBoard.service.revBoardService2;
+import co.yedam.prj.revBoard.vo.revBoardVO2;
 
 @Controller
 public class MemberController {
@@ -29,34 +32,9 @@ public class MemberController {
 	@Autowired
 	private BreadService Dao;
 	
-	@RequestMapping("/memberList.do")
-	public String member(Model model) {
-		
-		model.addAttribute("members", dao.memberSelectList());
-		
-		return "member/test";
-	}
-
-	@RequestMapping("/memberInfoWait.do")
-	public String memberInfoWait(Model model) {
-		model.addAttribute("members", dao.memberSelectListWait());
-		return "member/memberInfoWait";
-	}
-	@RequestMapping("/memberInfoBM.do")
-	public String memberInfoBM(Model model) {
-		model.addAttribute("members", dao.memberSelectListBM());
-		return "member/memberInfoBM";
-	}
-	@RequestMapping("/memberInfoM.do")
-	public String memberInfoM(Model model) {
-		model.addAttribute("members", dao.memberSelectListM());
-		return "member/memberInfoM";
-	}
-	@RequestMapping("/memberInfo.do")
-	public String memberInfo(Model model) {
-		model.addAttribute("members", dao.memberSelectList());
-		return "member/memberInfo";
-	}
+	
+	@Autowired
+	private revBoardService2 Rdao;
 	
 	@RequestMapping("/businessMemberPage.do")
 	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
@@ -72,12 +50,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberPage.do")
-	public String memberPage(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
+	public String memberPage(Model model, MemberVO vo, HttpServletRequest req, revBoardVO2 revo) {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
 		
-		model.addAttribute("member", dao.memberSelectJW(vo));
+		revo.setU_id(id);
 		
+		model.addAttribute("review", Rdao.revBoardCount(revo));
+		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberPage";
 	}
 
@@ -131,11 +111,23 @@ public class MemberController {
 	}
 	//가입승인
 	@RequestMapping("/memberJoinWaitUpdate.do")
-	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req) {
+	public String memberJoinWaitUpdate(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
 		int r = dao.joinWaitUpadte(vo);
 		System.out.println(r + "건 수정");
+		if(r > 0) {
+			//member테이블에 있는 모든 정보 1건 vo에 담고
+			vo = dao.memberSelectJW(vo);
+			
+			bvo.setU_id(vo.getU_id());
+			bvo.setU_name(vo.getU_name());
+			bvo.setS_tel(vo.getU_tel());
+			bvo.setS_adr(vo.getU_adr());
+			
+			int i = Dao.storeInsert(bvo);
+			System.out.println(i + "건 입력");
+		}
 		
-		return "redirect:memberInfoWait.do";
+		return "redirect:memberInfoWaitPaging.do";
 	}
 	
 	@RequestMapping("/memberLogOut.do")
@@ -194,6 +186,7 @@ public class MemberController {
 		String mail = multi.getParameter("u_mail");
 		String adr = multi.getParameter("u_adr");
 		String adrcode = multi.getParameter("u_adrcode");
+		String rcode = multi.getParameter("r_code");
 		
 		vo.setU_id(id);
 		vo.setU_pwd(pwd);
@@ -202,6 +195,7 @@ public class MemberController {
 		vo.setU_mail(mail);
 		vo.setU_adr(adr);
 		vo.setU_adrcode(Integer.parseInt(adrcode));
+		vo.setR_code(Integer.parseInt(rcode));
 		vo.setS_file(fileName);
 		int r = dao.insertCeo(vo);
 		System.out.println(r + "건 입력");
@@ -268,8 +262,8 @@ public class MemberController {
 	
 	//留덉씪由ъ�
 	@RequestMapping("/memberMileage.do")
-	public String memberMileage(Model model) {
-		model.addAttribute("mileage", dao.memberSelectListM());
+	public String memberMileage(Model model, MemberVO vo) {
+		model.addAttribute("mileage", dao.memberSelectListAll());
 		return "member/mileage/memberMileage";
 
 		//+1000留덉씪由ъ�
@@ -302,5 +296,109 @@ public class MemberController {
 				
 			return "member/mileage/manualDown";
 			}
-	
+		// Paging 처리
+		@RequestMapping("/memberInfoListPaging.do")
+		public String memberInfoListPaging(Model model, MemberVO vo, HttpServletRequest req) {
+			
+			String page = req.getParameter("page");
+			
+			
+			if (page == null) page = "1"; 
+			
+			int ipage = Integer.parseInt(page);
+			
+			vo.setFirstRecordIndex(1 + (ipage-1)*6);
+			vo.setLastRecordIndex(6*ipage);
+			vo.setTotalCnt(dao.tableCnt());
+			
+			Paging paging = new Paging();
+			paging.setPageNo(ipage);
+			paging.setPageSize(6);
+			paging.setTotalCount(vo.getTotalCnt());
+			
+			
+			
+			model.addAttribute("members", dao.memberSelectList(vo));
+			model.addAttribute("paging", paging);
+			
+			return "member/memberInfo";
+		}
+		
+		@RequestMapping("/memberInfoWaitPaging.do")
+		public String memberInfoWaitPaging(Model model, MemberVO vo, HttpServletRequest req) {
+			
+			String page = req.getParameter("page");
+			
+			
+			if (page == null) page = "1"; 
+			
+			int ipage = Integer.parseInt(page);
+			
+			vo.setFirstRecordIndex(1 + (ipage-1)*6);
+			vo.setLastRecordIndex(6*ipage);
+			vo.setTotalCnt(dao.tableCntWait());
+			
+			Paging paging = new Paging();
+			paging.setPageNo(ipage);
+			paging.setPageSize(6);
+			paging.setTotalCount(vo.getTotalCnt());
+			
+			
+			model.addAttribute("members", dao.memberSelectListWait(vo));
+			model.addAttribute("paging", paging);
+			
+			return "member/memberInfoWait";
+		}
+		
+		@RequestMapping("/memberInfoBMPaging.do")
+		public String memberInfoBMPaging(Model model, MemberVO vo, HttpServletRequest req) {
+			
+			String page = req.getParameter("page");
+			
+			
+			if (page == null) page = "1"; 
+			
+			int ipage = Integer.parseInt(page);
+			
+			vo.setFirstRecordIndex(1 + (ipage-1)*6);
+			vo.setLastRecordIndex(6*ipage);
+			vo.setTotalCnt(dao.tableCntBM());
+			
+			Paging paging = new Paging();
+			paging.setPageNo(ipage);
+			paging.setPageSize(6);
+			paging.setTotalCount(vo.getTotalCnt());
+			
+			
+			model.addAttribute("members", dao.memberSelectListBM(vo));
+			model.addAttribute("paging", paging);
+			
+			return "member/memberInfoBM";
+		}
+		
+		@RequestMapping("/memberInfoMPaging.do")
+		public String memberInfoMPaging(Model model, MemberVO vo, HttpServletRequest req) {
+			
+			String page = req.getParameter("page");
+			
+			
+			if (page == null) page = "1"; 
+			
+			int ipage = Integer.parseInt(page);
+			
+			vo.setFirstRecordIndex(1 + (ipage-1)*6);
+			vo.setLastRecordIndex(6*ipage);
+			vo.setTotalCnt(dao.tableCntM());
+			
+			Paging paging = new Paging();
+			paging.setPageNo(ipage);
+			paging.setPageSize(6);
+			paging.setTotalCount(vo.getTotalCnt());
+			
+			
+			model.addAttribute("members", dao.memberSelectListM(vo));
+			model.addAttribute("paging", paging);
+			
+			return "member/memberInfoM";
+		}
 }

@@ -8,7 +8,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <title>회원정보</title>
+<script type="text/javascript">
+	function goPage(page){
+		location.href = "memberInfoWaitPaging.do?page=" + page;
+	}
+</script>
+<style type="text/css">
+	.pagination {
+	display : inline-block;
+} 
 
+.pagination a {
+	color : black;
+	float : left;
+	padding : 8px 16px;
+	text-decoration : none;
+}
+</style>
 
 
 
@@ -19,16 +35,16 @@
 	<div class="dk-box-1 dk-padding-top">
 		<div class="container">
 			<ul class="dk-isotope-filter text-center">
-				<li class="active" onclick="location.href='memberInfo.do'">All</li>
-				<li onclick="location.href='memberInfoWait.do'">가입승인대기</li>
-				<li onclick="location.href='memberInfoBM.do'">사업자</li>
-				<li onclick="location.href='memberInfoM.do'">회원</li>
+				<li class="active" onclick="location.href='memberInfoListPaging.do'">All</li>
+				<li onclick="location.href='memberInfoWaitPaging.do'">가입승인대기</li>
+				<li onclick="location.href='memberInfoBMPaging.do'">사업자</li>
+				<li onclick="location.href='memberInfoMPaging.do'">회원</li>
 				
 			</ul>
 		</div>
 	</div>
 		<div align="center">
-		<table  style="width:1200px;text-align:center;" class="table">
+		<table  style="width:1400px;text-align:center;" class="table">
 						<tr>
 							<th>아이디</th>
 							<th>이름</th>
@@ -57,6 +73,17 @@
 						</tr>
 					</c:forEach>
 		</table>
+		<div align="center">
+				<jsp:include page = "../common/paging.jsp" flush = "true">
+					<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
+					<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
+					<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
+					<jsp:param value="${paging.pageNo }" name="pageNo"/>
+					<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
+					<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
+					<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
+				</jsp:include>
+			</div>
 	</div>
 	</div>
 </body>

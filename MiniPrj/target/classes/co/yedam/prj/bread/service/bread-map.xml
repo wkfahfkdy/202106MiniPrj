@@ -59,12 +59,18 @@
 	<!-- 스토어 관련 -->
 
 
+<<<<<<< HEAD
 	<!-- 상점 추가 <insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		insert into store values(#{s_id}, #{s_name}, #{s_image}, #{s_content}, #{s_region}, 
 		#{s_region_n}, #{s_tel}, #{s_adr}, #{s_opendate}) </insert> -->
 		
 	<insert id="breadInsertMenu" parameterType="co.yedam.prj.bread.vo.BreadVO">
 		insert into product values(bread_seq.nextval, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 0, #{b_qty}, #{b_comment}, null)
+=======
+	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		insert into store (s_id, u_id, u_name, s_tel, s_adr, s_opendate)
+		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	</insert>
 
 	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 

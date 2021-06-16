@@ -3,6 +3,7 @@ package co.yedam.prj.revBoard.service;
 import java.util.List;
 
 import co.yedam.prj.common.Paging;
+import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO;
 
 public interface revBoardService {

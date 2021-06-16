@@ -30,19 +30,30 @@
 		frm.submit();
 		}
 	}
-	
+	/*
 	 function showPopup(num) {
-		 console.log(num);
-		 
-		 window.open("reviewClick.do?rb_num="+num, "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+			 window.open("reviewClick.do?rb_num="+num, "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+
 		 }
+	*/
+	 function showPopup(num) {
+		var myForm = document.popForm;
+		var url="reviewClick.do";
+		 window.open("", "popForm", "width=900, height=1200, left=300, top=100"); 
+		myForm.action=url;
+		myForm.method="post";
+		myForm.target="popForm";
+		myForm.rb_num.value=num;
+		myForm.submit();
+	 }
+	 
 	</script>
 	
 	
 </head>
         
 <div style="margin-top: 150px">
-
+	
 <div align="center">
 	<h1>Review</h1>
 	<br><br>
@@ -55,8 +66,6 @@
 <div class="endDiv">
 	 
 <div>
-
-              
  <div class="dk-box-2 dk-padding-bot">
   <hr class="hr1">
         <div class="container">
@@ -110,7 +119,7 @@
 					<div class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-light">
 					    <span class="dk-portfolio-item-image">
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-					        <a href="#" onclick="showPopup();"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
+					        <a href="#" onclick="showPopup('${list.rb_num}');"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
 					        <img src="resources/reviewUpload/${list.rb_image }" alt="">
 					    </span>
 					    
@@ -144,7 +153,7 @@
 		<input type="hidden" id="rb_like" name="rb_like">
 		<input type="hidden" id="rb_num" name="rb_num">
 	</form>
-	<form id="frm2" name="frm2" action="#" method="post">
+	<form id="popForm" name="popForm">
 		<input type="hidden" id="rb_num" name="rb_num">
 	</form>
   </div>

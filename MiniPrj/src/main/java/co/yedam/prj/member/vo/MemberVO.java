@@ -26,6 +26,11 @@ public class MemberVO {
 	private Date e_date;
 	private int i_pay;
 	private String i_name;
+	private int r_code;
+	
+	private int firstRecordIndex;	// Paging 게시판 버튼 index
+	private int lastRecordIndex;	// Paging 게시판 버튼 index
+	private int totalCnt; // 게시글 전체 수
 	
 	public int getMileageU() {
 		return mileageU;
@@ -167,6 +172,30 @@ public class MemberVO {
 	}
 	public void setI_pay(int i_pay) {
 		this.i_pay = i_pay;
+	}
+	public int getFirstRecordIndex() {
+		return firstRecordIndex;
+	}
+	public void setFirstRecordIndex(int firstRecordIndex) {
+		this.firstRecordIndex = firstRecordIndex;
+	}
+	public int getLastRecordIndex() {
+		return lastRecordIndex;
+	}
+	public void setLastRecordIndex(int lastRecordIndex) {
+		this.lastRecordIndex = lastRecordIndex;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
+	public int getR_code() {
+		return r_code;
+	}
+	public void setR_code(int r_code) {
+		this.r_code = r_code;
 	}
 
 	

@@ -80,16 +80,15 @@
 				<td width="9%">받는사람</td>
 				<td width="62%">내용</td>
 				<td width="18%">보낸시간</td>
-				<td width="8%">관리</td>
+				<td width="8%">읽음여부</td>
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
-			<tr>
+			<tr onclick="window.open('msSender.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 				<td>${vo.receiver_name }</td>
 				<td style="text-align: left;">${vo.content }</td>
 				<td>${vo.ms_date }</td>
-				<td>
-				<button type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
+				<td>${vo.read_yn }
 				</td>
 			</tr>
 			</c:forEach>

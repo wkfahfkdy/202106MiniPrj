@@ -3,33 +3,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-
-function formCheck(){
-	
-
-	if(frm.content.value == ""){
-		alert("내용을입력해주세요!");
-		frm.content.focus();
-		return false;
-	}
-	frm.submit();	
+// 삭제
+function messageDelete(ms_num){
 	
 	$.ajax({
-		url : 'messageInsert.do',
-		data : {},
+		url : 'messageDelete.do',
+		data : {ms_num: ms_num},
 		type : 'POST',
 		success : function(resp){
+			//location.href = "receiverPaging.do";
 			opener.parent.location.reload();
 			window.close();
 		},
-		error : function(err) {
-			console.log(err)
+		error : function(err){
+			console.log(err);
 		}
 	});
-	//data: {id: $('#id').val()}
 }
-
-
 
 </script>
 
@@ -37,7 +27,7 @@ function formCheck(){
 <br>
 <div align="center" style="padding: 10px;" >
 	<div align="left" style="width:80%; height: 70px;" > 
-		<h5>쪽지보내기</h5>
+		<h5>보낸쪽지확인</h5>
 		<hr size="5" noshade>
 	</div>
 	
@@ -46,7 +36,7 @@ function formCheck(){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${s_name }" readonly>
 			</td>
 			<td align="right">
 				<select name="store">
@@ -59,14 +49,14 @@ function formCheck(){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="최대 100자 까지 등록 가능합니다." ></textarea>
+				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="${content}" ></textarea>
 				<!-- <div align="right"><span>(<em>0</em>/50)</span></div> -->
 			</td>
 		</tr>
 	</table>
 	</div>
 	<br>
-	<button type="button" onclick="formCheck()">보내기</button>
+	<button type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 	<input type="button" value="닫기" onclick="window.close()">
 	</form>
 </div>

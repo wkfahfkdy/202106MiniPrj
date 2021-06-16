@@ -7,13 +7,21 @@ import co.yedam.prj.member.vo.MemberVO;
 public interface MemberService {
 	
 	public int memberIdCheck(MemberVO vo);
-	public List<MemberVO> memberSelectList();
+	
+	public List<MemberVO> memberSelectList(MemberVO vo);
+	public List<MemberVO> memberSelectListAll();
+	public int tableCnt();
+	public int tableCntWait();
+	public int tableCntBM();
+	public int tableCntM();
 	public List<MemberVO> memberSelectListIC(MemberVO vo);
-	public List<MemberVO> memberSelectListWait();
-	public List<MemberVO> memberSelectListBM();
-	public List<MemberVO> memberSelectListM();
+	public List<MemberVO> memberSelectListWait(MemberVO vo);
+	public List<MemberVO> memberSelectListBM(MemberVO vo);
+	public List<MemberVO> memberSelectListM(MemberVO vo);
+	
 	public MemberVO memberSelectJW(MemberVO vo);
 	public MemberVO memberSelectSID(MemberVO vo);
+	
 	public int memberSelect(MemberVO vo);
 	public int insertMember(MemberVO vo);
 	public int insertCeo(MemberVO vo);

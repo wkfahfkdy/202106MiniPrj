@@ -6,10 +6,14 @@ public class MessageVO {
 	private int ms_num;	// 메세지넘버
 	private String title;	// 메세지제목
 	private String receiver_name;	// 받는사람
-	private int gubun;	// 수신,발신 구분
 	private String ms_date;	// 날짜
 	private String content;	// 내용
 	private String sender_name;	// 보낸사람
+	private String read_yn;
+	private String u_id;
+	private String u_name;
+	private String s_reg;
+	private String s_name;
 	
 	// Paging VO
 	private int firstRecordIndex;	// Paging 게시판 버튼 index
@@ -17,6 +21,36 @@ public class MessageVO {
 	private int totalCnt; // 게시글 전체 수
 	
 	
+	public String getRead_yn() {
+		return read_yn;
+	}
+	public void setRead_yn(String read_yn) {
+		this.read_yn = read_yn;
+	}
+	public String getU_id() {
+		return u_id;
+	}
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
+	public String getU_name() {
+		return u_name;
+	}
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
+	}
+	public String getS_reg() {
+		return s_reg;
+	}
+	public void setS_reg(String s_reg) {
+		this.s_reg = s_reg;
+	}
+	public String getS_name() {
+		return s_name;
+	}
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
+	}
 	public int getFirstRecordIndex() {
 		return firstRecordIndex;
 	}
@@ -41,12 +75,7 @@ public class MessageVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getGubun() {
-		return gubun;
-	}
-	public void setGubun(int gubun) {
-		this.gubun = gubun;
-	}
+
 	public String getContent() {
 		return content;
 	}
@@ -77,13 +106,6 @@ public class MessageVO {
 	public void setSender_name(String sender_name) {
 		this.sender_name = sender_name;
 	}
-	
-	@Override
-	public String toString() {
-		return "MessageVO [ms_num=" + ms_num + ", title=" + title + ", receiver_name=" + receiver_name + ", gubun="
-				+ gubun + ", ms_date=" + ms_date + ", content=" + content + ", sender_name=" + sender_name + "]";
-	}
-	
 	
 	
 }
