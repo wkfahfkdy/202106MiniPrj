@@ -1,9 +1,12 @@
 package co.yedam.prj.bread.vo;
 
+import java.util.Date;
+
 public class BreadVO {
 	
 	//스토어 관련
 	private String s_id; // 스토어 고유넘버
+	private	String u_id;
 	private String s_name; //이름
 	private String s_adr; //주소
 	private String s_like; // 좋아요 수
@@ -12,7 +15,8 @@ public class BreadVO {
 	private String s_region; //스토어 위치
 	private String s_image; // 스토어 사진
 	private String store_hit; // 방문자수 넣을지 말지?
-	
+	private Date s_opendate;
+	private String u_name;
 	// 빵 관련
 	private String b_id; //빵 코드
 	private String b_name; //빵 이름
@@ -21,6 +25,7 @@ public class BreadVO {
 
 	private String b_comment; //빵 설명
 	// 빵이 있는 가게 S_id 가져오기
+	private String b_main;
 	private String b_image; // 빵 이미지
 	private String b_like; // 빵 인기도
 	private String b_price; // 빵 가격
@@ -133,6 +138,30 @@ public class BreadVO {
 				+ ", store_hit=" + store_hit + ", b_id=" + b_id + ", b_name=" + b_name + ", b_qty=" + b_qty
 				+ ", b_comment=" + b_comment + ", b_image=" + b_image + ", b_like=" + b_like + ", b_price=" + b_price
 				+ "]";
+	}
+	public String getU_id() {
+		return u_id;
+	}
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
+	public Date getS_opendate() {
+		return s_opendate;
+	}
+	public void setS_opendate(Date s_opendate) {
+		this.s_opendate = s_opendate;
+	}
+	public String getU_name() {
+		return u_name;
+	}
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
+	}
+	public String getB_main() {
+		return b_main;
+	}
+	public void setB_main(String b_main) {
+		this.b_main = b_main;
 	}
 	
 	

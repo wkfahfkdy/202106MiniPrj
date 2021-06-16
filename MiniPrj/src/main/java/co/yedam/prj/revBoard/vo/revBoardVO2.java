@@ -12,6 +12,7 @@ public class revBoardVO2 {
 	private String rb_content;
 	private int rb_like;
 	private String rb_image;
+	
 	public int getRb_num() {
 		return rb_num;
 	}
@@ -30,6 +31,7 @@ public class revBoardVO2 {
 	public void setRb_num(int rb_num) {
 		this.rb_num = rb_num;
 	}
+	
 	public String getRb_title() {
 		return rb_title;
 	}

@@ -1,17 +1,25 @@
 package co.yedam.prj.bread.web;
 
 
+import java.io.IOException;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
+
 
 @Controller
 public class BreadController {
@@ -19,17 +27,34 @@ public class BreadController {
 	@Autowired
 	private BreadService dao;
 
+
+	
+	
+	
+	
+	//My shop Manage => INFORM 수정 부분
+	@RequestMapping("/breadStoreManage.do")
+	public String breadStoreManage(Model model, BreadVO vo, HttpSession session) {
+		
+		String u_id = (String) session.getAttribute("id");
+		vo.setU_id(u_id);
+		session.setAttribute("u_id", vo.getU_id());
+		model.addAttribute("bread",dao.storeInformUpdate(vo));
+		
+		return "breadStoreManage";
+	}
+	
+	
 	
 	
 	//코드 순서는 BreadService 나열 순으로 정리 되어 있습니다.
 	
 	
 	//빵 리스트 출력 
-	
-	
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
 		
+		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 
 		return "bread/bread";
@@ -80,6 +105,49 @@ public class BreadController {
 //		model.addAttribute("bread", dao.breadDelete(vo));
 //		return "bread/breadDelete";
 //	}
+	
+	//빵 메뉴 추가하기
+	@RequestMapping("/breadInsertMenusubmit.do")
+	public String breadInsertMenu(Model model, BreadVO vo, HttpServletRequest req, HttpServletResponse resp) {
+		int size = 10 * 1024 * 1024;
+		String path = "C:\\tmp";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
+		String fileName = "";
+		MultipartRequest multi = null;
+		try {
+			multi = new MultipartRequest(req,
+														  path, 
+														  size, 
+														  "utf-8", 
+														  new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String bname = multi.getParameter("b_name");
+		String bprice = multi.getParameter("b_price");
+		String bqty = multi.getParameter("b_qty");
+		String bcomment = multi.getParameter("b_comment");
+
+		vo.setB_name(bname);
+		vo.setB_price(bprice);
+		vo.setB_qty(bqty);
+		vo.setB_comment(bcomment);
+		vo.setB_image(fileName);
+		int r = dao.breadinsertMenu(vo);
+		System.out.println(r + "건 입력");
+		HttpSession session = req.getSession();
+		session.setAttribute("id", vo.getU_id());
+		model.addAttribute("bread", vo);
+		return "bread/bread";
+	}
+	
+	
 //	
 //	// 빵 수정
 //	@RequestMapping("/breadUpdate.do")	
@@ -112,15 +180,8 @@ public class BreadController {
 //	}
 
 	
-	// 스토어 수정
-//	@RequestMapping("/storeUpdate.do")	
-//	public String storeUpdate(Model model,BreadVO vo) {
-//		model.addAttribute("bread", dao.storeUpdate(vo));
-//		return "bread/storeUpdate";
-//	}
 	
-	
-	// 스토어 리스트 출력 (페이징 처리 할지 말지?)
+	// 스토어 리스트 출력 
 	
 	@RequestMapping("/breadStore.do")
 	public String breadStoreList(Model model, BreadVO vo, HttpServletRequest request) {
@@ -142,7 +203,7 @@ public class BreadController {
 		
 		model.addAttribute("loc", vo2.getS_adr());
 		model.addAttribute("store", list);
-		return "bread/breadStore";
+		return "breadstoreManage";
 	}
 
 //	// 스토어 리스트 페이징 출력 

@@ -31,7 +31,7 @@
 			</ul>
 		</div>
 	</div>
-		<div align="center">
+	<div align="center">
 		<table  class="table">
 						<tr>
 							<th>아이디</th>
@@ -54,19 +54,19 @@
 							<td>${member.u_mail }</td>
 							<td>${member.regdate }</td>
 							<c:if test="${member.joinwait eq 'N' and member.s_reg eq 'N'  }">
-							<th><button class="dk-btn dk-btn-md" onclick="joinWait(${member.u_id })">회원관리</button></th>
+								<th><button class="dk-btn dk-btn-md" onclick="joinWait(${member.u_id })">회원관리</button></th>
 							</c:if>
 							<c:if test="${member.joinwait eq 'Y' }">
-							<th><button class="dk-btn dk-btn-md" onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
+								<th><button class="dk-btn dk-btn-md" onclick="location.href='memberJoinWait.do?id=${member.u_id }'">가입승인</button></th>
 							</c:if>
 							<c:if test="${member.s_reg eq 'Y' }">
-							<th><button class="dk-btn dk-btn-md" onclick="location.href='businessMemberPage.do'">사업자관리</button></th>
+								<th><button class="dk-btn dk-btn-md" onclick="location.href='businessMemberPage.do'">사업자관리</button></th>
 							</c:if>
-							
 						</tr>
 					</c:forEach>
 		</table>
+		
 	</div>
-	</div>
+</div>
 </body>
 </html>
