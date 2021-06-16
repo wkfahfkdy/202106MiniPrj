@@ -30,6 +30,7 @@ public class BreadController {
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
 		
+		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 
 		return "bread/bread";

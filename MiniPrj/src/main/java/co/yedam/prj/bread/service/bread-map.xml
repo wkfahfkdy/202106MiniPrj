@@ -83,7 +83,9 @@
 		where a.s_id = #{s_id}
 	</select>
 
-
+	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select * from (select * from store order by s_like desc) where rownum &lt;=3
+	</select>
 
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
