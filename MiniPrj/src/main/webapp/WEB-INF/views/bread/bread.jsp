@@ -8,6 +8,10 @@
     $(".container ul li").hover(function() {
       $(this).find("ul").stop().fadeToggle(500);
     });
+    
+    function goStore(s_id){
+    	location.href='breadStore.do?s_id=' + s_id;
+    }
   </script>
 
 <style type="text/css">
@@ -61,6 +65,7 @@ ul, li {
 	height: 260px;
 	width: 555px;
 	float: left;
+	z-index: 10;
 }
 .minibox2 {
 	height: 130px;
@@ -87,17 +92,18 @@ ul, li {
 
 
 				<div class="minibox">
-					<img src="${pageContext.request.contextPath }/resources/image/blueberrychiffon.png">
+					<!-- goStore 에 변수 기입 -->
+					<img src="${pageContext.request.contextPath }/resources/image/blueberrychiffon.png" onclick="goStore('${topThree[0].s_id}');">
 				</div>
 
 
 
 				<div class="minibox2">
-					<img src="${pageContext.request.contextPath }/resources/image/strawberryCake.png">
+					<img src="${pageContext.request.contextPath }/resources/image/strawberryCake.png" onclick="goStore('${topThree[1].s_id}');">
 				</div>
 				
 				<div class="minibox2">
-					<img src="${pageContext.request.contextPath }/resources/image/Garlic.png">
+					<img src="${pageContext.request.contextPath }/resources/image/Garlic.png" onclick="goStore('${topThree[2].s_id}');">
 				</div>
 				
 				

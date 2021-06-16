@@ -30,6 +30,7 @@ public class BreadController {
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
 		
+		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 
 		return "bread/bread";
@@ -138,7 +139,9 @@ public class BreadController {
 		vo.setB_image(b_image);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
-
+		BreadVO vo2 = dao.storeAdr(vo);
+		
+		model.addAttribute("loc", vo2.getS_adr());
 		model.addAttribute("store", list);
 		return "bread/breadStore";
 	}
