@@ -1,10 +1,9 @@
 package co.yedam.prj.member.web;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Enumeration;
 
-import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import co.yedam.prj.bread.service.BreadService;
+import co.yedam.prj.bread.vo.BreadVO;
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
 
@@ -24,6 +25,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService dao;
+	
+	@Autowired
+	private BreadService Dao;
 	
 	@RequestMapping("/memberList.do")
 	public String member(Model model) {
@@ -54,9 +58,14 @@ public class MemberController {
 		return "member/memberInfo";
 	}
 	@RequestMapping("/businessMemberPage.do")
-	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req) {
+	public String businessMemberPage(Model model, MemberVO vo, HttpServletRequest req, BreadVO bvo) {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
+		bvo.setU_id(id);
+		
+		model.addAttribute("store", Dao.storeSelectAll(bvo));
+		model.addAttribute("sPay", dao.memberSelectJW(vo));
+		model.addAttribute("memberList", dao.memberSelectListIC(vo));
 		
 		return "member/businessMemberPage";
 	}
