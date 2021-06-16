@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
-import co.yedam.prj.member.vo.MemberVO;
+
 
 @Repository("breadDao")
 public class BreadServiceImpl implements BreadService {

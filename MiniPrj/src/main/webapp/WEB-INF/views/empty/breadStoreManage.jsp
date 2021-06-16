@@ -27,7 +27,7 @@
 				}
 	</script>
 
-<title>스토어</title>
+<title>${id }님의 스토어</title>
 </head>
 
 
@@ -141,8 +141,8 @@
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
 								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">크럼프</span> <span
-								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프</span>
+								class="h3 dk-portfolio-item-title">크럼프${store.b_name }</span> <span
+								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프${store.b_comment }</span>
 							</span>
 						</span>
 						</a>
@@ -159,8 +159,8 @@
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
 								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">육쪽마늘빵</span> <span
-								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵</span>
+								class="h3 dk-portfolio-item-title">육쪽마늘빵${store.b_name }</span> <span
+								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵${store.b_comment }</span>
 							</span>
 						</span>
 						</a>

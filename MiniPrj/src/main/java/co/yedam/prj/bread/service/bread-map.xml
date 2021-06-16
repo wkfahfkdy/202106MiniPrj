@@ -77,6 +77,8 @@
 		where s_id = #{s_id} </update> 
 
 
+
+
 	<!-- 상점 리스트 -->
 
 	<select id="storeSelect"
