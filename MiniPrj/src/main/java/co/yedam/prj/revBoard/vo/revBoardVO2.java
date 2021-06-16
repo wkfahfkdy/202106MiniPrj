@@ -11,9 +11,22 @@ public class revBoardVO2 {
 	private int rb_hit;
 	private String rb_content;
 	private int rb_like;
+	private String rb_image;
 	public int getRb_num() {
 		return rb_num;
 	}
+	
+	
+	public String getRb_image() {
+		return rb_image;
+	}
+
+
+	public void setRb_image(String rb_image) {
+		this.rb_image = rb_image;
+	}
+
+
 	public void setRb_num(int rb_num) {
 		this.rb_num = rb_num;
 	}

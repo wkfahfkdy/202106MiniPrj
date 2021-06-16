@@ -188,7 +188,7 @@
 							<c:if test="${member.s_reg eq 'Y' and member.s_pay > 0}">
 								<div class="col-12">	
 									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
-									onclick="window.open('puchaseAdPopup.do','이용중인 광고','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">이용중인 광고조회</button>
+									onclick="window.open('puchaseAdPopup.do','이용중인 광고','width=950, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">이용중인 광고조회</button>
 									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
 									onclick="window.open('memberAdPopup.do','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
 									신청</button>

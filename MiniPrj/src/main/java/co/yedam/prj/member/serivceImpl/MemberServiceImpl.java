@@ -117,5 +117,11 @@ public class MemberServiceImpl implements MemberService {
 		return sqlSession.selectOne("memberSelectSID", vo);
 	}
 
+	@Override
+	public List<MemberVO> memberSelectListIC(MemberVO vo) {
+		
+		return sqlSession.selectList("memberSelectListIC", vo);
+	}
+
 
 }

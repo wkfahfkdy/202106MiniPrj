@@ -8,6 +8,7 @@ public interface MemberService {
 	
 	public int memberIdCheck(MemberVO vo);
 	public List<MemberVO> memberSelectList();
+	public List<MemberVO> memberSelectListIC(MemberVO vo);
 	public List<MemberVO> memberSelectListWait();
 	public List<MemberVO> memberSelectListBM();
 	public List<MemberVO> memberSelectListM();

@@ -1,81 +1,39 @@
-
-<%@ page session="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
-	th {
-		color: white;
-		padding: 8px 15px;
-	}
-	
-	td {
-		padding: 5px;
-	}
-
-	.pagination {
-		display : inline-block;
-	} 
-	
-	.pagination a {
-		color : black;
-		float : left;
-		padding : 8px 16px;
-		text-decoration : none;
-	}
-	
-	.but {
-		border: 0;
-		background-color: #fff;
-	}
-</style>
-
-
-<div align="center" style="margin-top: 150px;">
-
-	<div align="left" style=" width: 60%;">
-		<h5 style="align:left; ">&nbsp;내 쪽지함</h5>
-	</div>
-
-	<div align="left" style="width: 60%; background-color: #474747;">
-		<table>
-			<tr>
-				<th>
-					<a href="messageReceiverList.do" style="color: #fff;">받은쪽지</a></th>
-				<th>
-					<a href="messageSelectSenderList.do" style="color: #fff;">보낸쪽지</a></th>
-				<th>
-					<a href="#" style="color: #fff;">쪽지쓰기</a></th>
-			</tr>
-		</table>
-	</div>
-	<div style="height: 10px;"></div>
-	
-	<div align="left" style="width: 60%; height: 450px;">
-		<table style="text-align: center;">
-			<tr style="border-bottom: 1px solid;">
-				<td width="9%">보낸사람</td>
-				<td width="62%">내용</td>
-				<td width="18%">보낸시간</td>
-				<td width="8%">관리</td>
-			</tr>
-			<tr style="height: 10px;"></tr>
-			<c:forEach items="${list }" var="vo">
-			<tr>
-				<td>${vo.sender_name }</td>
-				<td style="text-align: left;">${vo.content }</td>
-				<td>${vo.ms_date }</td>
-				<td>
-				<button type="button" class="but" onclick="location.href='#'">삭제</button>
-				</td>
-			</tr>
-			</c:forEach>
-		</table>
+<div align="center">
+	<h3>쪽지쓰기</h3>
+	<div>
+		<input type="text" name="sender_name" id="sender_name" value="${receiver_name}">
+		<input type="text" name="receiver_name" id="receiver_name" > <br><br>
+		<textarea style= "border: 1px solid #000; resize: none; width: 80%; height: 200px;" name="content" id="content"></textarea>
 	</div>
 	
-	
-	<br><br>
-	
-	
+	<input type="submit" value="보내기" onclick="window.close()">
+	<input type="button" value="창닫기" onclick="window.close()">
 </div>
 
 
+<div align="center">
+	<h3>쪽지쓰기</h3>
+	<table>
+		<tr>
+			<td> 
+				<input type="text" name="sender_name" id="sender_name" value="${receiver_name}">
+			</td>
+			<td>
+				<select name="받는사람">
+				<c:forEach items="${list }" var="vo">
+				<!-- <option value="HTML">${ }</option> -->	
+				</c:forEach>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
+	</table>
+
+</div>

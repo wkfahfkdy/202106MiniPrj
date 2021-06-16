@@ -91,14 +91,27 @@ public class MessageController {
 		return "message/insert";
 	}
 	
+	// 쪽지작성폼
+	@RequestMapping("/form.do")
+	private String messageInsertForm(Model model, MessageVO vo) {
+		
+		
+				
+		return "messageForm";
+	}
+	
 	// 쪽지삭제
 	@RequestMapping("/messageDelete.do")
 	private String messageDelete(HttpServletRequest request, Model model, MessageVO vo) {
 
 		String ms_num = request.getParameter("ms_num");
 		vo.setMs_num(Integer.parseInt(ms_num));
+				
+		int r = dao.messageDelete(vo);
 		
-		return "redirect:messageSelectSenderList.do";
+		System.out.println(r + "건 삭제!");
+		
+		return "redirect:receiverPaging.do";
 	}
 	
 	
@@ -121,9 +134,9 @@ public class MessageController {
 		vo.setLastRecordIndex(10*ipage);
 		vo.setTotalCnt(dao.ReceiverCount());
 		vo.setReceiver_name(receiver_name);
-		
+
 		list = dao.receiverPaging(vo);
-		total = dao.messageSelectList(vo);
+		total = dao.ReceiverList(vo);
 		
 		Paging paging = new Paging();
 		paging.setPageNo(ipage);
@@ -158,7 +171,7 @@ public class MessageController {
 		vo.setReceiver_name(receiver_name);
 		
 		list = dao.senderPaging(vo);
-		total = dao.messageSelectSenderList(vo);
+		total = dao.SenderList(vo);
 		
 		Paging paging = new Paging();
 		paging.setPageNo(ipage);
@@ -170,15 +183,6 @@ public class MessageController {
 		
 		return "message/sender";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

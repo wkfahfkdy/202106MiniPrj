@@ -8,6 +8,21 @@
 		location.href = "receiverPaging.do?page=" + page;
 	}
 	
+	function messageDelete(ms_num){
+		
+		$.ajax({
+			url : 'messageDelete.do',
+			data : {ms_num: ms_num},
+			type : 'POST',
+			success : function(resp){
+				location.href = "receiverPaging.do";
+			},
+			error : function(err){
+				console.log(err);
+			}
+		});
+	}
+	
 </script>
 <style>
 	th {
@@ -35,8 +50,6 @@
 		background-color: #fff;
 	}
 </style>
-
-
 <div align="center" style="margin-top: 150px;">
 
 	<div align="left" style=" width: 60%;">
@@ -51,7 +64,8 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a href="javascript:popup()" target = "_blank" style="color: #fff;">쪽지쓰기</a></th>
+					<a onclick="window.open('form.do','MS','width=550,height=400,location=no,status=no,scrollbars=no');" 
+					style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
 		</table>
 	</div>
@@ -72,7 +86,7 @@
 				<td style="text-align: left;">${vo.content }</td>
 				<td>${vo.ms_date }</td>
 				<td>
-				<button type = "button" class="but" onclick = "location.href ='messageDelete.do(${vo.ms_num})'">삭제</button>
+				<button type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 				</td>
 			</tr>
 			</c:forEach>
