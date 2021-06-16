@@ -158,6 +158,10 @@ public class BreadServiceImpl implements BreadService {
 	}
 
 	@Override
+	public int storeInformUpdate(BreadVO vo) {
+	
+		return SqlSession.update("storeInformUpdate",vo);
+	}
 	public List<BreadVO> storeTopThree() {
 		
 		return SqlSession.selectList("storeTopThree");
@@ -167,6 +171,7 @@ public class BreadServiceImpl implements BreadService {
 	public BreadVO storeSelectAll(BreadVO vo) {
 		
 		return SqlSession.selectOne("storeSelectAll", vo);
+
 	}
 
 }

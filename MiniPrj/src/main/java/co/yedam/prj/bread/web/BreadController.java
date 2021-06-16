@@ -4,6 +4,7 @@ package co.yedam.prj.bread.web;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,14 +20,35 @@ public class BreadController {
 	@Autowired
 	private BreadService dao;
 
+
+	// 스토어 정보 수정(상위 박스)
+	@RequestMapping("/storeInform.do")	
+	public String storeUpdate(BreadVO vo, HttpServletRequest request) {
+		request.getParameter("id");
+		
+		return "bread/storeInform";
+	}
+	
+	
+	
+	//My shop Manage => INFORM 수정 부분
+	@RequestMapping("/breadStoreManage.do")
+	public String breadStoreManage(Model model, BreadVO vo, HttpSession session) {
+		
+		String u_id = (String) session.getAttribute("id");
+		vo.setU_id(u_id);
+		
+		return "breadStoreManage";
+	}
+	
+	
+	
 	
 	
 	//코드 순서는 BreadService 나열 순으로 정리 되어 있습니다.
 	
 	
 	//빵 리스트 출력 
-	
-	
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
 		
@@ -113,13 +135,6 @@ public class BreadController {
 //	}
 
 	
-	// 스토어 수정
-//	@RequestMapping("/storeUpdate.do")	
-//	public String storeUpdate(Model model,BreadVO vo) {
-//		model.addAttribute("bread", dao.storeUpdate(vo));
-//		return "bread/storeUpdate";
-//	}
-	
 	
 	// 스토어 리스트 출력 (페이징 처리 할지 말지?)
 	
@@ -143,7 +158,7 @@ public class BreadController {
 		
 		model.addAttribute("loc", vo2.getS_adr());
 		model.addAttribute("store", list);
-		return "bread/breadStore";
+		return "breadstoreManage";
 	}
 
 //	// 스토어 리스트 페이징 출력 
