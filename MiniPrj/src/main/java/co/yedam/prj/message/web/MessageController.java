@@ -88,7 +88,7 @@ public class MessageController {
 		int r = dao.messageInsert(vo);
 		System.out.println(r + "건 입력!");
 		
-		return "message/insert";
+		return "redirect:senderPaging.do";
 	}
 	
 	// 쪽지작성폼
