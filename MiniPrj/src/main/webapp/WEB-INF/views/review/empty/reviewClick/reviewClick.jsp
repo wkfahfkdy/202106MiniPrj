@@ -4,18 +4,88 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <style>
+	.header{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:40px;
+	}
+	.headerA{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:40px;
+	}
+	.headerB{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:30px;
+	color:gray;
+	}
+blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+    
+    
+	max-width: 1170px;
+	margin: 50px auto;
+	padding: 45px 45px 55px;
+	background-color: #EAEFE5;
+	background-image: url("resources/reviewbootstrap/img/blog-single/quote.png");
+	background-repeat: no-repeat;
+	background-position: right 60px bottom -10px;
+} 
+	.pC{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:30px;
+	}
+	
 	.col-sm-4{
 		width:100px;
 	}
 	.liClass1{
 		font-size:4rem;
 	}
-	h4{
-	color:gray;
+	.h4b{
+		font-family: 'Nanum Pen Script', cursive;
+		font-size:40px;
+		color:
 	}
-	.hrclass{
-		width:
+	.h4c{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:35px;
+	}
+	
+	.myButton {
+	margin-top:-20px;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	background-color:#2dabf9;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color:#0688fa;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+	
 	}
 </style>
 	<title>Boto | Photography HTML Template</title>
@@ -73,10 +143,9 @@
 					
 				</ul>
 				<div class="text-item">
-				<h4  align="right">작성자: ${Click.u_id }</h4><br><br><br>
-				<h5 align="right">방문횟수 자리 : ${Click.rb_hit }</h5>
-				<br>
-				<p align="right">${Click.rb_regdate }</p>
+				<h4 class="headerA"align="right">작성자: ${Click.u_id }</h4><br><br><br>
+				<h5 class="headerB" align="right">조회수 자리 : ${Click.rb_hit }</h5>
+				<p style="font-size:25px;"align="right">${Click.rb_regdate }</p>
 			</div>
 			</nav>
 		</div>
@@ -141,11 +210,22 @@
 	</section>
 	<!-- Hero Section end -->
 
+	<!-- Content  -->
+			<blockquote>
+				<h4 class="h4b">'' Content ''</h4>
+				<br><br>
+				<h5 class="h4c" align="center">${Click.rb_content }</h5>
+			</blockquote>
 	<!-- Comment Section -->
-	<section>
+	<section  style="width:80%; margin:auto;">
 		<hr style="border:solid 1px #A9D0F5;">
-		<br><br>
-		<div><p>Comments</p></div>
+		<div><p class="pC" >LIKE :</p></div>
+		<br>
+		<div><p style="font-size:20px;">Comments ..</p></div>
+		<div>
+		<textarea name="textarea" rows="2" cols="80"></textarea>&nbsp&nbsp&nbsp<button type="button" class="myButton">입력</button>
+		</div>
+		
 	</section>
 
 

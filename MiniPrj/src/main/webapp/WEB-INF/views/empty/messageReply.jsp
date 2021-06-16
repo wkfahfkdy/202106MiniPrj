@@ -37,7 +37,7 @@ function formCheck(){
 <br>
 <div align="center" style="padding: 10px;" >
 	<div align="left" style="width:80%; height: 70px;" > 
-		<h5>쪽지보내기</h5>
+		<h5>답장보내기</h5>
 		<hr size="5" noshade>
 	</div>
 	
@@ -66,7 +66,7 @@ function formCheck(){
 	</table>
 	</div>
 	<br>
-	<button type="button" onclick="formCheck()">보내기</button>
+	<button type="button" onclick="formCheck()">전송</button>
 	<input type="button" value="닫기" onclick="window.close()">
 	</form>
 </div>

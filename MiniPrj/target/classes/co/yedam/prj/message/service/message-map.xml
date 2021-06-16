@@ -24,7 +24,7 @@
 	
 	<!-- 쪽지보내기(insert) -->
 	<insert id="messageInsert" parameterType="co.yedam.prj.message.vo.MessageVO" >
-		insert into message values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AMHH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval)
+		insert into message values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AMHH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval, 'N')
 	</insert>
 	
 	<!-- 쪽지삭제(delete) -->
@@ -32,6 +32,10 @@
 		delete from message where ms_num = #{ms_num}
 	</delete>
 	
+	<!-- 상점조회 -->
+	<select id="storeMsSelect" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
+		select * from v_ms;
+	</select>
 	
 	<!-- 페이징관련 -->
 	
