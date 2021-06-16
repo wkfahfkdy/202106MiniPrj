@@ -14,6 +14,7 @@
 		margin-left:-100px;
 	}
 	.dk-btn-r{
+		margin-right:100px;
 		float:right;
 	}
 	</style>
@@ -30,7 +31,11 @@
 		}
 	}
 	
-	 function showPopup() { window.open("reviewClick.do", "리뷰클릭페이지", "width=1000, height=800, left=300, top=100"); }
+	 function showPopup(num) {
+		 console.log(num);
+		 
+		 window.open("reviewClick.do?rb_num="+num, "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+		 }
 	</script>
 	
 	
@@ -67,8 +72,8 @@
 					    <span class="dk-portfolio-item-image">
 					   
 					        <span class="dk-portfolio-item-image-size" data-portfolio-size="90%"></span>
-					        <a href="#" onclick="showPopup();"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
-					        <img src="resources/bootstrap/mimilism/assets/images/portfolio-2-md.png" alt="">
+					        <a href="#" onclick="showPopup('${top.rb_num}');"class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .35)"></a>
+					        <img src="resources/reviewUpload/${top.rb_image }" alt="">
 					    </span>
 					    
 					   	<span class="dk-portfolio-item-info">
@@ -137,6 +142,9 @@
 
 	<form id="frm" name="frm" action="reviewLike.do" method="post">
 		<input type="hidden" id="rb_like" name="rb_like">
+		<input type="hidden" id="rb_num" name="rb_num">
+	</form>
+	<form id="frm2" name="frm2" action="#" method="post">
 		<input type="hidden" id="rb_num" name="rb_num">
 	</form>
   </div>

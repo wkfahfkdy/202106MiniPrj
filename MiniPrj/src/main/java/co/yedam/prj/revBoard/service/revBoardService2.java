@@ -14,5 +14,7 @@ public interface revBoardService2 {
 	public int reviewLike(revBoardVO2 vo);
 
 	public List<revBoardVO2> reviewLikeTop();
+
+	public  revBoardVO2 revClickSelect(revBoardVO2 vo);
 	
 }

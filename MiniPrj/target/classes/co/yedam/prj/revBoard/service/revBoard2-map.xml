@@ -17,5 +17,8 @@
 	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">	
 	select * from (select * from review order by rb_like desc) where rownum &lt;=3
 	</select>
-
+	
+	<select id="revClickSelect" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		select * from review where rb_num = #{rb_num} 	
+	</select>
 </mapper>
