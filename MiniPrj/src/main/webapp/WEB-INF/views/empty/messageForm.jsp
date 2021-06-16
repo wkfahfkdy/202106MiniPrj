@@ -46,19 +46,20 @@ function formCheck(){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${vo.recever_name }">
+				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
 				<select name="store">
-					<option value="ceo1">ceo1</option>	
-					<option value="ceo2">ceo2</option>	
-					<option value="ceo3">ceo3</option>	
+						<option>상점명</option>	
+					<c:forEach items="${list}" var="vo">
+						<option value="${u_id }"> ${s_name }</option>	
+					</c:forEach>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="50" placeholder="최대 50자 까지 등록 가능합니다." ></textarea>
+				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="최대 100자 까지 등록 가능합니다." ></textarea>
 				<!-- <div align="right"><span>(<em>0</em>/50)</span></div> -->
 			</td>
 		</tr>
@@ -66,6 +67,6 @@ function formCheck(){
 	</div>
 	<br>
 	<button type="button" onclick="formCheck()">보내기</button>
-	<input type="button" value="창닫기" onclick="window.close()">
+	<input type="button" value="닫기" onclick="window.close()">
 	</form>
 </div>
