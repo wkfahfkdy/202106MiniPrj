@@ -45,6 +45,6 @@ public interface BreadService {
 	public List<BreadVO> breadStoreList_9(BreadVO vo); // 남구
 	
 	
-	public BreadVO testAdr();
+	public BreadVO storeAdr(BreadVO vo);
 	
 }

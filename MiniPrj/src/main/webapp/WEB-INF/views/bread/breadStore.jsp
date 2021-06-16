@@ -128,7 +128,7 @@
 	<div align="center" id="map" style="width: 1000px; height: 400px;"></div>
 	</div>
 	<div>
-		<input type="hidden" id="search_name" value="${s_adr }">
+		<input type="hidden" id="search_name" value="${loc }">
 	</div>
 	<div>
 		<input type="hidden" id="search_lat">
