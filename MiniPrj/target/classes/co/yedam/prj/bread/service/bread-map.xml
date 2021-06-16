@@ -88,16 +88,28 @@
 		where a.s_id = #{s_id}
 	</select>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	<select id="storeSelectAll"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
 		select *
 		from store
 		where u_id = #{u_id}
+<<<<<<< HEAD
 		</select>
 
+=======
+	</select>
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from (select * from store order by s_like desc) where rownum &lt;=3
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	</select>
 
 	<select id="storeSelectList"

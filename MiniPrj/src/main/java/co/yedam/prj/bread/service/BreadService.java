@@ -23,9 +23,19 @@ public interface BreadService {
 	public int storeInsert(BreadVO vo); // 스토어 추가
 	public int storeDelete(BreadVO vo); // 스토어 삭제
 	public int storeUpdate(BreadVO vo); // 스토어 수정
+<<<<<<< HEAD
 	
-	public BreadVO storeSelectAll(BreadVO vo);
+=======
+	
 
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
+	public BreadVO storeSelectAll(BreadVO vo);
+<<<<<<< HEAD
+
+=======
+
+	
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	public BreadVO storeAdr(BreadVO vo);	// 스토어 주소 가져오기
 
 	public BreadVO storeSelect(BreadVO vo); //스토어 셀렉트(빵 페이지 하단 스토어)
