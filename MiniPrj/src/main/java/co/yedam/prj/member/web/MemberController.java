@@ -156,6 +156,8 @@ public class MemberController {
 	public String memberSignupSubmit(Model model, MemberVO vo, HttpServletRequest req) {
 		
 		int r = dao.insertMember(vo);
+		
+		
 		System.out.println(r + "嫄� �엯�젰");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());

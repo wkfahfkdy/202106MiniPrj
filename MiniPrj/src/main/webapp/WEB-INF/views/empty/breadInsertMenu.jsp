@@ -5,8 +5,6 @@
 		margin-top:150px;
 	}
 </style>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
 
 <script>
 	function breadInsert() {
@@ -26,13 +24,12 @@
 			frm.b_comment.focus();
 			return false;
 		}
-		if(frm.s_file.value == ""){
+		if(frm.b_image.value == ""){
 			alert("사진을 첨부해주세요.");
-			frm.s_file.focus();
+			frm.b_image.focus();
 			return false;
 		}
 		frm.submit();
-		alert("메뉴등록이 완료되었습니다.");
 	}
 </script>
 
@@ -41,21 +38,20 @@
 
 	<div class="container">
 	<div class="">
-            <form action="breadInserMenuSubmit.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data">
+            <form action="breadInsertMenuSubmit.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data">
                 <div >
                     <div class="col-md-6">
 						<input style="width: 50%;" class="form-control" type="text"
-							name="b_name" id="b_name" value="" placeholder="Your id" required>
+							name="b_name" id="b_name" placeholder="Bread Name" required>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" type="password" name="b_price"
+						<input style="width: 50%;" type="text" name="b_price"
 							 id="b_price" class="form-control" aria-describedby="emailHelp"
 							placeholder="빵의 가격을 적어주세요" required>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" class="form-control" type="password" id="b_qty"
-							name="b_qty" value=""
-							placeholder="하루 생산하는 빵의 갯수 적어주세요">
+						<input style="width: 50%;" class="form-control" type="text" id="b_qty"
+							name="b_qty" placeholder="하루 생산하는 빵의 갯수 적어주세요">
 						<font id="chkNotice" size="2"></font>
 					</div>
 					<div class="col-md-6">

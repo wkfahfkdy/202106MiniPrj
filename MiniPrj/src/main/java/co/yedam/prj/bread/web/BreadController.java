@@ -2,6 +2,7 @@ package co.yedam.prj.bread.web;
 
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -108,9 +109,17 @@ public class BreadController {
 //		return "bread/breadDelete";
 //	}
 	
-	//빵 메뉴 추가하기
+	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")
-	public String breadInsertMenu(Model model, BreadVO vo, HttpServletRequest req, HttpServletResponse resp) {
+	public String breadInsertMenu() {
+		
+		return "breadInsertMenu";
+	}
+	
+	//빵 메뉴 추가하기
+	@RequestMapping("/breadInsertMenuSubmit.do")
+	public String breadInsertMenu(Model model,HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		
 		int size = 10 * 1024 * 1024; //585*468
 		String path = "C:\\tmp";
 		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
@@ -127,23 +136,27 @@ public class BreadController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		String bname = multi.getParameter("b_name");
-		String bprice = multi.getParameter("b_price");
-		String bqty = multi.getParameter("b_qty");
-		String bcomment = multi.getParameter("b_comment");
 		
-		vo.setB_name(bname);
-		vo.setB_price(bprice);
-		vo.setB_qty(bqty);
-		vo.setB_comment(bcomment);
+		String u_id = (String) session.getAttribute("id");
+		
+		BreadVO vo = new BreadVO();
+		vo.setU_id(u_id);
+		vo.setB_comment(multi.getParameter("b_comment"));
+		vo.setB_name(multi.getParameter("b_name"));
+		vo.setB_price(multi.getParameter("b_price"));
+		vo.setB_price(multi.getParameter("b_price"));
+		
+		BreadVO vo2 = new BreadVO();
+		vo2.setU_id(u_id);
+		vo2 = dao.selectStoreId(vo2);
+		
+		vo.setS_id(vo2.getS_id()); 		
 		vo.setB_image(fileName);
 		
-		int r = dao.breadinsertMenu(vo);
-		System.out.println(r + "건 입력");
-		HttpSession session = req.getSession();
-		session.setAttribute("id", vo.getU_id());
-		model.addAttribute("bread", vo);
-		return "breadInsertMenu";
+		dao.breadinsertMenu(vo);
+
+//		model.addAttribute("bread", vo);
+		return "redirect:breadInsertMenu.do";
 	}
 	
 	
