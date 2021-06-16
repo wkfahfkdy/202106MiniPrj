@@ -73,7 +73,7 @@
 		alert("수정이 완료되었습니다.");
 	}
 </script>
-								<form action="storeInfrom.do" class="dk-form" method="post" id="frm" >
+								<form action="storeInform.do" class="dk-form" method="post" id="frm" >
 									<div class="dk-box dk-header-info">
 										<div>
 											<h4 class="display-3 mnt-8">${store.s_name }</h4>
@@ -122,6 +122,11 @@
 		<div class="dk-box-2 dk-padding-top">
 			<div class="container">
 				<h2 class="text-center mnt-8 mb-60">메뉴</h2>
+				
+				<div class="container">
+				<button class="dk-btn dk-btn-md" type="button"
+					onclick='location="breadInsertMenu.do"' name="back_home">메뉴등록하기</button>
+				</div>
 		
 				<div class="row no-gutters">
 
@@ -134,7 +139,7 @@
 
 								<span class="dk-portfolio-item-overlay"
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="" alt="이미지">이미지
+								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
 								class="h3 dk-portfolio-item-title">크럼프</span> <span
 								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프</span>
@@ -152,7 +157,7 @@
 
 								<span class="dk-portfolio-item-overlay"
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="" alt="이미지">이미지
+								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
 								class="h3 dk-portfolio-item-title">육쪽마늘빵</span> <span
 								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵</span>

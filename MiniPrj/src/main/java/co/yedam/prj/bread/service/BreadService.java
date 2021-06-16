@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.member.vo.MemberVO;
 
 
 public interface BreadService {
@@ -23,18 +24,16 @@ public interface BreadService {
 	public int storeDelete(BreadVO vo); // 스토어 삭제
 	public int storeUpdate(BreadVO vo); // 스토어 수정
 	
-<<<<<<< HEAD
 	public BreadVO storeSelectAll(BreadVO vo);
-=======
-	
+
 	public BreadVO storeAdr(BreadVO vo);	// 스토어 주소 가져오기
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
+
 	public BreadVO storeSelect(BreadVO vo); //스토어 셀렉트(빵 페이지 하단 스토어)
 	public List<BreadVO> storeTopThree();
 	
 	
 	public int storeInformUpdate(BreadVO vo); // 스토어 INFORM 수정
-	
+	public int breadinsertMenu(BreadVO vo); //스토어 빵 추가
 	
 	
 	public List<BreadVO> storeSelectList(BreadVO vo); //스토어 리스트(메뉴 나옴)

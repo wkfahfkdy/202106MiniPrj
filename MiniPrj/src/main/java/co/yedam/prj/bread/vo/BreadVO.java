@@ -25,6 +25,7 @@ public class BreadVO {
 
 	private String b_comment; //빵 설명
 	// 빵이 있는 가게 S_id 가져오기
+	private String b_main;
 	private String b_image; // 빵 이미지
 	private String b_like; // 빵 인기도
 	private String b_price; // 빵 가격
@@ -155,6 +156,12 @@ public class BreadVO {
 	}
 	public void setU_name(String u_name) {
 		this.u_name = u_name;
+	}
+	public String getB_main() {
+		return b_main;
+	}
+	public void setB_main(String b_main) {
+		this.b_main = b_main;
 	}
 	
 	

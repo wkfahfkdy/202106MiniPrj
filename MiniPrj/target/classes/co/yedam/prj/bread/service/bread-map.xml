@@ -70,11 +70,12 @@
 	<!-- 상점 수정 <updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		update </update> -->
 
-<!-- 상점 수정 -->
 
+	<!-- 상점 수정 -->
 	<update id="storeInformUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		update store set s_name = #{s_name}, s_content = #{s_content}, s_tel = #{s_tel}, s_image = #{s_image}
 		where s_id = #{s_id} </update> 
+
 
 	<!-- 상점 리스트 -->
 
@@ -87,17 +88,16 @@
 		where a.s_id = #{s_id}
 	</select>
 
-<<<<<<< HEAD
 	<select id="storeSelectAll"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
 		select *
 		from store
 		where u_id = #{u_id}
-=======
+		</select>
+
 	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select * from (select * from store order by s_like desc) where rownum &lt;=3
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	</select>
 
 	<select id="storeSelectList"
