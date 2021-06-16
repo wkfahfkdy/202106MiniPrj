@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
-import co.yedam.prj.member.vo.MemberVO;
+
 
 @Repository("breadDao")
 public class BreadServiceImpl implements BreadService {
@@ -184,6 +184,12 @@ public class BreadServiceImpl implements BreadService {
 	@Override
 	public int breadinsertMenu(BreadVO vo) {
 		return sqlSession.insert("breadInsertMenu",vo);
+	}
+
+	@Override
+	public BreadVO storeSelectMP(BreadVO vo) {
+		
+		return sqlSession.selectOne("storeSelectMP",vo);
 	}
 
 

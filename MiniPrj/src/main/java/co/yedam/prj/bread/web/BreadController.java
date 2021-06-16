@@ -38,8 +38,10 @@ public class BreadController {
 		
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
-		session.setAttribute("u_id", vo.getU_id());
-		model.addAttribute("bread",dao.storeInformUpdate(vo));
+		
+		System.out.println(dao.storeSelectMP(vo));
+		
+		model.addAttribute("bread",dao.storeSelectMP(vo));
 		
 		return "breadStoreManage";
 	}
@@ -107,19 +109,15 @@ public class BreadController {
 //	}
 	
 	//빵 메뉴 추가하기
-	@RequestMapping("/breadInsertMenusubmit.do")
+	@RequestMapping("/breadInsertMenu.do")
 	public String breadInsertMenu(Model model, BreadVO vo, HttpServletRequest req, HttpServletResponse resp) {
-		int size = 10 * 1024 * 1024;
+		int size = 10 * 1024 * 1024; //585*468
 		String path = "C:\\tmp";
 		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
 		String fileName = "";
 		MultipartRequest multi = null;
 		try {
-			multi = new MultipartRequest(req,
-														  path, 
-														  size, 
-														  "utf-8", 
-														  new DefaultFileRenamePolicy());
+			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration files = multi.getFileNames();
 			while (files.hasMoreElements()) {
 				String itemImage = (String) files.nextElement();
@@ -133,18 +131,19 @@ public class BreadController {
 		String bprice = multi.getParameter("b_price");
 		String bqty = multi.getParameter("b_qty");
 		String bcomment = multi.getParameter("b_comment");
-
+		
 		vo.setB_name(bname);
 		vo.setB_price(bprice);
 		vo.setB_qty(bqty);
 		vo.setB_comment(bcomment);
 		vo.setB_image(fileName);
+		
 		int r = dao.breadinsertMenu(vo);
 		System.out.println(r + "건 입력");
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("bread", vo);
-		return "bread/bread";
+		return "breadInsertMenu";
 	}
 	
 	
@@ -185,25 +184,29 @@ public class BreadController {
 	
 	@RequestMapping("/breadStore.do")
 	public String breadStoreList(Model model, BreadVO vo, HttpServletRequest request) {
-		
-		String s_name = request.getParameter("s_name");
-		String s_content = request.getParameter("s_content");
-		String s_id = request.getParameter("s_id");
-		String b_comment= request.getParameter("b_comment");
-		String b_image = request.getParameter("b_image");
-		
-		vo.setS_name(s_name);
-		vo.setS_content(s_content);
-		vo.setS_id(s_id);
-		vo.setB_comment(b_comment);
-		vo.setB_image(b_image);
-		
+				
 		List<BreadVO> list = dao.storeSelectList(vo);
 		BreadVO vo2 = dao.storeAdr(vo);
 		
 		model.addAttribute("loc", vo2.getS_adr());
 		model.addAttribute("store", list);
-		return "breadstoreManage";
+		return "bread/breadStore";
+	}
+	
+	
+	
+	
+	// 스토어 출력 
+	
+	@RequestMapping("/breadStoreSelect.do")
+	public String breadStore(Model model, BreadVO vo, HttpServletRequest request) {
+				
+		BreadVO list = dao.storeSelect(vo);
+		BreadVO vo2 = dao.storeAdr(vo);
+		
+		model.addAttribute("loc", vo2.getS_adr());
+		model.addAttribute("store", list);
+		return "bread/breadStore";
 	}
 
 //	// 스토어 리스트 페이징 출력 

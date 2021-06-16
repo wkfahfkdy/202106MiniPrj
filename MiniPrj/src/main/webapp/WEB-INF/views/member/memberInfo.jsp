@@ -18,7 +18,7 @@
 </script>
 
 </head>
-<body style="align:center">
+<body >
 <div >
 	<div class="dk-box-1 dk-padding-top">
 		<div class="container">
@@ -32,7 +32,7 @@
 		</div>
 	</div>
 	<div align="center">
-		<table  class="table">
+		<table  style="width:1400px;text-align:center;" class="table">
 						<tr>
 							<th>아이디</th>
 							<th>이름</th>

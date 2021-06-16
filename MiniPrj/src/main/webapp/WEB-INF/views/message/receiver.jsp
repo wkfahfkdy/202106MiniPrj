@@ -64,7 +64,7 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a onclick="window.open('form.do','MS','width=550,height=400,location=no,status=no,scrollbars=no');" 
+					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');" 
 					style="color: #fff;">쪽지쓰기</a></th>
 			</tr>
 		</table>
@@ -99,19 +99,6 @@
 	
 </div>
 
-<!-- 쪽지쓰기 -->
-
-<script type="text/javascript">
-
-	var openWin;
-
-	function openChild() {
-		window.name = "receiver";
-		
-		window.open = ("insert.jsp", "insert", "width=450, height = 320, resizable=no,scrollbars=no");
-		
-	}
-</script>
 
 
 

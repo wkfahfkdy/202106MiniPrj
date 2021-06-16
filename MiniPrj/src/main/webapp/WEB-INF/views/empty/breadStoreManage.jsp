@@ -27,7 +27,7 @@
 				}
 	</script>
 
-<title>스토어</title>
+<title>${id }님의 스토어</title>
 </head>
 
 
@@ -43,7 +43,7 @@
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
-								<a href="#" class="dk-gallery-item">${store.s_image }매장 전경 사진</a>
+								<a href="#" class="dk-gallery-item">${bread.s_image }매장 전경 사진</a>
 							</div>
 
 							<div class="col-12 col-lg-6">
@@ -76,7 +76,7 @@
 								<form action="storeInform.do" class="dk-form" method="post" id="frm" >
 									<div class="dk-box dk-header-info">
 										<div>
-											<h4 class="display-3 mnt-8">${store.s_name }</h4>
+											<h4 class="display-3 mnt-8">${bread.s_name }</h4>
 											<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
 											 name="_name" id="s_name">
 										</div>
@@ -86,12 +86,12 @@
 										</div>
 	
 										<div>
-											<p class="lead mb-0">${store.s_content }Ex) 매일 아침 정성으로 빵을 굽습니다!</p>
+											<p class="lead mb-0">${bread.s_content }Ex) 매일 아침 정성으로 빵을 굽습니다!</p>
 											<textarea maxlength="30" class="form-control" style="resize:none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 											name="s_content" id="s_content"></textarea>
 										</div>
 										<div>
-											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${store.s_tel }Ex)0505-333-1114
+											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${bread.s_tel }Ex)0505-333-1114
 											</button>
 											<input class="form-control" type="text" maxlength="15" placeholder="매장 번호를 입력하세요"
 											name="s_tel" id="s_tel">
@@ -141,8 +141,8 @@
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
 								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">크럼프</span> <span
-								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프</span>
+								class="h3 dk-portfolio-item-title">크럼프${bread.b_name }</span> <span
+								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프${bread.b_comment }</span>
 							</span>
 						</span>
 						</a>
@@ -159,8 +159,8 @@
 								style="background-color: rgba(255, 255, 255, .85)"></span> <img
 								src="" alt="이미지">
 						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">육쪽마늘빵</span> <span
-								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵</span>
+								class="h3 dk-portfolio-item-title">육쪽마늘빵${bread.b_name }</span> <span
+								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵${bread.b_comment }</span>
 							</span>
 						</span>
 						</a>

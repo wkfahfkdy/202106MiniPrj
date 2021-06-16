@@ -41,7 +41,7 @@
 		from member m join (select a.*, b.I_NAME
                   			from purchase a join service b
                   			on a.i_code = b.i_code
-                    		where a.u_id = 'business3') k
+                    		where a.u_id = #{u_id}) k
 		on m.u_id = #{u_id}   
 	</select>
 	

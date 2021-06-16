@@ -10,17 +10,12 @@
 <title>회원정보</title>
 
 <script type="text/javascript">
-	function joinWait(id) {
-		console.log(id)
-		location.href="#"
+	function memberPage(id) {
+		location.href="memberPage.do?id=" + id;
 	}
 </script>
 
-<script type="text/javascript">
-	function businessMemberPage() {
-		
-	}
-</script>
+
 
 </head>
 <body style="align:center">
@@ -32,13 +27,12 @@
 				<li onclick="location.href='memberInfoWait.do'">가입승인대기</li>
 				<li onclick="location.href='memberInfoBM.do'">사업자</li>
 				<li onclick="location.href='memberInfoM.do'">회원</li>
-				<li onclick="location.href='memberMileage.do'">마일리지관리</li>
 				
 			</ul>
 		</div>
 	</div>
 		<div align="center">
-		<table  class="table">
+		<table style="width:1200px;text-align:center;" class="table">
 						<tr>
 							<th>아이디</th>
 							<th>이름</th>
@@ -59,7 +53,7 @@
 							<td>${member.u_mail }</td>
 							<td>${member.regdate }</td>
 							<c:if test="${member.joinwait eq 'N' and member.s_reg eq 'N'  }">
-							<th><button class="dk-btn dk-btn-md" onclick="joinWait(${member.u_id })">회원관리</button></th>
+							<th><button class="dk-btn dk-btn-md" onclick="memberPage('${member.u_id }')">회원관리</button></th>
 
 							</c:if>
 						</tr>
