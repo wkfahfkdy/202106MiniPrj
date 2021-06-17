@@ -70,5 +70,17 @@ public class PurchaseController {
 		return "puchaseAdPopup";
 	}
 	
+	@RequestMapping("/purchaseUpload.do")
+	public String purchaseUpload(Model model, PurchaseVO vo, HttpServletRequest req, MemberVO mvo, ServiceVO svo) {
+		
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setU_id(id);
+		
+		model.addAttribute("purchaseList", dao.purchaseSelectList(vo));
+		
+		return "puchaseAdPopup";
+	}
+	
 	
 }
