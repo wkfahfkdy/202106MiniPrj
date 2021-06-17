@@ -23,6 +23,18 @@
 		});
 	}
 	
+	function popup() {
+		var url = "msReceiver.do";
+		var title = "popup";
+		var status = "width=550,height=450,location=no,status=no,scrollbars=no"; 
+		window.open("",title, status); 
+		
+		frm.target = title;
+		frm.action = url;
+		frm.method = "post";
+		frm.submit();
+	}
+	
 </script>
 <style>
 	th {
@@ -50,6 +62,13 @@
 		background-color: #fff;
 	}
 </style>
+
+	<form id="frm"> 
+		<!-- noticeSelect, hitCount paremater 보내기 용도 -->
+		<input type="hidden" id="ms_num" name="ms_num">
+	</form>
+
+
 <div align="center" style="margin-top: 150px;">
 
 	<div align="left" style=" width: 60%;">
@@ -64,7 +83,7 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');" 
+					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');"
 					style="color: #fff; cursor:pointer">쪽지쓰기</a></th>
 			</tr>
 		</table>
@@ -81,10 +100,13 @@
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
-			<tr onclick="window.open('msReceiver.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
-				<td>${vo.sender_name }</td>
-				<td style="text-align: left;">${vo.content }</td>
-				<td>${vo.ms_date }</td>
+			<tr>
+				<td  onclick="popup('${vo.ms_num}')" style="cursor:pointer">
+					${vo.sender_name }</td>
+				<td style="text-align: left; cursor:pointer"  onclick="window.open('messageSelect.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
+					${vo.content }</td>
+				<td onclick="window.open('msReceiver.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+					${vo.ms_date }</td>
 				<td>
 				<button style="cursor:pointer" type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 				</td>
@@ -93,27 +115,23 @@
 		</table>
 	</div>
 	
-	
 	<br><br>
-	
-	
+
 </div>
 
 
-
-
-<!-- 페이징 -->
-<div align="center">
-	<jsp:include page = "../common/paging.jsp" flush = "true">
-		<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
-		<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
-		<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
-		<jsp:param value="${paging.pageNo }" name="pageNo"/>
-		<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
-		<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
-		<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
-	</jsp:include>
-</div>
+<!-- 페이징 -->	
+	<div align="center">
+		<jsp:include page = "../common/paging.jsp" flush = "true">
+			<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
+			<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
+			<jsp:param value="${paging.startPageNo }" name="startPageNo"/>
+			<jsp:param value="${paging.pageNo }" name="pageNo"/>
+			<jsp:param value="${paging.endPageNo }" name="endPageNo"/>
+			<jsp:param value="${paging.nextPageNo }" name="nextPageNo"/>
+			<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
+		</jsp:include>
+	</div>
 <br><br>
 
 

@@ -21,6 +21,7 @@
 	<select id="messageSerlect" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
 		select * from message where ms_num = #{ms_num}
 	</select>
+
 	
 	<!-- 쪽지보내기(insert) -->
 	<insert id="messageInsert" parameterType="co.yedam.prj.message.vo.MessageVO" >

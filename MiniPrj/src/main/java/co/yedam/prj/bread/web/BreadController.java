@@ -40,9 +40,21 @@ public class BreadController {
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
 		
+		BreadVO vo2 = new BreadVO(); 
+		vo2 = dao.selectStoreId(vo);
+		
+		vo.setS_id(vo2.getS_id());
+		System.out.println(vo.getS_id());
+		
+		BreadVO vo3 = dao.storeAdr(vo);
+		model.addAttribute("loc", vo3.getS_adr());
+		
 		System.out.println(dao.storeSelectMP(vo));
 		
 		model.addAttribute("bread",dao.storeSelectMP(vo));
+		
+		List<BreadVO> list = dao.storeSelectList(vo);
+		model.addAttribute("store", list);
 		
 		return "breadStoreManage";
 	}
@@ -116,13 +128,13 @@ public class BreadController {
 		return "breadInsertMenu";
 	}
 	
-	//빵 메뉴 추가하기
+	//빵 메뉴 추가하기 (완성)
 	@RequestMapping("/breadInsertMenuSubmit.do")
 	public String breadInsertMenu(Model model,HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
 		
 		int size = 10 * 1024 * 1024; //585*468
 		String path = "C:\\tmp";
-		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\productUpload";
 		String fileName = "";
 		MultipartRequest multi = null;
 		try {
@@ -144,7 +156,7 @@ public class BreadController {
 		vo.setB_comment(multi.getParameter("b_comment"));
 		vo.setB_name(multi.getParameter("b_name"));
 		vo.setB_price(multi.getParameter("b_price"));
-		vo.setB_price(multi.getParameter("b_price"));
+		vo.setB_qty(multi.getParameter("b_qty"));
 		
 		BreadVO vo2 = new BreadVO();
 		vo2.setU_id(u_id);
@@ -155,9 +167,99 @@ public class BreadController {
 		
 		dao.breadinsertMenu(vo);
 
-//		model.addAttribute("bread", vo);
-		return "redirect:breadInsertMenu.do";
+		return "redirect:breadStoreManage.do";
 	}
+	
+	
+	
+	
+	
+	
+	
+	// 스토어 메인 image 추가하기 (완)
+	@RequestMapping("/sImageUpload.do")
+	public String sImageUpload(Model model,HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		
+		int size = 10 * 1024 * 1024; //585*468
+		String path = "C:\\tmp";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\storeMainUpload";
+		String fileName = "";
+		MultipartRequest multi = null;
+		try {
+			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String u_id = (String) session.getAttribute("id");
+		
+		BreadVO vo = new BreadVO();
+		vo.setU_id(u_id);
+		
+		BreadVO vo2 = new BreadVO();
+		vo2.setU_id(u_id);
+		vo2 = dao.selectStoreId(vo2);
+		
+		vo.setS_id(vo2.getS_id()); 		
+		vo.setS_image(fileName);
+		
+		dao.sImageUpload(vo);
+
+		return "redirect:breadStoreManage.do";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// BBANG - 메인 사진 업로드
+	@RequestMapping("/breadMainUpload.do")
+	public String breadMainUpload(Model model,HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		
+		int size = 10 * 1024 * 1024; //585*468
+		String path = "C:\\tmp";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\breadMainUpload";
+		String fileName = "";
+		MultipartRequest multi = null;
+		try {
+			multi = new MultipartRequest(req, path, size, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		String u_id = (String) session.getAttribute("id");
+		
+		BreadVO vo = new BreadVO();
+		vo.setU_id(u_id);
+		
+		BreadVO vo2 = new BreadVO();
+		vo2.setU_id(u_id);
+		vo2 = dao.selectStoreId(vo2);
+		
+		vo.setS_id(vo2.getS_id()); 		
+		vo.setB_main(fileName);
+		
+		dao.breadMainUpload(vo);
+
+		return "redirect:breadStoreManage.do";
+	}
+	
 	
 	
 //	

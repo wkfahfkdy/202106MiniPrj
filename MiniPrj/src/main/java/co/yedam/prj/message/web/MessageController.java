@@ -61,7 +61,7 @@ public class MessageController {
 		MessageVO select = dao.messageSelect(vo);
 		model.addAttribute("vo", select);
 			
-		return "message/form";
+		return "messageReceiver";
 	}
 	
 	// 쪽지작성
@@ -80,6 +80,10 @@ public class MessageController {
 	// 받은쪽지 폼
 	@RequestMapping("/msReceiver.do")
 	private String msReceiver(Model model, MessageVO vo) {
+		
+		
+		
+		model.addAttribute("vo", dao.messageSelect(vo));		
 		return "messageReceiver";
 	}
 	

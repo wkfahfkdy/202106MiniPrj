@@ -16,6 +16,7 @@ public interface BreadService {
 	public int breadInsert(BreadVO vo); // 빵 추가
 	public int breadDelete(BreadVO vo); // 빵 삭제
 	public int breadUpdate(BreadVO vo); // 빵 수정
+	public int breadMainUpload(BreadVO vo); // BBANG - 메인 빵 사진
 	
 	
 	//VO를 스토어 / 빵으로 나눠야하는건지 고민 
@@ -23,6 +24,7 @@ public interface BreadService {
 	public int storeInsert(BreadVO vo); // 스토어 추가
 	public int storeDelete(BreadVO vo); // 스토어 삭제
 	public int storeUpdate(BreadVO vo); // 스토어 수정
+	public int sImageUpload(BreadVO vo); // 스토어 메인사진
 
 
 	public BreadVO storeSelectAll(BreadVO vo);

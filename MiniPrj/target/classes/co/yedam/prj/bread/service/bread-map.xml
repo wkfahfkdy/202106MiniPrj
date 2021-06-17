@@ -19,12 +19,20 @@
 	<!-- service 순서대로 기입 -->
 
 	<!-- 빵 리스트 -->
-
-
+	
+	<!-- 가게 메인 사진 -->
+	<update id="sImageUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set s_image = #{s_image} where s_id = #{s_id}
+	</update>
+	
+	<!-- BBANG - 대표 빵 사진 -->
+	<update id="breadMainUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set b_main = #{b_main} where s_id = #{s_id}
+	</update>
 
 	<select id="breadSelectList"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		select a.s_name, a.s_image, a.s_id, b.b_like, b.b_name
+		select a.s_name, a.s_image, a.b_main, a.s_id, b.b_like, b.b_name
 		from store a
 		join (select s_id, b_name, b_like
 		from (
@@ -59,7 +67,7 @@
 	<!-- 스토어 관련 -->
 
 	<insert id="breadInsertMenu" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		insert into product values(bread_seq.nextval, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 0, #{b_qty}, #{b_comment}, null)
+		insert into product values(bread_seq.nextval, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 0, #{b_qty}, #{b_comment})
 	</insert>
 	
 	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
@@ -116,17 +124,18 @@
 
 
 	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select * from (select * from store order by s_like desc) where rownum &lt;=3
+		select * from (select * from product order by b_like desc) where rownum &lt;=3
 
 	</select>
 
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		select b.b_comment,b_name, a.*
+		  select b.b_comment,b_name,b_like, a.*
 		from store a join product b
 		on a.s_id = b.s_id
 		where a.s_id = #{s_id}
+        order by b_like desc
 	</select>
 	
 	<select id="storeAdr" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
