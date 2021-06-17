@@ -10,6 +10,7 @@ public interface QnaService {
 	
 	public List<QnaVO> qnaSelectList();
 	public List<QnaVO> qnaSelectListPaging(QnaVO vo);
+	public int qnaCount(QnaVO vo);
 	public int tableCnt();
 	public QnaVO qnaSelect(QnaVO vo);
 	public int insertQna(QnaVO vo);

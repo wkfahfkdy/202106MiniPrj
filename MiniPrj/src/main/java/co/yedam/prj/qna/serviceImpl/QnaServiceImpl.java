@@ -92,6 +92,12 @@ public class QnaServiceImpl implements QnaService {
 		
 		return sqlSession.insert("qnaReplyInsertAdd", vo);
 	}
+	// 작성글 수 조회
+	@Override
+	public int qnaCount(QnaVO vo) {
+		
+		return sqlSession.selectOne("qnaCount", vo);
+	}
 	
 	
 }

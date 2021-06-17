@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,8 +67,8 @@
 				<c:forEach items="${memberList }" var="member">
 					<tr>
 						<td>${member.i_name }</td>
-						<td>${member.e_date }</td>
-						<td>${member.i_pay }</td>			
+						<td><x:formatDate value="${member.e_date }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>
+						<td><x:formatNumber type="currency" >${member.i_pay }</x:formatNumber> </td>			
 					</tr>
 				</c:forEach>
 				<tr>
@@ -104,11 +105,10 @@
 				</tr>
 				<tr>	
 					<th>등록날짜</th>
-					<td colspan="3">${store.s_opendate }</td>			
+					<td colspan="3"><x:formatDate value="${store.s_opendate }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>			
 				</tr>
 			</table>
 		</div>
-		작성글이있으면 표시
 	</div>
 
 </body>
