@@ -88,6 +88,7 @@
 		}
 		}
 	}
+
 </script>
 <title>회원정보</title>
 </head>
@@ -188,7 +189,6 @@
 			<input type="hidden" id="mileageD" name="mileageD">
 		</form>
 	</div>
-
 	
 </body>
 </html>

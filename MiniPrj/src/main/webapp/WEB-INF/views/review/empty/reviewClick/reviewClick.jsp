@@ -15,6 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 <style>
 	.header{
 	font-family: 'Nanum Pen Script', cursive;
@@ -22,7 +24,7 @@
 	}
 	.headerA{
 	font-family: 'Nanum Pen Script', cursive;
-	font-size:40px;
+	font-size:35px;
 	}
 	.headerB{
 	font-family: 'Nanum Pen Script', cursive;
@@ -60,8 +62,8 @@ blockquote {
 		
 	}
 	.h4Id{
-	font-family: 'Nanum Pen Script', cursive;
-		font-size:30px;
+		  font-family: 'Cute Font', cursive;
+		font-size:26px;
 		background-color:#FFFA82;
     	width: 80px;
    		 text-align: center;
@@ -69,7 +71,7 @@ blockquote {
 	}
 	.h4c{
 	font-family: 'Single Day', cursive;
-	font-size:35px;
+	font-size:30px;
 	}
 	.textdiv1{
 		margin-top:10px;
@@ -88,7 +90,9 @@ blockquote {
 	.texthr1{
 	}
 .myButton {
-    margin-top: 10px;
+  float: right;
+    margin-top: -65px;
+    margin-right: -30px;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
 	background-color:#ededed;
@@ -100,7 +104,7 @@ blockquote {
 	font-family: 'Single Day', cursive;
 	font-size:20px;
 	font-weight:bold;
-	padding:8px 8px;
+	padding:16px 16px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
@@ -117,6 +121,7 @@ blockquote {
 }
 
     .footer__section{
+
     	margin-top:50px;
     }
     .textarea{
@@ -135,11 +140,49 @@ blockquote {
     	margin-top:30px;
     }
     .commentDiv{
-    	height:120px;
+    margin-top: -20px;
+    	height:50px;
     }
-    .commentfootHr{
-    	margin-top:60px;
+    
+    .reC{
+    	clear:both;
+    	 float: left;
     }
+    .spanComment{
+    font-size:25px;
+  
+    font-family: 'Nanum Pen Script', cursive;
+    	margin-left: 40px;
+    }
+    .inCommentS{
+    	border:1px;
+    }
+    .myButton1 {
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	background-color:#bddbfa;
+	border-radius:10px;
+	border:1px solid #a2bfdb;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+font-family: 'Nanum Pen Script', cursive;
+	font-size:22px;
+	padding:2px 9px;
+	text-decoration:none;
+}
+.myButton1:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+.myButton1:active {
+	position:relative;
+	top:1px;
+}
+.btnClass1{
+	clear: both;
+	margin-top: 10px;
+}
+
 </style>
 	<title>Boto | Photography HTML Template</title>
 	<meta charset="UTF-8">
@@ -207,8 +250,8 @@ blockquote {
 					
 				</ul>
 				<div class="text-item">
-				<h4 class="headerA"align="right">작성자: ${Click.u_id }</h4><br><br><br>
-				<h5 class="headerB" align="right">조회수 자리 : ${Click.rb_hit }</h5>
+				<h4 class="headerA"align="right">Writer : ${Click.u_id }</h4><br><br><br>
+				<h5 class="headerB" align="right">조회수 !! : ${Click.rb_hit }</h5>
 				<p style="font-size:25px;"align="right">${Click.rb_regdate }</p>
 			</div>
 			</nav>
@@ -221,47 +264,26 @@ blockquote {
 		<div class="hero-slider">
 			<div class="slide-item">
 				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/1.jpg" alt="">
+					<img src="resources/reviewUpload/리뷰1-1.PNG" alt="">
 				</a>
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/2.jpg" alt="">
+					<img src="resources/reviewUpload/리뷰1-2.PNG" alt="">
 					</a>
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/3.jpg" alt="">
+					<img src="resources/reviewUpload/리뷰1-3.PNG" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#" data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/4.jpg" alt="">
-				</a>	
-			</div>
-			<div class="slide-item">
-				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/5.jpg" alt="">
-				</a>	
-			</div>
-			<div class="slide-item">
-				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/6.jpg" alt="">
-				</a>	
-			</div>
-			<div class="slide-item">
-				<a class="fresco" href="#" " data-fresco-group="projects">
-					<img src="resources/reviewbootstrap/img/hero-slider/7.jpg" alt="">
+					<img src="resources/reviewUpload/리뷰1-4.PNG" alt="">
 				</a>	
 			</div>
 		</div>
 		<div class="hero-text-slider">
-			<div class="text-item">
-			</div>
-			<div class="text-item">
-			</div>
-			<div class="text-item">
-			</div>
 			<div class="text-item">
 			</div>
 			<div class="text-item">
@@ -278,7 +300,7 @@ blockquote {
 			<blockquote>
 				<h4 class="h4b">'' Content ''</h4>
 				<br><br>
-				<h5 class="h4c" align="center">${Click.rb_content }</h5>
+				<h6 class="h4c" align="center" style="color:cadetblue;">${Click.rb_content }</h6>
 			</blockquote>
 	<!-- Comment Head Section -->
 	<section  style="width:80%; margin:auto;">
@@ -286,68 +308,86 @@ blockquote {
 		<div><p class="pC" >LIKE :</p></div>
 		<br>
 		<div><p style="font-size:20px;">Comments ..</p></div>
-		<hr style="border:solid 1px #A9D0F5;">
-		<div class="commentA"></div>
-	</section>
+		<!-- Comment  -->
+	<form  accept-charset="UTF-8" action="commentInsert.do" id="frm" method="post">
+	<div class="inCommentS" style="width:700px; margin:auto; height:70px; background-color:#EFEAEA; ">
 
-	<!-- Comment Main Section -->
-	<section style="width:80%; margin:auto;" class="commentMain">
-		<br>
-		<div class="commentDiv">
-			<div>
-				<h4 class="h4Id" style="float:left;">${id }</h4>
-				<p style="font-size:15px; float:left;">${Click.rb_regdate }</p>
-				<c:forEach items="${list }" var="list">
-				<span>{list.}</span>
-				</c:forEach>
-				
-			</div>
-			<div style="clear:both;"></div>
-			<hr class="commentfootHr" style="border:solid 1 gray;">
-		</div>
-		
-	</section>
-	
-	<!-- Comment  -->
-	
-	<section style="width:80%; margin:auto; height:70px;margin-top: 70px; background-color:#EFEAEA;">
-
-	 <form  accept-charset="UTF-8" action="commentInsert.do" id="frm" method="post">
+	 
 	 <input type="hidden" id="c_comment" name="c_comment">
 	 <input type="hidden" id="u_id" name="u_id">
 	 <input type="hidden" id="rb_num" name="rb_num">
-	<textarea class="textarea" style="resize: none;" id="comment" name="comment" rows="1" cols="60" placeholder="댓글 입력하는 곳 !"></textarea></div>
-	<div class="textdiv2"><button type="button" class="myButton" onclick="commentInsert('${id}',' ${Click.rb_num }');">등록</button></div>
+	<textarea class="textarea" style="resize: none;" id="comment" name="comment" rows="1" cols="60" placeholder="댓글 입력하는 곳 !"></textarea>
+	
+
+	
+		</div>
+		<button type="button" class="myButton" onclick="commentInsert('${id}',' ${Click.rb_num }');">등록</button>
 	</form>
-	
+		<hr style="border:solid 1px #A9D0F5;">
+		<div class="commentA"></div>
+		
 	</section>
+
+	<!-- Comment Main Section -->
+	<div style="width:80%; margin:auto;" class="commentMain">
+		<br>
+
 	
-	
-	
-	<!-- Footer Section -->
-	<footer class="footer__section">
-		<div class="container">
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		<div class="commentDiv">
+			<c:forEach items="${list }" var="comment">
+			<div>
+			
+				<h4 class="h4Id" style="float:left;">${comment.u_id }&nbsp;&nbsp;</h4>
+				<p style="font-size:15px; float:left;">${comment.c_date }</p>
+				
+				<span class="spanComment">${comment.c_comment }</span>
+				
+				<div class="btnClass1">
+				<form name="commentReForm" method="post">
+				<button class="myButton1" id="click" type="button" onclick="commentRe();">답글</button>
+					<div  id="reHText" style="display:none; "><input type="text" ></div>
+				</form>
+				</div>
+			</div>
+			<hr class="commentfootHr" style="border:solid 1px #EBF5FF;">
+			
+			</c:forEach>
+			<div class="container">
+			<!-- Footer Section -->
 			<div class="footer__copyright__text">
 				<p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart" aria-hidden="true"></i></p>
 			</div>
-			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			<!-- Footer Section end -->
 		</div>
-	</footer>
-	<!-- Footer Section end -->
-	
-	
-	
-	<!-- Search Begin -->
-	<div class="search-model">
-		<div class="h-100 d-flex align-items-center justify-content-center">
-			<div class="search-close-switch">+</div>
-			<form class="search-model-form">
-				<input type="text" id="search-input" placeholder="Search here.....">
-			</form>
 		</div>
+		
+
 	</div>
-	<!-- Search End -->
+	<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+	<script>
+			 $(document).ready(function() {
+			      $("#click").click(function() {
+			    	  document.getElementById("reHText").style.display="block";
+			      });
+			      $("#click").dblclick(function() {
+			        document.getElementById("reHText").style.display="none";
+			      });
+			    });
+	</script>
+	
+	<footer class="footer__section">
+
+
+	</footer>
+	
+		
+	
+	
+	
+	
+	
+	
+	
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="resources/reviewbootstrap/js/vendor/jquery-3.2.1.min.js"></script>

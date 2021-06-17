@@ -267,10 +267,17 @@ public class MemberController {
 	
 	//留덉씪由ъ�
 	@RequestMapping("/memberMileage.do")
-	public String memberMileage(Model model, MemberVO vo) {
-		model.addAttribute("mileage", dao.memberSelectListAll());
+	public String memberMileage(Model model, MemberVO vo, HttpServletRequest req, revBoardVO2 revo, QnaVO qvo) {
+		String id = req.getParameter("id");
+		vo.setU_id(id);
+		revo.setU_id(id);
+		qvo.setU_id(id);
 		
-		return "member/mileage/memberMileage";
+		model.addAttribute("qna", Qdao.qnaCount(qvo));
+		model.addAttribute("review", Rdao.revBoardCount(revo));
+		model.addAttribute("member", dao.memberSelectJW(vo));
+		
+		return "memberMileageAdPopup";
 
 		//+1000留덉씪由ъ�
 	}
