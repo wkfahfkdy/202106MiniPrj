@@ -40,6 +40,15 @@ public class BreadController {
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
 		
+		BreadVO vo2 = new BreadVO(); 
+		vo2 = dao.selectStoreId(vo);
+		
+		vo.setS_id(vo2.getS_id());
+		System.out.println(vo.getS_id());
+		
+		BreadVO vo3 = dao.storeAdr(vo);
+		model.addAttribute("loc", vo3.getS_adr());
+		
 		System.out.println(dao.storeSelectMP(vo));
 		
 		model.addAttribute("bread",dao.storeSelectMP(vo));
@@ -122,7 +131,7 @@ public class BreadController {
 		
 		int size = 10 * 1024 * 1024; //585*468
 		String path = "C:\\tmp";
-		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\productUpload";
 		String fileName = "";
 		MultipartRequest multi = null;
 		try {
@@ -144,7 +153,7 @@ public class BreadController {
 		vo.setB_comment(multi.getParameter("b_comment"));
 		vo.setB_name(multi.getParameter("b_name"));
 		vo.setB_price(multi.getParameter("b_price"));
-		vo.setB_price(multi.getParameter("b_price"));
+		vo.setB_qty(multi.getParameter("b_qty"));
 		
 		BreadVO vo2 = new BreadVO();
 		vo2.setU_id(u_id);
@@ -155,8 +164,7 @@ public class BreadController {
 		
 		dao.breadinsertMenu(vo);
 
-//		model.addAttribute("bread", vo);
-		return "redirect:breadInsertMenu.do";
+		return "redirect:breadStoreManage.do";
 	}
 	
 	
