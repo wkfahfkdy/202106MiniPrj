@@ -91,24 +91,22 @@
 </script>
 								<form action="storeInform.do" class="dk-form" method="post" id="frm" >
 									<div class="dk-box dk-header-info">
-									<c:choose>
-									<c:when test="${empty bread.s_name} ">	
-										<div>
-											<h4 class="display-3 mnt-8">ex)XX베이커리</h4>
-											<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
-											 name="_name" id="s_name">
-										</div>
-									</c:when>
-									
-									
-									<c:when test="${not empty bread.s_name} ">	
-										<div>
-											<h4 class="display-3 mnt-8">${bread.s_name }</h4>
-											<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
-											 name="_name" id="s_name">
-										</div>
-									</c:when>
-									</c:choose>
+										<c:if test="${null eq testName} ">	
+											<div>
+												<h4 class="display-3 mnt-8">ex)XX베이커리</h4>
+												<input type="text" class="form-control" maxlength="10" placeholder="매장이름1"
+												 name="_name" id="s_name">
+											</div>
+										</c:if>
+										
+										
+										<c:if test="${null ne testName} ">	
+											<div>
+												<h4 class="display-3 mnt-8">${bread.s_name }</h4>
+												<input type="text" class="form-control" maxlength="10" placeholder="매장이름2"
+												 name="_name" id="s_name">
+											</div>
+										</c:if>
 										
 										
 										<div>

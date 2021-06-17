@@ -67,10 +67,14 @@ public class BreadController {
 		
 		System.out.println(dao.storeSelectMP(vo));
 		
-		model.addAttribute("bread",dao.storeSelectMP(vo));
+		BreadVO vo4 = dao.storeSelectMP(vo);
+		String testName = vo4.getS_name();
+		System.out.println(testName);
+		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
 		model.addAttribute("store", list);
+		model.addAttribute("testName", testName);
 		
 		return "breadStoreManage";
 	}
@@ -84,10 +88,11 @@ public class BreadController {
 	//빵 리스트 출력 
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
-		
+		model.addAttribute("RCode",dao.storeRCode());
 		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
-
+		
+		System.out.println(dao.storeRCode());
 		return "bread/bread";
 	}
 	

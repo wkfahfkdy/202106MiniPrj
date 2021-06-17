@@ -142,6 +142,13 @@
 		select s_adr from store where s_id = #{s_id}
 	</select>
 
+	<!-- 가게의 지역분류코드 -->
+	<select id="storeRCode" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.r_code, a.u_id, b.s_id
+		from member a
+		join store b
+		on a.u_id = b.u_id
+	</select>
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where order by #{S_like} </select> -->

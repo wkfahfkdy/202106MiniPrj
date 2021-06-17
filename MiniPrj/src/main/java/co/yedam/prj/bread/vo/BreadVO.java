@@ -17,6 +17,7 @@ public class BreadVO {
 	private String store_hit; // 방문자수 넣을지 말지?
 	private Date s_opendate;
 	private String u_name;
+	private String r_code; //지역구분코드
 	// 빵 관련
 	private String b_id; //빵 코드
 	private String b_name; //빵 이름
@@ -33,6 +34,21 @@ public class BreadVO {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "BreadVO [s_id=" + s_id + ", u_id=" + u_id + ", s_name=" + s_name + ", s_adr=" + s_adr + ", s_like="
+				+ s_like + ", s_tel=" + s_tel + ", s_content=" + s_content + ", s_region=" + s_region + ", s_image="
+				+ s_image + ", store_hit=" + store_hit + ", s_opendate=" + s_opendate + ", u_name=" + u_name
+				+ ", r_code=" + r_code + ", b_id=" + b_id + ", b_name=" + b_name + ", b_qty=" + b_qty + ", b_comment="
+				+ b_comment + ", b_main=" + b_main + ", b_image=" + b_image + ", b_like=" + b_like + ", b_price="
+				+ b_price + "]";
+	}
+	public String getR_code() {
+		return r_code;
+	}
+	public void setR_code(String r_code) {
+		this.r_code = r_code;
+	}
 	public String getS_id() {
 		return s_id;
 	}
@@ -130,14 +146,6 @@ public class BreadVO {
 	}
 	public void setB_comment(String b_comment) {
 		this.b_comment = b_comment;
-	}
-	@Override
-	public String toString() {
-		return "BreadVO [s_id=" + s_id + ", s_name=" + s_name + ", s_adr=" + s_adr + ", s_like=" + s_like + ", s_tel="
-				+ s_tel + ", s_content=" + s_content + ", s_region=" + s_region + ", s_image=" + s_image
-				+ ", store_hit=" + store_hit + ", b_id=" + b_id + ", b_name=" + b_name + ", b_qty=" + b_qty
-				+ ", b_comment=" + b_comment + ", b_image=" + b_image + ", b_like=" + b_like + ", b_price=" + b_price
-				+ "]";
 	}
 	public String getU_id() {
 		return u_id;
