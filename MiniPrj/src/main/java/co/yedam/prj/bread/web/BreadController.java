@@ -48,6 +48,13 @@ public class BreadController {
 		return "breadView";
 	}
 	
+	@RequestMapping("/storeInform.do")
+	public String storeInform(BreadVO vo) {
+		
+		dao.storeInform(vo);
+		
+		return "redirect:breadStoreManage.do";
+	}
 	
 	//My shop Manage => INFORM 수정 부분
 	@RequestMapping("/breadStoreManage.do")
@@ -60,19 +67,22 @@ public class BreadController {
 		vo2 = dao.selectStoreId(vo);
 		
 		vo.setS_id(vo2.getS_id());
-		System.out.println(vo.getS_id());
 		
 		BreadVO vo3 = dao.storeAdr(vo);
 		model.addAttribute("loc", vo3.getS_adr());
 		
-		System.out.println(dao.storeSelectMP(vo));
 		
 		BreadVO vo4 = dao.storeSelectMP(vo);
 		String testName = vo4.getS_name();
-		System.out.println(testName);
+		if (testName == null) {
+			testName = "0";
+		} else {
+			testName = "1";
+		}
 		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
+		System.out.println(list);
 		model.addAttribute("store", list);
 		model.addAttribute("testName", testName);
 		

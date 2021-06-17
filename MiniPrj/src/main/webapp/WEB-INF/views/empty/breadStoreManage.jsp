@@ -27,14 +27,12 @@
 				}
 	</script>
 
-<title>${id }님의 스토어</title>
+<title></title>
 <style>
 	#s_file {
 		align:center;
 	}
 </style>
-</head>
-
 <script>
 	function sImageUpload() {
 		
@@ -42,15 +40,19 @@
 		alert("수정이 완료되었습니다.");
 	}
 </script>
+</head>
+
+
 
 <body>
 
 	<div class="dk-main">
-
+		
 		<div style="margin-top: 150px">
 			<div class="dk-box dk-header">
 
-				<div class="container">
+				<div class="container">	
+					<h4>${id }님의 스토어</h4>
 					
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
@@ -91,20 +93,20 @@
 </script>
 								<form action="storeInform.do" class="dk-form" method="post" id="frm" >
 									<div class="dk-box dk-header-info">
-										<c:if test="${null eq testName} ">	
+										<c:if test="${testName eq '0' }">	
 											<div>
 												<h4 class="display-3 mnt-8">ex)XX베이커리</h4>
-												<input type="text" class="form-control" maxlength="10" placeholder="매장이름1"
-												 name="_name" id="s_name">
+												<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
+												 name="s_name" id="s_name">
 											</div>
 										</c:if>
 										
 										
-										<c:if test="${null ne testName} ">	
+										<c:if test="${testName ne '0'}">	
 											<div>
 												<h4 class="display-3 mnt-8">${bread.s_name }</h4>
-												<input type="text" class="form-control" maxlength="10" placeholder="매장이름2"
-												 name="_name" id="s_name">
+												<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
+												 name="s_name" id="s_name">
 											</div>
 										</c:if>
 										
@@ -114,20 +116,31 @@
 										
 										</div>
 	
+										<c:if test="${bread.s_content eq null}">
 										<div>
-											<p class="lead mb-0">${bread.s_content }Ex) 매일 아침 정성으로 빵을 굽습니다!</p>
+											<p class="lead mb-0">${bread.s_content } Ex) 매일 아침 정성으로 빵을 굽습니다!</p>
 											<textarea maxlength="30" class="form-control" style="resize:none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 											name="s_content" id="s_content"></textarea>
 										</div>
+										</c:if>
 										
-										<c:if test="${bread.s_tel } nq null">
+										<c:if test="${bread.s_content ne null}">
+											<div>
+											<p class="lead mb-0">${bread.s_content }</p>
+											<textarea maxlength="30" class="form-control" style="resize:none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
+											name="s_content" id="s_content"></textarea>
+										</div>
+										</c:if>
+	
+										
+										<c:if test="${bread.s_tel eq null}">
 										<div>
 											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">Ex)0505-333-1114
 											</button>
 										</div>
 										</c:if>
 										
-										<c:if test="${bread.s_tel } nq null">
+										<c:if test="${bread.s_tel ne null}">
 											<div>
 											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${bread.s_tel }
 											</button>
