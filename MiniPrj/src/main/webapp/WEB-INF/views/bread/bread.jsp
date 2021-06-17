@@ -232,7 +232,7 @@ ul, li {
 									class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
 									<span class="dk-portfolio-item-overlay"
 									style="background-color: rgba(255, 255, 255, .85)"></span> <img
-									src="assets/images/portfolio-2-md.png" alt="">
+									src="resources/breadMainUpload/${vo.b_main }" alt="">
 								</span> <span class="dk-portfolio-item-info"> <span
 									class="h3 dk-portfolio-item-title">${vo.b_name }</span> <span
 									class="dk-portfolio-item-category"> <span>from

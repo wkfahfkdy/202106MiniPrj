@@ -28,8 +28,20 @@
 	</script>
 
 <title>${id }님의 스토어</title>
+<style>
+	#s_file {
+		align:center;
+	}
+</style>
 </head>
 
+<script>
+	function sImageUpload() {
+		
+		frm2.submit();
+		alert("수정이 완료되었습니다.");
+	}
+</script>
 
 <body>
 
@@ -43,7 +55,11 @@
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
-								<a href="#" class="dk-gallery-item">${bread.s_image }매장 전경 사진</a>
+								<a href="#"><img src="resources/storeMainUpload/${bread.s_image }">매장 전경 사진</a><br>
+								<form action="sImageUpload.do" method="post" id="frm2" enctype="multipart/form-data">
+									<input style = "width:50%;" type="file" id="s_file" name="s_file" class="form-control" placeholder="SFile">
+									<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="sImageUpload()">Save</button>
+								</form>
 							</div>
 
 							<div class="col-12 col-lg-6">
@@ -109,7 +125,22 @@
 			</div>
 
 
+<script>
+function breadMainUpload() {
+	
+	frm3.submit();
+	alert("수정이 완료되었습니다.");
+}
+</script>
 
+			<div class="container">
+				<h3>설명 사진입니다</h3>
+				<img src="">
+				<form action="breadMainUpload.do" method="post" id="frm3" enctype="multipart/form-data">
+					<input style = "width:50%;" type="file" name="s_file" class="form-control" placeholder="SFile">
+					<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="breadMainUpload()">Save</button>
+				</form>
+			</div>
 
 
 
@@ -129,43 +160,42 @@
 				</div>
 		
 				<div class="row no-gutters">
-
-					<div class="col-12 col-lg-6">
-
-						<a href=""
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="" alt="이미지">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">크럼프${bread.b_name }</span> <span
-								class="dk-portfolio-item-category"> <span> 달콤한 크림과 함께 즐기는 크럼프${bread.b_comment }</span>
-							</span>
-						</span>
-						</a>
+						<c:forEach items="${store}" var="vo" begin="0" step="2">
+							<div class="col-12 col-lg-6">
+								<a href="" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
+									<span class="dk-portfolio-item-image"> 
+										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
+										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
+										<img src="" alt="${vo.b_image }">
+									</span> 
+									<span class="dk-portfolio-item-info"> 
+										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
+										<span class="dk-portfolio-item-category"> 
+										<span>${vo.b_comment }</span>
+									</span>
+									</span>
+								</a>
+							</div>
+						</c:forEach>
+						<c:forEach items="${store}" var="vo" begin="1" step="2">
+							<div class="col-12 col-lg-6">
+								<a href="portfolio-single-2.html"
+									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
+									<span class="dk-portfolio-item-image"> 
+										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
+										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
+										<img src="" alt="${vo.b_image }">
+									</span> 
+									<span class="dk-portfolio-item-info"> 
+										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
+										<span class="dk-portfolio-item-category"> 
+											<span>${vo.b_comment }</span>
+										</span>
+									</span>
+								</a>
+							</div>
+						</c:forEach>
 					</div>
-
-
-					<div class="col-12 col-lg-6">
-						<a href="portfolio-single-2.html"
-							class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
-							<span class="dk-portfolio-item-image"> <span
-								class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
-
-								<span class="dk-portfolio-item-overlay"
-								style="background-color: rgba(255, 255, 255, .85)"></span> <img
-								src="" alt="이미지">
-						</span> <span class="dk-portfolio-item-info"> <span
-								class="h3 dk-portfolio-item-title">육쪽마늘빵${bread.b_name }</span> <span
-								class="dk-portfolio-item-category"> <span> 부드럽고 촉촉한 소스와 빵${bread.b_comment }</span>
-							</span>
-						</span>
-						</a>
-					</div>
-				</div>
 					
 			</div>
 		</div>
