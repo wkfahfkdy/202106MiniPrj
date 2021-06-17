@@ -54,7 +54,7 @@
 	</form>
 	<div align="center">
 		<button class="dk-btn dk-btn-md" onclick="submit()">승인</button>
-		<button class="dk-btn dk-btn-md" onclick="location.href='memberInfoWait.do'" >취소</button>
+		<button class="dk-btn dk-btn-md" onclick="location.href='memberInfoWaitPaging.do'" >취소</button>
 	</div>
 </body>
 </html>

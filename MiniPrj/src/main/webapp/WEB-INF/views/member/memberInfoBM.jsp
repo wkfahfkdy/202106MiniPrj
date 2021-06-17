@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/fmt_rt" %>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +63,7 @@
 							<td>${member.u_adrcode }</td>
 							<td>${member.u_tel }</td>
 							<td>${member.u_mail }</td>
-							<td>${member.regdate }</td>
+							<td><x:formatDate value="${member.regdate }" pattern="yyyy-MM-dd" /></td>
 						
 							<c:if test="${member.s_reg eq 'Y' }">
 							<th><button class="dk-btn dk-btn-md" onclick="location.href='businessMemberPage.do?id=${member.u_id }'">사업자관리</button></th>

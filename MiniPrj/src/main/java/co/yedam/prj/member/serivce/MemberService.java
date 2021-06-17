@@ -10,6 +10,7 @@ public interface MemberService {
 	
 	public List<MemberVO> memberSelectList(MemberVO vo);
 	public List<MemberVO> memberSelectListAll();
+	public List<MemberVO> memberResearch(MemberVO vo);
 	public int tableCnt();
 	public int tableCntWait();
 	public int tableCntBM();

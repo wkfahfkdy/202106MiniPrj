@@ -74,11 +74,7 @@
                 Logout
             </a>
         </li>    
-         <li>
-        	<a href="test.do">
-                TestPage
-            </a>
-        </li>    
+           
         </c:if>
         
           </ul>

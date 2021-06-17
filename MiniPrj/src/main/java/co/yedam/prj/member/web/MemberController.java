@@ -20,6 +20,8 @@ import co.yedam.prj.bread.vo.BreadVO;
 import co.yedam.prj.common.Paging;
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
+import co.yedam.prj.qna.service.QnaService;
+import co.yedam.prj.qna.vo.QnaVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -32,6 +34,8 @@ public class MemberController {
 	@Autowired
 	private BreadService Dao;
 	
+	@Autowired
+	private QnaService Qdao;
 	
 	@Autowired
 	private revBoardService2 Rdao;
@@ -50,12 +54,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberPage.do")
-	public String memberPage(Model model, MemberVO vo, HttpServletRequest req, revBoardVO2 revo) {
+	public String memberPage(Model model, MemberVO vo, HttpServletRequest req, revBoardVO2 revo, QnaVO qvo) {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
-		
 		revo.setU_id(id);
+		qvo.setU_id(id);
 		
+		model.addAttribute("qna", Qdao.qnaCount(qvo));
 		model.addAttribute("review", Rdao.revBoardCount(revo));
 		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberPage";
@@ -264,36 +269,40 @@ public class MemberController {
 	@RequestMapping("/memberMileage.do")
 	public String memberMileage(Model model, MemberVO vo) {
 		model.addAttribute("mileage", dao.memberSelectListAll());
+		
 		return "member/mileage/memberMileage";
 
 		//+1000留덉씪由ъ�
 	}
 	@RequestMapping("/memberMileageUp.do")
-	public String memberMileageUp(MemberVO vo){
+	public String memberMileageUp(MemberVO vo, Model model){
 		dao.mileAgeUp(vo);
+		model.addAttribute("uid", vo.getU_id());
 		return "member/mileage/memberMileageUpS";
 	}
 		//-1000留덉씪由ъ�
 	@RequestMapping("/memberMileageDown.do")
-	public String memberMileageDown(MemberVO vo) {
+	public String memberMileageDown(MemberVO vo, Model model) {
 		dao.mileAgeDown(vo);
+		model.addAttribute("uid", vo.getU_id());
 		return "member/mileage/memberMileageDownS";
 	}
 	
 	// 마일리지 수동 +
 	@RequestMapping("/mileAgeManualUp.do")
-		public String mileAgeManualUp(MemberVO vo) {
+		public String mileAgeManualUp(MemberVO vo, Model model) {
 
 			dao.mileAgeManualUp(vo);
-			
+			model.addAttribute("uid", vo.getU_id());
 		return "member/mileage/manualUp";
 		}
 	// 마일리지 수동 -
 		@RequestMapping("/mileAgeManualDown.do")
-			public String mileAgeManualDown(MemberVO vo) {
+			public String mileAgeManualDown(MemberVO vo, Model model) {
 			
 				dao.mileAgeManualDown(vo);
-				
+				System.out.println(vo.getU_id());
+				model.addAttribute("uid", vo.getU_id());
 			return "member/mileage/manualDown";
 			}
 		// Paging 처리
@@ -302,7 +311,7 @@ public class MemberController {
 			
 			String page = req.getParameter("page");
 			
-			
+				
 			if (page == null) page = "1"; 
 			
 			int ipage = Integer.parseInt(page);
@@ -401,4 +410,5 @@ public class MemberController {
 			
 			return "member/memberInfoM";
 		}
+		
 }

@@ -210,5 +210,11 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.update("breadMainUpload", vo);
 	}
 
+	@Override
+	public List<BreadVO> storeRCode() {
+		
+		return sqlSession.selectList("storeRCode");
+	}
+
 
 }

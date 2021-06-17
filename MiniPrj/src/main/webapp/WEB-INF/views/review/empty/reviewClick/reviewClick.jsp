@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -56,7 +57,15 @@ blockquote {
 	.h4b{
 		font-family: 'Nanum Pen Script', cursive;
 		font-size:40px;
-		color:
+		
+	}
+	.h4Id{
+	font-family: 'Nanum Pen Script', cursive;
+		font-size:30px;
+		background-color:#FFFA82;
+    	width: 80px;
+   		 text-align: center;
+    	border-radius: 20px 15px 20px 0px
 	}
 	.h4c{
 	font-family: 'Single Day', cursive;
@@ -125,6 +134,12 @@ blockquote {
     .cm1{
     	margin-top:30px;
     }
+    .commentDiv{
+    	height:120px;
+    }
+    .commentfootHr{
+    	margin-top:60px;
+    }
 </style>
 	<title>Boto | Photography HTML Template</title>
 	<meta charset="UTF-8">
@@ -150,10 +165,11 @@ blockquote {
 
 
 <script>
-	function commentInsert(id){
+	function commentInsert(id,rbnum){
 		frm.u_id.value=id;
 		var comment=$('#comment').val();
-		
+		console.log(rbnum);
+		frm.rb_num.value=rbnum;
 		frm.c_comment.value=comment;
 		frm.submit();
 	}
@@ -276,18 +292,32 @@ blockquote {
 
 	<!-- Comment Main Section -->
 	<section style="width:80%; margin:auto;" class="commentMain">
-		<div class="cm1">${id }</div>
+		<br>
+		<div class="commentDiv">
+			<div>
+				<h4 class="h4Id" style="float:left;">${id }</h4>
+				<p style="font-size:15px; float:left;">${Click.rb_regdate }</p>
+				<c:forEach items="${list }" var="list">
+				<span>{list.}</span>
+				</c:forEach>
+				
+			</div>
+			<div style="clear:both;"></div>
+			<hr class="commentfootHr" style="border:solid 1 gray;">
+		</div>
+		
 	</section>
 	
 	<!-- Comment  -->
 	
 	<section style="width:80%; margin:auto; height:70px;margin-top: 70px; background-color:#EFEAEA;">
 
-	 <form action="commentInsert.do" id="frm" method="post">
+	 <form  accept-charset="UTF-8" action="commentInsert.do" id="frm" method="post">
 	 <input type="hidden" id="c_comment" name="c_comment">
 	 <input type="hidden" id="u_id" name="u_id">
+	 <input type="hidden" id="rb_num" name="rb_num">
 	<textarea class="textarea" style="resize: none;" id="comment" name="comment" rows="1" cols="60" placeholder="댓글 입력하는 곳 !"></textarea></div>
-	<div class="textdiv2"><button type="button" class="myButton" onclick="commentInsert('${id}');">등록</button></div>
+	<div class="textdiv2"><button type="button" class="myButton" onclick="commentInsert('${id}',' ${Click.rb_num }');">등록</button></div>
 	</form>
 	
 	</section>

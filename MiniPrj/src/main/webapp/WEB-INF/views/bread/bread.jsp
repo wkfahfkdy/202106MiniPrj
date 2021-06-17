@@ -255,10 +255,10 @@ ul, li {
 
 			</div>
 
-			<div class="text-center">
+		<!-- 	<div class="text-center">
 				<a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-70">Load
 					More</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </body>

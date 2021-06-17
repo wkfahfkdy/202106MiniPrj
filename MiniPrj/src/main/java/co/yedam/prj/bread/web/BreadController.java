@@ -29,8 +29,24 @@ public class BreadController {
 	private BreadService dao;
 
 
-	
-	
+	//빵 자세히 보기 
+	@RequestMapping("/breadView.do")
+	public String breadView(Model model, BreadVO vo, HttpSession session) {
+		String u_id = (String) session.getAttribute("id");
+		vo.setU_id(u_id);
+		
+		BreadVO vo2 = new BreadVO(); 
+		vo2 = dao.selectStoreId(vo);
+		
+		vo.setS_id(vo2.getS_id());
+		System.out.println(vo.getS_id());
+		
+		
+		List<BreadVO> list = dao.breadSelectList(vo);
+		model.addAttribute("bread", list);
+		
+		return "breadView";
+	}
 	
 	
 	//My shop Manage => INFORM 수정 부분
@@ -51,10 +67,14 @@ public class BreadController {
 		
 		System.out.println(dao.storeSelectMP(vo));
 		
-		model.addAttribute("bread",dao.storeSelectMP(vo));
+		BreadVO vo4 = dao.storeSelectMP(vo);
+		String testName = vo4.getS_name();
+		System.out.println(testName);
+		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
 		model.addAttribute("store", list);
+		model.addAttribute("testName", testName);
 		
 		return "breadStoreManage";
 	}
@@ -68,10 +88,11 @@ public class BreadController {
 	//빵 리스트 출력 
 	@RequestMapping("/bread.do")	
 	public String breadSelectList(Model model,BreadVO vo) {
-		
+		model.addAttribute("RCode",dao.storeRCode());
 		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
-
+		
+		System.out.println(dao.storeRCode());
 		return "bread/bread";
 	}
 	

@@ -23,4 +23,8 @@ public interface revBoardService2 {
 	public int revBoardCount(revBoardVO2 vo);
 	
 	public int insertRevComment(RevCommentVO vo);
+
+
+	public List<RevCommentVO> revCommentList(RevCommentVO vo);
+
 }
