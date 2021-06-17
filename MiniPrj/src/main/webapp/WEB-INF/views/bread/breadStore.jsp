@@ -5,6 +5,19 @@
 <!DOCTYPE html>
 
 <head>
+
+<style>
+
+.gap{
+padding: 500px;
+
+}
+
+
+</style>
+
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript"
@@ -100,11 +113,11 @@
 					<div class="row no-gutters">
 						<c:forEach items="${store}" var="vo" begin="0" end="5" step="2">
 							<div class="col-12 col-lg-6">
-								<a href="" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
+								<a href="breadView.do" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
-										<img src="" alt="${vo.b_image }">
+										<img src="resources/productUpload/${vo.b_image }" alt="${vo.b_image }">
 									</span> 
 									<span class="dk-portfolio-item-info"> 
 										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
@@ -122,7 +135,7 @@
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
-										<img src="" alt="${vo.b_image }">
+										<img src="resources/productUpload/${vo.b_image }" alt="${vo.b_image }">
 									</span> 
 									<span class="dk-portfolio-item-info"> 
 										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
@@ -170,7 +183,7 @@
 			</div>
 
 
-
+		<div class="gap"></div>
 
 
 

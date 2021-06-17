@@ -29,8 +29,24 @@ public class BreadController {
 	private BreadService dao;
 
 
-	
-	
+	//빵 자세히 보기 
+	@RequestMapping("/breadView.do")
+	public String breadView(Model model, BreadVO vo, HttpSession session) {
+		String u_id = (String) session.getAttribute("id");
+		vo.setU_id(u_id);
+		
+		BreadVO vo2 = new BreadVO(); 
+		vo2 = dao.selectStoreId(vo);
+		
+		vo.setS_id(vo2.getS_id());
+		System.out.println(vo.getS_id());
+		
+		
+		List<BreadVO> list = dao.breadSelectList(vo);
+		model.addAttribute("bread", list);
+		
+		return "breadView";
+	}
 	
 	
 	//My shop Manage => INFORM 수정 부분

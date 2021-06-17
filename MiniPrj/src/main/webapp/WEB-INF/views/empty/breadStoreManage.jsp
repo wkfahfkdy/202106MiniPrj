@@ -55,10 +55,10 @@
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
-								<a href="#"><img src="resources/storeMainUpload/${bread.s_image }">매장 전경 사진</a><br>
+								<a href="#"><img src="resources/storeMainUpload/${bread.s_image }"></a><br>
 								<form action="sImageUpload.do" method="post" id="frm2" enctype="multipart/form-data">
 									<input style = "width:50%;" type="file" id="s_file" name="s_file" class="form-control" placeholder="SFile">
-									<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="sImageUpload()">Save</button>
+									<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="sImageUpload()">매장사진 저장</button>
 								</form>
 							</div>
 
@@ -91,11 +91,25 @@
 </script>
 								<form action="storeInform.do" class="dk-form" method="post" id="frm" >
 									<div class="dk-box dk-header-info">
+										
+									<c:if test="${bread.s_name } eq null">	
+										<div>
+											<h4 class="display-3 mnt-8">ex)XX베이커리</h4>
+											<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
+											 name="_name" id="s_name">
+										</div>
+									</c:if>
+									
+									
+									<c:if test="${bread.s_name } !eq null">	
 										<div>
 											<h4 class="display-3 mnt-8">${bread.s_name }</h4>
 											<input type="text" class="form-control" maxlength="10" placeholder="매장이름"
 											 name="_name" id="s_name">
 										</div>
+									</c:if>
+										
+										
 										<div>
 											<br>
 										
@@ -106,9 +120,21 @@
 											<textarea maxlength="30" class="form-control" style="resize:none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 											name="s_content" id="s_content"></textarea>
 										</div>
+										
+										<c:if test="${bread.s_tel } nq null">
 										<div>
-											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${bread.s_tel }Ex)0505-333-1114
+											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">Ex)0505-333-1114
 											</button>
+										</div>
+										</c:if>
+										
+										<c:if test="${bread.s_tel } nq null">
+											<div>
+											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${bread.s_tel }
+											</button>
+											</div>
+										</c:if>
+										<div>
 											<input class="form-control" type="text" maxlength="15" placeholder="매장 번호를 입력하세요"
 											name="s_tel" id="s_tel">
 										</div>
@@ -162,11 +188,11 @@ function breadMainUpload() {
 				<div class="row no-gutters">
 						<c:forEach items="${store}" var="vo" begin="0" step="2">
 							<div class="col-12 col-lg-6">
-								<a href="" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
+								<a href="#" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
-										<img src="" alt="${vo.b_image }">
+										<img src="resources/productUpload/${vo.b_image }" alt="${vo.b_image }">
 									</span> 
 									<span class="dk-portfolio-item-info"> 
 										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
@@ -179,12 +205,12 @@ function breadMainUpload() {
 						</c:forEach>
 						<c:forEach items="${store}" var="vo" begin="1" step="2">
 							<div class="col-12 col-lg-6">
-								<a href="portfolio-single-2.html"
+								<a href="#"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
-										<img src="" alt="${vo.b_image }">
+										<img src="resources/productUpload/${vo.b_image }" alt="${vo.b_image }">
 									</span> 
 									<span class="dk-portfolio-item-info"> 
 										<span class="h3 dk-portfolio-item-title">${vo.b_name}</span> 
