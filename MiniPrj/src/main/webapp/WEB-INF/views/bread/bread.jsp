@@ -21,6 +21,12 @@ ul, li {
 	list-style: none;
 }
 
+#main-menu ul {
+ list-style=none;
+ position:absolute;
+}
+
+
 #main-menu>li>a {
 	font-size: 0.85rem;
 	text-align: center;
@@ -34,18 +40,41 @@ ul, li {
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
+	display:block;
 	z-index: 1000;
+	width: 800px;
+	height: 30px;
+	left: 560px;
+	text-decoration: none;
+	
 }
 
 #sub-menu>li {
 	padding: 16px 28px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 	z-index: 1001;
+	float:left;
+	text-decoration: none;
+	align: center;
 }
 
+
+#sub-menu>ul{
+	display:block;
+	position:absolute;
+	left: -10px, 1px;
+	text-decoration: none;
+}
+
+#sub-menu>ul>li{
+	float:left;
+	display:block;
+	
+}
 #sub-menu>li>a {
 	text-decoration: none;
 	z-index: 1001;
+	display:block;
 }
 
 #main-menu>li:hover #sub-menu {
@@ -53,11 +82,14 @@ ul, li {
 	visibility: visible;
 	position: absolute;
 	z-index: 1001;
+	display:block;
+	float: left;
 }
 
 #sub-menu>li>a:hover {
-	position: absolute;
+	position: relative;
 	z-index: 1001;
+	display:block;
 }
 
 .minibox {
@@ -171,6 +203,7 @@ ul, li {
 
 
 					</ul></li>
+				
 			</ul>
 
 		</div>
