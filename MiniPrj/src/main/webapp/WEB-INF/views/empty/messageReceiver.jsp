@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script>
 
+<script>
 
 function messageDelete(ms_num){
 	
@@ -12,7 +12,7 @@ function messageDelete(ms_num){
 		data : {ms_num: ms_num},
 		type : 'POST',
 		success : function(resp){
-			//location.href = "receiverPaging.do";
+			location.href = "receiverPaging.do";
 			opener.parent.location.reload();
 			window.close();
 		},
@@ -37,21 +37,15 @@ function messageDelete(ms_num){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				발신 : ${vo.sender_name }
 			</td>
 			<td align="right">
-				<select name="store">
-						<option>상점명</option>	
-					<c:forEach items="${list}" var="vo">
-						<option value="${u_id }"> ${s_name }</option>	
-					</c:forEach>
-				</select>
+				시간표시예정 ${vo.ms_date }
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="${content}" readonly></textarea>
-				<!-- <div align="right"><span>(<em>0</em>/50)</span></div> -->
 			</td>
 		</tr>
 	</table>
