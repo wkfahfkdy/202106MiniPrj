@@ -24,6 +24,15 @@
 		});
 	}
 	
+
+	function frmSubmit(ms_num) {
+		
+		frm.ms_num.value = ms_num;
+		frm.submit();
+
+	}
+
+	
 </script>
 <style>
 	th {
@@ -52,6 +61,11 @@
 	}
 </style>
 
+	<form id="frm"> 
+		<!-- noticeSelect, hitCount paremater 보내기 용도 -->
+		<input type="hidden" id="ms_num" name="ms_num">
+	</form>
+
 
 <div align="center" style="margin-top: 150px;">
 
@@ -67,8 +81,8 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');${vo.ms_num}')" 
-					style="color: #fff;">쪽지쓰기</a></th>
+					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');"
+					style="color: #fff; cursor:pointer">쪽지쓰기</a></th>
 			</tr>
 		</table>
 	</div>
@@ -84,7 +98,7 @@
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
-			<tr onclick="window.open('msSender.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+			<tr onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 				<td>${vo.receiver_name }</td>
 				<td style="text-align: left;">${vo.content }</td>
 				<td>${vo.ms_date }</td>
