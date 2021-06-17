@@ -23,17 +23,13 @@
 		});
 	}
 	
-	function popup() {
-		var url = "msReceiver.do";
-		var title = "popup";
-		var status = "width=550,height=450,location=no,status=no,scrollbars=no"; 
-		window.open("",title, status); 
+	function frmSubmit(ms_num) {
 		
-		frm.target = title;
-		frm.action = url;
-		frm.method = "post";
+		frm.ms_num.value = ms_num;
 		frm.submit();
+
 	}
+
 	
 </script>
 <style>
@@ -101,11 +97,11 @@
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
 			<tr>
-				<td  onclick="popup('${vo.ms_num}')" style="cursor:pointer">
+				<td  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 					${vo.sender_name }</td>
-				<td style="text-align: left; cursor:pointer"  onclick="window.open('messageSelect.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
+				<td style="text-align: left; cursor:pointer"  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
 					${vo.content }</td>
-				<td onclick="window.open('msReceiver.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+				<td onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 					${vo.ms_date }</td>
 				<td>
 				<button style="cursor:pointer" type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>

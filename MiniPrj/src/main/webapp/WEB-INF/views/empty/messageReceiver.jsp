@@ -40,12 +40,12 @@ function messageDelete(ms_num){
 				발신 : ${vo.sender_name }
 			</td>
 			<td align="right">
-				시간표시예정 ${vo.ms_date }
+				 ${vo.ms_date }
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
-				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="${content}" readonly></textarea>
+				<textarea id="content" name="content" rows="7" cols="50" style="resize: none;" maxlength="100" placeholder="${vo.content}" readonly></textarea>
 			</td>
 		</tr>
 	</table>
