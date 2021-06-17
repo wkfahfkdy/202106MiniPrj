@@ -17,7 +17,7 @@ public class MessageServiceImpl implements MessageService {
 	private SqlSession sqlSession;
 	
 	@Override //전체리스트
-	public List<MessageVO> messageSelectList() {
+	public List<String> messageSelectList() {
 		return sqlSession.selectList("messageSelectList");
 	}
 
