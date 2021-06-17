@@ -183,7 +183,6 @@ public class BreadServiceImpl implements BreadService {
 
 	@Override
 	public int breadinsertMenu(BreadVO vo) {
-		System.out.println("동작확인=========================================");
 		return sqlSession.insert("breadInsertMenu",vo);
 	}
 
@@ -197,6 +196,18 @@ public class BreadServiceImpl implements BreadService {
 	public BreadVO selectStoreId(BreadVO vo) {
 		
 		return sqlSession.selectOne("selectStoreId", vo);
+	}
+
+	@Override
+	public int sImageUpload(BreadVO vo) {
+		
+		return sqlSession.update("sImageUpload", vo);
+	}
+
+	@Override
+	public int breadMainUpload(BreadVO vo) {
+		
+		return sqlSession.update("breadMainUpload", vo);
 	}
 
 

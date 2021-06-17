@@ -51,22 +51,18 @@
 
 
 
-								<!-- 스토어 좋아요 아닌 상태 => 빈 하트 
-							<c:if test="store.s_like eq '0' ">
+							<!--  스토어 좋아요 아닌 상태 => 빈 하트 --> 
 						
 									<button style="float: right;">
 										<i class="fa fa-heart-o" aria-hidden="true"></i>
 									</button>
-							</c:if>
-							 -->
+							
 
-								<!-- 스토어 좋아요 아닌 상태 => 찐 하트 
-							<c:if test="store.s_like eq '1' ">
+								<!-- 스토어 좋아요 아닌 상태 => 찐 하트 -->
 									<button style="float: right;">
 										<i class="fa fa-heart" aria-hidden="true"></i>
 									</button>
-							</c:if>
-							-->
+							
 
 
 
