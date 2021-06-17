@@ -45,4 +45,10 @@ public class ServiceServiceImpl implements ServiceService {
 		return 0;
 	}
 
+	@Override
+	public List<ServiceVO> serviceSelectList(ServiceVO vo) {
+
+		return sqlSession.selectList("ceoServiceList", vo);
+	}
+
 }

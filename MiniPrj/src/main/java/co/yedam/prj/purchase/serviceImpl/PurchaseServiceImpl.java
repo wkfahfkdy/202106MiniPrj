@@ -24,7 +24,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 	@Override
 	public PurchaseVO purchaseSelect(PurchaseVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("purchaseSelect", vo);
 	}
 
 	@Override
@@ -55,6 +55,18 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public List<PurchaseVO> purchaseSelectList(PurchaseVO vo) {
 		
 		return sqlSession.selectList("purchaseSelectList", vo);
+	}
+
+	@Override
+	public int purchaseUpdate(PurchaseVO vo) {
+
+		return sqlSession.update("purchaseUpdate", vo);
+	}
+
+	@Override
+	public int purchaseUpdateT(PurchaseVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("purchaseUpdateT", vo);
 	}
 
 

@@ -132,14 +132,12 @@
 			<table  style="width:1200px;text-align:center;" class="table">
 				<tr>
 					<th>작성한 글(QnA작성글 수 / 건당 20p)</th>
-					<th>작성한 댓글())</th>
 					<th>작성한 리뷰(Main Review 수 / 건당 200p)</th>
 					<th>적립된 마일리지</th>
 					
 				</tr>
 					<tr>
 						<td>${qna }</td>
-						<td>${member.mileage }</td>
 						<td>${review }</td>
 						<td>${member.mileage }</td>
 					</tr>

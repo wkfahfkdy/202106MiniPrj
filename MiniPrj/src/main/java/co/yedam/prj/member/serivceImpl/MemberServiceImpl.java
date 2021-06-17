@@ -159,5 +159,11 @@ public class MemberServiceImpl implements MemberService {
 		return sqlSession.selectList("memberResearch");
 	}
 
+	@Override
+	public int updatePay(MemberVO vo) {
+		
+		return sqlSession.update("updatePay", vo);
+	}
+
 
 }
