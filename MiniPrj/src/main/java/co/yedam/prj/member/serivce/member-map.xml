@@ -8,8 +8,8 @@
 	</insert> 
 	
 	<insert id="ceoInsert" parameterType="co.yedam.prj.member.vo.MemberVO" >
-		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL, JOINWAIT, S_FILE)
-		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', #{s_file})
+		INSERT INTO member (U_ID, U_PWD, U_NAME, U_ADR, U_ADRCODE, U_TEL, U_MAIL, JOINWAIT, S_FILE, R_CODE)
+		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', #{s_file}, #{r_code})
 	</insert>
 	
 	<!--  마일리지 증가 -->
@@ -35,14 +35,33 @@
 		where u_id= #{u_id}
 	</update>
 	
+	<select id="totalCnt" resultType="int">
+		select count(*) from member
+	</select>
+	
+	<select id="totalCntWait" resultType="int">
+		select count(*) from member where JOINWAIT='Y'
+	</select>
+	
+	<select id="totalCntBM" resultType="int">
+		select count(*) from member where S_REG='Y'
+	</select>
+	
+	<select id="totalCntM" resultType="int">
+		select count(*) from member where JOINWAIT='N' and S_REG='N'
+	</select>
+	
+	<select id="memberSelectListAll" resultType="co.yedam.prj.member.vo.MemberVO">
+		select * from member where JOINWAIT='N' and S_REG='N'
+	</select>
 	
 	<select id="memberSelectListIC" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
-		select m.*, j.i_code
-		from member m join (select a.*, b.i_name 
-           		            from purchase a join service b 
-                            on a.I_CODE = b.I_CODE) j
-		on m.u_id = j.u_id            
-		where m.u_id = #{u_id}
+		select m.*, k.s_id, k.i_code, k.i_regdate, k.e_date, k.i_pay, k.i_name 
+		from member m join (select a.*, b.I_NAME
+                  			from purchase a join service b
+                  			on a.i_code = b.i_code
+                    		where a.u_id = #{u_id}) k
+		on m.u_id = #{u_id}   
 	</select>
 	
 	<select id="memberSelectSID" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
@@ -58,20 +77,48 @@
 		where U_ID = #{u_id}
 	</select>
 	
-	<select id="memberList" resultType="co.yedam.prj.member.vo.MemberVO">
-		select * from member
+	<select id="memberList" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+			SELECT *
+		FROM (
+  		  SELECT ROW_NUMBER() OVER(ORDER by REGDATE DESC) AS
+          row_num
+  		  ,a.*
+  		  FROM member a
+		)
+		WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
-	<select id="memberListWait" resultType="co.yedam.prj.member.vo.MemberVO">
-		select * from member where JOINWAIT='Y'
+	<select id="memberListWait" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+			SELECT *
+			FROM (
+  				  SELECT ROW_NUMBER() OVER(ORDER by 1 DESC) AS
+        		  row_num
+  				  ,a.*
+  				  FROM member a where JOINWAIT='Y'
+					)
+			WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
-	<select id="memberListM" resultType="co.yedam.prj.member.vo.MemberVO">
-		select * from member where JOINWAIT='N' and S_REG='N'
+	<select id="memberListM" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+			SELECT *
+			FROM (
+  				  SELECT ROW_NUMBER() OVER(ORDER by 1 DESC) AS
+        		  row_num
+  				  ,a.*
+  				  FROM member a where JOINWAIT='N' and S_REG='N'
+					)
+			WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
-	<select id="memberListBM" resultType="co.yedam.prj.member.vo.MemberVO">
-		select * from member where S_REG='Y'
+	<select id="memberListBM" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="co.yedam.prj.member.vo.MemberVO">
+			SELECT *
+			FROM (
+  				  SELECT ROW_NUMBER() OVER(ORDER by 1 DESC) AS
+        		  row_num
+  				  ,a.*
+  				  FROM member a where S_REG='Y'
+					)
+			WHERE row_num BETWEEN #{firstRecordIndex} AND #{lastRecordIndex}
 	</select>
 	
 	<select id="memberIdCheck" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="int">

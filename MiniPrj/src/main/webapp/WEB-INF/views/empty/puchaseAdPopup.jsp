@@ -18,18 +18,34 @@
 			alert("취소되었습니다.");
 		}
 	}
+	
+	function purchaseUpload(){
+		let result = confirm("-----경고----- \n 1300X800 사이즈의 사진만 업로드 가능합니다.\n 확인하셨습니까? ")
+		if(result) {
+			alert("파일이 등록되었습니다.");
+			frm.submit();
+			window.close();
+		}else {
+			alert("취소되었습니다.");
+		}
+		
+	}
 </script>
 </head>
 <body>
 	<div align="center">
 		<div>
 		<h1>이용중인 서비스</h1>	
+		<form action="purchaseUpload.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data" >
+			
 		<table class="table">
 			<tr>
 				<th>서비스이름</th>
 				<th>가격</th>
 				<th>서비스 시작 일자</th>
 				<th>서비스 종료 일자</th>
+				<th>사진 파일</th>
+				<th>업로드</th>
 				<th>서비스 연장</th>
 			</tr>
 			<c:forEach items="${purchaseList }" var="purchase">
@@ -38,10 +54,14 @@
 				<td>${purchase.i_pay }</td>
 				<td>${purchase.i_regdate }</td>
 				<td>${purchase.e_date }</td>
+				<td><input type="hidden" id="p_id" name="p_id" value="${purchase.p_id}"></td>
+				<td><input type="file" id="p_image" name="p_image" /></td>
+				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpload()">업로드</button></td>
 				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')">서비스 연장</button></td>
 			</tr>	
 			</c:forEach>
 		</table>
+		</form>
 		</div>
 		<div>
 			<button class="dk-btn dk-btn-md" onclick="window.close()">창닫기</button>

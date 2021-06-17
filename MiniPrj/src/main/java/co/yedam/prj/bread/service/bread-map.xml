@@ -19,13 +19,20 @@
 	<!-- service 순서대로 기입 -->
 
 	<!-- 빵 리스트 -->
-
-
-
+	
+	<!-- 가게 메인 사진 -->
+	<update id="sImageUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set s_image = #{s_image} where s_id = #{s_id}
+	</update>
+	
+	<!-- BBANG - 대표 빵 사진 -->
+	<update id="breadMainUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set b_main = #{b_main} where s_id = #{s_id}
+	</update>
 
 	<select id="breadSelectList"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		select a.s_name, a.s_image, a.s_id, b.b_like, b.b_name
+		select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, b.b_like, b.b_name, c.r_code
 		from store a
 		join (select s_id, b_name, b_like
 		from (
@@ -34,6 +41,8 @@
 		from product)
 		where bidx = 1) b
 		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
 	</select>
 
 	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
@@ -59,16 +68,27 @@
 
 	<!-- 스토어 관련 -->
 
-
-	<!-- 상점 추가 <insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		insert into store values(#{s_id}, #{s_name}, #{s_image}, #{s_content}, #{s_region}, 
-		#{s_region_n}, #{s_tel}, #{s_adr}, #{s_opendate}) </insert> -->
+	<insert id="breadInsertMenu" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		insert into product values(bread_seq.nextval, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 0, #{b_qty}, #{b_comment})
+	</insert>
+	
+	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		insert into store (s_id, u_id, u_name, s_tel, s_adr, s_opendate)
+		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
+	</insert>
 
 	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		delete </insert> -->
 
 	<!-- 상점 수정 <updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
 		update </update> -->
+
+
+	<!-- 상점 수정 -->
+	<update id="storeInformUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		update store set s_name = #{s_name}, s_content = #{s_content}, s_tel = #{s_tel}, s_image = #{s_image}
+		where s_id = #{s_id} </update> 
+
 
 
 
@@ -83,21 +103,58 @@
 		where a.s_id = #{s_id}
 	</select>
 
-
-
-	<select id="storeSelectList"
+	<select id="storeSelectMP"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
 		select b.b_comment,b_name, a.*
 		from store a join product b
 		on a.s_id = b.s_id
-		where a.s_id = #{s_id}
-	</select>
-	
-	<select id="adrTest" resultType="co.yedam.prj.bread.vo.BreadVO">
-		select s_adr from store where s_id = 'S_101'
+		where a.u_id = #{u_id}
+		and rownum = 1
 	</select>
 
+	<update id="storeInform" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name}
+	</update>
+
+	<select id="selectStoreId" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select s_id from store where u_id = #{u_id}
+	</select>
+	
+	<select id="storeSelectAll"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		select *
+		from store
+		where u_id = #{u_id}</select>
+
+
+	<select id="storeTopThree" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select * from (select * from product order by b_like desc) where rownum &lt;=3
+
+	</select>
+
+	<select id="storeSelectList"
+		parameterType="co.yedam.prj.bread.vo.BreadVO"
+		resultType="co.yedam.prj.bread.vo.BreadVO">
+		  select b.b_comment,b_name,b_like,b_image, a.*
+		from store a join product b
+		on a.s_id = b.s_id
+		where a.s_id = #{s_id}
+        order by b_like desc
+	</select>
+	
+	<select id="storeAdr" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select s_adr from store where s_id = #{s_id}
+	</select>
+
+	<!-- 가게의 지역분류코드 -->
+	<select id="storeRCode" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.r_code, a.u_id, b.s_id
+		from member a
+		join store b
+		on a.u_id = b.u_id
+	</select>
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where order by #{S_like} </select> -->

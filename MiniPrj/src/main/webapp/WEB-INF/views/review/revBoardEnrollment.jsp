@@ -21,7 +21,7 @@
     
     </div>
     <hr>
-	<h1 align="center">리뷰 게시판 </h1>
+	<h1 align="center">리뷰 작성 게시판 </h1>
 	<hr>
 	 <div class="row">
     <div class="col-md-2"></div>

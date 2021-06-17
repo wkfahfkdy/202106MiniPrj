@@ -6366,7 +6366,8 @@ button:focus {
 
 .dk-isotope-filter {
     padding: 32px 0 37px;
-    margin: 0 -13px
+    margin: 0 -13px;
+    z-index: 1;
 }
 
 .dk-isotope-filter.dk-isotope-filter-white>li {

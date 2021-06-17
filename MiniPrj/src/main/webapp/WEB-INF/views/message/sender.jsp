@@ -8,6 +8,31 @@
 		location.href = "senderPaging.do?page=" + page;
 	}
 	
+
+	function messageDelete(ms_num){
+		
+		$.ajax({
+			url : 'messageDelete.do',
+			data : {ms_num: ms_num},
+			type : 'POST',
+			success : function(resp){
+				location.href = "senderPaging.do";
+			},
+			error : function(err){
+				console.log(err);
+			}
+		});
+	}
+	
+
+	function frmSubmit(ms_num) {
+		
+		frm.ms_num.value = ms_num;
+		frm.submit();
+
+	}
+
+	
 </script>
 <style>
 	th {
@@ -36,6 +61,11 @@
 	}
 </style>
 
+	<form id="frm"> 
+		<!-- noticeSelect, hitCount paremater 보내기 용도 -->
+		<input type="hidden" id="ms_num" name="ms_num">
+	</form>
+
 
 <div align="center" style="margin-top: 150px;">
 
@@ -51,8 +81,8 @@
 				<th>
 					<a href="senderPaging.do" style="color: #fff;">보낸쪽지</a></th>
 				<th>
-					<a onclick="window.open('messageInsert.do','MS','width=550,height=500,location=no,status=no,scrollbars=no');" 
-					style="color: #fff;">쪽지쓰기</a></th>
+					<a onclick="window.open('form.do','MS','width=550,height=450,location=no,status=no,scrollbars=no');"
+					style="color: #fff; cursor:pointer">쪽지쓰기</a></th>
 			</tr>
 		</table>
 	</div>
@@ -64,16 +94,15 @@
 				<td width="9%">받는사람</td>
 				<td width="62%">내용</td>
 				<td width="18%">보낸시간</td>
-				<td width="8%">관리</td>
+				<td width="8%">읽음여부</td>
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
-			<tr>
+			<tr onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 				<td>${vo.receiver_name }</td>
 				<td style="text-align: left;">${vo.content }</td>
 				<td>${vo.ms_date }</td>
-				<td>
-				<button type="button" class="but" onclick="location.href='#'">삭제</button>
+				<td>${vo.read_yn }
 				</td>
 			</tr>
 			</c:forEach>

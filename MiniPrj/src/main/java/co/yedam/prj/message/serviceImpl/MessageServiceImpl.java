@@ -17,18 +17,18 @@ public class MessageServiceImpl implements MessageService {
 	private SqlSession sqlSession;
 	
 	@Override //전체리스트
-	public List<MessageVO> messageSelectList(MessageVO vo) {
-		return sqlSession.selectList("messageSelectList", vo);
+	public List<String> messageSelectList() {
+		return sqlSession.selectList("messageSelectList");
 	}
 
 	@Override //받은메세지
-	public List<MessageVO> messageSelectReceiver(MessageVO vo) {
-		return sqlSession.selectList("messageSelectReceiver", vo);
+	public List<MessageVO> messageSelectReceiver() {
+		return sqlSession.selectList("messageSelectReceiver");
 	}
 
 	@Override //보낸메세지
-	public List<MessageVO> messageSelectSenderList(MessageVO vo) {
-		return sqlSession.selectList("messageSelectSenderList", vo);
+	public List<MessageVO> messageSelectSenderList() {
+		return sqlSession.selectList("messageSelectSenderList");
 	}
 
 	@Override // 한건조회
@@ -46,6 +46,13 @@ public class MessageServiceImpl implements MessageService {
 		return sqlSession.delete("messageDelete", vo);
 	}
 
+	@Override // 상점조회
+	public List<MessageVO> storeMsSelect() {
+		return sqlSession.selectList("storeMsSelect");
+	}
+	
+	
+	
 	
 	// 아래부터 페이징영역
 	@Override // 받은쪽지 Paging
@@ -63,7 +70,7 @@ public class MessageServiceImpl implements MessageService {
 		return sqlSession.selectOne("ReceiverCount");
 	}
 
-	@Override
+	@Override // 보낸쪽지 게시글 전체 수 Count
 	public int SenderCount() {
 		return sqlSession.selectOne("SenderCount");
 	}

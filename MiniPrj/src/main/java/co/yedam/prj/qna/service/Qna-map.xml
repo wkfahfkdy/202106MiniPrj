@@ -71,4 +71,11 @@
 		insert into qna_reply values (#{qnb_num}, qnr_seq.nextval, #{qnr_num}, #{u_id}, #{qnr_content}, #{qnr_depth}, sysdate)
 	</insert>
 	
+	<!-- 작성글 카운트 -->
+	<select id="qnaCount" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="int">
+		select count(*) 
+		from QNA 
+		where u_id = #{u_id}
+	</select>
+		
 </mapper>

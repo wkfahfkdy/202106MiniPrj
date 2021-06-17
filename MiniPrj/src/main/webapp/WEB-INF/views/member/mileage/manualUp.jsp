@@ -2,5 +2,6 @@
     pageEncoding="EUC-KR"%>
 <script>
 	alert("지급되었습니다!");
-	location.href="memberMileage.do";
+	let id = '${uid}';
+	location.href="memberPage.do?id="+id;
 </script>

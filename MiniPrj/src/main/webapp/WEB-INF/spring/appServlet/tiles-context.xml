@@ -18,8 +18,18 @@
 	<definition name="empty" template="/WEB-INF/views/layout/empty.jsp">
         <put-attribute name="content1" value=""/>  
     </definition>
-
+    
 	<definition name="*" extends="empty">
           <put-attribute name="content1" value="/WEB-INF/views/empty/{1}.jsp"></put-attribute>
+    </definition>
+    
+    
+    
+    <definition name="reviewEmpty" template="/WEB-INF/views/review/rvEmpty.jsp">
+        <put-attribute name="content" value=""/>  
+    </definition>
+    
+    <definition name="*/*/*/*" extends="reviewEmpty">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}/{4}.jsp"/>  
     </definition>
 </tiles-definitions>

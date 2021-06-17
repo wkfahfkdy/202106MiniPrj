@@ -36,7 +36,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 	@Override
 	public int updatePurchase(PurchaseVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("updatePurchase", vo);
 	}
 
 	@Override

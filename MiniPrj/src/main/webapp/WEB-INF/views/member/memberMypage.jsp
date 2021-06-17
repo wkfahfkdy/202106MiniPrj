@@ -175,7 +175,8 @@
 						<div class="row vertical-gap" >
 							<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
 								<div class="col-12">
-									<button style="width: 50%;" class="dk-btn dk-btn-md" type="submit" name="check_mileage">적립금 확인하기</button>
+									<button style="width: 50%;" class="dk-btn dk-btn-md" type="submit" name="check_mileage"
+									onclick="window.open('memberMileage.do?id=${member.u_id}','적립금 확인하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">적립금 확인하기</button>
 								</div>
 							</c:if>	
 							<c:if test="${member.s_reg eq 'Y' and member.s_pay eq 0}">
@@ -450,6 +451,9 @@
 				<button class="dk-btn dk-btn-md" type="button"
 					onclick='location="home.do"' name="back_home">홈으로</button>
 				
+				
+				<button class="dk-btn dk-btn-md" type="button"
+					onclick='location="breadStoreManage.do"' name="back_home">My shop</button>
 			</div>
 		</div>
 	</div>

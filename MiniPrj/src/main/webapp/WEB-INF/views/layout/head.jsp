@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+</head>
+<body>
 <nav class="dk-navbar dk-navbar-fixed dk-navbar-transparent dk-navbar-white dk-navbar-lg-fullscreen">
 <!-- 화면작아졌을때 서브메뉴 -->
 
@@ -43,7 +45,7 @@
         </c:if>
         <c:if test="${id ne null and id eq 'admin'}">
         <li>
-        	<a href="memberInfo.do">
+        	<a href="memberInfoListPaging.do">
                 MyPage
             </a>
         </li>   
@@ -74,11 +76,7 @@
                 Logout
             </a>
         </li>    
-         <li>
-        	<a href="test.do">
-                TestPage
-            </a>
-        </li>    
+           
         </c:if>
         
           </ul>
@@ -87,6 +85,7 @@
     </div>
 </nav>
 
+</body>
 <!-- 
 <style>
 

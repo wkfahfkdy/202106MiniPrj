@@ -9,152 +9,218 @@ import org.springframework.stereotype.Repository;
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
 
+
 @Repository("breadDao")
 public class BreadServiceImpl implements BreadService {
 
 	@Autowired
-	private SqlSession SqlSession;
+	private SqlSession sqlSession;
 
 	// 빵 리스트
 
 	@Override
 	public List<BreadVO> breadSelectList(BreadVO vo) {
-		return SqlSession.selectList("breadSelectList", vo);
+		return sqlSession.selectList("breadSelectList", vo);
 	}
 
 	// 빵 리스트 페이징
 
 	@Override
 	public List<BreadVO> breadSelectListPaging(BreadVO vo) {
-		return SqlSession.selectList("breadSelectListPaging", vo);
+		return sqlSession.selectList("breadSelectListPaging", vo);
 	}
 
 	// 빵 랭크 리스트
 
 	@Override
 	public List<BreadVO> breadRankList(BreadVO vo) {
-		return SqlSession.selectList("breadRankList", vo);
+		return sqlSession.selectList("breadRankList", vo);
 	}
 
 	// 빵 추가 삭제 수정
 
 	@Override
 	public int breadInsert(BreadVO vo) {
-		return SqlSession.insert("breadInsert", vo);
+		return sqlSession.insert("breadInsert", vo);
 	}
 
 	@Override
 	public int breadDelete(BreadVO vo) {
-		return SqlSession.delete("breadDelete", vo);
+		return sqlSession.delete("breadDelete", vo);
 	}
 
 	@Override
 	public int breadUpdate(BreadVO vo) {
-		return SqlSession.update("breadUpdate", vo);
+		return sqlSession.update("breadUpdate", vo);
 	}
 
 	// 스토어 추가 삭제 수정
 
 	@Override
 	public int storeInsert(BreadVO vo) {
-		return SqlSession.insert("storeInsert", vo);
+		return sqlSession.insert("storeInsert", vo);
 	}
 
 	@Override
 	public int storeDelete(BreadVO vo) {
-		return SqlSession.insert("storeDelete", vo);
+		return sqlSession.insert("storeDelete", vo);
 	}
 
 	@Override
 	public int storeUpdate(BreadVO vo) {
-		return SqlSession.insert("storeUpdate", vo);
+		return sqlSession.insert("storeUpdate", vo);
 	}
 
 	// 스토어 셀렉트
 
 	@Override
 	public BreadVO storeSelect(BreadVO vo) {
-		return SqlSession.selectOne("storeSelect", vo);
+		return sqlSession.selectOne("storeSelect", vo);
 	}
 
 	// 스토어 리스트
 
 	@Override
 	public List<BreadVO> storeSelectList(BreadVO vo) {
-		return SqlSession.selectList("storeSelectList", vo);
+		return sqlSession.selectList("storeSelectList", vo);
 	}
 
 	// 스토어 리스트 페이징
 	@Override
 	public List<BreadVO> storeSelectListPaging(BreadVO vo) {
-		return SqlSession.selectList("storeSelectListPaging", vo);
+		return sqlSession.selectList("storeSelectListPaging", vo);
 	}
 
 	// 스토어 랭킹
 
 	@Override
 	public List<BreadVO> storeRankList(BreadVO vo) {
-		return SqlSession.selectList("storeSelectListPaging", vo);
+		return sqlSession.selectList("storeSelectListPaging", vo);
 	}
 
 	// 스토어 신규 오픈
 
 	@Override
 	public List<BreadVO> storeOpenList(BreadVO vo) {
-		return SqlSession.selectList("storeOpenList", vo);
+		return sqlSession.selectList("storeOpenList", vo);
 	}
 
 	// 지역별
 
 	@Override
 	public List<BreadVO> breadStoreList_1(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_1", vo);
+		return sqlSession.selectList("breadStoreList_1", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_2(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_2", vo);
+		return sqlSession.selectList("breadStoreList_2", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_3(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_3", vo);
+		return sqlSession.selectList("breadStoreList_3", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_4(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_4", vo);
+		return sqlSession.selectList("breadStoreList_4", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_5(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_5", vo);
+		return sqlSession.selectList("breadStoreList_5", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_6(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_6", vo);
+		return sqlSession.selectList("breadStoreList_6", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_7(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_7", vo);
+		return sqlSession.selectList("breadStoreList_7", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_8(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_8", vo);
+		return sqlSession.selectList("breadStoreList_8", vo);
 	}
 
 	@Override
 	public List<BreadVO> breadStoreList_9(BreadVO vo) {
-		return SqlSession.selectList("breadStoreList_9", vo);
+		return sqlSession.selectList("breadStoreList_9", vo);
 	}
 
 	@Override
-	public BreadVO testAdr() {
-		
-		return SqlSession.selectOne("adrTest");
+	public BreadVO storeAdr(BreadVO vo) {
+
+		return sqlSession.selectOne("storeAdr", vo);
 	}
+
+
+	@Override
+	public int storeInformUpdate(BreadVO vo) {
+
+		return sqlSession.update("storeInformUpdate", vo);
+	}
+
+	
+	
+	
+	@Override	
+	public List<BreadVO> storeTopThree() {
+
+		return sqlSession.selectList("storeTopThree");
+	}
+
+	@Override
+	public BreadVO storeSelectAll(BreadVO vo) {
+
+		return sqlSession.selectOne("storeSelectAll", vo);
+
+	}
+
+	@Override
+	public int breadinsertMenu(BreadVO vo) {
+		return sqlSession.insert("breadInsertMenu",vo);
+	}
+
+	@Override
+	public BreadVO storeSelectMP(BreadVO vo) {
+		
+		return sqlSession.selectOne("storeSelectMP",vo);
+	}
+
+	@Override
+	public BreadVO selectStoreId(BreadVO vo) {
+		
+		return sqlSession.selectOne("selectStoreId", vo);
+	}
+
+	@Override
+	public int sImageUpload(BreadVO vo) {
+		
+		return sqlSession.update("sImageUpload", vo);
+	}
+
+	@Override
+	public int breadMainUpload(BreadVO vo) {
+		
+		return sqlSession.update("breadMainUpload", vo);
+	}
+
+	@Override
+	public List<BreadVO> storeRCode() {
+		
+		return sqlSession.selectList("storeRCode");
+	}
+
+	@Override
+	public int storeInform(BreadVO vo) {
+		
+		return sqlSession.update("storeInform", vo);
+	}
+
 
 }

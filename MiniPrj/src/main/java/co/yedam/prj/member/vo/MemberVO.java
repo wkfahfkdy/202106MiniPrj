@@ -22,6 +22,15 @@ public class MemberVO {
 	private String u_adr2;
 	private String s_id; 
 	private String i_code;
+	private Date i_regdate;
+	private Date e_date;
+	private int i_pay;
+	private String i_name;
+	private int r_code;
+	
+	private int firstRecordIndex;	// Paging 게시판 버튼 index
+	private int lastRecordIndex;	// Paging 게시판 버튼 index
+	private int totalCnt; // 게시글 전체 수
 	
 	public int getMileageU() {
 		return mileageU;
@@ -140,5 +149,54 @@ public class MemberVO {
 	public void setI_code(String i_code) {
 		this.i_code = i_code;
 	}
+	public String getI_name() {
+		return i_name;
+	}
+	public void setI_name(String i_name) {
+		this.i_name = i_name;
+	}
+	public Date getI_regdate() {
+		return i_regdate;
+	}
+	public void setI_regdate(Date i_regdate) {
+		this.i_regdate = i_regdate;
+	}
+	public Date getE_date() {
+		return e_date;
+	}
+	public void setE_date(Date e_date) {
+		this.e_date = e_date;
+	}
+	public int getI_pay() {
+		return i_pay;
+	}
+	public void setI_pay(int i_pay) {
+		this.i_pay = i_pay;
+	}
+	public int getFirstRecordIndex() {
+		return firstRecordIndex;
+	}
+	public void setFirstRecordIndex(int firstRecordIndex) {
+		this.firstRecordIndex = firstRecordIndex;
+	}
+	public int getLastRecordIndex() {
+		return lastRecordIndex;
+	}
+	public void setLastRecordIndex(int lastRecordIndex) {
+		this.lastRecordIndex = lastRecordIndex;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
+	public int getR_code() {
+		return r_code;
+	}
+	public void setR_code(int r_code) {
+		this.r_code = r_code;
+	}
+
 	
 }

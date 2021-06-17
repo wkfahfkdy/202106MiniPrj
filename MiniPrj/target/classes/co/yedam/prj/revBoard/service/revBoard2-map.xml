@@ -7,14 +7,40 @@
 	</select>
 	
 	<insert id="revBoardInsert2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
-	insert into review (rb_num,rb_title,u_id,rb_content,rb_image) values(numseq.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image})
+	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values(seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
 	</insert>
 	
 	<update id="revBoardLikeUp" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 	update review set rb_like= rb_like +1 where rb_num=#{rb_num}
 	</update>
 	
-	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
-		
+	<update id="revBoardHit" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+	update review set rb_hit = rb_hit+ 1 where rb_num=#{rb_num}
+	</update>
+	
+	
+	<select id="revTopSelect" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">	
+	select * from (select * from review order by rb_like desc) where rownum &lt;=3
+	</select>
+	
+	<select id="revClickSelect" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2" resultType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		select * from review where rb_num = #{rb_num} 	
+	</select>
+	
+	<select id="revBoardCount" resultType="int">
+		select count(*) from review where u_id = #{u_id} 
+	</select>
+	
+	<insert id="revCommentInsert" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
+	insert into review_comment values(#{c_date},#{c_comment},#{u_id},#{rb_num},c_num.nextval)
+	</insert>
+	
+	<select id="revCommentList" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO" resultType="co.yedam.prj.revBoard.vo.RevCommentVO">
+		select * from review_comment where rb_num=#{rb_num}
+	</select>
+	
+	<!-- 작성한 사람의 아이디 보류 -->
+	<select id="CommentIdSelect" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
+		select * from review_comment where u_id=${u_id}
 	</select>
 </mapper>
