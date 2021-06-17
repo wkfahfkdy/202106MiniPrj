@@ -30,12 +30,22 @@
 		frm.submit();
 		}
 	}
-	
+	/*
 	 function showPopup(num) {
-			 window.open("reviewClick.do?rb_num="+num+"&rb_hit=1", "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
+			 window.open("reviewClick.do?rb_num="+num, "리뷰클릭페이지", "width=900, height=1200, left=300, top=100"); 
 
 		 }
-	 
+	*/
+	 function showPopup(num) {
+		var myForm = document.popForm;
+		var url="reviewClick.do";
+		 window.open("", "popForm", "width=900, height=1200, left=300, top=100"); 
+		myForm.action=url;
+		myForm.method="post";
+		myForm.target="popForm";
+		myForm.rb_num.value=num;
+		myForm.submit();
+	 }
 	 
 	</script>
 	
@@ -43,7 +53,7 @@
 </head>
         
 <div style="margin-top: 150px">
-
+	
 <div align="center">
 	<h1>Review</h1>
 	<br><br>
@@ -56,8 +66,6 @@
 <div class="endDiv">
 	 
 <div>
-
-              
  <div class="dk-box-2 dk-padding-bot">
   <hr class="hr1">
         <div class="container">
@@ -143,6 +151,9 @@
 
 	<form id="frm" name="frm" action="reviewLike.do" method="post">
 		<input type="hidden" id="rb_like" name="rb_like">
+		<input type="hidden" id="rb_num" name="rb_num">
+	</form>
+	<form id="popForm" name="popForm">
 		<input type="hidden" id="rb_num" name="rb_num">
 	</form>
   </div>

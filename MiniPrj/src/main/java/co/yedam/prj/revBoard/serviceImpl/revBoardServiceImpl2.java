@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.revBoard.service.revBoardService2;
+import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
 @Repository("revBoardDao2")
@@ -58,6 +59,12 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	public int revBoardCount(revBoardVO2 vo) {
 	
 		return sqlSession.selectOne("revBoardCount",vo);
+	}
+
+	@Override
+	public int insertRevComment(RevCommentVO vo) {
+		
+		return sqlSession.insert("revCommentInsert",vo);
 	}
 	
 	

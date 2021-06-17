@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.common.Paging;
 import co.yedam.prj.revBoard.service.revBoardService;
+import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO;
 
 @Repository("revBoardDao")
@@ -57,5 +58,7 @@ public class revBoardServiceImpl implements revBoardService{
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("testTableCount");
 	}
+
+	
 
 }

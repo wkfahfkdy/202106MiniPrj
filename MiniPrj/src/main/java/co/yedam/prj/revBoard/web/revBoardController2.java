@@ -2,9 +2,8 @@ package co.yedam.prj.revBoard.web;
 
 
 
-
-
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
@@ -23,6 +22,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.revBoard.service.revBoardService2;
+import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
 @Controller
@@ -123,8 +123,9 @@ public class revBoardController2 {
 	}
 	
 	@RequestMapping("reviewClick.do")
-	public String reviewClick(Model model,revBoardVO2 vo) {
-
+	public String reviewClick(Model model,revBoardVO2 vo,HttpServletRequest req) {
+		
+			
 		model.addAttribute("Click", dao.revClickSelect(vo));
 		dao.revBoardHit(vo);
 		
@@ -135,5 +136,29 @@ public class revBoardController2 {
 	public String reviewHit() {
 		return null;
 	}
+	
+	
+	@RequestMapping("commentInsert.do")
+	public String commentInsert(RevCommentVO vo,HttpServletRequest req) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yy.MM.dd HH:mm:ss");
+		Date time = new Date();
+		String time1 = format1.format(time);
+		String id=req.getParameter("u_id");
+		String comment=req.getParameter("c_comment");
+		
+		vo.setC_date(time1);
+		vo.setC_comment(comment);
+		vo.setU_id(id);
+		System.out.println(time1);
+		System.out.println(comment);
+		System.out.println(id);
+		
+		dao.insertRevComment(vo);
+		
+		
+		return "redirect:reviewClick.do";
+	}
+	
 	
 }
