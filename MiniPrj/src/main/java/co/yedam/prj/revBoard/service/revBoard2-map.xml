@@ -32,6 +32,10 @@
 	</select>
 	
 	<insert id="revCommentInsert" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
-	insert into review_comment values(#{c_date},#{c_comment},#{u_id})
+	insert into review_comment values(#{c_date},#{c_comment},#{u_id},#{rb_num})
 	</insert>
+	
+	<select id="revCommentList" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO" resultType="co.yedam.prj.revBoard.vo.RevCommentVO">
+		select * from review_comment where rb_num=#{rb_num}
+	</select>
 </mapper>

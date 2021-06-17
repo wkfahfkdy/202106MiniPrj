@@ -66,6 +66,14 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		
 		return sqlSession.insert("revCommentInsert",vo);
 	}
+
+	
+	@Override
+	public  List<RevCommentVO> revCommentList(RevCommentVO vo) {
+		
+		return  sqlSession.selectList("revCommentList",vo);
+	}
+	
 	
 	
 }	

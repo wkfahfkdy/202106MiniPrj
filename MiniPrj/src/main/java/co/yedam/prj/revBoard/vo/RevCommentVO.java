@@ -5,6 +5,16 @@ public class RevCommentVO {
 	private String c_comment;
 	private String u_id;
 	private String c_recomment;
+	private int rb_num;
+
+	
+	public int getRb_num() {
+		return rb_num;
+	}
+
+	public void setRb_num(int rb_num) {
+		this.rb_num = rb_num;
+	}
 
 	public String getC_date() {
 		return c_date;
