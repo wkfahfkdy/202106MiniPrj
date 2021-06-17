@@ -29,7 +29,7 @@
 	font-size:30px;
 	color:gray;
 	}
-blockquote {1
+blockquote {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
