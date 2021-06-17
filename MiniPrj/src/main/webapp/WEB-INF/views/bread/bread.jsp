@@ -5,17 +5,16 @@
 <!-- START: Scripts -->
 
 <script type="text/javascript">
-    $(".container ul li").hover(function() {
-      $(this).find("ul").stop().fadeToggle(500);
-    });
-    
-    function goStore(s_id){
-    	location.href='breadStore.do?s_id=' + s_id;
-    }
-  </script>
+	$(".container ul li").hover(function() {
+		$(this).find("ul").stop().fadeToggle(500);
+	});
+
+	function goStore(s_id) {
+		location.href = 'breadStore.do?s_id=' + s_id;
+	}
+</script>
 
 <style type="text/css">
-
 ul, li {
 	margin: 0;
 	padding: 0;
@@ -52,12 +51,12 @@ ul, li {
 #main-menu>li:hover #sub-menu {
 	opacity: 1;
 	visibility: visible;
-	position:absolute;
+	position: absolute;
 	z-index: 1001;
 }
 
 #sub-menu>li>a:hover {
-	position:absolute;
+	position: absolute;
 	z-index: 1001;
 }
 
@@ -67,13 +66,34 @@ ul, li {
 	float: left;
 	z-index: 10;
 }
+
 .minibox2 {
 	height: 130px;
 	width: 555px;
 	float: left;
 }
 
+.dk-box1 {
 
+	 padding: 10px 0 10px;
+	 z-index: 1;
+}
+
+
+.containerA> .container{
+	width: 1210px;
+	height:260;
+}
+
+.dk-box2{
+	padding:50px;
+	width:1210px;
+	heigh: 150px;
+}
+
+.gap{
+	padding: 60px;
+}
 
 </style>
 
@@ -85,31 +105,34 @@ ul, li {
 <html>
 <body>
 
+		<div class="gap">
+		</div>
 
-	
-		<div class="container">
-			<div class="dk-box-2">
-
-
-				<div class="minibox">
-					<!-- goStore 에 변수 기입 -->
-					<img src="${pageContext.request.contextPath }/resources/image/blueberrychiffon.png" onclick="goStore('${topThree[0].s_id}');">
-				</div>
+	<div class="container">
+		<div class="dk-box2">
 
 
+			<div class="minibox">
+				<!-- goStore 에 변수 기입 -->
+				<a href="#"><img
+					src="${pageContext.request.contextPath }/resources/image/blueberrychiffon.png"
+					onclick="goStore('${topThree[0].s_id}');"></a>
 
-				<div class="minibox2">
-					<img src="${pageContext.request.contextPath }/resources/image/strawberryCake.png" onclick="goStore('${topThree[1].s_id}');">
-				</div>
-				
-				<div class="minibox2">
-					<img src="${pageContext.request.contextPath }/resources/image/Garlic.png" onclick="goStore('${topThree[2].s_id}');">
-				</div>
-				
-				
 			</div>
 
 
+
+			<div class="minibox2">
+				<a href="#"><img
+					src="${pageContext.request.contextPath }/resources/image/strawberryCake.png"
+					onclick="goStore('${topThree[1].s_id}');"></a>
+			</div>
+
+			<div class="minibox2">
+				<a href="#"><img
+					src="${pageContext.request.contextPath }/resources/image/Garlic.png"
+					onclick="goStore('${topThree[2].s_id}');"></a>
+			</div>
 
 
 		</div>
@@ -117,13 +140,18 @@ ul, li {
 
 
 
+	</div>
 
 
-	<div class="dk-box">
+
+
+
+
+	<div class="dk-box1">
 		<div class="container">
-			
+
 			<ul class="dk-isotope-filter text-center" id="main-menu">
-			
+
 				<li class="active" data-filter="*"><a href="">All</a></li>
 				<li class="active" data-filter=".open"><a href="">신규순</a></li>
 				<li class="active" data-filter=".favorite"><a href="">인기순</a></li>
@@ -142,24 +170,24 @@ ul, li {
 						<li data-filter=".num_9" aria-label="submenu"><a href="">남구</a></li>
 
 
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
-		
+
+		</div>
 	</div>
-</div>
 
 
 
 
- 
-	<div class="dk-box-2 dk-padding-bot"> <!-- z-index: 1 값으로 준 상태 -->
+
+	<div class="dk-box-2 dk-padding-bot">
+		<!-- z-index: 1 값으로 준 상태 -->
 		<div class="container">
 			<div class="row vertical-gap dk-isotope-grid">
 
 				<c:forEach items="${bread }" var="vo">
 					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item open">
-<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->
+						<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->
 
 						<form id="frm" action="breadStore.do">
 							<input type="hidden" value="${vo.s_id }">
