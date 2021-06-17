@@ -98,11 +98,15 @@
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
-			<tr onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
-				<td>${vo.receiver_name }</td>
-				<td style="text-align: left;">${vo.content }</td>
-				<td>${vo.ms_date }</td>
-				<td>${vo.read_yn }
+			<tr>
+				<td  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+					${vo.sender_name }</td>
+				<td style="text-align: left; cursor:pointer"  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
+					${vo.content }</td>
+				<td onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+					${vo.ms_date }</td>
+				<td>
+				<button style="cursor:pointer" type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 				</td>
 			</tr>
 			</c:forEach>

@@ -6,9 +6,6 @@
 
 function formCheck(){
 	
-	let list = $('#store option:selected').val();
-	console.log(list)
-
 	if(frm.content.value == ""){
 		alert("내용을입력해주세요!");
 		frm.content.focus();
@@ -18,7 +15,7 @@ function formCheck(){
 	
 	$.ajax({
 		url : 'messageInsert.do',
-		data : {receiver_name: , content: , sender_name: },
+		data : {},
 		type : 'POST',
 		success : function(resp){
 			opener.parent.location.reload();
@@ -28,7 +25,7 @@ function formCheck(){
 			console.log(err)
 		}
 	});
-	//data: {id: $('#id').val()}
+
 }
 
 </script>
@@ -50,12 +47,15 @@ function formCheck(){
 				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
+				<input type="text" name="receiver_name" id="receiver_name" >
+				
+				<!-- 
 				<select id="store" name="store" >
 					<option>회원목록</option>
 					<c:forEach items="${lists}" var = "list" >
 							<option value="${list}">${list}</option>	
 					</c:forEach>	
-				</select>
+				</select> -->
 			</td>
 		</tr>
 		<tr>
