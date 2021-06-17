@@ -153,5 +153,11 @@ public class MemberServiceImpl implements MemberService {
 		return sqlSession.selectList("memberSelectListAll");
 	}
 
+	@Override
+	public List<MemberVO> memberResearch(MemberVO vo) {
+		
+		return sqlSession.selectList("memberResearch");
+	}
+
 
 }

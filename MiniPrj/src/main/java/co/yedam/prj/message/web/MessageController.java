@@ -50,20 +50,7 @@ public class MessageController {
 		model.addAttribute("list" , dao.messageSelectSenderList());
 		return "message/sender";
 	}
-	
-	// 한건조회 (수정필요!)
-	@RequestMapping("/messageSelect.do")
-	public String messageSelect(Model model, HttpServletRequest request, MessageVO vo) {
-		
-		String ms_num = request.getParameter("ms_num");
-		vo.setMs_num(Integer.parseInt(ms_num));
-		
-		MessageVO select = dao.messageSelect(vo);
-		model.addAttribute("vo", select);
-			
-		return "messageReceiver";
-	}
-	
+
 	// 쪽지작성
 	@RequestMapping("/messageInsert.do")
 	private String messageInsert(Model model, MessageVO vo) {
@@ -71,19 +58,35 @@ public class MessageController {
 		return "redirect:senderPaging.do";
 	}
 	
-	// 쪽지쓰기 폼으로가기 (경로)
+	// 쪽지쓰기 폼으로가기
 	@RequestMapping("/form.do")
 	private String messageInsertForm(Model model, MessageVO vo) {
+		model.addAttribute("list", dao.messageSelectList());
 		return "messageForm";
+	}
+
+	
+	// 한건조회
+	@RequestMapping("/messageSelect.do")
+	public String messageSelect(Model model, HttpServletRequest request, MessageVO vo) {
+		
+		String ms_num = request.getParameter("ms_num");
+		System.out.println(ms_num);
+		vo.setMs_num(Integer.parseInt(ms_num));
+		
+		model.addAttribute("vo", dao.messageSelect(vo));
+		return "messageReceiver";
 	}
 	
 	// 받은쪽지 폼
 	@RequestMapping("/msReceiver.do")
-	private String msReceiver(Model model, MessageVO vo) {
+	private String msReceiver(Model model, HttpServletRequest request, MessageVO vo) {
 		
+		String ms_num = request.getParameter("ms_num");
+		System.out.println(ms_num);
+		vo.setMs_num(Integer.parseInt(ms_num));
 		
-		
-		model.addAttribute("vo", dao.messageSelect(vo));		
+		model.addAttribute("vo", dao.messageSelect(vo));	
 		return "messageReceiver";
 	}
 	
@@ -95,7 +98,13 @@ public class MessageController {
 	
 	// 보낸쪽지 폼
 	@RequestMapping("/msSender.do")
-	private String msSender(Model model, MessageVO vo) {
+	private String msSender(Model model, HttpServletRequest request,MessageVO vo) {
+		
+		String ms_num = request.getParameter("ms_num");
+		System.out.println(ms_num);
+		vo.setMs_num(Integer.parseInt(ms_num));
+		
+		model.addAttribute("vo", dao.messageSelect(vo));	
 		return "messageSender";
 	}
 	

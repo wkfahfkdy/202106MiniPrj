@@ -49,11 +49,10 @@ function formCheck(){
 				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
+				${vo.ms_date }
 				<select name="store">
-						<option>상점명</option>	
-					<c:forEach items="${list}" var="vo">
-						<option value="${u_id }"> ${s_name }</option>	
-					</c:forEach>
+						<option>회원이름</option>	
+						<option>${sender_name }</option>	
 				</select>
 			</td>
 		</tr>

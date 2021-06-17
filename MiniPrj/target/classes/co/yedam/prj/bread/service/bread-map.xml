@@ -32,7 +32,7 @@
 
 	<select id="breadSelectList"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		select a.s_name, a.s_image, a.b_main, a.s_id, b.b_like, b.b_name
+		select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, b.b_like, b.b_name, c.r_code
 		from store a
 		join (select s_id, b_name, b_like
 		from (
@@ -41,6 +41,8 @@
 		from product)
 		where bidx = 1) b
 		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
 	</select>
 
 	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
@@ -111,6 +113,10 @@
 		and rownum = 1
 	</select>
 
+	<update id="storeInform" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name}
+	</update>
+
 	<select id="selectStoreId" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
 		select s_id from store where u_id = #{u_id}
 	</select>
@@ -131,7 +137,7 @@
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		  select b.b_comment,b_name,b_like, a.*
+		  select b.b_comment,b_name,b_like,b_image, a.*
 		from store a join product b
 		on a.s_id = b.s_id
 		where a.s_id = #{s_id}
@@ -142,6 +148,13 @@
 		select s_adr from store where s_id = #{s_id}
 	</select>
 
+	<!-- 가게의 지역분류코드 -->
+	<select id="storeRCode" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.r_code, a.u_id, b.s_id
+		from member a
+		join store b
+		on a.u_id = b.u_id
+	</select>
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where order by #{S_like} </select> -->

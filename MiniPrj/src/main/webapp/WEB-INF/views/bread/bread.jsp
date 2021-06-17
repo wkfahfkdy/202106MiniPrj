@@ -21,11 +21,9 @@ ul, li {
 	list-style: none;
 }
 
-#main-menu ul {
- list-style=none;
- position:absolute;
+#main-menu ul {list-style =none;
+	position: absolute;
 }
-
 
 #main-menu>li>a {
 	font-size: 0.85rem;
@@ -40,41 +38,39 @@ ul, li {
 	position: absolute;
 	opacity: 0;
 	visibility: hidden;
-	display:block;
+	display: block;
 	z-index: 1000;
 	width: 800px;
 	height: 30px;
 	left: 560px;
 	text-decoration: none;
-	
 }
 
 #sub-menu>li {
 	padding: 16px 28px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 	z-index: 1001;
-	float:left;
+	float: left;
 	text-decoration: none;
 	align: center;
 }
 
-
-#sub-menu>ul{
-	display:block;
-	position:absolute;
+#sub-menu>ul {
+	display: block;
+	position: absolute;
 	left: -10px, 1px;
 	text-decoration: none;
 }
 
-#sub-menu>ul>li{
-	float:left;
-	display:block;
-	
+#sub-menu>ul>li {
+	float: left;
+	display: block;
 }
+
 #sub-menu>li>a {
 	text-decoration: none;
 	z-index: 1001;
-	display:block;
+	display: block;
 }
 
 #main-menu>li:hover #sub-menu {
@@ -82,14 +78,14 @@ ul, li {
 	visibility: visible;
 	position: absolute;
 	z-index: 1001;
-	display:block;
+	display: block;
 	float: left;
 }
 
 #sub-menu>li>a:hover {
 	position: relative;
 	z-index: 1001;
-	display:block;
+	display: block;
 }
 
 .minibox {
@@ -106,27 +102,24 @@ ul, li {
 }
 
 .dk-box1 {
-
-	 padding: 10px 0 10px;
-	 z-index: 1;
+	padding: 10px 0 10px;
+	z-index: 1;
 }
 
-
-.containerA> .container{
+.containerA>.container {
 	width: 1210px;
-	height:260;
+	height: 260;
 }
 
-.dk-box2{
-	padding:50px;
-	width:1210px;
+.dk-box2 {
+	padding: 50px;
+	width: 1210px;
 	heigh: 150px;
 }
 
-.gap{
+.gap {
 	padding: 60px;
 }
-
 </style>
 
 
@@ -137,8 +130,7 @@ ul, li {
 <html>
 <body>
 
-		<div class="gap">
-		</div>
+	<div class="gap"></div>
 
 	<div class="container">
 		<div class="dk-box2">
@@ -186,31 +178,45 @@ ul, li {
 
 				<li class="active" data-filter="*"><a href="">All</a></li>
 				<li class="active" data-filter=".open"><a href="">신규순</a></li>
+			
 				<li class="active" data-filter=".favorite"><a href="">인기순</a></li>
+			
 				<li class="active" data-filter=".region"><a href="">지역별</a>
 
 					<ul id="sub-menu">
-
-						<li data-filter=".num_1" aria-label="submenu"><a href="">동구</a></li>
-						<li data-filter=".num_2" aria-label="submenu"><a href="">수성구</a></li>
-						<li data-filter=".num_3" aria-label="submenu"><a href="">중구</a></li>
-						<li data-filter=".num_4" aria-label="submenu"><a href="">서구</a></li>
-						<li data-filter=".num_5" aria-label="submenu"><a href="">달서구</a></li>
-						<li data-filter=".num_6" aria-label="submenu"><a href="">달성군</a></li>
-						<li data-filter=".num_7" aria-label="submenu"><a href="">북구</a></li>
-						<li data-filter=".num_8" aria-label="submenu"><a href="">칠곡</a></li>
-						<li data-filter=".num_9" aria-label="submenu"><a href="">남구</a></li>
-
+						<c:if test="${member.r_code }" var="vo">
+						<li data-filter="1" aria-label="submenu" class="region"><a href="">동구</a></li>
+						<li data-filter="2" aria-label="submenu" class="region"><a href="">수성구</a></li>
+						<li data-filter="3" aria-label="submenu" class="region"><a href="">중구</a></li>
+						<li data-filter="4" aria-label="submenu" class="region"><a href="">서구</a></li>
+						<li data-filter="5" aria-label="submenu" class="region"><a href="">달서구</a></li>
+						<li data-filter="6" aria-label="submenu" class="region"><a href="">달성군</a></li>
+						<li data-filter="7" aria-label="submenu" class="region"><a href="">북구</a></li>
+						<li data-filter="8" aria-label="submenu" class="region"><a href="">칠곡</a></li>
+						<li data-filter="9" aria-label="submenu" class="region"><a href="">남구</a></li>
+						</c:if>
 
 					</ul></li>
-				
+
 			</ul>
 
 		</div>
 	</div>
 
 
-
+	<section class="portfolio_section">
+		<ul class="btn_set">
+			<li class="on"><a href="#" data-filter="*">All</a></li>
+			<li><a href="#" data-filter=".design">Design</a></li>
+			<li><a href="#" data-filter=".publishing">Publishing</a></li>
+			<li><a href="#" data-filter=".responsive">Responsive </a></li>
+		</ul>
+		<div class="portfolio_item_wrap">
+			<div class="portfolio_item publishing">//해당 filter class</div>
+			<div class="portfolio_item design">//해당 filter class</div>
+			<div class="portfolio_item responsive">//해당 filter class</div>
+		</div>
+	</section>
 
 
 	<div class="dk-box-2 dk-padding-bot">
@@ -224,16 +230,15 @@ ul, li {
 
 						<form id="frm" action="breadStore.do">
 							<input type="hidden" value="${vo.s_id }">
-
+							<input type="hidden" value="${vo.r_code }">
 							<button type="button"
 								onclick="location.href='breadStore.do?s_id=${vo.s_id }'"
 								class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-center dk-portfolio-item-light">
 								<span class="dk-portfolio-item-image"> <span
 									class="dk-portfolio-item-image-size" data-portfolio-size="100%"></span>
 									<span class="dk-portfolio-item-overlay"
-									style="background-color: rgba(255, 255, 255, .85)"></span> <img
-									src="resources/breadMainUpload/${vo.b_main }" alt="">
-								</span> <span class="dk-portfolio-item-info"> <span
+									style="background-color: rgba(255, 255, 255, .85)"></span> 
+									<img src="resources/breadMainUpload/${vo.b_main }" alt=""></span> <span class="dk-portfolio-item-info"> <span
 									class="h3 dk-portfolio-item-title">${vo.b_name }</span> <span
 									class="dk-portfolio-item-category"> <span>from
 											${vo.s_name }</span>
@@ -255,10 +260,10 @@ ul, li {
 
 			</div>
 
-			<div class="text-center">
+			<!-- 	<div class="text-center">
 				<a href="#" class="dk-btn dk-btn-md dk-btn-load dk-btn-work mt-70">Load
 					More</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </body>

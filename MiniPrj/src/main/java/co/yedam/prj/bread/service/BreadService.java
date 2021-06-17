@@ -4,7 +4,7 @@ import java.util.List;
 
 
 import co.yedam.prj.bread.vo.BreadVO;
-import co.yedam.prj.member.vo.MemberVO;
+
 
 
 public interface BreadService {
@@ -25,7 +25,8 @@ public interface BreadService {
 	public int storeDelete(BreadVO vo); // 스토어 삭제
 	public int storeUpdate(BreadVO vo); // 스토어 수정
 	public int sImageUpload(BreadVO vo); // 스토어 메인사진
-
+	public List<BreadVO> storeRCode(); // 지역분류코드
+	public int storeInform(BreadVO vo); // 스토어 이름 / 매장 코멘트 / 매장 번호 수정
 
 	public BreadVO storeSelectAll(BreadVO vo);
 
