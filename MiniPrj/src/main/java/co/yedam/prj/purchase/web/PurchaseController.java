@@ -1,5 +1,8 @@
 package co.yedam.prj.purchase.web;
 
+import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
@@ -72,14 +78,34 @@ public class PurchaseController {
 	
 	@RequestMapping("/purchaseUpload.do")
 	public String purchaseUpload(Model model, PurchaseVO vo, HttpServletRequest req, MemberVO mvo, ServiceVO svo) {
+		int size = 10 * 1024 * 1024;
+		String path = "C:\\tmp";
+		path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\purchaseUpload";
+		String fileName = "";
+		MultipartRequest multi = null;
+		try {
+			multi = new MultipartRequest(req,
+														  path, 
+														  size, 
+														  "utf-8", 
+														  new DefaultFileRenamePolicy());
+			Enumeration files = multi.getFileNames();
+			while (files.hasMoreElements()) {
+				String itemImage = (String) files.nextElement();
+				fileName = multi.getFilesystemName(itemImage);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		String pid = multi.getParameter("p_id"); 
 		
-		HttpSession session = req.getSession();
-		String id = (String) session.getAttribute("id");
-		vo.setU_id(id);
+		vo.setP_id(pid);
+		vo.setP_image(fileName);
 		
-		model.addAttribute("purchaseList", dao.purchaseSelectList(vo));
-		
-		return "puchaseAdPopup";
+		int r = dao.updatePurchase(vo);
+		System.out.println(r + "건 수정");
+		return "redirect:puchaseAdPopup.do";
 	}
 	
 	

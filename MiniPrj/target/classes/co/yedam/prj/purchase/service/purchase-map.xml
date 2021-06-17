@@ -18,4 +18,7 @@
 		where a.u_id = #{u_id}
 	</select>
 	
+	<update id="updatePurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" >
+		update purchase set p_image = #{p_image} where p_id = #{p_id}
+	</update>
 </mapper>
