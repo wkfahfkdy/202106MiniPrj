@@ -135,6 +135,7 @@ public class revBoardController2 {
 		
 		for (RevCommentVO revCommentVO : list) {
 		System.out.println(revCommentVO.getC_comment());
+		System.out.println(revCommentVO.getU_id());
 		}
 		
 		model.addAttribute("Click", dao.revClickSelect(vo));

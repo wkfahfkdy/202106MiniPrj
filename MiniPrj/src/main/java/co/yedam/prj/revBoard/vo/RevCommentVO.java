@@ -4,10 +4,21 @@ public class RevCommentVO {
 	private String c_date;
 	private String c_comment;
 	private String u_id;
+	private int c_num;
 	private String c_recomment;
 	private int rb_num;
+	
+	
 
 	
+	public int getC_num() {
+		return c_num;
+	}
+
+	public void setC_num(int c_num) {
+		this.c_num = c_num;
+	}
+
 	public int getRb_num() {
 		return rb_num;
 	}
