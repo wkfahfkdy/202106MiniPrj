@@ -49,21 +49,23 @@
 				<div>
 					<table border = "1">
 						<tr>
-							<th width = "150">제목</th>
-							<td width = "300"><input type = "text" id = "qn_title" name = "qn_title"></td>
+							<th width = "15%">제목</th>
+							<td width = "60%">
+								<input style="border:0px" size="90" type = "text" id = "qn_title" name = "qn_title"></td>
 						</tr>
 						<tr>
-							<th width = "150">내용</th>
-							<td width = "300"><textarea id = "qn_content" name = "qn_content"></textarea></td>					
+							<th>내용</th>
+							<td>
+							<textarea style="border:0px" cols="90" rows="15" id = "qn_content" name = "qn_content"></textarea></td>					
 						</tr>
-					</table>
+					</table><br><br>
 				</div>
 				<div>
 					<button type = "button" onclick = "formCheck()">등록</button>
-					<button type = "button" onclick = "location.href = 'qnaListPaging.do'">뒤로 가기</button>
+					<button type = "button" onclick = "location.href = 'qnaListPaging.do'">목록</button>
 				</div>
 			</form>
 		</div>
-	</div>
+	</div><br><br>
 </body>
 </html>
