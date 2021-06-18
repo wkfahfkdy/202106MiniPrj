@@ -264,6 +264,12 @@ public class MemberController {
 		int r = dao.updateMember(vo);
 		System.out.println(r + "건 수정");
 		
+		BreadVO vo2 = new BreadVO();
+		vo2.setS_adr(adr);
+		vo2.setU_id(id);
+		int t = Dao.storeAdrUpdate(vo2);
+		System.out.println("가게 주소 " + t + "건 수정");
+		
 		model.addAttribute("member", dao.memberSelectJW(vo));
 		return "member/memberMypage";
 	}

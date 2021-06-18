@@ -132,7 +132,7 @@
 						<div class="row vertical-gap">
 							<div class="col-md-6">
 								<input class="form-control" type="password" id="u_pwd"
-									value="${member.u_pwd} " placeholder="New password">
+									value="${member.u_pwd}" placeholder="New password">
 							</div>
 							<div class="col-md-6">
 								<input class="form-control" type="password" id="u_pwdChk"

@@ -250,9 +250,15 @@ public class BreadServiceImpl implements BreadService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<BreadVO> storeRandomListT() {
 		
 		return sqlSession.selectList("storeRandomListT");
+=======
+	public int storeAdrUpdate(BreadVO vo) {
+		
+		return sqlSession.update("storeAdrUpdate", vo);
+>>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	}
 
 

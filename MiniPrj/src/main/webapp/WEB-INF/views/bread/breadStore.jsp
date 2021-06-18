@@ -14,7 +14,8 @@ padding: 150px;
 }
 
 .goback{
-position:fixed; top:95%; right:0%; 
+position:fixed; top:95%; right:10%;
+z-index:999; 
 }
 
 
@@ -179,13 +180,7 @@ position:fixed; top:95%; right:0%;
 					id="search_lng">
 			</div>
 
-			<div align="center">
-				<button type="button"
-					onclick='window.open("https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212")'>길찾기
-				</button>
-
-
-			</div>
+		
 
 
 		<div class="gap"></div>
@@ -252,7 +247,7 @@ position:fixed; top:95%; right:0%;
 		
 		</script>
 		<div class="goback">
-			<a href="goback();"><img src="" title="뒤로가기"></a>
+			<button type="button" onclick="goback()"><img src=""></button><i class="fa-arrow-circle-left" aria-hidden="true"></i></a>
 		</div>
 
 		

@@ -52,7 +52,12 @@
 		on a.u_id = c.u_id
         order by s_like
 	</select>
-
+	
+	<!-- 개인 정보 수정 시 store 테이블 주소 수정 -->
+	<update id="storeAdrUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		update store set s_adr = #{s_adr} where u_id = #{u_id}
+	</update>
+	
 	<!-- 스토어 신규오픈 정렬 -->
 	
 	<select id="storeOpenList" resultType="co.yedam.prj.bread.vo.BreadVO">
