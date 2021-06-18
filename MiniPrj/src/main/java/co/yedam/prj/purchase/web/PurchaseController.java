@@ -60,8 +60,6 @@ public class PurchaseController {
 			System.out.println(r + "건 입력");
 		}
 		
-		
-		
 		return "redirect:memberMypage.do";
 	}
 	@RequestMapping("/puchaseAdPopup.do")
@@ -108,5 +106,43 @@ public class PurchaseController {
 		return "redirect:puchaseAdPopup.do";
 	}
 	
+	//서비스 연장 결제 완료후 업데이트 실행
+		@RequestMapping("/purchaseUpdate.do")
+		public String purchaseUpdate(Model model, PurchaseVO vo, HttpServletRequest req, MemberVO mvo, ServiceVO svo) {
+			
+			HttpSession session = req.getSession();
+			String id = (String) session.getAttribute("id");
+			String icode = req.getParameter("i_code");
+			
+			svo.setI_code(icode);
+			svo = DAO.serviceSelect(svo);
+			
+			vo.setU_id(id);
+			vo.setI_code(icode);
+			
+			vo = dao.purchaseSelect(vo);
+			vo.setI_pay(svo.getI_pay());
+			
+			if(svo.getWeek() == 2) {
+				int r = dao.purchaseUpdate(vo);
+				System.out.println(r + "건 수정");
+				
+				mvo.setU_id(id);
+				mvo.setI_pay(svo.getI_pay());
+				int i = Dao.updatePay(mvo);
+				System.out.println(i + "건 수정");
+			}else if(svo.getWeek() == 4) {
+				int r = dao.purchaseUpdateT(vo);
+				System.out.println(r + "건 수정");
+				
+				mvo.setU_id(id);
+				mvo.setI_pay(svo.getI_pay());
+				int i = Dao.updatePay(mvo);
+				System.out.println(i + "건 수정");
+			}
+			
+			
+			return "redirect:memberMypage.do";
+		}
 	
 }

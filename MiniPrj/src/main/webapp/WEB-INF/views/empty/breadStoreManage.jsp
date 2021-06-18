@@ -182,7 +182,12 @@ function breadMainUpload() {
 }
 </script>
 
-			<div class="container">
+
+
+			<div class="dk-box-2">
+		<div class="container">
+			<div class="row vertical-gap justify-content-between">
+		
 				<h3>설명 사진입니다</h3>
 				<img src="">
 				<form action="breadMainUpload.do" method="post" id="frm3" enctype="multipart/form-data">
@@ -190,7 +195,9 @@ function breadMainUpload() {
 					<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="breadMainUpload()">Save</button>
 				</form>
 			</div>
-
+		</div>
+	</div>	
+	
 
 
 
@@ -225,6 +232,10 @@ function breadMainUpload() {
 									</span>
 								</a>
 							</div>
+											<div class="container">
+												<button class="dk-btn dk-btn-md" type="button"
+												onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
+											</div>
 						</c:forEach>
 						<c:forEach items="${store}" var="vo" begin="1" step="2">
 							<div class="col-12 col-lg-6">
@@ -243,6 +254,10 @@ function breadMainUpload() {
 									</span>
 								</a>
 							</div>
+											<div class="container">
+												<button class="dk-btn dk-btn-md" type="button"
+												onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
+											</div>
 						</c:forEach>
 					</div>
 					

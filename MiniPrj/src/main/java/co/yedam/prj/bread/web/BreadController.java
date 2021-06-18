@@ -146,11 +146,17 @@ public class BreadController {
 //	
 //	
 //	// 빵 삭제
-//	@RequestMapping("/breadDelete.do")	
-//	public String breadDelete(Model model,BreadVO vo) {
-//		model.addAttribute("bread", dao.breadDelete(vo));
-//		return "bread/breadDelete";
-//	}
+	@RequestMapping("/breadDeleteMenu.do")	
+	public String breadDelete(Model model,BreadVO vo, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		String id = (String) session.getAttribute("id");
+		vo.setB_id(id);
+		int r = dao.breadDeleteMenu(vo);
+		System.out.println(r + "건 삭제");
+		
+		
+		return "redirect:breadStoreManage";
+	}
 	
 	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")

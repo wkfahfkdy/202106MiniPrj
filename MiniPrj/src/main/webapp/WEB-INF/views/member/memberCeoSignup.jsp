@@ -140,6 +140,11 @@ $(function(){
 			frm.u_adr.focus();
 			return false;
 		}
+		if(frm.r_code.value == ""){
+			alert("주소를 선택해주세요");
+			frm.r_code.focus();
+			return false;
+		}
 		if(frm.s_file.value == ""){
 			alert("파일을 첨부해주세요.");
 			frm.s_file.focus();
@@ -158,51 +163,51 @@ $(function(){
             <form action="ceoSignupSubmit.do" class="dk-form" method="post" id="frm" enctype="multipart/form-data">
                 <div >
                     <div class="col-md-6">
-						<input style="width: 50%;" class="form-control" type="text"
+						<input style="width: 70%;" class="form-control" type="text"
 							name="u_id" id="u_id" value="" placeholder="Your id" required>
-						<button style="width: 50%;" type = "button" id = "idcheck" value="unchecked" class="dk-btn dk-btn-md">중복체크</button>
+						<button style="width: 70%;" type = "button" id = "idcheck" value="unchecked" class="dk-btn dk-btn-md">중복체크</button>
 							
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" type="password" name="u_pwd"
+						<input style="width: 70%;" type="password" name="u_pwd"
 							 id="u_pwd" class="form-control" aria-describedby="emailHelp"
 							placeholder="Password" required>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" class="form-control" type="password" id="u_pwdChk"
+						<input style="width: 70%;" class="form-control" type="password" id="u_pwdChk"
 							name="check_password" value=""
 							placeholder="Again input New password">
 						<font id="chkNotice" size="2"></font>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" type="text" name="u_name"
+						<input style="width: 70%;" type="text" name="u_name"
 							id="u_name" class="form-control" aria-describedby="emailHelp"
 							placeholder="Your Name" required>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" type="text" name="u_tel"
+						<input style="width: 70%;" type="text" name="u_tel"
 							id="u_tel" class="form-control" aria-describedby="emailHelp"
 							placeholder="Your Tel" required>
 					</div>
 					<div class="col-md-6">
-						<input style="width: 50%;" type="text" name="u_mail"
+						<input style="width: 70%;" type="text" name="u_mail"
 							id="u_mail" class="form-control" aria-describedby="emailHelp"
 							placeholder="e-mail" required>
 					</div>
 					<div class="col-md-6">
-					<input class="dk-btn dk-btn-md" style="width: 50%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
+					<input class="dk-btn dk-btn-md" style="width: 70%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_address" name="u_adr" placeholder="사업지 주소를 선택해주세요." class="form-control"  readonly>
+					<input style="width: 70%;" type="text" id="sample6_address" name="u_adr" placeholder="사업지 주소를 선택해주세요." class="form-control"  readonly>
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_postcode" name="u_adrcode" placeholder="우편번호" class="form-control" readonly>
+					<input style="width: 70%;" type="text" id="sample6_postcode" name="u_adrcode" placeholder="우편번호" class="form-control" readonly>
 					</div>
 					<div class="col-md-6">
-					<input style="width: 50%;" type="text" id="sample6_extraAddress" name="u_adr2" placeholder="상세주소" class="form-control"  readonly>
+					<input style="width: 70%;" type="text" id="sample6_extraAddress" name="u_adr2" placeholder="상세주소" class="form-control"  readonly>
 					</div>
 					 <div class="col-md-6">
-                        <select name="r_code" style="width: 50%;" class="form-control" id="r_code" >
+                        <select name="r_code" style="width: 70%;" class="form-control" id="r_code" >
   							<option value='' selected>-- 선택 --</option>
  							<option value='1'>동구</option>
   							<option value='2'>수성구</option>
@@ -216,7 +221,7 @@ $(function(){
 						</select>
                     </div>
                     <div class="col-md-6">
-                        <input style = "width:50%;" type="file" name="s_file" class="form-control" placeholder="SFile">
+                        <input style = "width:70%;" type="file" name="s_file" class="form-control" placeholder="SFile">
                     </div>
                     <div class="col-12">
                         <div class="dk-result"></div>

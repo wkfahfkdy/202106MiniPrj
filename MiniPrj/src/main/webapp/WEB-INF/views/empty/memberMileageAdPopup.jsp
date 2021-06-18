@@ -22,24 +22,25 @@
 
 <body>
 	<div align="center">
-		<h1>마일리지 확인창</h1>
-		<table class="table">
-			<tr>
-				<th>QnA작성 건수</th>
-				<th>리뷰 작성</th>		
-				<th>마일리지</th>	
-				<th>마일리지</th>	
-			</tr>
-			<tr>
-				<td>${qna }</td>
-				<td>${review }</td>		
-				<td>${member.mileage }</td>	
-				<td>마일리지</td>	
+		<div>
+			<h1>마일리지 확인창</h1>
+			<table class="table">
+				<tr>
+					<th>QnA작성 건수</th>
+					<th>리뷰 작성</th>		
+					<th>마일리지</th>	
+				</tr>
+				<tr>
+					<td>${qna }</td>
+					<td>${review }</td>		
+					<td>${member.mileage }</td>	
 				
-			</tr>
-			
-		</table>
-	</div>
-	
+				</tr>
+			</table>
+		</div>
+		<div>
+			<button class="dk-btn dk-btn-md" onclick="window.close()">창닫기</button>
+		</div>
+	</div>	
 </body>
 
