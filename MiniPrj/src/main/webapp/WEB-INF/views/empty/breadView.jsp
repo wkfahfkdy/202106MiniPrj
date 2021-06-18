@@ -98,6 +98,16 @@ function addComment(str_num, stb_id, str_depth, id){
 		text-align: center;
 	}
 	
+.goback{
+position:fixed; top:95%; right:4%;
+z-index:999; 
+}
+
+.gotop{
+position:fixed; top:95%; right:1%;
+z-index:999; 
+}
+	
 </style>
 </head>
 <body>
@@ -145,5 +155,21 @@ function addComment(str_num, stb_id, str_depth, id){
 				</div>
 			
 			</div>
+			
+				<script>
+			function goback(){
+				window.history.back();
+			}
+			function gotop(){
+				javascript:window.scrollTo(0,0)
+			}
+		
+		</script>
+		<div class="goback">
+			<button type="button" onclick="goback()"><img src="${pageContext.request.contextPath }/resources/image/leftbtn2.png""></a>
+		</div>
+		<div class="gotop">
+			<button type="button" onclick="gotop()"><img src="${pageContext.request.contextPath }/resources/image/topbtn2.png"></a>
+		</div>
 </body>
 </html>

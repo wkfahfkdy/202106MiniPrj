@@ -24,11 +24,16 @@
 	padding-left: 150px;
 }
 
-
 .goback{
-position:fixed; top:95%; right:10%;
+position:fixed; top:95%; right:4%;
 z-index:999; 
 }
+
+.gotop{
+position:fixed; top:95%; right:1%;
+z-index:999; 
+}
+
 
 </style>
 
@@ -418,16 +423,20 @@ z-index:999;
 		</div>
 	</div>
 	
-	<script>
+		<script>
 			function goback(){
 				window.history.back();
+			}
+			function gotop(){
+				javascript:window.scrollTo(0,0)
 			}
 		
 		</script>
 		<div class="goback">
-			<button type="button" onclick="goback()"><img src=""><i class="fa-arrow-circle-left" aria-hidden="true"></i></a>
+			<button type="button" onclick="goback()"><img src="${pageContext.request.contextPath }/resources/image/leftbtn2.png""></a>
 		</div>
-
-		
+		<div class="gotop">
+			<button type="button" onclick="gotop()"><img src="${pageContext.request.contextPath }/resources/image/topbtn2.png"></a>
+		</div>
 </body>
 </html>
