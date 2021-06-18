@@ -9,8 +9,12 @@
 <style>
 
 .gap{
-padding: 500px;
+padding: 150px;
 
+}
+
+.goback{
+position:fixed; top:95%; right:0%; 
 }
 
 
@@ -241,5 +245,16 @@ padding: 500px;
 								});
 			})
 		</script>
+		<script>
+			function goback(){
+				window.history.back();
+			}
+		
+		</script>
+		<div class="goback">
+			<a href="goback();"><img src="" title="뒤로가기"></a>
+		</div>
+
+		
 </body>
 </html>
