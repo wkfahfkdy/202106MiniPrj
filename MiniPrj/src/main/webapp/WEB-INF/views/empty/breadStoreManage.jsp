@@ -68,28 +68,8 @@
 				<div class="container">
 					<h4>${id }님의스토어</h4>
 
-<<<<<<< HEAD
-=======
-						<div class="row no-gutters" style="background-color: #f3f3f3;">
-							<div class="col-12 col-lg-6 text-center dk-gallery">
+						
 							
-								<c:if test="${bread.s_image eq null }">	
-									<img src="resources/bootstrap/mimilism/assets/images/portfolio-7-vertical.png">
-								</c:if>
-								
-								
-								<c:if test="${bread.s_image ne null}">	
-									<a href="#"><img src="resources/storeMainUpload/${bread.s_image }"></a>
-								</c:if>
-							
-								
-								<br>
-								<form action="sImageUpload.do" method="post" id="frm2" enctype="multipart/form-data">
-									<input style = "width:50%;" type="file" id="s_file" name="s_file" class="form-control" placeholder="SFile">
-									<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="sImageUpload()">매장사진 저장</button>
-								</form>
-							</div>
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 
 					<div class="row no-gutters" style="background-color: #f3f3f3;">
 						<div class="gap">
@@ -162,7 +142,10 @@
 									<c:if test="${bread.s_content eq null}">
 										<div>
 											<p class="lead mb-0">${bread.s_content }Ex) 매일 아침 정성으로 빵을
-												굽습니다!</p>
+												굽습니다!</p> 
+												
+												
+												
 											<textarea maxlength="30" class="form-control"
 												style="resize: none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 												name="s_content" id="s_content"></textarea>
@@ -217,6 +200,12 @@
 					frm3.submit();
 					alert("수정이 완료되었습니다.");
 				}
+				
+				function breadDeleteMenu(){
+					frm4.submit();
+					
+					
+				}
 			</script>
 
 
@@ -267,7 +256,11 @@
 					</div>
 
 					<div class="row no-gutters">
+					
 						<c:forEach items="${store}" var="vo" begin="0" step="2">
+						<form action="breadDeleteMenu.do" method="post" id="frm4">
+						<input type="hidden" name="b_id" id="b_id" value="${vo.b_id }">
+						</form>
 							<div class="col-12 col-lg-6">
 								<a href="#"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
@@ -285,8 +278,7 @@
 								</a>
 								<div class="container">
 									<button class="dk-btn dk-btn-md" type="button"
-										onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
-								</div>
+										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>								</div>
 							</div>
 
 						</c:forEach>
@@ -308,7 +300,7 @@
 								</a>
 								<div class="container">
 									<button class="dk-btn dk-btn-md" type="button"
-										onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
+										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>
 								</div>
 							</div>
 
@@ -324,7 +316,7 @@
 
 
 
-
+					
 
 
 
