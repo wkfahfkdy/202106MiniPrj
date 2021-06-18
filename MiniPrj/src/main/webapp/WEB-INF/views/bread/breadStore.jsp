@@ -119,7 +119,7 @@ z-index:999;
 					<div class="row no-gutters">
 						<c:forEach items="${store}" var="vo" begin="0" end="5" step="2">
 							<div class="col-12 col-lg-6">
-								<a href="breadView.do" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
+								<a href="breadView.do?b_id=${vo.b_id }" class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
 										<span class="dk-portfolio-item-overlay"	style="background-color: rgba(255, 255, 255, .85)"></span> 
@@ -136,7 +136,7 @@ z-index:999;
 						</c:forEach>
 						<c:forEach items="${store}" var="vo" begin="1" end="5" step="2">
 							<div class="col-12 col-lg-6">
-								<a href="portfolio-single-2.html"
+								<a href="breadView.do?b_id=${vo.b_id }"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
 									<span class="dk-portfolio-item-image"> 
 										<span class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>

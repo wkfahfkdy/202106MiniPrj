@@ -4,6 +4,28 @@
 
 <mapper namespace="co.yedam.prj.bread.service.breadservice">
 
+	<!-- 스토어 댓글 리스트 -->
+	<select id="storeReplyList" parameterType="co.yedam.prj.bread.vo.StoreReplyVO" resultType="co.yedam.prj.bread.vo.StoreReplyVO">
+		<![CDATA[
+			select  A.stb_id, A.str_num, A.str_numch, A.u_id, A.str_content, A.str_DEPTH, A.str_REGDATE, level
+			from store_reply A
+			where stb_id = #{stb_id}
+			start with str_numch = 0
+			connect by prior str_num = str_numch
+		]]>
+		<!-- level은 기본적으로 있는 컬럼명. 계층 관련에도 사용됨 -->
+	</select>
+	
+	<!-- 스토어 댓글 -->
+	<insert id="insertStoreReply" parameterType="co.yedam.prj.bread.vo.StoreReplyVO">
+		insert into store_reply values (#{stb_id}, str_seq.nextval, 0, #{u_id}, #{str_content}, 0, sysdate)
+	</insert>
+	
+	<!-- 스토어 대댓글 -->
+	<insert id="insertStoreReplyAdd" parameterType="co.yedam.prj.bread.vo.StoreReplyVO">
+		insert into store_reply values (#{stb_id}, str_seq.nextval, #{str_num}, #{u_id}, #{str_content}, #{str_depth}, sysdate)
+	</insert>
+
 	<!-- 스토어 랜덤 출력 -->
 	
 	<select id="storeRandomList" resultType="co.yedam.prj.bread.vo.BreadVO">

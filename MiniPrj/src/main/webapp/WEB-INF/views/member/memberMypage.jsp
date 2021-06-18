@@ -84,6 +84,11 @@
 	}
 	
 	function memberUpdateInfo() {
+		if($('#u_pwdChk').val() == ""){
+			alert("비밀번호를 재확인하세요");
+			$('#u_pwdChk').focus();
+			return false;
+		}
 		let result = confirm("수정하시겠습니까?")
 		if(result) {
 			let passwd = document.getElementById("u_pwd").value;
