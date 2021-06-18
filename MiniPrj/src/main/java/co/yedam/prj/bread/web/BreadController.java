@@ -19,6 +19,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.bread.vo.StoreReplyVO;
+import co.yedam.prj.notice.vo.NoticeReplyVO;
 
 
 @Controller
@@ -27,22 +29,61 @@ public class BreadController {
 	@Autowired
 	private BreadService dao;
 
+	
+	// 댓글 작성
+		@RequestMapping("/stAddComment.do")
+		public String addComment(HttpServletRequest request, StoreReplyVO vo) {
+			
+			// 댓글(want : new) - 대댓글(want : add) 구별을 위한 값
+			String want = request.getParameter("want");	
+			String b_id = request.getParameter("b_id");
+			
+			String u_id = request.getParameter("u_id");
+			String str_content = request.getParameter("str_content");
+			String stb_id = request.getParameter("stb_id");
+			
+			vo.setU_id(u_id);
+			vo.setStr_content(str_content);
+			vo.setStb_id(stb_id);
+			
+			// want : new = 댓글이라면
+			if(want.equals("new")) {
+				
+				dao.insertStoreReply(vo);
+			
+			// want : add = 대댓글이라면
+			} else if(want.equals("add")) {
+				
+				int str_depth = Integer.parseInt(request.getParameter("str_depth"));
+				int str_num = Integer.parseInt(request.getParameter("str_num"));
+				
+				vo.setStr_depth(str_depth);
+				vo.setStr_num(str_num);
+				
+				dao.insertStoreReplyAdd(vo);
+				
+			}
+			
+			return "breadView.do?b_id=" + b_id;
+		}
+	
 
 	//빵 자세히 보기 
 	@RequestMapping("/breadView.do")
-	public String breadView(Model model, BreadVO vo, HttpSession session) {
+	public String breadView(Model model, BreadVO vo, HttpSession session, HttpServletRequest req) {
 		String u_id = (String) session.getAttribute("id");
 		vo.setU_id(u_id);
 		
-		BreadVO vo2 = new BreadVO(); 
-		vo2 = dao.selectStoreId(vo);
+		String b_id = req.getParameter("b_id");
 		
-		vo.setS_id(vo2.getS_id());
-		System.out.println(vo.getS_id());
+		// 작성한 게시글의 댓글 리스트
+		StoreReplyVO vo2 = new StoreReplyVO();
+		vo2.setStb_id(b_id);
 		
-		
-		List<BreadVO> list = dao.breadSelectList(vo);
-		model.addAttribute("bread", list);
+		List<StoreReplyVO> replyList = dao.storeReplyList(vo2);
+		System.out.println(replyList);
+		model.addAttribute("replyList", replyList);
+		model.addAttribute("bid", b_id);
 		
 		return "breadView";
 	}

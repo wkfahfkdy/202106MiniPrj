@@ -32,19 +32,20 @@
 	data-swiper-slidesAuto="true" data-swiper-pagination="true"
 	data-swiper-speed="600" data-swiper-space="30"
 	data-swiper-autoHeight="true" data-swiper-loop="true">
-
+	
 	<div class="swiper-wrapper">
 		<c:forEach items="${purchaseMainList }" var="purchaseMainList">
 			<div class="swiper-slide text-center">
 				<div class="dk-swiper-slide">
-					<a href="portfolio-single-1.html" class="dk-img"> <img
+					<a href="storeRandomList.do" class="dk-img"> <img
 						src="resources/purchaseUpload/${purchaseMainList.p_image }" alt=""></a>
 				</div>
 			</div>
-		</c:forEach>
+			
+		</c:forEach>	
+		
 	</div>
 	<div class="swiper-pagination"></div>
-
 </div>
 
 
@@ -72,34 +73,30 @@
 				</c:forEach>
 			</div>
 		</div>
-	</div>
-</div>
-<div class="dk-box-2" style="background-color: #f3f3f3;">
-	<div class="container mnb-35">
-		<div class="monthIngi">
-			<h3 align="center">Best of Best</h3>
+		<br>
+			<div class="monthIngi">
+			<h3 align="center">Store List</h3>
 			<div class="row vertical-gap justify-content-center">
-
+				<c:forEach items="${storeList }" var="storeList">
 				<div class="col-12 col-sm-10 col-md-6 col-lg-4">
 					<a href="home-4.html"
 						class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light">
 						<span class="dk-portfolio-item-image"> <span
 							class="dk-portfolio-item-overlay"
 							style="background-color: rgba(255, 255, 255, .2)"></span> <img
-							src="resources/bootstrap/mimilism/assets/images/present-home-4.png"
+							src="resources/storeMainUpload/${storeList.s_image }"
 							alt="">
 					</span> <span class="dk-portfolio-item-info"> <span
-							class="h3 dk-portfolio-item-title">Digital Agency</span>
+							class="h3 dk-portfolio-item-title">${storeList.s_name }</span>
 					</span>
 					</a>
 				</div>
-
+				</c:forEach>
 			</div>
 
 		</div>
 	</div>
 </div>
-
 
 
 
@@ -231,7 +228,6 @@
             <div class="swiper-pagination"></div>
         </div>
         <!-- END: Slider Reviews -->
-</div>
 
 
 
