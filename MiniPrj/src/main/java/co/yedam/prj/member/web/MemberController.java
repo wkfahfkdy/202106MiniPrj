@@ -82,12 +82,20 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/memberDelete.do")
-	public String memberDelete(HttpServletRequest req, MemberVO vo) {
+	public String memberDelete(HttpServletRequest req, MemberVO vo, BreadVO bvo) {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		vo.setU_id(id);
 		int r = dao.deleteMember(vo);
 		System.out.println(r + "건 삭제");
+		
+		vo = dao.memberSelectSID(vo);
+		bvo.setS_id(vo.getS_id());
+		int i = Dao.storeDelete(bvo);
+		System.out.println(i + "건 삭제2");
+		int k = Dao.breadDeleteAll(bvo);
+		System.out.println(k + "건 삭제3");
+		
 		
 		return "redirect:memberLogOut.do";
 	}

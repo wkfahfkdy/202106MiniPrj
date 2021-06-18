@@ -7,6 +7,8 @@ import co.yedam.prj.purchase.vo.PurchaseVO;
 public interface PurchaseService {
 	public List<PurchaseVO> purchaseSelectList();
 	public List<PurchaseVO> purchaseSelectList(PurchaseVO vo);
+	public List<PurchaseVO> purchaseMailList();
+	public List<PurchaseVO> purchaseShowUp();
 	public PurchaseVO purchaseSelect(PurchaseVO vo);
 	public int insertPurchase(PurchaseVO vo);
 	public int insertPurchaseT(PurchaseVO vo);

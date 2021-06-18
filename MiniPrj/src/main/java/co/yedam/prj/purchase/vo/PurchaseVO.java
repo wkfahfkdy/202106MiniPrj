@@ -13,6 +13,9 @@ public class PurchaseVO {
 	private int week;
 	private String p_image;
 	private String p_id;
+	private String b_image;
+	private String b_name;
+	private String s_name;
 	
 	public String getU_id() {
 		return u_id;
@@ -73,6 +76,24 @@ public class PurchaseVO {
 	}
 	public void setP_id(String p_id) {
 		this.p_id = p_id;
+	}
+	public String getB_image() {
+		return b_image;
+	}
+	public void setB_image(String b_image) {
+		this.b_image = b_image;
+	}
+	public String getB_name() {
+		return b_name;
+	}
+	public void setB_name(String b_name) {
+		this.b_name = b_name;
+	}
+	public String getS_name() {
+		return s_name;
+	}
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
 	}
 	
 	

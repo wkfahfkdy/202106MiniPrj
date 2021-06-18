@@ -11,6 +11,21 @@
 		values (p_seq.nextval, #{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+28, #{i_pay})
 	</insert>
 	
+	<select id="purchaseMainList"  resultType="co.yedam.prj.purchase.vo.PurchaseVO" >
+		select * from purchase where ROWNUM <![CDATA[<]]>= 4 and (i_code = 'i_001' or i_code = 'i_002')
+		order by i_pay DESC
+	</select>
+	
+	<select id="purchaseShowUp" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
+		select c.s_name, d.* 
+		from store c join  (select a.*, b.B_IMAGE 
+                   			from purchase a join product b
+                   			on a.s_id = b.s_id
+                   			where rownum <![CDATA[<]]>= 3 and (i_code = 'i_003' or i_code = 'i_004') 
+                   			order by i_pay desc) d
+		on c.s_id = d.s_id 
+	</select>
+	
 	<select id="purchaseSelectList" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
 		select a.*, b.I_NAME
 		from purchase a join service b
