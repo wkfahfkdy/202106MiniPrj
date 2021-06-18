@@ -7,9 +7,24 @@
 	</select>
 	
 	<insert id="revBoardInsert2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
-	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_image2,rb_image3,rb_image4,rb_regdate) values(seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_image2},#{rb_image3},#{rb_image4},#{rb_regdate})
+	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values(seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
 	</insert>
 	
+	
+	<!-- 사진 리뷰페이지에서 추가 
+	<update id="">
+		update review set rb_image1 = #{rb_image1} where rb_num=#{rb_num}
+	</update>
+	
+	<update id="">
+		update review set rb_image2 = #{rb_image2} where rb_num=#{rb_num}
+	</update>
+	
+	<update id="">
+		update review set rb_image3 = #{rb_image3} where rb_num=#{rb_num}
+	</update>
+	
+	 END 사진 추가 -->
 	<update id="revBoardLikeUp" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 	update review set rb_like= rb_like +1 where rb_num=#{rb_num}
 	</update>
@@ -56,5 +71,7 @@
 	<update id="updateReview"  parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 		update review set rb_title=#{rb_title} , rb_content= #{rb_content} where rb_num= #{rb_num}
 	</update>
+	
+	
 	
 </mapper>
