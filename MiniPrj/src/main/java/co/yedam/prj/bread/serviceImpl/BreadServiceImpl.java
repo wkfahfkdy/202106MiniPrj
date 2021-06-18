@@ -225,5 +225,11 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.delete("breadDeleteMenu", vo);
 	}
 
+	@Override
+	public int dummyBread(BreadVO vo) {
+		
+		return sqlSession.insert("dummyBread", vo);
+	}
+
 
 }

@@ -45,7 +45,11 @@
 		on a.u_id = c.u_id
 	</select>
 
-
+	<!-- 가입 승인 시 더미 product 삽입 -->
+	<insert id="dummyBread" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		insert into product (b_id, b_name, b_comment, b_image, s_id) 
+		values (bread_seq.nextval, 'Sample', '#샘플 이미지는 메뉴 등록 후 삭제해주세요', 'BreadMenuSample.png', #{s_id}) 
+	</insert>
 
 	<!-- 상점 삭제--> 
 	
