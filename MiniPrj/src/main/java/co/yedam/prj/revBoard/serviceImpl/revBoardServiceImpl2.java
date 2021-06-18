@@ -97,5 +97,4 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	
 	
 
-	
 }	

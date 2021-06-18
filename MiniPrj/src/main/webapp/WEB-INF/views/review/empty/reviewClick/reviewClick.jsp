@@ -40,7 +40,11 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-
+<style>
+	.imgDiv1{
+		margin-left:200px;
+	}
+</style>
 
 <script>
 	function commentInsert(id,rbnum){
@@ -68,6 +72,13 @@
 			UdFrm.submit();
 		}
 	</script>
+	
+	<script>
+		 function imageUp(rbnum){
+			 
+		 }
+	</script>
+	
 </head>
 <body>
 	<!-- Page Preloder -->	
@@ -104,6 +115,34 @@
 				</c:choose>
 				<div class="text-item">
 				<h4 class="headerA"align="right">Writer : ${Click.u_id }</h4>
+					<div class="imgDiv1">
+						<form id="imgDiv1" name="imgDiv1" action="imgDiv1.do" method="post"  enctype="multipart/form-data">
+							<span style="float:left;"><input style ="width:100%;" type="file" name="rb_image1" class="form-control"placeholder="SFile"></span>
+							<span style="float:left;"><button type="button">등록</button></span>
+							<span  style="clear:both"></span>
+						</form>
+					</div>
+					<div class="imgDiv1">
+						<form id="imgDiv1" name="imgDiv1" action="imgDiv1.do" method="post"  enctype="multipart/form-data">
+							<span style="float:left;"><input style ="width:100%;" type="file" name="rb_image1" class="form-control"placeholder="SFile"></span>
+							<span style="float:left;"><button type="button">등록</button></span>
+							<span  style="clear:both"></span>
+						</form>
+					</div>
+					<div class="imgDiv1">
+						<form id="imgDiv1" name="imgDiv1" action="imgDiv1.do" method="post"  enctype="multipart/form-data">
+							<span style="float:left;"><input style ="width:100%;" type="file" name="rb_image1" class="form-control"placeholder="SFile"></span>
+							<span style="float:left;"><button type="button">등록</button></span>
+							<span  style="clear:both"></span>
+						</form>
+					</div>
+					<div class="imgDiv1">
+						<form id="imgDiv1" name="imgDiv1" action="imgDiv1.do" method="post"  enctype="multipart/form-data">
+							<span style="float:left;"><input style ="width:100%;" type="file" name="rb_image1" class="form-control"placeholder="SFile"></span>
+							<span style="float:left;"><button type="button">등록</button></span>
+							<span  style="clear:both"></span>
+						</form>
+					</div>
 				<c:if test="${Click.u_id eq id }">
 				<div style="float:right">
 				<button class="myButton2"  type="button" onclick="delRv('${Click.rb_num}');" >삭제</button>
@@ -112,7 +151,7 @@
 				</c:if>
 				<br><br><br>
 				
-				<h5 style="clear:both "class="headerB" align="right">조회수 !! : ${Click.rb_hit }</h5>
+				<h5 "class="headerB" align="right">조회수 !! : ${Click.rb_hit }</h5>
 				<p style="font-size:25px;"align="right">${Click.rb_regdate }</p>
 			</div>
 			</nav>
@@ -124,28 +163,38 @@
 	<section class="hero__section">
 		<div class="hero-slider">
 			<div class="slide-item">
-				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewUpload/리뷰1-1.PNG" alt="">
+				
+				<a style="clear:both;" class="fresco" href="#"  data-fresco-group="projects">
+				<c:choose>
+					<c:when test="${Click.rb_image eq null}">
+						 
+						 <img src="resources/bin/bin.png" alt="" onclick="imageUp('${Click.rb_num}');">
+					 </c:when>
+					<c:otherwise>
+						<img src="resources/reviewUpload/${Click.rb_image}">
+					</c:otherwise>
+			 	</c:choose>
 				</a>
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewUpload/리뷰1-2.PNG" alt="">
+					<img src="resources/bin/bin.png" alt="">
 					</a>
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#"  data-fresco-group="projects">
-					<img src="resources/reviewUpload/리뷰1-3.PNG" alt="">
+					<img src="resources/bin/bin.png" alt="">
 				</a>	
 			</div>
 			<div class="slide-item">
 				<a class="fresco" href="#" data-fresco-group="projects">
-					<img src="resources/reviewUpload/리뷰1-4.PNG" alt="">
+					<img src="resources/bin/bin.png" alt="">
 				</a>	
 			</div>
 		</div>
 		<div class="hero-text-slider">
 			<div class="text-item">
+			
 			</div>
 			<div class="text-item">
 			</div>

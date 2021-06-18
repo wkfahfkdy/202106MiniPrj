@@ -64,7 +64,6 @@ public class revBoardController2 {
 			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
-			
 			try {
 				multi = new MultipartRequest(req,path,  size, "utf-8", new DefaultFileRenamePolicy());
 				Enumeration files = multi.getFileNames();
@@ -88,14 +87,13 @@ public class revBoardController2 {
 				String id = multi.getParameter("u_id");
 				String content= multi.getParameter("rb_content");
 				String title= multi.getParameter("rb_title");
-				String rb_num=multi.getParameter("rb_num");
-			
 				
 				vo.setU_id(id);
 				vo.setRb_content(content);
 				vo.setRb_title(title);
 				vo.setRb_image(fileName);
 				vo.setRb_regdate(time1);
+			
 				System.out.println(time1);
 				
 				int r=dao.insertRevBoard(vo);
@@ -138,6 +136,9 @@ public class revBoardController2 {
 		System.out.println(revCommentVO.getC_comment());
 		System.out.println(revCommentVO.getU_id());
 		}
+		
+		System.out.println(vo.getRb_image());
+		System.out.println(vo.getRb_image2());
 		
 		model.addAttribute("count", dao.reviewCount(vo2));
 		model.addAttribute("Click", dao.revClickSelect(vo));
