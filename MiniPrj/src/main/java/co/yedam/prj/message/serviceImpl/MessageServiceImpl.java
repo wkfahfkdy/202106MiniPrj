@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.message.service.MessageService;
 import co.yedam.prj.message.vo.MessageVO;
 
@@ -49,6 +50,12 @@ public class MessageServiceImpl implements MessageService {
 	@Override // 상점조회
 	public List<MessageVO> storeMsSelect() {
 		return sqlSession.selectList("storeMsSelect");
+	}
+	
+	
+	@Override
+	public int receiverCheck(MemberVO vo) {
+		return sqlSession.selectOne("receiverCheck",vo);
 	}
 	
 	

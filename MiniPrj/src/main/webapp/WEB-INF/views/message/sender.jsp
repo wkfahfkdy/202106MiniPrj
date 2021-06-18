@@ -94,16 +94,16 @@
 				<td width="9%">받는사람</td>
 				<td width="62%">내용</td>
 				<td width="18%">보낸시간</td>
-				<td width="8%">읽음여부</td>
+				<td width="8%">관리</td>
 			</tr>
 			<tr style="height: 10px;"></tr>
 			<c:forEach items="${bolist }" var="vo">
 			<tr>
-				<td  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+				<td  onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 					${vo.sender_name }</td>
-				<td style="text-align: left; cursor:pointer"  onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
+				<td style="text-align: left; cursor:pointer"  onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" >
 					${vo.content }</td>
-				<td onclick="window.open('msReceiver.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
+				<td onclick="window.open('msSender.do?ms_num=${vo.ms_num}','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">
 					${vo.ms_date }</td>
 				<td>
 				<button style="cursor:pointer" type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>

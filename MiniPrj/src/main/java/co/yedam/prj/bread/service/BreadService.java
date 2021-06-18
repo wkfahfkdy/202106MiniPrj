@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.bread.vo.StoreReplyVO;
 
 
 
@@ -31,6 +32,10 @@ public interface BreadService {
 	public int storeAdrUpdate(BreadVO vo); // 개인정소 수정 시 store 테이블 주소 수정
 
 	public BreadVO storeSelectAll(BreadVO vo);
+	
+	public int insertStoreReply(StoreReplyVO vo); // 댓글 입력
+	public int insertStoreReplyAdd(StoreReplyVO vo); // 대댓글 입력
+	public List<StoreReplyVO> storeReplyList(StoreReplyVO vo); // 댓글 리스트 출력
 
 
 	public BreadVO storeAdr(BreadVO vo);	// 스토어 주소 가져오기

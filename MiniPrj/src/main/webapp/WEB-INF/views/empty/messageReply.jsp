@@ -6,17 +6,19 @@
 
 function formCheck(){
 	
-
+	let receiver_name = $('#receiver_name').val();
+	let sender_name = $('#sender_name').val();
+	let content = $('#content').val();
+	
 	if(frm.content.value == ""){
 		alert("내용을입력해주세요!");
 		frm.content.focus();
 		return false;
 	}
-	frm.submit();	
 	
 	$.ajax({
 		url : 'messageInsert.do',
-		data : {},
+		data : {receiver_name: receiver_name, sender_name: sender_name, content: content},
 		type : 'POST',
 		success : function(resp){
 			opener.parent.location.reload();
@@ -26,9 +28,7 @@ function formCheck(){
 			console.log(err)
 		}
 	});
-	//data: {id: $('#id').val()}
 }
-
 
 
 </script>
@@ -49,7 +49,7 @@ function formCheck(){
 				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
-				<input type="text" name="receiver_name" id="receiver_name" >
+				<input type="text" name="receiver_name" id="receiver_name" value="${vo.sender_name }">
 			</td>
 		</tr>
 		<tr>

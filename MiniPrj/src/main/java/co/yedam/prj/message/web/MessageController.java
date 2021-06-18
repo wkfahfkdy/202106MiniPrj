@@ -1,9 +1,11 @@
 package co.yedam.prj.message.web;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.common.Paging;
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.message.service.MessageService;
 import co.yedam.prj.message.vo.MessageVO;
 import co.yedam.prj.notice.vo.NoticeVO;
@@ -54,6 +57,8 @@ public class MessageController {
 	// 쪽지작성
 	@RequestMapping("/messageInsert.do")
 	private String messageInsert(Model model, MessageVO vo) {
+		
+		System.out.println(vo);
 		dao.messageInsert(vo);
 		return "redirect:senderPaging.do";
 	}
@@ -68,6 +73,14 @@ public class MessageController {
 		return "messageForm";
 	}
 
+	//유저체크
+	@RequestMapping("/receiverCheck.do")
+	private void dopost(HttpServletResponse resp, MemberVO vo) throws IOException {
+		int n = dao.receiverCheck(vo);
+		resp.getWriter().print(n);
+	}
+	
+	
 	
 	// 한건조회
 	@RequestMapping("/messageSelect.do")
@@ -96,6 +109,7 @@ public class MessageController {
 	// 받은쪽지 답장 폼
 	@RequestMapping("/msReply.do")
 	private String msReceiverReply(Model model, MessageVO vo) {
+		model.addAttribute("vo",vo);
 		return "messageReply";
 	}
 	
