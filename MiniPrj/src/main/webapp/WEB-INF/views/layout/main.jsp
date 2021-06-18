@@ -37,7 +37,7 @@
 		<c:forEach items="${purchaseMainList }" var="purchaseMainList">
 			<div class="swiper-slide text-center">
 				<div class="dk-swiper-slide">
-					<a href="storeRandomList.do" class="dk-img"> <img
+					<a href="breadStore.do?s_id=${purchaseMainList.s_id }" class="dk-img"> <img
 						src="resources/purchaseUpload/${purchaseMainList.p_image }" alt=""></a>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 			<div class="row vertical-gap justify-content-center">
 				<c:forEach items="${purchaseShowUp}" var="purchaseShowUp">
 				<div class="col-12 col-sm-10 col-md-6 col-lg-4">
-					<a href="home-1.html"
+					<a href="breadStore.do?s_id=${purchaseShowUp.s_id }"
 						class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light">
 						<span class="dk-portfolio-item-image"> 
 						<span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .2)">
@@ -79,7 +79,7 @@
 			<div class="row vertical-gap justify-content-center">
 				<c:forEach items="${storeList }" var="storeList">
 				<div class="col-12 col-sm-10 col-md-6 col-lg-4">
-					<a href="home-4.html"
+					<a href="breadStore.do?s_id=${storeList.s_id }"
 						class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light">
 						<span class="dk-portfolio-item-image"> <span
 							class="dk-portfolio-item-overlay"

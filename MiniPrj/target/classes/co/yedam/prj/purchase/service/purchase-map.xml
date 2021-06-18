@@ -12,8 +12,16 @@
 	</insert>
 	
 	<select id="purchaseMainList"  resultType="co.yedam.prj.purchase.vo.PurchaseVO" >
-		select * from purchase where ROWNUM <![CDATA[<]]>= 4 and (i_code = 'i_001' or i_code = 'i_002')
-		order by i_pay DESC
+		    SELECT *
+    		FROM (
+            	   SELECT 
+           		   ROW_NUMBER() OVER (PARTITION BY s_id ORDER BY i_pay DESC) AS RNUM,
+                   u_id, s_id, i_code, i_regdate, e_date, i_pay, p_id, p_image
+                   FROM purchase
+                   where (i_code = 'i_001' or i_code = 'i_002')
+                  )  
+    		WHERE RNUM = 1 and ROWNUM  <![CDATA[<=]]> 4
+    		order by i_pay DESC
 	</select>
 	
 	<select id="purchaseShowUp" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
