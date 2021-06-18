@@ -151,6 +151,14 @@ ul, li {
 
 }
 
+
+
+.goback{
+position:fixed; top:95%; right:10%;
+z-index:999; 
+}
+
+
 </style>
 
 
@@ -282,6 +290,18 @@ ul, li {
 			</div> -->
 		</div>
 	</div>
+	
+		<script>
+			function goback(){
+				window.history.back();
+			}
+		
+		</script>
+		<div class="goback">
+			<button type="button" onclick="goback()"><img src=""></button><i class="fa-arrow-circle-left" aria-hidden="true"></i></a>
+		</div>
+	
+	
 </body>
 </html>
 
