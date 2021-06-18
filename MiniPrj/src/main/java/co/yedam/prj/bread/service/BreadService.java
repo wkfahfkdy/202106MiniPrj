@@ -28,6 +28,7 @@ public interface BreadService {
 	public int sImageUpload(BreadVO vo); // 스토어 메인사진
 	public List<BreadVO> storeRCode(); // 지역분류코드
 	public int storeInform(BreadVO vo); // 스토어 이름 / 매장 코멘트 / 매장 번호 수정
+	public int storeAdrUpdate(BreadVO vo); // 개인정소 수정 시 store 테이블 주소 수정
 
 	public BreadVO storeSelectAll(BreadVO vo);
 

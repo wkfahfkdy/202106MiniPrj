@@ -249,5 +249,11 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.delete("breadDeleteAll", vo);
 	}
 
+	@Override
+	public int storeAdrUpdate(BreadVO vo) {
+		
+		return sqlSession.update("storeAdrUpdate", vo);
+	}
+
 
 }
