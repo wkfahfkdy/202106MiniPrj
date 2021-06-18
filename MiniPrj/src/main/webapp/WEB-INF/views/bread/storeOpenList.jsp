@@ -243,7 +243,7 @@ ul, li {
 					<div class="col-12 col-lg-6 col-xl-4 dk-isotope-grid-item open">
 						<!-- 윗 라인의 div class foreach 돌리면 안되고 다른 방향으로 처리 해야함/순위/지역/랜덤으로 돌려야하기 때문  -->
 
-						<form id="frm" action="breadStore.do">
+						
 							<input type="hidden" value="${vo.s_id }">
 							<input type="hidden" value="${vo.r_code }">
 							<button type="button"
@@ -261,7 +261,7 @@ ul, li {
 
 								</span>
 							</button>
-						</form>
+						
 						<table>
 
 
