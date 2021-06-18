@@ -101,7 +101,6 @@ public class BreadController {
 		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
-		System.out.println(list);
 		model.addAttribute("store", list);
 		model.addAttribute("testName", testName);
 		
@@ -121,7 +120,6 @@ public class BreadController {
 		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 		
-		System.out.println(dao.storeRCode());
 		return "bread/bread";
 	}
 	
@@ -167,14 +165,16 @@ public class BreadController {
 //	// 빵 삭제
 	@RequestMapping("/breadDeleteMenu.do")	
 	public String breadDelete(Model model,BreadVO vo, HttpServletRequest req) {
-		String b_id =req.getParameter("b_id");
-		
+		String b_id = req.getParameter("b_id");
+		vo.setB_id(b_id);
+		System.out.println("ㅁㄴㅇㄹ : " + b_id);
 		int r = dao.breadDeleteMenu(vo);
 		System.out.println(r + "건 삭제");
 		
 		
 		return "redirect:breadStoreManage.do";
 	}
+	
 	
 	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")

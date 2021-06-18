@@ -204,11 +204,7 @@
 					alert("수정이 완료되었습니다.");
 				}
 				
-				function breadDeleteMenu(){
-					frm4.submit();
-					
-					
-				}
+
 			</script>
 
 
@@ -244,7 +240,23 @@
 </div>
 
 
-
+		<script>
+		function breadDeleteMenu(b_id){
+			$.ajax({
+				url: 'breadDeleteMenu.do',
+				dataType:'post',
+				data:{b_id : b_id},
+				success:function(){
+					location.reload();
+				},
+				error:function(){
+					location.reload();
+				}
+			});
+			
+			
+		}
+		</script>
 
 
 
@@ -260,10 +272,10 @@
 
 					<div class="row no-gutters">
 					
-						<c:forEach items="${store}" var="vo" begin="0" step="2">
-						<form action="breadDeleteMenu.do" method="post" id="frm4">
-						<input type="hidden" name="b_id" id="b_id" value="${vo.b_id }">
-						</form>
+<%-- 								<form action="breadDeleteMenu.do" method="post" id="frm4">
+									<input type="hidden" name="b_id" value="${vo.b_id }">
+								</form> --%>
+						<c:forEach items="${store}" var="vo">
 							<div class="col-12 col-lg-6">
 								<a href="#"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
@@ -281,33 +293,11 @@
 								</a>
 								<div class="container">
 									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>								</div>
+										onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제하기</button>								</div>
 							</div>
 
 						</c:forEach>
-						<c:forEach items="${store}" var="vo" begin="1" step="2">
-							<div class="col-12 col-lg-6">
-								<a href="#"
-									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
-									<span class="dk-portfolio-item-image"> <span
-										class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
-										<span class="dk-portfolio-item-overlay"
-										style="background-color: rgba(255, 255, 255, .85)"></span> <img
-										src="resources/productUpload/${vo.b_image }"
-										alt="${vo.b_image }">
-								</span> <span class="dk-portfolio-item-info"> <span
-										class="h3 dk-portfolio-item-title">${vo.b_name}</span> <span
-										class="dk-portfolio-item-category"> <span>${vo.b_comment }</span>
-									</span>
-								</span>
-								</a>
-								<div class="container">
-									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>
-								</div>
-							</div>
-
-						</c:forEach>
+						
 					</div>
 
 				</div>
