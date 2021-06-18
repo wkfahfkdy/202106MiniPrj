@@ -348,6 +348,56 @@ public class BreadController {
 //		return "bread/storeDelete";
 //	}
 
+
+	// 스토어 좋아요 순위 리스트 
+	
+	@RequestMapping("/storeRankList.do")
+	public String storeRankList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+				
+		System.out.println(dao.storeRCode());
+		
+		model.addAttribute("bread",dao.storeRankList(vo));
+		return "bread/storeRankList";
+	}
+	
+	
+	// 스토어 랜덤 리스트
+	@RequestMapping("/storeRandomList.do")
+	public String storeRandomList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+		
+		
+		System.out.println(dao.storeRCode());
+		
+		
+		model.addAttribute("bread", dao.storeRandomList(vo));
+		return "bread/storeRandomList";
+	}
+	
+	
+
+
+	
+	// 신규 스토어 오픈 리스트
+	@RequestMapping("/storeOpenList.do")
+	public String storeOpenList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+		
+		
+		System.out.println("rcode: " + dao.storeRCode());
+		
+		
+		System.out.println("오픈리스트 : " + dao.storeOpenList(vo));
+		
+		model.addAttribute("bread",dao.storeOpenList(vo));
+		return "bread/storeOpenList";
+	}
+
+	
 	
 	
 	// 스토어 리스트 출력 
@@ -388,22 +438,6 @@ public class BreadController {
 //	}
 
 	
-
-	// 스토어 좋아요 순위 리스트 
-	
-	@RequestMapping("/storeRankList.do")
-	public String storeRankList(Model model, BreadVO vo) {
-		model.addAttribute("bread",dao.storeRankList(vo));
-		return "bread/storeRankList";
-	}
-
-	
-	// 신규 스토어 오픈 리스트
-	@RequestMapping("/storeOpenList.do")
-	public String storeOpenList(Model model, BreadVO vo) {
-		model.addAttribute("bread",dao.storeOpenList(vo));
-		return "bread/storeOpenList";
-	}
 
 	
 	

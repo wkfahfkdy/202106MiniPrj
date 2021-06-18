@@ -27,7 +27,7 @@
             </a>
         </li>
         <li>
-            <a href="bread.do">
+            <a href="storeRandomList.do">
                 Bbang
             </a>
         </li>
