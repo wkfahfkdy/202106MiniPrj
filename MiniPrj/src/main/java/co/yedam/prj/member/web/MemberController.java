@@ -131,7 +131,8 @@ public class MemberController {
 			int i = Dao.storeInsert(bvo);
 			System.out.println(i + "건 입력");
 			//storelist vo에 담고 s_id productVO에 담고 ProductVO에 상품 샘플 이미지도 담는다.
-			//그리고나서 
+			BreadVO vo2 = new BreadVO();
+			vo2.setU_id(vo.getU_id());
 			
 		}
 		

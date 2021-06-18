@@ -57,7 +57,18 @@
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
-								<a href="#"><img src="resources/storeMainUpload/${bread.s_image }"></a><br>
+							
+								<c:if test="${bread.s_image eq null }">	
+									<img src="resources/bootstrap/mimilism/assets/images/portfolio-7-vertical.png">
+								</c:if>
+								
+								
+								<c:if test="${bread.s_image ne null}">	
+									<a href="#"><img src="resources/storeMainUpload/${bread.s_image }"></a>
+								</c:if>
+							
+								
+								<br>
 								<form action="sImageUpload.do" method="post" id="frm2" enctype="multipart/form-data">
 									<input style = "width:50%;" type="file" id="s_file" name="s_file" class="form-control" placeholder="SFile">
 									<button class="dk-btn dk-btn-md" type="button" name="sumbit" value="사진 업로드" onclick="sImageUpload()">매장사진 저장</button>
