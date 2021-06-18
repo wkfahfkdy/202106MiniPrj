@@ -2,7 +2,6 @@ package co.yedam.prj.bread.web;
 
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 import java.util.List;
 
@@ -146,11 +145,16 @@ public class BreadController {
 //	
 //	
 //	// 빵 삭제
-//	@RequestMapping("/breadDelete.do")	
-//	public String breadDelete(Model model,BreadVO vo) {
-//		model.addAttribute("bread", dao.breadDelete(vo));
-//		return "bread/breadDelete";
-//	}
+	@RequestMapping("/breadDeleteMenu.do")	
+	public String breadDelete(Model model,BreadVO vo, HttpServletRequest req) {
+		String b_id =req.getParameter("b_id");
+		
+		int r = dao.breadDeleteMenu(vo);
+		System.out.println(r + "건 삭제");
+		
+		
+		return "redirect:breadStoreManage.do";
+	}
 	
 	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")

@@ -57,8 +57,7 @@ padding: 500px;
 
 						<div class="row no-gutters" style="background-color: #f3f3f3;">
 							<div class="col-12 col-lg-6 text-center dk-gallery">
-								<a href="#" class="dk-gallery-item">매장 전경 사진</a>
-							<img src="resources/storeMainUpload/${vo.s_image }">
+								<img src="resources/storeMainUpload/${vo.s_image }">
 							
 							</div>
 

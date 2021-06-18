@@ -14,10 +14,10 @@ public interface BreadService {
 	public List<BreadVO> breadRankList(BreadVO vo); // 빵 랭크 리스트
 	
 	public int breadInsert(BreadVO vo); // 빵 추가
-	public int breadDelete(BreadVO vo); // 빵 삭제
+	public int breadDeleteMenu(BreadVO vo); // 빵 삭제
 	public int breadUpdate(BreadVO vo); // 빵 수정
 	public int breadMainUpload(BreadVO vo); // BBANG - 메인 빵 사진
-	
+	public int dummyBread(BreadVO vo); // 가입 승인 시 더미 데이터 삽입
 	
 	//VO를 스토어 / 빵으로 나눠야하는건지 고민 
 	

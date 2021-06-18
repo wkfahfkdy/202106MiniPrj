@@ -2,24 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
-
-
 <mapper namespace="co.yedam.prj.bread.service.breadservice">
 
-	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO"> 
-		insert into Product values (#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
-		#{b_qty}, #{b_like}) </insert> 필요없는 컬럼도 다 기입해뒀습니다. 사용시 수정 필요 -->
 
-	<!--========================================================================== 
-		========================================================================== 
-		========================================================================== 
-		========================================================================== -->
 
-	<!-- service 순서대로 기입 -->
 
-	<!-- 빵 리스트 -->
-	
 	<!-- 가게 메인 사진 -->
 	<update id="sImageUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
 		update store set s_image = #{s_image} where s_id = #{s_id}
@@ -45,27 +32,19 @@
 		on a.u_id = c.u_id
 	</select>
 
-	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
-		select * from Product where order by #{S_like} </select> -->
+	<!-- 가입 승인 시 더미 product 삽입 -->
+	<insert id="dummyBread" parameterType="co.yedam.prj.bread.vo.BreadVO">
+		insert into product (b_id, b_name, b_comment, b_image, s_id) 
+		values (bread_seq.nextval, 'Sample', '#샘플 이미지는 메뉴 등록 후 삭제해주세요', 'BreadMenuSample.png', #{s_id}) 
+	</insert>
 
-
-	<!-- 빵 추가 <insert id="breadInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		insert into product values(#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
-		#{b_qty}, #{b_like}) </insert> -->
-
-
-
-	<!-- 빵 수정 <update id="breadUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		update product (b_name,b_image,b_price, b_qty) values(#{b_name}, #{b_image}, 
-		#{b_price}, #{b_qty}) </update> -->
-
-
-	<!--========================================================================== 
-		========================================================================== 
-		========================================================================== 
-		========================================================================== -->
-
-
+	<!-- 상점 삭제--> 
+	
+	<delete id="breadDeleteMenu" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		delete from product where b_id=#{b_id}
+	 </delete> 
+	
+	
 	<!-- 스토어 관련 -->
 
 	<insert id="breadInsertMenu" parameterType="co.yedam.prj.bread.vo.BreadVO">
@@ -77,11 +56,6 @@
 		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
 	</insert>
 
-	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		delete </insert> -->
-
-	<!-- 상점 수정 <updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		update </update> -->
 
 
 	<!-- 상점 수정 -->
@@ -137,7 +111,7 @@
 	<select id="storeSelectList"
 		parameterType="co.yedam.prj.bread.vo.BreadVO"
 		resultType="co.yedam.prj.bread.vo.BreadVO">
-		  select b.b_comment,b_name,b_like,b_image, a.*
+		  select b.b_comment,b_name,b_like,b_image,b_id, a.*
 		from store a join product b
 		on a.s_id = b.s_id
 		where a.s_id = #{s_id}
@@ -155,6 +129,10 @@
 		join store b
 		on a.u_id = b.u_id
 	</select>
+	
+	
+</mapper>
+	
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where order by #{S_like} </select> -->
@@ -199,5 +177,3 @@
 	<!-- 남구 <select id="breadStoreList_9" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where region_n = '9'; </select> -->
 
-</mapper>
-	
