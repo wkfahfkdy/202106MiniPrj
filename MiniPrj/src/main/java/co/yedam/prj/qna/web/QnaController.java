@@ -11,7 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.prj.common.Paging;
-import co.yedam.prj.notice.vo.NoticeReplyVO;
+import co.yedam.prj.member.serivce.MemberService;
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.qna.service.QnaService;
 import co.yedam.prj.qna.vo.QnaReplyVO;
 import co.yedam.prj.qna.vo.QnaVO;
@@ -21,6 +22,9 @@ public class QnaController {
 
 	@Autowired
 	private QnaService dao;
+	
+	@Autowired
+	private MemberService Mdao;
 	
 	// Paging 처리
 	@RequestMapping("/qnaListPaging.do")
@@ -64,10 +68,21 @@ public class QnaController {
 	
 	// Qna 게시글 작성
 	@RequestMapping("/qnaInsert.do")
-	public String noticeInsert(Model model, QnaVO vo) {
+	public String noticeInsert(Model model, QnaVO vo, MemberVO mvo) {
+		int i = dao.qnaSelectOne(vo);
 		
-		int r = dao.insertQna(vo);
-		System.out.println(r + "건 입력");
+		if(i >= 2) {
+			int r = dao.insertQna(vo);
+			System.out.println(r + "건 입력");
+		}else {
+			int r = dao.insertQna(vo);
+			System.out.println(r + "건 입력1");
+			
+			mvo.setU_id(vo.getU_id());
+			int k = Mdao.qnaMileageUp(mvo);
+			System.out.println(k + "건 입력2");
+		}
+		
 		
 		return "redirect:qnaListPaging.do";
 	}

@@ -125,20 +125,20 @@ public class PurchaseController {
 			
 			if(svo.getWeek() == 2) {
 				int r = dao.purchaseUpdate(vo);
-				System.out.println(r + "건 수정");
+				System.out.println(r + "건 수정1");
 				
 				mvo.setU_id(id);
 				mvo.setI_pay(svo.getI_pay());
 				int i = Dao.updatePay(mvo);
-				System.out.println(i + "건 수정");
+				System.out.println(i + "건 수정2");
 			}else if(svo.getWeek() == 4) {
 				int r = dao.purchaseUpdateT(vo);
-				System.out.println(r + "건 수정");
+				System.out.println(r + "건 수정1");
 				
 				mvo.setU_id(id);
 				mvo.setI_pay(svo.getI_pay());
 				int i = Dao.updatePay(mvo);
-				System.out.println(i + "건 수정");
+				System.out.println(i + "건 수정2");
 			}
 			
 			

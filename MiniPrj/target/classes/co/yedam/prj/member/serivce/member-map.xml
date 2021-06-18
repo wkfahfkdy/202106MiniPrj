@@ -18,6 +18,10 @@
 	</update>
 	
 	<!--  마일리지 증가 -->
+	<update id="qnaMileageUp" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= mileage + 200 where u_id= #{u_id}
+	</update>
+	
 	<update id="mileAgeU" parameterType="co.yedam.prj.member.vo.MemberVO">
 		update member set mileage= mileage + 1000 where u_id= #{u_id}
 	</update>

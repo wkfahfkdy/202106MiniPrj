@@ -7,6 +7,12 @@
 		select * from qna
 	</select>
 	
+	<select id="qnaSelectOne" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="int"> 
+		select count(*)
+		from QNA
+		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  QN_REGDATE and QN_REGDATE <![CDATA[<]]>next_day(SYSDATE, 1)
+	</select>
+	
 	<!-- Paging -->
 	<select id="qnaListPaging" parameterType="co.yedam.prj.qna.vo.QnaVO" resultType="co.yedam.prj.qna.vo.QnaVO">
 		SELECT *

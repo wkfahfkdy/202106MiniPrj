@@ -165,5 +165,11 @@ public class MemberServiceImpl implements MemberService {
 		return sqlSession.update("updatePay", vo);
 	}
 
+	@Override
+	public int qnaMileageUp(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("qnaMileageUp", vo);
+	}
+
 
 }

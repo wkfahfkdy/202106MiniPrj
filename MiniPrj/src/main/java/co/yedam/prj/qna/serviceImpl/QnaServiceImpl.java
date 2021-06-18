@@ -98,6 +98,12 @@ public class QnaServiceImpl implements QnaService {
 		
 		return sqlSession.selectOne("qnaCount", vo);
 	}
+
+	@Override
+	public int qnaSelectOne(QnaVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("qnaSelectOne", vo);
+	}
 	
 	
 }

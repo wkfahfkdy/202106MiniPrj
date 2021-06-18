@@ -27,6 +27,7 @@ public interface MemberService {
 	public int insertMember(MemberVO vo);
 	public int insertCeo(MemberVO vo);
 	public int deleteMember(MemberVO vo);
+	public int qnaMileageUp(MemberVO vo);
 	public int updateMember(MemberVO vo);
 	public int updatePay(MemberVO vo);
 	public int joinWaitUpadte(MemberVO vo);

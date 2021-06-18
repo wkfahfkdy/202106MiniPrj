@@ -131,8 +131,8 @@
 			<h3>마일리지 적립내역</h3>
 			<table  style="width:1200px;text-align:center;" class="table">
 				<tr>
-					<th>작성한 글(QnA작성글 수 / 건당 20p)</th>
-					<th>작성한 리뷰(Main Review 수 / 건당 200p)</th>
+					<th>작성한 글(QnA작성글 수 / 건당 200p)</th>
+					<th>작성한 리뷰(Main Review 수 / 건당 1000p)</th>
 					<th>적립된 마일리지</th>
 					
 				</tr>
