@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.prj.message.serivce.message-map">
-
+	<!-- 유저체크(받는사람) -->
+	<select id="receiverCheck" parameterType="co.yedam.prj.member.vo.MemberVO" resultType="int">
+	select 
+    count(case when u_id = #{u_id} THEN 1 end) as count
+    from member
+	</select>
+	
 	<!-- 전체조회 -->
 	<select id="messageSelectList" resultType="string">
 		select DISTINCT receiver_name from message
@@ -25,7 +31,7 @@
 	
 	<!-- 쪽지보내기(insert) -->
 	<insert id="messageInsert" parameterType="co.yedam.prj.message.vo.MessageVO" >
-		insert into message values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AMHH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval, 'N')
+		insert into message(receiver_name, ms_date, content, sender_name, ms_num) values (#{receiver_name},  to_char(sysdate, 'YYYY-MM-DD AMHH12:MI:SS'), #{content}, #{sender_name} ,notice_seq.nextval)
 	</insert>
 	
 	<!-- 쪽지삭제(delete) -->

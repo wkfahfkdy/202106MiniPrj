@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.bread.service.BreadService;
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.bread.vo.StoreReplyVO;
 
 
 @Repository("breadDao")
@@ -247,6 +248,35 @@ public class BreadServiceImpl implements BreadService {
 	public int breadDeleteAll(BreadVO vo) {
 
 		return sqlSession.delete("breadDeleteAll", vo);
+	}
+
+	@Override
+	public List<BreadVO> storeRandomListT() {
+		
+		return sqlSession.selectList("storeRandomListT");
+	}
+	public int storeAdrUpdate(BreadVO vo) {
+		
+		return sqlSession.update("storeAdrUpdate", vo);
+
+	}
+
+	@Override
+	public int insertStoreReply(StoreReplyVO vo) {
+		
+		return sqlSession.insert("insertStoreReply", vo);
+	}
+
+	@Override
+	public int insertStoreReplyAdd(StoreReplyVO vo) {
+		
+		return sqlSession.insert("insertStoreReplyAdd", vo);
+	}
+
+	@Override
+	public List<StoreReplyVO> storeReplyList(StoreReplyVO vo) {
+		
+		return sqlSession.selectList("storeReplyList", vo);
 	}
 
 

@@ -4,18 +4,44 @@
 
 <script>
 
+function receiverCheck () {
+	
+	let receiver_name = $('#receiver_name').val();
+
+		$.ajax({
+			url : 'receiverCheck.do',
+			data : {u_id: receiver_name},
+			type : 'POST',
+			success : function(resp){
+				if(resp>0){//중복 됫을때
+					alert('쪽지보내기 가능합니다!');
+				}else{//중복이 아닐때
+					alert('없는유저입니다!');
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+	
+	
+}
+
 function formCheck(){
+	
+	let receiver_name = $('#receiver_name').val();
+	let sender_name = $('#sender_name').val();
+	let content = $('#content').val();
 	
 	if(frm.content.value == ""){
 		alert("내용을입력해주세요!");
 		frm.content.focus();
 		return false;
 	}
-	frm.submit();
 	
 	$.ajax({
 		url : 'messageInsert.do',
-		data : {},
+		data : {receiver_name: receiver_name, sender_name: sender_name, content: content},
 		type : 'POST',
 		success : function(resp){
 			opener.parent.location.reload();
@@ -25,7 +51,6 @@ function formCheck(){
 			console.log(err)
 		}
 	});
-
 }
 
 </script>
@@ -39,7 +64,6 @@ function formCheck(){
 		<hr size="5" noshade>
 	</div>
 	
-	<form id="frm" action = "messageInsert.do" method="post">
 	<div>
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
@@ -48,14 +72,8 @@ function formCheck(){
 			</td>
 			<td align="right">
 				<input type="text" name="receiver_name" id="receiver_name" >
+				<button type="button" onclick="receiverCheck()">받는사람확인</button>
 				
-				<!-- 
-				<select id="store" name="store" >
-					<option>회원목록</option>
-					<c:forEach items="${lists}" var = "list" >
-							<option value="${list}">${list}</option>	
-					</c:forEach>	
-				</select> -->
 			</td>
 		</tr>
 		<tr>
@@ -69,5 +87,4 @@ function formCheck(){
 	<br>
 	<button type="button" onclick="formCheck()">보내기</button>
 	<input type="button" value="닫기" onclick="window.close()">
-	</form>
 </div>

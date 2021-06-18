@@ -51,7 +51,7 @@ function messageDelete(ms_num){
 	</table>
 	</div>
 	<br>
-	<button type="button" onclick="window.open('msReply.do','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">답장</button>
+	<button type="button" onclick="window.open('msReply.do?sender_name=${vo.sender_name }','MS','width=550,height=450,location=no,status=no,scrollbars=no')" style="cursor:pointer">답장</button>
 	<button type = "button" class="but" onclick = "messageDelete('${vo.ms_num}')">삭제</button>
 	<input type="button" value="닫기" onclick="window.close()">
 	</form>

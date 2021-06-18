@@ -23,6 +23,13 @@
 .leftmini{
 	padding-left: 150px;
 }
+
+
+.goback{
+position:fixed; top:95%; right:10%;
+z-index:999; 
+}
+
 </style>
 
 <script>
@@ -410,5 +417,17 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+			function goback(){
+				window.history.back();
+			}
+		
+		</script>
+		<div class="goback">
+			<button type="button" onclick="goback()"><img src=""><i class="fa-arrow-circle-left" aria-hidden="true"></i></a>
+		</div>
+
+		
 </body>
 </html>

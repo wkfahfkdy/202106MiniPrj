@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import co.yedam.prj.bread.vo.BreadVO;
+import co.yedam.prj.bread.vo.StoreReplyVO;
 
 
 
@@ -28,8 +29,13 @@ public interface BreadService {
 	public int sImageUpload(BreadVO vo); // 스토어 메인사진
 	public List<BreadVO> storeRCode(); // 지역분류코드
 	public int storeInform(BreadVO vo); // 스토어 이름 / 매장 코멘트 / 매장 번호 수정
+	public int storeAdrUpdate(BreadVO vo); // 개인정소 수정 시 store 테이블 주소 수정
 
 	public BreadVO storeSelectAll(BreadVO vo);
+	
+	public int insertStoreReply(StoreReplyVO vo); // 댓글 입력
+	public int insertStoreReplyAdd(StoreReplyVO vo); // 대댓글 입력
+	public List<StoreReplyVO> storeReplyList(StoreReplyVO vo); // 댓글 리스트 출력
 
 
 	public BreadVO storeAdr(BreadVO vo);	// 스토어 주소 가져오기
@@ -47,7 +53,7 @@ public interface BreadService {
 	
 	public List<BreadVO> storeSelectList(BreadVO vo); //스토어 리스트(메뉴 나옴)
 	public List<BreadVO> storeRandomList(BreadVO vo);//스토어 리스트 ( 랜덤 )
-	
+	public List<BreadVO> storeRandomListT();
 	public List<BreadVO> storeSelectListPaging(BreadVO vo); //스토어 리스트 페이징
 	
 	
