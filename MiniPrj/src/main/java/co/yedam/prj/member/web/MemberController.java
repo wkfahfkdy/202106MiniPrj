@@ -106,7 +106,7 @@ public class MemberController {
 		if(dao.memberSelect(vo) != 0) {
 			HttpSession session = req.getSession();
 			session.setAttribute("id", vo.getU_id());
-			path = "layout/main";
+			path = "redirect:home.do";
 		}else {
 			path = "member/memberLoginFail";
 		};

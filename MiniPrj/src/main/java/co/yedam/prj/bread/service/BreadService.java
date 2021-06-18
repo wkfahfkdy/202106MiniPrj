@@ -47,7 +47,7 @@ public interface BreadService {
 	
 	public List<BreadVO> storeSelectList(BreadVO vo); //스토어 리스트(메뉴 나옴)
 	public List<BreadVO> storeRandomList(BreadVO vo);//스토어 리스트 ( 랜덤 )
-	
+	public List<BreadVO> storeRandomListT();
 	public List<BreadVO> storeSelectListPaging(BreadVO vo); //스토어 리스트 페이징
 	
 	

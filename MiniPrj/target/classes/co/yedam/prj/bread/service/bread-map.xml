@@ -21,7 +21,21 @@
         ORDER BY DBMS_RANDOM.RANDOM()
  	</select>
 
-	
+	<select id="storeRandomListT" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, a.s_opendate, a.s_like, b.b_like, b.b_name, c.r_code
+		from store a
+		join (select s_id, b_name, b_like
+    		 from (
+                   select s_id, b_name, b_like, row_number() over(partition by s_id order by b_like desc) as bidx
+          		   from product
+                   )
+      		 where bidx = 1) b
+		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
+		where rownum <![CDATA[<]]> 10
+		ORDER BY DBMS_RANDOM.RANDOM()
+ 	</select>	
 	<!-- 스토어 인기순 정렬 -->
 	
 	<select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO">

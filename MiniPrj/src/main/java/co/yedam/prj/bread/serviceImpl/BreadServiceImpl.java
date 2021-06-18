@@ -249,5 +249,11 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.delete("breadDeleteAll", vo);
 	}
 
+	@Override
+	public List<BreadVO> storeRandomListT() {
+		
+		return sqlSession.selectList("storeRandomListT");
+	}
+
 
 }
