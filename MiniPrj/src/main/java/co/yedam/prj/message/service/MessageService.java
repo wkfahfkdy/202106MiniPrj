@@ -7,7 +7,7 @@ import oracle.net.ns.Message11;
 
 public interface MessageService {
 
-	public List<MessageVO> messageSelectList(); // 전체메세지
+	public List<String> messageSelectList(); // 전체메세지
 	public List<MessageVO> messageSelectReceiver(); // 받은메세지
 	public List<MessageVO> messageSelectSenderList(); // 보낸메세지
 	public MessageVO messageSelect(MessageVO vo);	// 한건검색

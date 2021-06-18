@@ -11,5 +11,7 @@ public interface PurchaseService {
 	public int insertPurchase(PurchaseVO vo);
 	public int insertPurchaseT(PurchaseVO vo);
 	public int updatePurchase(PurchaseVO vo);
+	public int purchaseUpdate(PurchaseVO vo);
+	public int purchaseUpdateT(PurchaseVO vo);
 	public int deletePurchase(PurchaseVO vo);
 }

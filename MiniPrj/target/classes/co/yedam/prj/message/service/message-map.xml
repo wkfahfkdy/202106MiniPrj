@@ -3,8 +3,8 @@
 <mapper namespace="co.yedam.prj.message.serivce.message-map">
 
 	<!-- 전체조회 -->
-	<select id="messageSelectList" parameterType="co.yedam.prj.message.vo.MessageVO" resultType="co.yedam.prj.message.vo.MessageVO">
-		select * from message where receiver_Name = #{receiver_name} 
+	<select id="messageSelectList" resultType="string">
+		select DISTINCT receiver_name from message
 	</select>
 	
 	<!-- 받은메세지조회 -->

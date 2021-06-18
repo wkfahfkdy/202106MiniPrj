@@ -6,6 +6,7 @@ import co.yedam.prj.service.vo.ServiceVO;
 
 public interface ServiceService {
 	public List<ServiceVO> serviceSelectList();
+	public List<ServiceVO> serviceSelectList(ServiceVO vo);
 	public ServiceVO serviceSelect(ServiceVO vo);
 	public int insertService(ServiceVO vo);
 	public int updateService(ServiceVO vo);

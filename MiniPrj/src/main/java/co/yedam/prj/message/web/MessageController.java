@@ -60,8 +60,11 @@ public class MessageController {
 	
 	// 쪽지쓰기 폼으로가기
 	@RequestMapping("/form.do")
-	private String messageInsertForm(Model model, MessageVO vo) {
-		model.addAttribute("list", dao.messageSelectList());
+	private String messageInsertForm(Model model) {
+		List<String> list = new ArrayList<String>();
+		list = dao.messageSelectList();
+		
+		model.addAttribute("lists",list);		
 		return "messageForm";
 	}
 
@@ -101,7 +104,6 @@ public class MessageController {
 	private String msSender(Model model, HttpServletRequest request,MessageVO vo) {
 		
 		String ms_num = request.getParameter("ms_num");
-		System.out.println(ms_num);
 		vo.setMs_num(Integer.parseInt(ms_num));
 		
 		model.addAttribute("vo", dao.messageSelect(vo));	

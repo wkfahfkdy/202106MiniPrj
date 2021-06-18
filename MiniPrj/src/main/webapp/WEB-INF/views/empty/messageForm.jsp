@@ -6,13 +6,12 @@
 
 function formCheck(){
 	
-
 	if(frm.content.value == ""){
 		alert("내용을입력해주세요!");
 		frm.content.focus();
 		return false;
 	}
-	frm.submit();	
+	frm.submit();
 	
 	$.ajax({
 		url : 'messageInsert.do',
@@ -26,15 +25,14 @@ function formCheck(){
 			console.log(err)
 		}
 	});
-	//data: {id: $('#id').val()}
+
 }
-
-
 
 </script>
 
 
 <br>
+
 <div align="center" style="padding: 10px;" >
 	<div align="left" style="width:80%; height: 70px;" > 
 		<h5>쪽지보내기</h5>
@@ -49,11 +47,15 @@ function formCheck(){
 				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
-				${vo.ms_date }
-				<select name="store">
-						<option>회원이름</option>	
-						<option>${sender_name }</option>	
-				</select>
+				<input type="text" name="receiver_name" id="receiver_name" >
+				
+				<!-- 
+				<select id="store" name="store" >
+					<option>회원목록</option>
+					<c:forEach items="${lists}" var = "list" >
+							<option value="${list}">${list}</option>	
+					</c:forEach>	
+				</select> -->
 			</td>
 		</tr>
 		<tr>

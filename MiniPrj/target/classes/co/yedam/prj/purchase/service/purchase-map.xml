@@ -18,4 +18,19 @@
 		where a.u_id = #{u_id}
 	</select>
 	
+	<select id="purchaseSelect" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
+		 select * from purchase where u_id = #{u_id} and i_code = #{i_code}
+	</select>
+	
+	<update id="updatePurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" >
+		update purchase set p_image = #{p_image} where p_id = #{p_id}
+	</update>
+	
+	<update id="purchaseUpdate" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		update purchase set E_DATE = E_DATE+14, I_PAY = I_PAY + #{i_pay} where p_id = #{p_id}
+	</update>
+	
+	<update id="purchaseUpdateT" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		update purchase set E_DATE = E_DATE+28, I_PAY = I_PAY + #{i_pay} where p_id = #{p_id}
+	</update>
 </mapper>

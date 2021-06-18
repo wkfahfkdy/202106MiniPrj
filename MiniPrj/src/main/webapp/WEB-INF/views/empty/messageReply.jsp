@@ -49,12 +49,7 @@ function formCheck(){
 				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td align="right">
-				<select name="store">
-						<option>상점명</option>	
-					<c:forEach items="${list}" var="vo">
-						<option value="${u_id }"> ${s_name }</option>	
-					</c:forEach>
-				</select>
+				<input type="text" name="receiver_name" id="receiver_name" >
 			</td>
 		</tr>
 		<tr>
