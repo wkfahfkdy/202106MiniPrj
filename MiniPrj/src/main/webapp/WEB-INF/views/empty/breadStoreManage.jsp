@@ -130,6 +130,7 @@
 											<h4 class="display-3 mnt-8">${bread.s_name }</h4>
 											<input type="text" class="form-control" maxlength="10"
 												placeholder="매장이름" name="s_name" id="s_name">
+											<input type="hidden" name="s_name2" value="${bread.s_name }">
 										</div>
 									</c:if>
 
@@ -158,6 +159,7 @@
 											<textarea maxlength="30" class="form-control"
 												style="resize: none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 												name="s_content" id="s_content"></textarea>
+												<input type="hidden" name="s_content2" value="${bread.s_content }">
 										</div>
 									</c:if>
 
@@ -178,6 +180,7 @@
 									<div>
 										<input class="form-control" type="text" maxlength="15"
 											placeholder="매장 번호를 입력하세요" name="s_tel" id="s_tel">
+											<input type="hidden" name="s_tel2" value="${bread.s_tel }">
 									</div>
 
 									<button class="dk-btn dk-btn-md" type="button" name="sumbit"
@@ -201,11 +204,7 @@
 					alert("수정이 완료되었습니다.");
 				}
 				
-				function breadDeleteMenu(){
-					frm4.submit();
-					
-					
-				}
+
 			</script>
 
 
@@ -241,7 +240,23 @@
 </div>
 
 
-
+		<script>
+		function breadDeleteMenu(b_id){
+			$.ajax({
+				url: 'breadDeleteMenu.do',
+				dataType:'post',
+				data:{b_id : b_id},
+				success:function(){
+					location.reload();
+				},
+				error:function(){
+					location.reload();
+				}
+			});
+			
+			
+		}
+		</script>
 
 
 
@@ -257,10 +272,10 @@
 
 					<div class="row no-gutters">
 					
-						<c:forEach items="${store}" var="vo" begin="0" step="2">
-						<form action="breadDeleteMenu.do" method="post" id="frm4">
-						<input type="hidden" name="b_id" id="b_id" value="${vo.b_id }">
-						</form>
+<%-- 								<form action="breadDeleteMenu.do" method="post" id="frm4">
+									<input type="hidden" name="b_id" value="${vo.b_id }">
+								</form> --%>
+						<c:forEach items="${store}" var="vo">
 							<div class="col-12 col-lg-6">
 								<a href="#"
 									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
@@ -278,33 +293,11 @@
 								</a>
 								<div class="container">
 									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>								</div>
+										onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제하기</button>								</div>
 							</div>
 
 						</c:forEach>
-						<c:forEach items="${store}" var="vo" begin="1" step="2">
-							<div class="col-12 col-lg-6">
-								<a href="#"
-									class="dk-portfolio-item dk-portfolio-item-style-1 dk-portfolio-item-light">
-									<span class="dk-portfolio-item-image"> <span
-										class="dk-portfolio-item-image-size" data-portfolio-size="80%"></span>
-										<span class="dk-portfolio-item-overlay"
-										style="background-color: rgba(255, 255, 255, .85)"></span> <img
-										src="resources/productUpload/${vo.b_image }"
-										alt="${vo.b_image }">
-								</span> <span class="dk-portfolio-item-info"> <span
-										class="h3 dk-portfolio-item-title">${vo.b_name}</span> <span
-										class="dk-portfolio-item-category"> <span>${vo.b_comment }</span>
-									</span>
-								</span>
-								</a>
-								<div class="container">
-									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu()" name="back_home">메뉴삭제하기</button>
-								</div>
-							</div>
-
-						</c:forEach>
+						
 					</div>
 
 				</div>

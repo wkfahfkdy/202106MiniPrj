@@ -48,7 +48,27 @@ public class BreadController {
 	}
 	
 	@RequestMapping("/storeInform.do")
-	public String storeInform(BreadVO vo) {
+	public String storeInform(BreadVO vo, HttpServletRequest req, HttpSession session) {
+		
+		String s_tel = req.getParameter("s_tel");
+		String s_content = req.getParameter("s_content");
+		String s_name = req.getParameter("s_name");
+		String u_id = (String) session.getAttribute("id");
+		vo.setU_id(u_id);
+		
+		String s_tel2 = req.getParameter("s_tel2");
+		String s_content2 = req.getParameter("s_content2");
+		String s_name2 = req.getParameter("s_name2");
+		
+		if(s_tel.equals("")) {
+			vo.setS_tel(s_tel2);
+		} 
+		if (s_content.equals("") ) {
+			vo.setS_content(s_content2);
+		} 
+		if (s_name.equals("")) {
+			vo.setS_name(s_name2);
+		}
 		
 		dao.storeInform(vo);
 		
@@ -81,7 +101,6 @@ public class BreadController {
 		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
-		System.out.println(list);
 		model.addAttribute("store", list);
 		model.addAttribute("testName", testName);
 		
@@ -101,7 +120,6 @@ public class BreadController {
 		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 		
-		System.out.println(dao.storeRCode());
 		return "bread/bread";
 	}
 	
@@ -147,14 +165,16 @@ public class BreadController {
 //	// 빵 삭제
 	@RequestMapping("/breadDeleteMenu.do")	
 	public String breadDelete(Model model,BreadVO vo, HttpServletRequest req) {
-		String b_id =req.getParameter("b_id");
-		
+		String b_id = req.getParameter("b_id");
+		vo.setB_id(b_id);
+		System.out.println("ㅁㄴㅇㄹ : " + b_id);
 		int r = dao.breadDeleteMenu(vo);
 		System.out.println(r + "건 삭제");
 		
 		
 		return "redirect:breadStoreManage.do";
 	}
+	
 	
 	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")
@@ -328,6 +348,56 @@ public class BreadController {
 //		return "bread/storeDelete";
 //	}
 
+
+	// 스토어 좋아요 순위 리스트 
+	
+	@RequestMapping("/storeRankList.do")
+	public String storeRankList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+				
+		System.out.println(dao.storeRCode());
+		
+		model.addAttribute("bread",dao.storeRankList(vo));
+		return "bread/storeRankList";
+	}
+	
+	
+	// 스토어 랜덤 리스트
+	@RequestMapping("/storeRandomList.do")
+	public String storeRandomList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+		
+		
+		System.out.println(dao.storeRCode());
+		
+		
+		model.addAttribute("bread", dao.storeRandomList(vo));
+		return "bread/storeRandomList";
+	}
+	
+	
+
+
+	
+	// 신규 스토어 오픈 리스트
+	@RequestMapping("/storeOpenList.do")
+	public String storeOpenList(Model model, BreadVO vo) {
+		model.addAttribute("RCode",dao.storeRCode());
+		model.addAttribute("topThree", dao.storeTopThree());
+		
+		
+		System.out.println("rcode: " + dao.storeRCode());
+		
+		
+		System.out.println("오픈리스트 : " + dao.storeOpenList(vo));
+		
+		model.addAttribute("bread",dao.storeOpenList(vo));
+		return "bread/storeOpenList";
+	}
+
+	
 	
 	
 	// 스토어 리스트 출력 
@@ -368,22 +438,6 @@ public class BreadController {
 //	}
 
 	
-
-	// 스토어 좋아요 순위 리스트 
-	
-	@RequestMapping("/storeRankList.do")
-	public String storeRankList(Model model, BreadVO vo) {
-		model.addAttribute("bread",dao.storeRankList(vo));
-		return "bread/storeRankList";
-	}
-
-	
-	// 신규 스토어 오픈 리스트
-	@RequestMapping("/storeOpenList.do")
-	public String storeOpenList(Model model, BreadVO vo) {
-		model.addAttribute("bread",dao.storeOpenList(vo));
-		return "bread/storeOpenList";
-	}
 
 	
 	

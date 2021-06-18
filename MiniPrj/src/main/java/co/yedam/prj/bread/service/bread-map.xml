@@ -4,7 +4,57 @@
 
 <mapper namespace="co.yedam.prj.bread.service.breadservice">
 
+	<!-- 스토어 랜덤 출력 -->
+	
+	<select id="storeRandomList" resultType="co.yedam.prj.bread.vo.BreadVO">
+		select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, a.s_opendate, a.s_like, b.b_like, b.b_name, c.r_code
+		from store a
+		join (select s_id, b_name, b_like
+		from (
+		select s_id, b_name, b_like, row_number() over(partition by s_id order by
+		b_like desc) as bidx
+		from product)
+		where bidx = 1) b
+		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
+        ORDER BY DBMS_RANDOM.RANDOM()
+ 	</select>
 
+	
+	<!-- 스토어 인기순 정렬 -->
+	
+	<select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO">
+	  select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, a.s_opendate, a.s_like, b.b_like, b.b_name, c.r_code
+		from store a
+		join (select s_id, b_name, b_like
+		from (
+		select s_id, b_name, b_like, row_number() over(partition by s_id order by
+		b_like desc) as bidx
+		from product)
+		where bidx = 1) b
+		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
+        order by s_like
+	</select>
+
+	<!-- 스토어 신규오픈 정렬 -->
+	
+	<select id="storeOpenList" resultType="co.yedam.prj.bread.vo.BreadVO">
+	  select a.u_id, a.s_name, a.s_image, a.b_main, a.s_id, a.s_opendate, a.s_like, b.b_like, b.b_name, c.r_code
+		from store a
+		join (select s_id, b_name, b_like
+		from (
+		select s_id, b_name, b_like, row_number() over(partition by s_id order by
+		b_like desc) as bidx
+		from product)
+		where bidx = 1) b
+		on a.s_id = b.s_id
+		join member c
+		on a.u_id = c.u_id
+   		 order by s_opendate desc
+	</select>
 
 
 	<!-- 가게 메인 사진 -->
@@ -96,7 +146,7 @@
 	</select>
 
 	<update id="storeInform" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name}
+		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name} where u_id = #{u_id}
 	</update>
 
 	<select id="selectStoreId" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">

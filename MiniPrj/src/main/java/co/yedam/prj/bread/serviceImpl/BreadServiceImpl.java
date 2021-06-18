@@ -81,6 +81,24 @@ public class BreadServiceImpl implements BreadService {
 	public List<BreadVO> storeSelectList(BreadVO vo) {
 		return sqlSession.selectList("storeSelectList", vo);
 	}
+	
+	
+	// 스토어 랜덤 리스트 (Bbang-All)
+
+		@Override
+		public List<BreadVO> storeRandomList(BreadVO vo) {
+			return sqlSession.selectList("storeRandomList", vo);
+		}
+
+	
+		// 스토어 랭킹
+
+		@Override
+		public List<BreadVO> storeRankList(BreadVO vo) {
+			return sqlSession.selectList("storeRankList", vo);
+		}
+
+	
 
 	// 스토어 리스트 페이징
 	@Override
@@ -88,13 +106,7 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.selectList("storeSelectListPaging", vo);
 	}
 
-	// 스토어 랭킹
-
-	@Override
-	public List<BreadVO> storeRankList(BreadVO vo) {
-		return sqlSession.selectList("storeSelectListPaging", vo);
-	}
-
+	
 	// 스토어 신규 오픈
 
 	@Override

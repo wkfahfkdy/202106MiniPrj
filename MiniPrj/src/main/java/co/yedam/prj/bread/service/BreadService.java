@@ -46,7 +46,7 @@ public interface BreadService {
 	
 	
 	public List<BreadVO> storeSelectList(BreadVO vo); //스토어 리스트(메뉴 나옴)
-	
+	public List<BreadVO> storeRandomList(BreadVO vo);//스토어 리스트 ( 랜덤 )
 	
 	public List<BreadVO> storeSelectListPaging(BreadVO vo); //스토어 리스트 페이징
 	
@@ -62,6 +62,7 @@ public interface BreadService {
 	public List<BreadVO> breadStoreList_7(BreadVO vo); // 북구
 	public List<BreadVO> breadStoreList_8(BreadVO vo); // 칠곡
 	public List<BreadVO> breadStoreList_9(BreadVO vo); // 남구
+	
 	
 	
 	
