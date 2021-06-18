@@ -150,26 +150,26 @@
 							<input class="form-control" type="text" value="${member.u_tel}"
 								id="u_tel" placeholder="New Tel">
 						</div>
-						<div class="col-md-6">
-							<input type="email" id="u_mail" class="form-control"
+						<div class="col-12">
+							<input type="email" id="u_mail" class="form-control" 
 								aria-describedby="emailHelp" placeholder="Your Email"
 								value="${member.u_mail}">
 						</div>
 						<div class="col-md-12">
-							<input class="dk-btn dk-btn-md" style="width: 50%;" type="button"
+							<input class="dk-btn dk-btn-md" style="width: 100%;" type="button"
 								onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 						</div>
 						<div class="col-md-12">
-							<input style="width: 50%;" type="text" id="sample6_postcode"
+							<input style="width: 100%;" type="text" id="sample6_postcode"
 								placeholder="우편번호" class="form-control"
 								value="${member.u_adrcode}">
 						</div>
 						<div class="col-md-12">
-							<input style="width: 50%;" type="text" id="sample6_address"
+							<input style="width: 100%;" type="text" id="sample6_address"
 								placeholder="주소" class="form-control" value="${member.u_adr}">
 						</div>
 						<div class="col-md-12">
-							<input style="width: 50%;" type="hidden"
+							<input style="width: 100%;" type="hidden"
 								id="sample6_extraAddress" placeholder="상세주소"
 								class="form-control">
 						</div>
@@ -186,6 +186,11 @@
 					<!-- 마일리지 확인 파트 끝-->
 
 					<div class="row vertical-gap">
+						<div class="col-12">
+							<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정</button>
+							<button class="dk-btn dk-btn-md" name="deleteInfo"
+								onclick="deleteInfo()">탈퇴하기</button>
+						</div>
 						<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
 							<div class="col-12">
 								<button style="width: 50%;" class="dk-btn dk-btn-md"
@@ -194,6 +199,7 @@
 									확인하기</button>
 							</div>
 						</c:if>
+						
 						<c:if test="${member.s_reg eq 'Y' and member.s_pay eq 0}">
 							<div class="col-12">
 								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
@@ -209,19 +215,10 @@
 								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
 									onclick="window.open('memberAdPopup.do?id=${member.u_id}','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
 									신청</button>
+								<button class="dk-btn dk-btn-md" type="button"
+									onclick="location.href='breadStoreManage.do'">My shop</button>	
 							</div>
 						</c:if>
-						<div class="col-12">
-							<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정</button>
-							<button class="dk-btn dk-btn-md" name="deleteInfo"
-								onclick="deleteInfo()">탈퇴하기</button>
-						</div>
-						<br>
-
-						<div class="col-12">
-							<button class="dk-btn dk-btn-md" type="button"
-								onclick="location.href='breadStoreManage.do'">My shop</button>
-						</div>
 					</div>
 
 

@@ -94,6 +94,12 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	
 		return sqlSession.selectOne("reviewCount",vo);
 	}
+
+	@Override
+	public int revCount(revBoardVO2 vo) {
+
+		return sqlSession.selectOne("revCount", vo);
+	}
 	
 	
 

@@ -46,7 +46,7 @@
 				<th>누적결제금액</th>
 				<th>서비스 시작 일자</th>
 				<th>서비스 종료 일자</th>
-				<th>사진 파일</th>
+				<th>메인 배너 사진</th>
 				<th>업로드</th>
 				<th>서비스 연장</th>
 			</tr>
@@ -57,8 +57,10 @@
 				<td><x:formatNumber type="currency" value="${purchase.i_pay }"></x:formatNumber></td>
 				<td><x:formatDate value="${purchase.i_regdate }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>
 				<td><x:formatDate value="${purchase.e_date }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>
-				<td><input  type="file" id="p_image" name="p_image" style="width:300px;" /></td>
-				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpload()">업로드</button></td>
+				<c:if test="${purchase.i_code eq 'i_001' or purchase.i_code eq 'i_002'}">
+					<td><input  type="file" id="p_image" name="p_image" style="width:300px;" /></td>
+					<td><button class="dk-btn dk-btn-md" onclick="purchaseUpload()">업로드</button></td>
+				</c:if>
 				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')">서비스 연장</button></td>
 			</tr>	
 			</c:forEach>

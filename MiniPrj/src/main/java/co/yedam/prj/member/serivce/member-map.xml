@@ -22,6 +22,10 @@
 		update member set mileage= mileage + 200 where u_id= #{u_id}
 	</update>
 	
+	<update id="revMileageUp" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage= mileage + 1000 where u_id= #{u_id}
+	</update>
+
 	<update id="mileAgeU" parameterType="co.yedam.prj.member.vo.MemberVO">
 		update member set mileage= mileage + 1000 where u_id= #{u_id}
 	</update>

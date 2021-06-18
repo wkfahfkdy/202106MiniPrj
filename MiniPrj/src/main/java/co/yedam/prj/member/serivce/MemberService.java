@@ -30,6 +30,7 @@ public interface MemberService {
 	public int qnaMileageUp(MemberVO vo);
 	public int updateMember(MemberVO vo);
 	public int updatePay(MemberVO vo);
+	public int revMileageUp(MemberVO vo);
 	public int joinWaitUpadte(MemberVO vo);
 	public int mileAgeUp(MemberVO vo);
 	public int mileAgeDown(MemberVO vo);
