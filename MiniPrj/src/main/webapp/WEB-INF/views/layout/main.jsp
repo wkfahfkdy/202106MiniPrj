@@ -32,7 +32,7 @@
 	data-swiper-slidesAuto="true" data-swiper-pagination="true"
 	data-swiper-speed="600" data-swiper-space="30"
 	data-swiper-autoHeight="true" data-swiper-loop="true">
-
+	
 	<div class="swiper-wrapper">
 		<c:forEach items="${purchaseMainList }" var="purchaseMainList">
 			<div class="swiper-slide text-center">
@@ -41,10 +41,11 @@
 						src="resources/purchaseUpload/${purchaseMainList.p_image }" alt=""></a>
 				</div>
 			</div>
-		</c:forEach>
+			
+		</c:forEach>	
+		
 	</div>
 	<div class="swiper-pagination"></div>
-
 </div>
 
 
@@ -227,7 +228,6 @@
             <div class="swiper-pagination"></div>
         </div>
         <!-- END: Slider Reviews -->
-</div>
 
 
 
