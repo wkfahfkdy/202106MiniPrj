@@ -15,6 +15,7 @@ public interface BreadService {
 	
 	public int breadInsert(BreadVO vo); // 빵 추가
 	public int breadDeleteMenu(BreadVO vo); // 빵 삭제
+	public int breadDeleteAll(BreadVO vo);
 	public int breadUpdate(BreadVO vo); // 빵 수정
 	public int breadMainUpload(BreadVO vo); // BBANG - 메인 빵 사진
 	public int dummyBread(BreadVO vo); // 가입 승인 시 더미 데이터 삽입

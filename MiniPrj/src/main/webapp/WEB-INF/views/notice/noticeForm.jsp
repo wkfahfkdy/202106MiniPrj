@@ -30,29 +30,44 @@
 	}
 </script>
 </head>
+<style>
+	th {
+		text-align: center;
+	}
+
+</style>
 <body>
-	<div align = "center">
-		<div style="margin-top: 150px">
+	<div align="center" style="margin-top: 150px;">
+	
+		<div align="center" style=" width: 60%;">
+			<h4>Notice Writer</h4>
+		</div><br>
+		
+		<div style="width: 45%;">
 			<form id = "frm" action = "noticeInsert.do" method = "POST">
 				<input type = "hidden" name = "u_id" id = "u_id" value = "${id }">
 				<div>
 					<table border = "1">
 						<tr>
-							<th width = "150">제목</th>
-							<td width = "300"><input type = "text" id = "nt_title" name = "nt_title"></td>
+							<th width = "15%">제목</th>
+							<td width = "60%">
+								<input style="border:0px" size="90" type = "text" id = "nt_title" name = "nt_title">
+							</td>
 						</tr>
 						<tr>
 							<th width = "150">내용</th>
-							<td width = "300"><textarea id = "nt_content" name = "nt_content"></textarea></td>					
+							<td width = "300">
+								<textarea style="border:0px" cols="90" rows="15" id = "nt_content" name = "nt_content"></textarea>
+							</td>					
 						</tr>
-					</table>
+					</table><br><br>
 				</div>
 				<div>
 					<button type = "button" onclick = "formCheck()">등록</button>
-					<button type = "button" onclick = "location.href = 'noticeListPaging.do'">뒤로 가기</button>
+					<button type = "button" onclick = "location.href = 'noticeListPaging.do'">목록</button>
 				</div>
 			</form>
 		</div>
-	</div>
+	</div><br><br>
 </body>
 </html>
