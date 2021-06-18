@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-
-<head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript"
@@ -12,28 +9,28 @@
 
 
 <style>
-.gap{
-	padding: 50px;
-
-}
-
-.left{
-	padding-left: 400px;
-}
-.leftmini{
-	padding-left: 150px;
-}
-
-.goback{
-position:fixed; top:95%; right:4%;
-z-index:999; 
-}
-
-.gotop{
-position:fixed; top:95%; right:1%;
-z-index:999; 
-}
-
+	.gap{
+		padding: 50px;
+	}
+	
+	.left{
+		padding-left: 400px;
+	}
+	
+	.leftmini{
+		padding-left: 150px;
+	}
+	
+	.goback{
+	position:fixed; top:95%; right:4%;
+	z-index:999; 
+	}
+	
+	.gotop{
+	position:fixed; top:95%; right:1%;
+	z-index:999; 
+	}
+	
 
 </style>
 
@@ -53,11 +50,12 @@ z-index:999;
 	}
 </script>
 
-<title></title>
 <style>
-#s_file {
-	align: center;
-}
+
+	#s_file {
+			align: center;
+		}
+	
 </style>
 <script>
 	function sImageUpload() {
@@ -66,11 +64,6 @@ z-index:999;
 		alert("수정이 완료되었습니다.");
 	}
 </script>
-</head>
-
-
-
-<body>
 
 	<div class="dk-main">
 
@@ -270,9 +263,6 @@ z-index:999;
 		}
 		</script>
 
-
-
-
 			<div class="dk-box-2 dk-padding-top">
 				<div class="container">
 					<h2 class="text-center mnt-8 mb-60">메뉴</h2>
@@ -305,7 +295,8 @@ z-index:999;
 								</a>
 								<div class="container">
 									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제하기</button>								</div>
+										onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제하기</button>								
+								</div>
 							</div>
 
 						</c:forEach>
@@ -432,11 +423,12 @@ z-index:999;
 			}
 		
 		</script>
+		
+		<!-- 고정메뉴 -->
 		<div class="goback">
-			<button type="button" onclick="goback()"><img src="${pageContext.request.contextPath }/resources/image/leftbtn2.png""></a>
+			<button type="button" onclick="goback()"><img src="${pageContext.request.contextPath }/resources/image/leftbtn2.png"></button>
 		</div>
 		<div class="gotop">
-			<button type="button" onclick="gotop()"><img src="${pageContext.request.contextPath }/resources/image/topbtn2.png"></a>
+			<button type="button" onclick="gotop()"><img src="${pageContext.request.contextPath }/resources/image/topbtn2.png"></button>
 		</div>
-</body>
-</html>
+

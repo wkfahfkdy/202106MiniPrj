@@ -17,6 +17,7 @@ function receiverCheck () {
 					alert('쪽지보내기 가능합니다!');
 				}else{//중복이 아닐때
 					alert('없는유저입니다!');
+					window.close();
 				}
 			},
 			error : function(err){
@@ -42,7 +43,7 @@ function formCheck(){
 	$.ajax({
 		url : 'messageInsert.do',
 		data : {receiver_name: receiver_name, sender_name: sender_name, content: content},
-		type : 'POST',
+		type : 'POST',	
 		success : function(resp){
 			opener.parent.location.reload();
 			window.close();
@@ -68,12 +69,11 @@ function formCheck(){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				<input size="30" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
-			<td align="right">
-				<input type="text" name="receiver_name" id="receiver_name" >
-				<button type="button" onclick="receiverCheck()">받는사람확인</button>
-				
+			<td>
+				<input size="10" type="text" name="receiver_name" id="receiver_name" >
+				<button type="button" onclick="receiverCheck()">Check</button>
 			</td>
 		</tr>
 		<tr>

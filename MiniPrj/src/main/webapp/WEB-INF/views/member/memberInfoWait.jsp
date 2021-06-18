@@ -74,7 +74,7 @@
 						</tr>
 					</c:forEach>
 		</table>
-		<div align="center">
+		<div align="center"> <br>
 				<jsp:include page = "../common/paging.jsp" flush = "true">
 					<jsp:param value="${paging.firstPageNo }" name="firstPageNo"/>
 					<jsp:param value="${paging.prevPageNo }" name="prevPageNo"/>
@@ -86,6 +86,6 @@
 				</jsp:include>
 			</div>
 	</div>
-	</div>
+	</div> <br><br>
 </body>
 </html>
