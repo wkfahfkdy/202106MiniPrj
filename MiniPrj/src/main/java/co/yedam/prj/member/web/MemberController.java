@@ -133,6 +133,9 @@ public class MemberController {
 			//storelist vo에 담고 s_id productVO에 담고 ProductVO에 상품 샘플 이미지도 담는다.
 			BreadVO vo2 = new BreadVO();
 			vo2.setU_id(vo.getU_id());
+			vo2 = Dao.selectStoreId(vo2);
+			int d = Dao.dummyBread(vo2);
+			System.out.println("더미" + d + "건 입력");
 			
 		}
 		
