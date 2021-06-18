@@ -48,7 +48,24 @@ public class BreadController {
 	}
 	
 	@RequestMapping("/storeInform.do")
-	public String storeInform(BreadVO vo) {
+	public String storeInform(BreadVO vo, HttpServletRequest req, HttpSession session) {
+		
+		String s_tel = req.getParameter("s_tel");
+		String s_content = req.getParameter("s_content");
+		String s_name = req.getParameter("s_name");
+		String u_id = (String) session.getAttribute("id");
+		
+		vo.setU_id(u_id);
+		
+		BreadVO vo2 = new BreadVO();
+		vo2 = dao.storeSelectMP(vo);
+		if(s_tel == null) {
+			vo.setS_tel(vo2.getS_tel());
+		} else if (s_content == null) {
+			vo.setS_content(vo2.getS_content());
+		} else if (s_name == null) {
+			vo.setS_name(vo2.getS_name());
+		}
 		
 		dao.storeInform(vo);
 		

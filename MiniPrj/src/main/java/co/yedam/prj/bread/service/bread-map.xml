@@ -88,7 +88,7 @@
 	</select>
 
 	<update id="storeInform" parameterType="co.yedam.prj.bread.vo.BreadVO">
-		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name}
+		update store set s_tel = #{s_tel}, s_content = #{s_content}, s_name = #{s_name} where u_id = #{u_id}
 	</update>
 
 	<select id="selectStoreId" parameterType="co.yedam.prj.bread.vo.BreadVO" resultType="co.yedam.prj.bread.vo.BreadVO">
