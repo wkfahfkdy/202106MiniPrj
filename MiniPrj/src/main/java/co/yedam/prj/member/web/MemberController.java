@@ -155,7 +155,7 @@ public class MemberController {
 		HttpSession session = req.getSession();
 		session.invalidate();
 		
-		return "layout/main";
+		return "redirect:home.do";
 	}
 	
 
