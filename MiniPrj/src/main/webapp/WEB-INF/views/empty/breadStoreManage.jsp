@@ -221,6 +221,10 @@ function breadMainUpload() {
 									</span>
 								</a>
 							</div>
+											<div class="container">
+												<button class="dk-btn dk-btn-md" type="button"
+												onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
+											</div>
 						</c:forEach>
 						<c:forEach items="${store}" var="vo" begin="1" step="2">
 							<div class="col-12 col-lg-6">
@@ -239,6 +243,10 @@ function breadMainUpload() {
 									</span>
 								</a>
 							</div>
+											<div class="container">
+												<button class="dk-btn dk-btn-md" type="button"
+												onclick='location="breadDeleteMenu.do"' name="back_home">메뉴삭제하기</button>
+											</div>
 						</c:forEach>
 					</div>
 					
