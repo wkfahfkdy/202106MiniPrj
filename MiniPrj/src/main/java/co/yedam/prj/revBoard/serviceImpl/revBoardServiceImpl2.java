@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -73,7 +74,28 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		
 		return  sqlSession.selectList("revCommentList",vo);
 	}
+
+	
+
+	@Override
+	public int deleteReview(revBoardVO2 vo) {
+		
+		return sqlSession.delete("deleteReview",vo);
+	}
+
+	@Override
+	public int UpdateReview(revBoardVO2 vo) {
+	
+		return sqlSession.update("updateReview",vo);
+	}
+
+	@Override
+	public int reviewCount(RevCommentVO vo) {
+	
+		return sqlSession.selectOne("reviewCount",vo);
+	}
 	
 	
+
 	
 }	

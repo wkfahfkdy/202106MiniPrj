@@ -7,10 +7,20 @@ public class RevCommentVO {
 	private int c_num;
 	private String c_recomment;
 	private int rb_num;
+	private int count;
 	
 	
 
 	
+	
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	public int getC_num() {
 		return c_num;
 	}

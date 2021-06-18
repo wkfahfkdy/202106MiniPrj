@@ -12,7 +12,42 @@ public class revBoardVO2 {
 	private String rb_content;
 	private int rb_like;
 	private String rb_image;
+	private String rb_image2;
+	private String rb_image3;
+	private String rb_image4;
 	
+	
+	
+	public String getRb_image2() {
+		return rb_image2;
+	}
+
+
+	public void setRb_image2(String rb_image2) {
+		this.rb_image2 = rb_image2;
+	}
+
+
+	public String getRb_image3() {
+		return rb_image3;
+	}
+
+
+	public void setRb_image3(String rb_image3) {
+		this.rb_image3 = rb_image3;
+	}
+
+
+	public String getRb_image4() {
+		return rb_image4;
+	}
+
+
+	public void setRb_image4(String rb_image4) {
+		this.rb_image4 = rb_image4;
+	}
+
+
 	public int getRb_num() {
 		return rb_num;
 	}

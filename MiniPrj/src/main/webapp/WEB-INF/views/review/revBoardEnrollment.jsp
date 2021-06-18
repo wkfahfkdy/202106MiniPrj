@@ -39,10 +39,17 @@
           
              
             <tr>
-                <td>이미지 업로드</td>
+                <td>이미지 메인 업로드</td>
                 <td><input style = "width:50%;" type="file" name="rb_image" class="form-control"placeholder="SFile"> </td>
             </tr>
              
+              <tr>
+                <td>이미지 업로드(3개)</td>
+                <td>	 <input style = "width:50%;" type="file" name="rb_image2" class="form-control"placeholder="SFile"> 
+              			 <input style = "width:50%;" type="file" name="rb_image3" class="form-control"placeholder="SFile"> 
+               			 <input style = "width:50%;" type="file" name="rb_image4" class="form-control"placeholder="SFile">
+                </td>
+            </tr>
             <tr>
                 <td>글내용</td>
                 <td><textarea rows="10" cols="50" id="rb_content" name="rb_content" class="form-control"></textarea></td>

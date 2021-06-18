@@ -1,0 +1,228 @@
+@charset "UTF-8";
+	.header{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:40px;
+	}
+	.headerA{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:35px;
+	}
+	.headerB{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:30px;
+	color:gray;
+	}
+blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+	max-width: 1170px;
+	margin: 50px auto;
+	padding: 45px 45px 55px;
+	background-color: #EAEFE5;
+	background-image: url("resources/reviewbootstrap/img/blog-single/quote.png");
+	background-repeat: no-repeat;
+	background-position: right 60px bottom -10px;
+} 
+	.pC{
+	font-family: 'Nanum Pen Script', cursive;
+	font-size:30px;
+	}
+	
+	.col-sm-4{
+		width:100px;
+	}
+	.liClass1{
+		font-size:4rem;
+	}
+	.h4b{
+		font-family: 'Nanum Pen Script', cursive;
+		font-size:40px;
+		
+	}
+	.h4Id{
+		  font-family: 'Cute Font', cursive;
+		font-size:26px;
+		background-color:#FFFA82;
+    	width: 80px;
+   		 text-align: center;
+    	border-radius: 20px 15px 20px 0px
+	}
+	.h4c{
+	font-family: 'Single Day', cursive;
+	font-size:30px;
+	}
+	.textdiv1{
+		margin-top:10px;
+		float:left;
+		height:50px;
+		margin-right:20px;
+	}
+	.textdiv2{
+		margin-right: 10px;
+		float:right;
+	}
+	.texthr{
+		clear:both;
+		
+	}
+	.texthr1{
+	}
+.myButton {
+  float: right;
+    margin-top: -65px;
+    margin-right: -30px;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:10px;
+	border:1px solid azure;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family: 'Single Day', cursive;
+	font-size:20px;
+	font-weight:bold;
+	padding:16px 16px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.commentA{
+	float:left;
+}
+
+    .footer__section{
+
+    	margin-top:50px;
+    }
+    .textarea{
+        margin-top: 10px;
+    margin-left:30px;
+    font-size:24px;
+    font-family: 'Nanum Pen Script', cursive;
+    	border:none;
+    	/*border-top: 2px solid #d9d9d9;*/
+    	background-color:transparent;
+    }
+    .commentMain{
+    	clear:left;
+    }
+    .cm1{
+    	margin-top:30px;
+    }
+    .commentDiv{
+    margin-top: -20px;
+    	height:50px;
+    }
+    
+    .reC{
+    	clear:both;
+    	 float: left;
+    }
+    .spanComment{
+    font-size:25px;
+  
+    font-family: 'Nanum Pen Script', cursive;
+    	margin-left: 5px;
+    margin-top: -25px;
+    }
+    .inCommentS{
+    	border:1px;
+    }
+    .myButton1 {
+box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:8px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:'Cute Font', cursive;
+	font-size:17px;
+	font-weight:bold;
+	padding:2px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton1:hover {
+background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton1:active {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family: 'Cute Font', cursive;
+	font-size:17px;
+	font-weight:bold;
+	padding:2px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.btnClass1{
+	clear: both;
+	margin-top: 10px;
+}
+    .myButton2 {
+box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:8px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:'Cute Font', cursive;
+	font-size:20px;
+	font-weight:bold;
+	padding:4px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton2:hover {
+background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton2:active {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family: 'Cute Font', cursive;
+	font-size:20px;
+	font-weight:bold;
+	padding:4px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+

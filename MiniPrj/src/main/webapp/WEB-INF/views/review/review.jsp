@@ -39,7 +39,7 @@
 	 function showPopup(num) {
 		var myForm = document.popForm;
 		var url="reviewClick.do";
-		 window.open("", "popForm", "width=900, height=1200, left=300, top=100"); 
+		 window.open("", "popForm", "width=1000, height=1200, left=300, top=100"); 
 		myForm.action=url;
 		myForm.method="post";
 		myForm.target="popForm";

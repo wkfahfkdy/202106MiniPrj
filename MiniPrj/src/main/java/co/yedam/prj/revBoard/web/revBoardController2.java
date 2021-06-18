@@ -35,8 +35,9 @@ public class revBoardController2 {
 	private revBoardService2 dao;
 	
 	@RequestMapping("/review2.do")
-	public String revBoardList(Model model) {
+	public String revBoardList(Model model,RevCommentVO vo) {
 		
+		//model.addAttribute("count",dao.reviewCount(vo));
 		model.addAttribute("list", dao.revBoardSelectList());
 		model.addAttribute("top",dao.reviewLikeTop());
 		
@@ -138,6 +139,7 @@ public class revBoardController2 {
 		System.out.println(revCommentVO.getU_id());
 		}
 		
+		model.addAttribute("count", dao.reviewCount(vo2));
 		model.addAttribute("Click", dao.revClickSelect(vo));
 		model.addAttribute("list",list);
 		return "review/empty/reviewClick/reviewClick";
@@ -177,6 +179,18 @@ public class revBoardController2 {
 	
 	}
 	
-
+	@RequestMapping("deleteReview.do")
+	public String deleteReview(revBoardVO2 vo) {
+		
+		dao.deleteReview(vo);
+		return "review/empty/deleteReview";
+	}
+	
+	@RequestMapping("updateReview.do")
+	public String updateReview(revBoardVO2 vo) {
+		dao.UpdateReview(vo);
+		
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
 	
 }

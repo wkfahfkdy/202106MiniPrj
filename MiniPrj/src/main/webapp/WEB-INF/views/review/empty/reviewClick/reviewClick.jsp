@@ -17,173 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
-<style>
-	.header{
-	font-family: 'Nanum Pen Script', cursive;
-	font-size:40px;
-	}
-	.headerA{
-	font-family: 'Nanum Pen Script', cursive;
-	font-size:35px;
-	}
-	.headerB{
-	font-family: 'Nanum Pen Script', cursive;
-	font-size:30px;
-	color:gray;
-	}
-blockquote {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 40px;
-    margin-inline-end: 40px;
-	max-width: 1170px;
-	margin: 50px auto;
-	padding: 45px 45px 55px;
-	background-color: #EAEFE5;
-	background-image: url("resources/reviewbootstrap/img/blog-single/quote.png");
-	background-repeat: no-repeat;
-	background-position: right 60px bottom -10px;
-} 
-	.pC{
-	font-family: 'Nanum Pen Script', cursive;
-	font-size:30px;
-	}
-	
-	.col-sm-4{
-		width:100px;
-	}
-	.liClass1{
-		font-size:4rem;
-	}
-	.h4b{
-		font-family: 'Nanum Pen Script', cursive;
-		font-size:40px;
-		
-	}
-	.h4Id{
-		  font-family: 'Cute Font', cursive;
-		font-size:26px;
-		background-color:#FFFA82;
-    	width: 80px;
-   		 text-align: center;
-    	border-radius: 20px 15px 20px 0px
-	}
-	.h4c{
-	font-family: 'Single Day', cursive;
-	font-size:30px;
-	}
-	.textdiv1{
-		margin-top:10px;
-		float:left;
-		height:50px;
-		margin-right:20px;
-	}
-	.textdiv2{
-		margin-right: 10px;
-		float:right;
-	}
-	.texthr{
-		clear:both;
-		
-	}
-	.texthr1{
-	}
-.myButton {
-  float: right;
-    margin-top: -65px;
-    margin-right: -30px;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	background-color:#ededed;
-	border-radius:10px;
-	border:1px solid azure;
-	display:inline-block;
-	cursor:pointer;
-	color:#777777;
-	font-family: 'Single Day', cursive;
-	font-size:20px;
-	font-weight:bold;
-	padding:16px 16px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-	background-color:#dfdfdf;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-.commentA{
-	float:left;
-}
+<link rel="stylesheet" type="text/css" href="resources/reviewbootstrap/review.css"/>
 
-    .footer__section{
-
-    	margin-top:50px;
-    }
-    .textarea{
-        margin-top: 10px;
-    margin-left:30px;
-    font-size:24px;
-    font-family: 'Nanum Pen Script', cursive;
-    	border:none;
-    	/*border-top: 2px solid #d9d9d9;*/
-    	background-color:transparent;
-    }
-    .commentMain{
-    	clear:left;
-    }
-    .cm1{
-    	margin-top:30px;
-    }
-    .commentDiv{
-    margin-top: -20px;
-    	height:50px;
-    }
-    
-    .reC{
-    	clear:both;
-    	 float: left;
-    }
-    .spanComment{
-    font-size:25px;
-  
-    font-family: 'Nanum Pen Script', cursive;
-    	margin-left: 40px;
-    }
-    .inCommentS{
-    	border:1px;
-    }
-    .myButton1 {
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#bddbfa;
-	border-radius:10px;
-	border:1px solid #a2bfdb;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-font-family: 'Nanum Pen Script', cursive;
-	font-size:22px;
-	padding:2px 9px;
-	text-decoration:none;
-}
-.myButton1:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
-}
-.myButton1:active {
-	position:relative;
-	top:1px;
-}
-.btnClass1{
-	clear: both;
-	margin-top: 10px;
-}
-
-</style>
 	<title>Boto | Photography HTML Template</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Boto Photo Studio HTML Template">
@@ -217,6 +52,22 @@ font-family: 'Nanum Pen Script', cursive;
 		frm.submit();
 	}
 	</script>
+	<script>
+		function delRv(rbnum){
+			delFrm.rb_num.value=rbnum;
+			delFrm.submit();
+		}
+		function UpdateRv(num){
+			UdFrm.rb_num.value=num;
+			var a = $('#title').val();
+			var b = $('#Udc').val();
+			console.log(a);
+			console.log(b);
+			UdFrm.rb_title.value=a;
+			UdFrm.rb_content.value=b;
+			UdFrm.submit();
+		}
+	</script>
 </head>
 <body>
 	<!-- Page Preloder -->	
@@ -239,19 +90,29 @@ font-family: 'Nanum Pen Script', cursive;
 				
 			</div>
 			<nav class="main__menu">
-				<ul class="nav__menu">
-					<li class="liClass1"><i class="fa fa-instagram"></i>&nbsp&nbsp<a href="#" class="menu--active">${Click.rb_title}</a></li>
-					
-					<!--<li><a href="./blog.html">Blog</a>
-						<ul class="sub__menu">
-							<li><a href="./blog-single.html">Blog Single</a></li>
-						</ul> 
-					</li> -->
-					
-				</ul>
+				<c:choose>	
+					<c:when test="${Click.u_id eq id }">
+						<ul class="nav__menu">
+							<li class="liClass1"><i class="fa fa-instagram"></i>&nbsp&nbsp<input style="font-size:40px;" id="title" type="text"  size="40" value="${Click.rb_title}"></li>					
+						</ul>
+					</c:when>
+					<c:otherwise>
+						<ul class="nav__menu">
+							<li class="liClass1"><i class="fa fa-instagram"></i>&nbsp&nbsp<a href="#" class="menu--active">${Click.rb_title}</a></li>
+						</ul>
+					</c:otherwise>
+				</c:choose>
 				<div class="text-item">
-				<h4 class="headerA"align="right">Writer : ${Click.u_id }</h4><br><br><br>
-				<h5 class="headerB" align="right">조회수 !! : ${Click.rb_hit }</h5>
+				<h4 class="headerA"align="right">Writer : ${Click.u_id }</h4>
+				<c:if test="${Click.u_id eq id }">
+				<div style="float:right">
+				<button class="myButton2"  type="button" onclick="delRv('${Click.rb_num}');" >삭제</button>
+				<button class="myButton2"  type="button" onclick="UpdateRv('${Click.rb_num}');">수정</button>
+				</div>
+				</c:if>
+				<br><br><br>
+				
+				<h5 style="clear:both "class="headerB" align="right">조회수 !! : ${Click.rb_hit }</h5>
 				<p style="font-size:25px;"align="right">${Click.rb_regdate }</p>
 			</div>
 			</nav>
@@ -300,14 +161,21 @@ font-family: 'Nanum Pen Script', cursive;
 			<blockquote>
 				<h4 class="h4b">'' Content ''</h4>
 				<br><br>
-				<h6 class="h4c" align="center" style="color:cadetblue;">${Click.rb_content }</h6>
+				<c:choose>	
+					<c:when test="${Click.u_id eq id }">
+						<textarea id="Udc"cols="100" rows="7">${Click.rb_content }</textarea>
+					</c:when>
+					<c:otherwise>
+						<h6 class="h4c" align="center" style="color:cadetblue;">${Click.rb_content }</h6>
+					</c:otherwise>
+				</c:choose>
 			</blockquote>
 	<!-- Comment Head Section -->
 	<section  style="width:80%; margin:auto;">
 		
-		<div><p class="pC" >LIKE :</p></div>
+		<div><p class="pC" >LIKE : ${Click.rb_like }</p></div>
 		<br>
-		<div><p style="font-size:20px;">Comments ..</p></div>
+		<div><p style="font-size:20px;">Comments .. ( ${count } )</p></div>
 		<!-- Comment  -->
 	<form  accept-charset="UTF-8" action="commentInsert.do" id="frm" method="post">
 	<div class="inCommentS" style="width:700px; margin:auto; height:70px; background-color:#EFEAEA; ">
@@ -335,17 +203,38 @@ font-family: 'Nanum Pen Script', cursive;
 	
 		<div class="commentDiv">
 			<c:forEach items="${list }" var="comment">
+			<c:set var="click" value="${click+1 }"></c:set>
 			<div>
 			
-				<h4 class="h4Id" style="float:left;">${comment.u_id }&nbsp;&nbsp;</h4>
-				<p style="font-size:15px; float:left;">${comment.c_date }</p>
+				<div><h4 class="h4Id" style="float:left;">${comment.u_id }&nbsp;&nbsp;</h4></div>
+					<p style="font-size:15px; ">${comment.c_date }</p>
+			
 				
-				<span class="spanComment">${comment.c_comment }</span>
 				
-				<div class="btnClass1">
-				<form name="commentReForm" method="post">
-				<button class="myButton1" id="click" type="button" onclick="commentRe();">답글</button>
-					<div  id="reHText" style="display:none; "><input type="text" ></div>
+				<div class="btnClass1">			
+				<form name="commentReForm" method="post">			
+				<div class="spanComment">${comment.c_comment }</div>
+				<button class="myButton1" id="click" type="button" onclick="dis();">답글</button>
+					<div id="dis" style="display:block; ">
+					
+					<div style="float:left;"><h4>&nbsp;&nbsp;&nbsp;&nbsp; L</h4></div>
+						<div style="float:left;">
+							<table>
+								<tr>
+									<td align="center" width="100px"> ID </td>	<td> 날짜</td>
+								</tr>
+								<tr>
+									<td width="100px"></td><td height="20px">답글 목록</td>
+							 	</tr>
+							</table>
+							<div style="margin-left:100px; margin-top:20px;">
+								<span><input type="text" placeholder="답글 입력하는곳!"></span>
+								<span><button class="myButton1" type="button">등록</button></span>								
+							</div>
+						</div>
+					<div style="clear:both;"></div>
+						
+					</div>
 				</form>
 				</div>
 			</div>
@@ -363,18 +252,18 @@ font-family: 'Nanum Pen Script', cursive;
 		
 
 	</div>
-	<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
-	<script>
-			 $(document).ready(function() {
-			      $("#click").click(function() {
-			    	  document.getElementById("reHText").style.display="block";
-			      });
-			      $("#click").dblclick(function() {
-			        document.getElementById("reHText").style.display="none";
-			      });
-			    });
-	</script>
 	
+	<!-- 답글 눌렀을때 나오는  script -->
+	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	 <script>
+	 function dis(){
+if($("#dis").css("display") == "none"){
+    $("#dis").show();
+} else {
+    $("#dis").hide();
+}
+}
+</script>
 	<footer class="footer__section">
 
 
@@ -382,8 +271,15 @@ font-family: 'Nanum Pen Script', cursive;
 	
 		
 	
-	
-	
+	<!-- hidden form -->
+		<form id="delFrm" name="delFrm" action="deleteReview.do" method="post">
+			<input type="hidden" id="rb_num" name="rb_num">
+		</form>
+		<form id="UdFrm" name="UdFrm" action="updateReview.do" method="post">
+			<input type="hidden" id="rb_title" name="rb_title">
+			<input type="hidden" id="rb_content" name="rb_content">
+			<input type="hidden" id="rb_num" name="rb_num">
+		</form>
 	
 	
 	
