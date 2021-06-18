@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,31 +108,41 @@
 </script>
 <style>
 	.inRp {
-	text-align : left;
-	width : 842px;
+		text-align : left;
+		width : 842px;
 	}
 	
 	.iddiv {
-	width : 100px;
-	float : left;
+		width : 15%;
+		float : left;
 	}
 	
 	.condiv {
-	width : 400px;
-	float : left;
+		width : 80%;
+		float : left;
+	}
+	
+	th {
+		text-align: center;
 	}
 	
 </style>
 <body>
-	<div align = "center">
-		<div style="margin-top: 150px">
+	<div align="center" style="margin-top: 150px;">
+	
+		<div align="center" style=" width: 60%;">
+			<h4>Q & A</h4>
+		</div><br>
+	
+		<div style="width: 60%;">
 			<form id = "frm" action = "qnaUpdate.do" method = "POST">
 				<table border = "1">
-					<tr>
+					<tr align="center">
 						<th>순번</th>
 						<td><input type = "hidden" id = "qn_num" name = "qn_num" value = "${vo.qn_num }">${vo.qn_num }</td>
 						<th>작성일자</th>
-						<td>${vo.qn_regdate }</td>
+						<td><x:formatDate value="${vo.qn_regdate }" pattern="yyyy-MM-dd"/>
+							</td>
 						<th>작성자</th>
 						<td>${vo.u_id }</td>
 						<th>조회수</th>
@@ -141,7 +152,8 @@
 						<th>제목</th>
 						<td colspan = "7">
 							<c:if test = "${id eq vo.u_id || id eq 'admin' }">
-								<input name = "qn_title" type = "text" value = "${vo.qn_title }">
+								<input size="90" style="border:0px" name = "qn_title" 
+										type = "text" value = "${vo.qn_title }">
 							</c:if>
 							<c:if test = "${id ne vo.u_id && id ne 'admin' }">
 								${vo.qn_title }
@@ -162,15 +174,17 @@
 				</table><br>
 				<!-- 댓글 -->
 				<div class = "inRp">
-					<h5>댓글</h5>
+					<table style="width:100%; border-bottom: 1px solid;">
+						<tr><td><h5>댓글</h5></td></tr>
+					</table>
 					<!-- 댓글 리스트 출력 -->
 					<c:forEach items="${replyList }" var="rlist">
 						<!-- 대댓글 입력창은 기본적으로 숨겨져있게 만들었음. 클릭할 시에 나타나게 함 -->
-						<div onclick="showComment(${rlist.qnr_num })">
-							<div class = "iddiv">
+						<div  style="clear:both;" onclick="showComment(${rlist.qnr_num })">
+							<div style="padding: 7px" class = "iddiv">
 								${rlist.u_id }
 							</div>
-							<div class = "condiv">
+							<div style="padding: 7px" class = "condiv">
 								<c:if test="${rlist.qnr_depth != 0 }">
 									<!-- 댓글의 깊이(몇번째 자식 댓글인지)에 따라 화살표 개수 추가 -->
 									<c:forEach begin="1" end="${rlist.qnr_depth }"><img src = "resources/image/up.png" width = "15px" height = "15px" /></c:forEach>
@@ -185,11 +199,11 @@
 					</c:forEach><br>
 					<c:if test="${id != null }">
 						<h6>새 댓글 쓰기</h6>
-						<textarea rows="2" cols="75" id="newCommentsArea" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)newComment(${vo.qn_num }, '${id }')"></textarea>
+						<textarea rows="2" cols="102" id="newCommentsArea" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)newComment(${vo.qn_num }, '${id }')"></textarea>
 					</c:if>
 				</div><br>
 				<div>
-					<button type = "button" onclick = "location.href = 'qnaListPaging.do'">목록 보기</button>
+					<button type = "button" onclick = "location.href = 'qnaListPaging.do'">목록</button>
 					<c:if test = "${id eq vo.u_id || id eq 'admin' }">
 						<button type = "submit">수정</button>
 						<button type = "button" onclick = "qnaDelete('${vo.qn_num}')">삭제</button>
@@ -197,6 +211,6 @@
 				</div>
 			</form>
 		</div>
-	</div>
+	</div><br><br>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,26 +22,34 @@
 	}
 </script>
 <style>
-.pagination {
-	display : inline-block;
-} 
+	.pagination {
+		display : inline-block;
+	} 
+	
+	.pagination a {
+		color : black;
+		float : left;
+		padding : 8px 16px;
+		text-decoration : none;
+	}
+	
+	th {
+		padding-bottom : 5px;
+	}
+	
+	th,td {
+		text-align : center;
+	}
+	
+	td {
+		padding: 15px;
+	}
+	
+	.tdcnt {
+		text-align : center;
+		padding-right : 10px;
+	}
 
-.pagination a {
-	color : black;
-	float : left;
-	padding : 8px 16px;
-	text-decoration : none;
-}
-th {
-	padding-bottom : 5px;
-}
-th,td {
-	text-align : center;
-}
-.tdcnt {
-	text-align : right;
-	padding-right : 10px;
-}
 </style>
 </head>
 <body>
@@ -50,26 +59,39 @@ th,td {
 		<input type="hidden" id="qn_hit" name="qn_hit">
 	</form>
 	<div>
-		<div style="margin-top: 150px">
-			<div align="center">
+		<div align="center" style="margin-top: 150px;">
+		
+			<div align="center" style=" width: 60%;">
+				<h4>Q & A</h4>
+			</div><br>
+		
+			<div style="width: 60%;">
 				<table>
 					<tr  style="border-bottom: 1px solid;">
-						<th width="50px">번호</th>
-						<th width="300px">제목</th>
-						<th width="100px">작성자</th>
-						<th width="250px">작성일자</th>
-						<th width="55px">조회수</th>
+						<th width="5%">번호</th>
+						<th width="60%">제목</th>
+						<th width="10%">작성자</th>
+						<th width="10%">작성일자</th>
+						<th width="5%">조회수</th>
 					</tr>
 					<c:forEach items="${bolist }" var="vo">
 						<tr>
 							<td class="tdcnt">${vo.qn_num }</td>
-							<td onclick="frmSubmit('${vo.qn_num}', '${vo.qn_hit }')">${vo.qn_title }</td>
+							<td style="text-align:left;" onclick="frmSubmit('${vo.qn_num}', '${vo.qn_hit }')">${vo.qn_title }</td>
 							<td>${vo.u_id }</td>
-							<td>${vo.qn_regdate }</td>
+							<td><x:formatDate value="${vo.qn_regdate }" pattern="yyyy-MM-dd"/>
+							</td>
 							<td class="tdcnt">${vo.qn_hit }</td>
 						</tr>
 					</c:forEach>
-				</table>
+				</table> <br>
+				<div align="right">
+					<c:if test="${!empty id }" >
+						<button style="border:0px solid; border-radius: 10px; "
+								type="button" onclick="location.href='qnaForm.do'">등록</button>
+					</c:if> 
+				</div> <br><br>
+				
 			</div>
 			<div align="center">
 				<jsp:include page = "../common/paging.jsp" flush = "true">
@@ -82,11 +104,8 @@ th,td {
 					<jsp:param value="${paging.finalPageNo }" name="finalPageNo"/>
 				</jsp:include>
 				
-			<c:if test="${!empty id }">
-				<button type="button" onclick="location.href='qnaForm.do'">등록</button>
-			</c:if> 
 			</div>
 		</div>
-	</div>
+	</div> <br><br>
 </body>
 </html>

@@ -30,9 +30,20 @@
 	}
 </script>
 </head>
+<style>
+	th {
+		text-align: center;
+	}
+
+</style>
 <body>
-	<div align = "center">
-		<div style="margin-top: 150px">
+	<div align="center" style="margin-top: 150px;">
+	
+		<div align="center" style=" width: 60%;">
+			<h4>Q & A Writer</h4>
+		</div><br>
+		
+		<div style="width: 45%;">
 			<form id = "frm" action = "qnaInsert.do" method = "POST">
 				<input type = "hidden" name = "u_id" id = "u_id" value = "${id }">
 				<div>
