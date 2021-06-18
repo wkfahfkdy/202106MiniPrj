@@ -2,14 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-
-
-
 <mapper namespace="co.yedam.prj.bread.service.breadservice">
 
-	<!-- <insert id="breadInsert" parameterType="co.yedam.prj.member.vo.MemberVO"> 
-		insert into Product values (#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
-		#{b_qty}, #{b_like}) </insert> 필요없는 컬럼도 다 기입해뒀습니다. 사용시 수정 필요 -->
+
+
 
 	<!-- 가게 메인 사진 -->
 	<update id="sImageUpload" parameterType="co.yedam.prj.bread.vo.BreadVO">
@@ -49,28 +45,6 @@
 	 </delete> 
 	
 	
-	
-	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
-		select * from Product where order by #{S_like} </select> -->
-
-
-	<!-- 빵 추가 <insert id="breadInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		insert into product values(#{b_id}, #{b_name}, #{b_image}, #{b_price}, #{s_id}, 
-		#{b_qty}, #{b_like}) </insert> -->
-
-
-
-	<!-- 빵 수정 <update id="breadUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		update product (b_name,b_image,b_price, b_qty) values(#{b_name}, #{b_image}, 
-		#{b_price}, #{b_qty}) </update> -->
-
-
-	<!--========================================================================== 
-		========================================================================== 
-		========================================================================== 
-		========================================================================== -->
-
-
 	<!-- 스토어 관련 -->
 
 	<insert id="breadInsertMenu" parameterType="co.yedam.prj.bread.vo.BreadVO">
@@ -155,6 +129,10 @@
 		join store b
 		on a.u_id = b.u_id
 	</select>
+	
+	
+</mapper>
+	
 
 	<!-- 상점 좋아요 순위 리스트 <select id="storeRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where order by #{S_like} </select> -->
@@ -199,5 +177,3 @@
 	<!-- 남구 <select id="breadStoreList_9" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from store where region_n = '9'; </select> -->
 
-</mapper>
-	

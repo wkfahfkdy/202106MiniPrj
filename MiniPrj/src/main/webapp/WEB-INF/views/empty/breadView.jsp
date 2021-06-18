@@ -10,7 +10,7 @@
 			<div class="container">
 				<div>
 					<img src="">
-				
+				<h1>댓글창 가져오기</h1>
 				</div>
 				
 				<button type="button">좋아요</button>
