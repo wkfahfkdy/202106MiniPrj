@@ -130,6 +130,7 @@
 											<h4 class="display-3 mnt-8">${bread.s_name }</h4>
 											<input type="text" class="form-control" maxlength="10"
 												placeholder="매장이름" name="s_name" id="s_name">
+											<input type="hidden" name="s_name2" value="${bread.s_name }">
 										</div>
 									</c:if>
 
@@ -158,6 +159,7 @@
 											<textarea maxlength="30" class="form-control"
 												style="resize: none" placeholder="매장 코멘트를 30자 이내로 작성하세요"
 												name="s_content" id="s_content"></textarea>
+												<input type="hidden" name="s_content2" value="${bread.s_content }">
 										</div>
 									</c:if>
 
@@ -178,6 +180,7 @@
 									<div>
 										<input class="form-control" type="text" maxlength="15"
 											placeholder="매장 번호를 입력하세요" name="s_tel" id="s_tel">
+											<input type="hidden" name="s_tel2" value="${bread.s_tel }">
 									</div>
 
 									<button class="dk-btn dk-btn-md" type="button" name="sumbit"
