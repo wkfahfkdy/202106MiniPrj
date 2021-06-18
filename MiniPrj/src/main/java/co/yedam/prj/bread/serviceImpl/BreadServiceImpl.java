@@ -44,10 +44,7 @@ public class BreadServiceImpl implements BreadService {
 		return sqlSession.insert("breadInsert", vo);
 	}
 
-	@Override
-	public int breadDelete(BreadVO vo) {
-		return sqlSession.delete("breadDelete", vo);
-	}
+	
 
 	@Override
 	public int breadUpdate(BreadVO vo) {
@@ -220,6 +217,12 @@ public class BreadServiceImpl implements BreadService {
 	public int storeInform(BreadVO vo) {
 		
 		return sqlSession.update("storeInform", vo);
+	}
+
+	@Override
+	public int breadDeleteMenu(BreadVO vo) {
+		
+		return sqlSession.delete("breadDeleteMenu", vo);
 	}
 
 

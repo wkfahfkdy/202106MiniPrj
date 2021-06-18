@@ -120,6 +120,37 @@ ul, li {
 .gap {
 	padding: 60px;
 }
+
+
+
+.1{
+
+}
+.2{
+ 
+}
+.3{
+
+}
+.4{
+
+}
+.5{
+
+}
+.6{
+
+}
+.7{
+
+}
+.8{
+
+}
+.9{
+
+}
+
 </style>
 
 
@@ -181,21 +212,20 @@ ul, li {
 			
 				<li class="active" data-filter=".favorite"><a href="">인기순</a></li>
 			
-				<li class="active" data-filter=".region"><a href="">지역별</a>
+				<li class="active" data-filter=""><a href="">지역별</a>
 
 					<ul id="sub-menu">
-						<c:if test="${member.r_code }" var="vo">
-						<li data-filter="1" aria-label="submenu" class="region"><a href="">동구</a></li>
-						<li data-filter="2" aria-label="submenu" class="region"><a href="">수성구</a></li>
-						<li data-filter="3" aria-label="submenu" class="region"><a href="">중구</a></li>
-						<li data-filter="4" aria-label="submenu" class="region"><a href="">서구</a></li>
-						<li data-filter="5" aria-label="submenu" class="region"><a href="">달서구</a></li>
-						<li data-filter="6" aria-label="submenu" class="region"><a href="">달성군</a></li>
-						<li data-filter="7" aria-label="submenu" class="region"><a href="">북구</a></li>
-						<li data-filter="8" aria-label="submenu" class="region"><a href="">칠곡</a></li>
-						<li data-filter="9" aria-label="submenu" class="region"><a href="">남구</a></li>
-						</c:if>
-
+					
+						<li data-filter="region" aria-label="submenu" class=".1"><a href="">동구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".2"><a href="">수성구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".3"><a href="">중구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".4"><a href="">서구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".5"><a href="">달서구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".6"><a href="">달성군</a></li>
+						<li data-filter="region" aria-label="submenu" class=".7"><a href="">북구</a></li>
+						<li data-filter="region" aria-label="submenu" class=".8"><a href="">칠곡</a></li>
+						<li data-filter="region" aria-label="submenu" class=".9"><a href="">남구</a></li>
+						
 					</ul></li>
 
 			</ul>
@@ -203,20 +233,6 @@ ul, li {
 		</div>
 	</div>
 
-
-	<section class="portfolio_section">
-		<ul class="btn_set">
-			<li class="on"><a href="#" data-filter="*">All</a></li>
-			<li><a href="#" data-filter=".design">Design</a></li>
-			<li><a href="#" data-filter=".publishing">Publishing</a></li>
-			<li><a href="#" data-filter=".responsive">Responsive </a></li>
-		</ul>
-		<div class="portfolio_item_wrap">
-			<div class="portfolio_item publishing">//해당 filter class</div>
-			<div class="portfolio_item design">//해당 filter class</div>
-			<div class="portfolio_item responsive">//해당 filter class</div>
-		</div>
-	</section>
 
 
 	<div class="dk-box-2 dk-padding-bot">

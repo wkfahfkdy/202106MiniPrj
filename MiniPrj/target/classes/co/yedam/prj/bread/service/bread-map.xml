@@ -45,6 +45,16 @@
 		on a.u_id = c.u_id
 	</select>
 
+
+
+	<!-- 상점 삭제--> 
+	
+	<delete id="breadDeleteMenu" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
+		delete from product wehre b_id=#{b_id};
+	 </delete> 
+	
+	
+	
 	<!-- 빵 좋아요 순위 리스트 <select id="breadRankList" resultType="co.yedam.prj.bread.vo.BreadVO"> 
 		select * from Product where order by #{S_like} </select> -->
 
@@ -77,11 +87,6 @@
 		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
 	</insert>
 
-	<!-- 상점 삭제 <delete id="storeDelete" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		delete </insert> -->
-
-	<!-- 상점 수정 <updateid="storeUpdate" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		update </update> -->
 
 
 	<!-- 상점 수정 -->
