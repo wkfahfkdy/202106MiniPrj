@@ -54,17 +54,20 @@ public class BreadController {
 		String s_content = req.getParameter("s_content");
 		String s_name = req.getParameter("s_name");
 		String u_id = (String) session.getAttribute("id");
-		
 		vo.setU_id(u_id);
 		
-		BreadVO vo2 = new BreadVO();
-		vo2 = dao.storeSelectMP(vo);
-		if(s_tel == null) {
-			vo.setS_tel(vo2.getS_tel());
-		} else if (s_content == null) {
-			vo.setS_content(vo2.getS_content());
-		} else if (s_name == null) {
-			vo.setS_name(vo2.getS_name());
+		String s_tel2 = req.getParameter("s_tel2");
+		String s_content2 = req.getParameter("s_content2");
+		String s_name2 = req.getParameter("s_name2");
+		
+		if(s_tel.equals("")) {
+			vo.setS_tel(s_tel2);
+		} 
+		if (s_content.equals("") ) {
+			vo.setS_content(s_content2);
+		} 
+		if (s_name.equals("")) {
+			vo.setS_name(s_name2);
 		}
 		
 		dao.storeInform(vo);
@@ -98,7 +101,6 @@ public class BreadController {
 		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
-		System.out.println(list);
 		model.addAttribute("store", list);
 		model.addAttribute("testName", testName);
 		
@@ -118,7 +120,6 @@ public class BreadController {
 		model.addAttribute("topThree", dao.storeTopThree());
 		model.addAttribute("bread", dao.breadSelectList(vo));
 		
-		System.out.println(dao.storeRCode());
 		return "bread/bread";
 	}
 	
@@ -164,14 +165,16 @@ public class BreadController {
 //	// 빵 삭제
 	@RequestMapping("/breadDeleteMenu.do")	
 	public String breadDelete(Model model,BreadVO vo, HttpServletRequest req) {
-		String b_id =req.getParameter("b_id");
-		
+		String b_id = req.getParameter("b_id");
+		vo.setB_id(b_id);
+		System.out.println("ㅁㄴㅇㄹ : " + b_id);
 		int r = dao.breadDeleteMenu(vo);
 		System.out.println(r + "건 삭제");
 		
 		
 		return "redirect:breadStoreManage.do";
 	}
+	
 	
 	//빵 입력 페이지 이동
 	@RequestMapping("/breadInsertMenu.do")
