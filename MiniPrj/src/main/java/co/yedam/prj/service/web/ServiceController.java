@@ -29,4 +29,12 @@ public class ServiceController {
 		model.addAttribute("service", dao.serviceSelectList(svo));
 		return "memberAdPopup";
 	}
+	
+	@RequestMapping("/detailService.do")
+	public String detailService(Model model, MemberVO vo , HttpServletRequest req, ServiceVO svo) {
+		
+		
+		return "detailService";
+	}
+
 }

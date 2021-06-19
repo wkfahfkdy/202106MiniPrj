@@ -215,10 +215,12 @@
 								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
 									onclick="window.open('memberAdPopup.do?id=${member.u_id}','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
 									신청</button>
-								<button class="dk-btn dk-btn-md" type="button"
-									onclick="location.href='breadStoreManage.do'">My shop</button>	
 							</div>
 						</c:if>
+						<div class="col-12">
+								<button class="dk-btn dk-btn-md" type="button"
+									onclick="location.href='breadStoreManage.do'">My shop</button>
+						</div>
 					</div>
 
 

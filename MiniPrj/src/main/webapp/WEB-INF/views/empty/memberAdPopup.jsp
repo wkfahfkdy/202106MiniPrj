@@ -85,8 +85,21 @@
 				
 			</tr>
 			</c:forEach>
+			<tr>
+				<td colspan="5" style="color:red;">※ 메인배너와 프리미엄쇼업 서비스는 중복으로 사용가능합니다. </td>
+			</tr>
+			<tr>
+				<td colspan="5" style="color:red;">※ 메인배너 1/2 중복선택불가 </td>
+			</tr>
+			<tr>
+				<td colspan="5" style="color:red;">※ 프리미엄쇼업 1/2 중복선택불가 </td>
+			</tr>
 		</table>
 	</div>
-	
+	<h4> </h4>
+	<div align="center">
+		<button class="dk-btn dk-btn-md" onclick="location.href='detailService.do'">서비스 상세보기</button>
+		<button class="dk-btn dk-btn-md" onclick="window.close()">창닫기</button>
+	</div>
 </body>
 
