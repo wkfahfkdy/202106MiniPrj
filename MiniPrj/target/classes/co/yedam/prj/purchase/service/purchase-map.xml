@@ -25,16 +25,19 @@
 	</select>
 	
 	<select id="purchaseShowUp" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
-	select d.u_id, d.s_id, d.s_name, d.i_code, d.i_regdate, d.b_image, d.rnum
-	from (select a.u_id, a.s_id, a.s_name, b.i_code, b.i_regdate, c.b_image, ROW_NUMBER() OVER(PARTITION BY a.u_id order by b.i_regdate) as rnum
-     	 from store a
-     	 join purchase b
-     	 on a.s_id = b.s_id
-     	 join product c
-      	 on a.s_id = c.s_id
-         where (i_code = 'i_003' or i_code = 'i_004')
-          ) d
-	where rnum= 1   
+	 select * from      
+  					(select d.u_id, d.s_id, d.s_name, d.i_code, d.i_regdate, d.b_image, d.rnum,d.i_pay
+				     from (select a.u_id, a.s_id, a.s_name, b.i_code, b.i_regdate, c.b_image, b.i_pay,ROW_NUMBER() OVER(PARTITION BY a.u_id order by b.i_regdate) as rnum
+     	 					from store a
+     	 					join purchase b
+     	 					on a.s_id = b.s_id
+     	 					join product c
+      	 					on a.s_id = c.s_id
+         			where (i_code = 'i_003' or i_code = 'i_004')
+          			) d
+	where rnum= 1 
+  	order by d.i_pay desc)
+  	where rownum <![CDATA[<]]> 4  
 	</select>
 	
 	<select id="purchaseSelectList" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
