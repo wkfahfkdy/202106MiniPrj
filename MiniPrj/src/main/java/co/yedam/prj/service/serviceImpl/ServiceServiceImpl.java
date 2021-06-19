@@ -51,4 +51,10 @@ public class ServiceServiceImpl implements ServiceService {
 		return sqlSession.selectList("ceoServiceList", vo);
 	}
 
+	@Override
+	public ServiceVO serviceSelectOne(ServiceVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("serviceSelectOne", vo);
+	}
+
 }

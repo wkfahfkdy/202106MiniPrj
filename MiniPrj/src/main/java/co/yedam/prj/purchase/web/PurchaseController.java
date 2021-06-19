@@ -40,6 +40,7 @@ public class PurchaseController {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		String icode = req.getParameter("i_code");
+		String scode = req.getParameter("s_code");
 		
 		mvo.setU_id(id);
 		mvo = Dao.memberSelectSID(mvo);
@@ -51,6 +52,7 @@ public class PurchaseController {
 		vo.setI_code(icode);
 		vo.setS_id(mvo.getS_id());
 		vo.setI_pay(svo.getI_pay());
+		vo.setS_code(Integer.parseInt(scode));
 		
 		if(svo.getWeek() == 2) {
 			int r = dao.insertPurchase(vo);

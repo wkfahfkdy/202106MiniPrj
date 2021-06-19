@@ -46,10 +46,10 @@
       });
       
    }
-  function purchase(icode) {
+  function purchase(icode, scode) {
 	  let result = confirm("결제하시겠습니까?")
 	  if(result) {
-		  opener.parent.location.href="purchaseInsert.do?i_code="+icode;
+		  opener.parent.location.href="purchaseInsert.do?i_code="+icode+"&s_code="+scode;
 		  alert("결제완료 되었습니다.");
 	      window.close();
 	  }else {
@@ -81,7 +81,7 @@
 				<td><button class="dk-btn dk-btn-md" style="width:100%" 
 				onclick="iamport('${service.i_code}')">API결제</button></td>
 				<td><button class="dk-btn dk-btn-md" style="width:100%" 
-				onclick="purchase('${service.i_code}')">가상결제</button></td>
+				onclick="purchase('${service.i_code}','${service.s_code }')">가상결제</button></td>
 				
 			</tr>
 			</c:forEach>
