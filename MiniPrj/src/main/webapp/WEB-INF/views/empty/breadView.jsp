@@ -114,15 +114,15 @@ z-index:999;
 			<div class="container">
 				<div>
 					<img src="">
-				<h1>댓글창 가져오기</h1>
+				<h1> </h1>
 				</div>
-				
+				<br>
 				<div>
 					<div>
 							<!-- 댓글 -->
 						<div class = "inRp">
 							<table style="width:100%; border-bottom: 1px solid;">
-								<tr><td><h5>댓글123</h5></td></tr>
+								<tr><td><h5>댓글</h5></td></tr>
 							</table>
 							<!-- 댓글 리스트 출력 -->
 							<c:forEach items="${replyList }" var="rlist">
