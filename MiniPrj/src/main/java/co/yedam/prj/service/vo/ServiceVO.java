@@ -6,6 +6,7 @@ public class ServiceVO {
 	private int i_pay;
 	private int week;
 	private String u_id;
+	private int s_code;
 	
 	public String getI_code() {
 		return i_code;
@@ -36,6 +37,12 @@ public class ServiceVO {
 	}
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
+	}
+	public int getS_code() {
+		return s_code;
+	}
+	public void setS_code(int s_code) {
+		this.s_code = s_code;
 	}
 	
 }

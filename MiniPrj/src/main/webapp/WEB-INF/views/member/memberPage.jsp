@@ -148,8 +148,8 @@
 	</div>
 	
 	<div align="center">
-	
-		<table style="width:1200px;text-align:center;" class="table">
+		<div>
+			<table style="width:1200px;text-align:center;" class="table">
 						<tr>
 							<th id="td1">마일리지+1000UP</th>
 							<th id="td1">마일리지-1000DOWN</th>		
@@ -163,8 +163,13 @@
 							<td id="td2"><button class="dk-btn dk-btn-md" type="button" id="button"onclick="manualUp2('${member.u_id }')">+수동!</button></td>
 							<td id="td2"><button class="dk-btn dk-btn-md" type="button" id="button" onclick="manualDown2('${member.u_id }')">-수동!</button></td>
 							</tr>
-		</table>
+			</table>
+		</div>
+		<div >
+			<button class="dk-btn dk-btn-md" onclick="window.history.back()">뒤로가기</button>
+		</div>
 	</div>
+
 	<div>
 		<form id="frm" name="frm" action="memberMileageUp.do" method="post">
 			<input type="hidden" id="u_id" name="u_id">

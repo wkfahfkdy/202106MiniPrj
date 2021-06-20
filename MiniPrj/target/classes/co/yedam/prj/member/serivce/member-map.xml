@@ -12,6 +12,11 @@
 		VALUES (#{u_id}, #{u_pwd}, #{u_name}, #{u_adr}, #{u_adrcode}, #{u_tel}, #{u_mail}, 'Y', #{s_file}, #{r_code})
 	</insert>
 	
+	<!-- 서비스 취소되면 서비스금액만큼 차감 -->
+	<update id="sPayUpdate" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set S_PAY = S_PAY - #{i_pay} where u_id = #{u_id}
+	</update>
+	
 	<!-- 서비스 연장 결제완료 되면 금액 업데이트 -->
 	<update id="updatePay" parameterType="co.yedam.prj.member.vo.MemberVO">
 		update member set S_PAY = S_PAY + #{i_pay} where u_id = #{u_id}
