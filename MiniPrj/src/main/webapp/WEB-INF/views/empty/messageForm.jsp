@@ -69,7 +69,7 @@ function formCheck(){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input size="30" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				<input size="27" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td>
 				<input size="10" type="text" name="receiver_name" id="receiver_name" >
