@@ -78,7 +78,7 @@ public class revBoardController2 {
 				e.printStackTrace();
 			}
 			
-				SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+				SimpleDateFormat format1 = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 				Date time = new Date();
 				String time1 = format1.format(time);
 				
@@ -103,7 +103,7 @@ public class revBoardController2 {
 					HttpSession session=req.getSession();
 					session.setAttribute("image", vo.getRb_image());
 					model.addAttribute("review",vo);
-				}else {
+				}else if(k < 2) {
 					int r = dao.insertRevBoard(vo);
 					System.out.println(r + "건 입력1");
 					

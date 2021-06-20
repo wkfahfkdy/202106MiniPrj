@@ -7,13 +7,13 @@
 	</select>
 	
 	<insert id="revBoardInsert2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
-	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values(seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
+	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values (seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
 	</insert>
 	
-	<select id="revCount" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+	<select id="revCount" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2" resultType="int">
 		select count(*)
 		from review
-		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  to_date(RB_REGDATE, 'yyyy-mm-dd hh24:mi::ss') and to_date(RB_REGDATE, 'yyyy-mm-dd hh24:mi::ss')  <![CDATA[<]]> next_day(SYSDATE, 1);
+		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss') and to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss')  <![CDATA[<]]> next_day(SYSDATE, 1)
 	</select>
 	
 	<!-- 사진 리뷰페이지에서 추가 

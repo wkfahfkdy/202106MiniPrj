@@ -20,17 +20,6 @@
 			alert("취소되었습니다.");
 		}
 	}
-	
-	function purchaseUpload(){
-		let result = confirm("-----경고----- \n 1300X800 사이즈의 사진만 업로드 가능합니다.\n 확인하셨습니까? ")
-		if(result) {
-			alert("파일이 등록되었습니다.");
-			frm.submit();
-			window.close();
-		}else {
-			alert("취소되었습니다.");
-		}
-	
 	function purchaseDelete(icode){
 		let result = confirm("서비스를 취소하시겠습니까?")
 		if(result) {
@@ -41,6 +30,18 @@
 				alert("취소되었습니다.");
 			}	
 		
+	}
+	function purchaseUpload(){
+		let result = confirm("-----경고----- \n 1300X800 사이즈의 사진만 업로드 가능합니다.\n 확인하셨습니까? ")
+		if(result) {
+			alert("파일이 등록되었습니다.");
+			frm.submit();
+			window.close();
+		}else {
+			alert("취소되었습니다.");
+		}
+	
+	
 	}
 </script>
 </head>
@@ -72,8 +73,8 @@
 					<td><input  type="file" id="p_image" name="p_image" style="width:200px;" /></td>
 					<td><button class="dk-btn dk-btn-md" onclick="purchaseUpload()">업로드</button></td>
 				</c:if>
-				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')">서비스 연장</button></td>
-				<td><button class="dk-btn dk-btn-md" onclick="purchaseDelete('${purchase.i_code}')">서비스 취소</button></td>
+				<td><button type="button" class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')" >서비스 연장</button></td>
+				<td><button type="button" class="dk-btn dk-btn-md" onclick="purchaseDelete('${purchase.i_code}')" >서비스 취소</button></td>
 			</tr>	
 			</c:forEach>
 		</table>
