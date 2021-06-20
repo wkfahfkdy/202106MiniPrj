@@ -27,12 +27,12 @@
 </div>
 
 <!-- 슬라이드부분 -->
-
+<div style="margin-top: -80px;">
 <div class="swiper-container dk-swiper dk-swiper-slides-auto"
 	data-swiper-slidesAuto="true" data-swiper-pagination="true"
 	data-swiper-speed="600" data-swiper-space="30"
 	data-swiper-autoHeight="true" data-swiper-loop="true">
-	
+		
 	<div class="swiper-wrapper">
 		<c:forEach items="${purchaseMainList }" var="purchaseMainList">
 			<div class="swiper-slide text-center">
@@ -47,7 +47,7 @@
 	</div>
 	<div class="swiper-pagination"></div>
 </div>
-
+</div>
 
 
 <!-- 이미지부분 -->
