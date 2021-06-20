@@ -20,7 +20,17 @@
 			alert("취소되었습니다.");
 		}
 	}
-	
+	function purchaseDelete(icode){
+		let result = confirm("서비스를 취소하시겠습니까?")
+		if(result) {
+			alert("서비스가 취소되었습니다.");
+			  	location.href="purchaseDelete.do?i_code="+icode;
+				window.close();
+			}else {
+				alert("취소되었습니다.");
+			}	
+		
+	}
 	function purchaseUpload(){
 		let result = confirm("-----경고----- \n 1300X800 사이즈의 사진만 업로드 가능합니다.\n 확인하셨습니까? ")
 		if(result) {
@@ -30,7 +40,8 @@
 		}else {
 			alert("취소되었습니다.");
 		}
-		
+	
+	
 	}
 </script>
 </head>
@@ -49,6 +60,7 @@
 				<th>메인 배너 사진</th>
 				<th>업로드</th>
 				<th>서비스 연장</th>
+				<th>서비스 취소</th>
 			</tr>
 			<c:forEach items="${purchaseList }" var="purchase">
 				<input type="hidden" id="p_id" name="p_id" value="${purchase.p_id}">
@@ -58,10 +70,11 @@
 				<td><x:formatDate value="${purchase.i_regdate }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>
 				<td><x:formatDate value="${purchase.e_date }" pattern="yyyy-MM-dd [E] a hh:mm:ss" /></td>
 				<c:if test="${purchase.i_code eq 'i_001' or purchase.i_code eq 'i_002'}">
-					<td><input  type="file" id="p_image" name="p_image" style="width:300px;" /></td>
+					<td><input  type="file" id="p_image" name="p_image" style="width:200px;" /></td>
 					<td><button class="dk-btn dk-btn-md" onclick="purchaseUpload()">업로드</button></td>
 				</c:if>
-				<td><button class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')">서비스 연장</button></td>
+				<td><button type="button" class="dk-btn dk-btn-md" onclick="purchaseUpdate('${purchase.i_code}')" >서비스 연장</button></td>
+				<td><button type="button" class="dk-btn dk-btn-md" onclick="purchaseDelete('${purchase.i_code}')" >서비스 취소</button></td>
 			</tr>	
 			</c:forEach>
 		</table>

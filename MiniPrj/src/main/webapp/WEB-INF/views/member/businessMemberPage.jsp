@@ -109,7 +109,10 @@
 				</tr>
 			</table>
 		</div>
+		<div >
+			<button class="dk-btn dk-btn-md" onclick="window.history.back()">뒤로가기</button>
+		</div>
 	</div>
-
+	
 </body>
 </html>

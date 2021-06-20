@@ -146,5 +146,28 @@ public class PurchaseController {
 			
 			return "redirect:memberMypage.do";
 		}
+		
+		@RequestMapping("/purchaseDelete.do")
+		public String purchaseDelete(Model model, PurchaseVO vo, HttpServletRequest req, MemberVO mvo, ServiceVO svo) {
+			
+			HttpSession session = req.getSession();
+			String id = (String) session.getAttribute("id");
+			String icode = req.getParameter("i_code");
+			vo.setU_id(id);
+			vo.setI_code(icode);
+			
+			vo = dao.purchaseSelect(vo);
+			
+			mvo.setU_id(id);
+			mvo.setI_pay(vo.getI_pay());
+			
+			int r = Dao.sPayUpdate(mvo);
+			System.out.println(r + "건 수정1");
+			
+			int k =  dao.deletePurchase(vo);
+			System.out.println(k + "건 수정2");
+			
+			return "redirect:memberMypage.do";
+		}
 	
 }

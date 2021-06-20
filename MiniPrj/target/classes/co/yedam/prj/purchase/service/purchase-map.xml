@@ -62,4 +62,8 @@
 	<update id="purchaseUpdateT" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
 		update purchase set E_DATE = E_DATE+28, I_PAY = I_PAY + #{i_pay} where p_id = #{p_id}
 	</update>
+	
+	<delete id="deletePurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		delete from purchase where u_id=#{u_id} and i_code=#{i_code}
+	</delete>
 </mapper>

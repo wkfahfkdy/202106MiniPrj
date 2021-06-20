@@ -45,38 +45,39 @@
         </c:if>
         <c:if test="${id ne null and id eq 'admin'}">
         <li>
+        	<a href="memberLogOut.do">
+                Logout
+            </a>
+        </li> 
+        <li>
         	<a href="memberInfoListPaging.do">
-                MyPage
+				<img style="width: 20px; height: 20px;" src="resources/bin/menu2.png" alt="">
             </a>
         </li>   
         <li>
         	<a href="receiverPaging.do">
-                MS
+				<img style="width: 20px; height: 20px;" src="resources/bin/menu1.png" alt="">
             </a>
         </li>  
-        <li>
-        	<a href="memberLogOut.do">
-                Logout
-            </a>
-        </li>    
+   
+        
         </c:if>
          <c:if test="${id ne null and id ne 'admin'}">
-        <li>
-        	<a href="memberMypage.do">
-                MyPage
-            </a>
-        </li>   
-        <li>
-        	<a href="receiverPaging.do">
-                MS
-            </a>
-        </li>  
-        <li>
+         <li>
         	<a href="memberLogOut.do">
                 Logout
             </a>
         </li>    
-           
+                <li>
+        	<a href="memberMypage.do">
+				<img style="width: 20px; height: 20px;" src="resources/bin/menu2.png" alt="">
+            </a>
+        </li>  
+        <li>
+        	<a href="receiverPaging.do">
+				<img style="width: 20px; height: 20px;" src="resources/bin/menu1.png" alt="">
+            </a>
+        </li> 
         </c:if>
         
           </ul>

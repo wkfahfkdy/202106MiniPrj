@@ -34,11 +34,11 @@ function formCheck(){
 	let sender_name = $('#sender_name').val();
 	let content = $('#content').val();
 	
-	if(frm.content.value == ""){
-		alert("내용을입력해주세요!");
-		frm.content.focus();
-		return false;
-	}
+	//if(frm.content.value == ""){
+	//	alert("내용을입력해주세요!");
+	//	frm.content.focus();
+	//	return false;
+	//}
 	
 	$.ajax({
 		url : 'messageInsert.do',
@@ -69,7 +69,7 @@ function formCheck(){
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input size="30" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				<input size="27" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
 			<td>
 				<input size="10" type="text" name="receiver_name" id="receiver_name" >
