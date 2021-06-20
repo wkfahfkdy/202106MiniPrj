@@ -310,7 +310,7 @@
 
 
 			<!-- 지도 api -->
-			<div class="container" align="center" style="padding-top: 200px;">
+			<div class="container" align="center" style="padding-top: 100px;">
 				<div align="center" id="map" style="width: 1000px; height: 400px;"></div>
 			</div>
 			<div>
