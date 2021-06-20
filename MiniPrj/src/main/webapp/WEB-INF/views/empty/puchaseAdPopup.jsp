@@ -30,7 +30,7 @@
 				alert("취소되었습니다.");
 			}	
 		
-	
+	}
 	function purchaseUpload(){
 		let result = confirm("-----경고----- \n 1300X800 사이즈의 사진만 업로드 가능합니다.\n 확인하셨습니까? ")
 		if(result) {
