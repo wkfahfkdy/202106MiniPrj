@@ -13,11 +13,7 @@
 	<select id="revCount" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2" resultType="int">
 		select count(*)
 		from review
-<<<<<<< HEAD
-		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  to_date(RB_REGDATE, 'yyyy-mm-dd hh24:mi::ss') and to_date(RB_REGDATE, 'yyyy-mm-dd hh24:mi::ss')  <![CDATA[<]]> next_day(SYSDATE, 1)
-=======
 		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss') and to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss')  <![CDATA[<]]> next_day(SYSDATE, 1)
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
 	</select>
 	
 	<!-- 사진 리뷰페이지에서 추가-->
