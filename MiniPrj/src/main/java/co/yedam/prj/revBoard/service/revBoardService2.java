@@ -2,7 +2,7 @@ package co.yedam.prj.revBoard.service;
 
 import java.util.List;
 
-
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -35,4 +35,24 @@ public interface revBoardService2 {
 	public int deleteReview(revBoardVO2 vo);
 
 	public int UpdateReview(revBoardVO2 vo);
+
+	public int imageUpload1(revBoardVO2 vo);
+
+	public int imageUpload2(revBoardVO2 vo);
+	
+	public int imageUpload3(revBoardVO2 vo);
+	
+	public int imageUpload4(revBoardVO2 vo);
+
+	public int imageDel1(revBoardVO2 vo);
+	
+	public int imageDel2(revBoardVO2 vo);
+	
+	public int imageDel3(revBoardVO2 vo);
+	
+	public int imageDel4(revBoardVO2 vo);
+
+	public int reviewLikeUp(revBoardVO2 vo);
+
+	public int commentMileage(MemberVO vo);
 }

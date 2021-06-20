@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
@@ -103,4 +104,57 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	
 	
 
-}	
+	@Override
+	public int imageUpload1(revBoardVO2 vo) {
+		
+		return sqlSession.update("imageUpload1",vo);
+	}
+	
+	
+	@Override
+	public int imageUpload2(revBoardVO2 vo) {
+		
+		return sqlSession.update("imageUpload2",vo);
+	}
+	@Override
+	public int imageUpload3(revBoardVO2 vo) {
+		
+		return sqlSession.update("imageUpload3",vo);
+	}
+	@Override
+	public int imageUpload4(revBoardVO2 vo) {
+		
+		return sqlSession.update("imageUpload4",vo);
+	}
+
+	
+	@Override
+	public int imageDel1(revBoardVO2 vo) {
+		return sqlSession.update("imageDel1",vo);
+	}
+	
+	@Override
+	public int imageDel2(revBoardVO2 vo) {
+		return sqlSession.update("imageDel2",vo);
+	}
+	
+	@Override
+	public int imageDel3(revBoardVO2 vo) {
+		return sqlSession.update("imageDel3",vo);
+	}
+	
+	@Override
+	public int imageDel4(revBoardVO2 vo) {
+		return sqlSession.update("imageDel4" ,vo);
+	}
+	
+	@Override
+	public int reviewLikeUp(revBoardVO2 vo) {
+		return sqlSession.update("revBoardLikeUp",vo);
+	}
+	
+	@Override
+	public int commentMileage(MemberVO vo) {
+		return sqlSession.update("commentMileage",vo);
+	}
+}	 

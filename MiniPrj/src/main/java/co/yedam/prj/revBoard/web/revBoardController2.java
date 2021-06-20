@@ -63,7 +63,7 @@ public class revBoardController2 {
 	public String revBoardSubmit(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp, MemberVO mvo) {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -99,7 +99,7 @@ public class revBoardController2 {
 				if(k >= 2) {
 					int r = dao.insertRevBoard(vo);
 					System.out.println(r + "건 입력1");
-					
+				
 					HttpSession session=req.getSession();
 					session.setAttribute("image", vo.getRb_image());
 					model.addAttribute("review",vo);
@@ -168,7 +168,7 @@ public class revBoardController2 {
 	
 	
 	@RequestMapping("commentInsert.do")
-	public String commentInsert(revBoardVO2 vo2,RevCommentVO vo) {
+	public String commentInsert(revBoardVO2 vo2,RevCommentVO vo,MemberVO vo3) {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yy.MM.dd HH:mm:ss");
 		Date time = new Date();
 		String time1 = format1.format(time);
@@ -189,7 +189,7 @@ public class revBoardController2 {
 		
 		
 		dao.insertRevComment(vo);
-		
+		dao.commentMileage(vo3);
 		
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	
@@ -209,4 +209,40 @@ public class revBoardController2 {
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	}
 	
+	
+	@RequestMapping("/imageDel1.do")
+	public String imageDel1(revBoardVO2 vo) {
+		dao.imageDel1(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel2.do")
+	public String imageDel2(revBoardVO2 vo) {
+		dao.imageDel2(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel3.do")
+	public String imageDel3(revBoardVO2 vo) {
+		dao.imageDel3(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel4.do")
+	public String imageDel4(revBoardVO2 vo) {
+		dao.imageDel4(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "review/empty/reviewClick/empty123";
+	}
+	
+	@RequestMapping("/reviewLikeUp.do")
+	public String reviewLikeUp(revBoardVO2 vo) {
+		
+		dao.reviewLikeUp(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
 }
