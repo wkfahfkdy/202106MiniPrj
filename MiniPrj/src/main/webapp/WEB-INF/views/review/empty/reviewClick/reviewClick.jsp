@@ -986,6 +986,7 @@ article {
 				alert("취소되었습니다.");
 			}
 		}
+	 /*
 	 function reComment(cnum,id,rbnum){
 		 console.log(cnum,id);
 		 updateReComment.u_id.value=id;
@@ -995,7 +996,7 @@ article {
 		 console.log(a);
 		 updateReComment.re_comment.value=a;
 		 updateReComment.submit();
-	 }
+	 }*/
 	</script>
 
 
@@ -1148,12 +1149,13 @@ if($("#dis").css("display") == "none"){
 			<input type="hidden" id="c_num" name="c_num">
 			<input type="hidden" id="rb_num" name="rb_num">
 		</form>
+		<!-- 
 		<form id="updateReComment" name="updateReComment" action="updateReComment.do" method="post"  accept-charset="UTF-8">
 			<input type="hidden" id="u_id" name="u_id">
 			<input type="hidden" id="c_num" name="c_num">
 			<input type="hidden" id="re_comment" name="re_comment">
 			<input type="hidden" id="rb_num" name="rb_num">
-		</form> 
+		</form>  -->
  		
 	
 	<!--====== Javascripts & Jquery ======-->

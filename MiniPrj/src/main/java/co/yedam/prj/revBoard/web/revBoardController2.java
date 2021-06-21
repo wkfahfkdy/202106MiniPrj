@@ -24,7 +24,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import co.yedam.prj.member.serivce.MemberService;
 import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
-import co.yedam.prj.revBoard.vo.ReCommentVO;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -141,7 +140,7 @@ public class revBoardController2 {
 	}
 	
 	@RequestMapping("reviewClick.do")
-	public String reviewClick(Model model,revBoardVO2 vo,HttpServletRequest req,RevCommentVO vo2,ReCommentVO vo4){
+	public String reviewClick(Model model,revBoardVO2 vo,HttpServletRequest req,RevCommentVO vo2){
 		dao.revBoardHit(vo);
 		
 		
@@ -149,6 +148,7 @@ public class revBoardController2 {
 		list=dao.revCommentList(vo2);
 	//	List<ReCommentVO> list2= new ArrayList<ReCommentVO>();
 		
+	
 		for (RevCommentVO revCommentVO : list) {
 		System.out.println(revCommentVO.getC_comment());
 		System.out.println(revCommentVO.getU_id());
@@ -193,7 +193,7 @@ public class revBoardController2 {
 		
 		dao.insertRevComment(vo);
 		dao.commentMileage(vo3);
-		dao.commentDefault(vo);
+		//dao.commentDefault(vo);
 		
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	
@@ -258,7 +258,7 @@ public class revBoardController2 {
 	}
 	
 	
-	@RequestMapping("/updateReComment.do")
+	/*@RequestMapping("/updateReComment.do")
 	public String insertReComment(ReCommentVO vo) {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yy.MM.dd HH:mm:ss");
 		Date time = new Date();
@@ -267,5 +267,5 @@ public class revBoardController2 {
 		
 		dao.commentUpdate(vo);
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
-	}
+	}*/
 }

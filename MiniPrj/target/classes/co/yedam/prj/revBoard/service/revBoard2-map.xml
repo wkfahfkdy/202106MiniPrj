@@ -105,7 +105,7 @@
 		update review set rb_title=#{rb_title} , rb_content= #{rb_content} where rb_num= #{rb_num}
 	</update>
 	
-	<!-- 리뷰 작성시 코멘트 답글 default -->
+	<!-- 리뷰 작성시 코멘트 답글 default 
 	<insert id="commentDefault" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
 		insert into review_recomment (rb_num,c_num) values (#{rb_num}, c_num.currval)
 	</insert>
@@ -114,9 +114,9 @@
 		select * from reveiw_recomment
 	</select>
 	
-	<!-- 리뷰 코멘트 답글 -->
+	리뷰 코멘트 답글 
 	<update id="commentUpdate" parameterType="co.yedam.prj.revBoard.vo.ReCommentVO">
 	update review_recomment set u_id=#{u_id}, re_comment=#{re_comment} , c_date=#{c_date} where rb_num=#{rb_num} and c_num=#{c_num}
-	</update>
+	</update>-->
 	
 </mapper>

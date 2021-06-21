@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
-import co.yedam.prj.revBoard.vo.ReCommentVO;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -164,9 +163,15 @@ public class revBoardServiceImpl2 implements revBoardService2{
 		
 		return sqlSession.delete("delComment",vo);
 	}
+	/*
+	@Override
+	public int commentDefault(RevCommentVO vo4) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
-	
+
 	@Override 
 	public int commentUpdate(ReCommentVO vo) {
 		
@@ -184,4 +189,5 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	public List<ReCommentVO> recommentList(){
 		return sqlSession.selectList("recommentList");
 	}
+	*/
 }	 

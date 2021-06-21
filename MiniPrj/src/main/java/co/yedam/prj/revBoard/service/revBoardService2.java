@@ -3,7 +3,6 @@ package co.yedam.prj.revBoard.service;
 import java.util.List;
 
 import co.yedam.prj.member.vo.MemberVO;
-import co.yedam.prj.revBoard.vo.ReCommentVO;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -59,11 +58,11 @@ public interface revBoardService2 {
 
 	public int delComment(RevCommentVO vo);
 
-
+/*
 	public int commentDefault(RevCommentVO vo4);
 
 	public int commentUpdate(ReCommentVO vo);
 
-	public List<ReCommentVO> recommentList();
+	public List<ReCommentVO> recommentList();*/
 
 }
