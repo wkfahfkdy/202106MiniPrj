@@ -20,7 +20,7 @@
                         <input style = "width:70%" class="form-control" type="text" name="u_id" value="" placeholder="Your id">
                     </div><br>
                     <div class="col-md-6">
-                        <input style = "width:70%" type="password" name="u_pwd" class="form-control" aria-describedby="emailHelp" placeholder="Password">
+                        <input style = "width:70%" type="password" name="u_pwd" class="form-control" aria-describedby="emailHelp" placeholder="Password" onkeypress="if(event.keyCode==13){memberLoginB()}">
                     </div>
                     <div class="col-12">
                         <div class="dk-result"></div>
