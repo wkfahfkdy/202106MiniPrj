@@ -2,31 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.yedam.prj.member.serivce.member-map">
 	<insert id="insertPurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
-		insert into purchase (p_id, u_id, s_id, i_code, i_regdate, e_date, i_pay)
-		values (p_seq.nextval, #{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+14, #{i_pay})
+		insert into purchase (p_id, u_id, s_id, i_code, i_regdate, e_date, i_pay, s_code)
+		values (p_seq.nextval, #{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+14, #{i_pay}, #{s_code})
 	</insert>
 	
 	<insert id="insertPurchaseT" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
-		insert into purchase (p_id, u_id, s_id, i_code, i_regdate, e_date, i_pay)
-		values (p_seq.nextval, #{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+28, #{i_pay})
+		insert into purchase (p_id, u_id, s_id, i_code, i_regdate, e_date, i_pay, s_code)
+		values (p_seq.nextval, #{u_id}, #{s_id}, #{i_code}, SYSDATE, SYSDATE+28, #{i_pay}, #{s_code})
 	</insert>
 	
 	<select id="purchaseMainList"  resultType="co.yedam.prj.purchase.vo.PurchaseVO" >
-		select * from purchase where ROWNUM <![CDATA[<]]>= 4 and (i_code = 'i_001' or i_code = 'i_002')
-		order by i_pay DESC
+		    SELECT *
+    		FROM (
+            	   SELECT 
+           		   ROW_NUMBER() OVER (PARTITION BY s_id ORDER BY i_pay DESC) AS RNUM,
+                   u_id, s_id, i_code, i_regdate, e_date, i_pay, p_id, p_image
+                   FROM purchase
+                   where (i_code = 'i_001' or i_code = 'i_002')
+                  )  
+    		WHERE RNUM = 1 and ROWNUM  <![CDATA[<=]]> 4
+    		order by i_pay DESC
 	</select>
 	
 	<select id="purchaseShowUp" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
-	select d.u_id, d.s_id, d.s_name, d.i_code, d.i_regdate, d.b_image, d.rnum
-	from (select a.u_id, a.s_id, a.s_name, b.i_code, b.i_regdate, c.b_image, ROW_NUMBER() OVER(PARTITION BY a.u_id order by b.i_regdate) as rnum
-     	 from store a
-     	 join purchase b
-     	 on a.s_id = b.s_id
-     	 join product c
-      	 on a.s_id = c.s_id
-         where (i_code = 'i_003' or i_code = 'i_004')
-          ) d
-	where rnum= 1   
+	 select * from      
+  					(select d.u_id, d.s_id, d.s_name, d.i_code, d.i_regdate, d.b_image, d.rnum,d.i_pay
+				     from (select a.u_id, a.s_id, a.s_name, b.i_code, b.i_regdate, c.b_image, b.i_pay,ROW_NUMBER() OVER(PARTITION BY a.u_id order by b.i_regdate) as rnum
+     	 					from store a
+     	 					join purchase b
+     	 					on a.s_id = b.s_id
+     	 					join product c
+      	 					on a.s_id = c.s_id
+         			where (i_code = 'i_003' or i_code = 'i_004')
+          			) d
+	where rnum= 1 
+  	order by d.i_pay desc)
+  	where rownum <![CDATA[<]]> 4  
 	</select>
 	
 	<select id="purchaseSelectList" parameterType="co.yedam.prj.purchase.vo.PurchaseVO" resultType="co.yedam.prj.purchase.vo.PurchaseVO">
@@ -51,4 +62,8 @@
 	<update id="purchaseUpdateT" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
 		update purchase set E_DATE = E_DATE+28, I_PAY = I_PAY + #{i_pay} where p_id = #{p_id}
 	</update>
+	
+	<delete id="deletePurchase" parameterType="co.yedam.prj.purchase.vo.PurchaseVO">
+		delete from purchase where u_id=#{u_id} and i_code=#{i_code}
+	</delete>
 </mapper>

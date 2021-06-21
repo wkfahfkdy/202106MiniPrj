@@ -3,7 +3,6 @@ package co.yedam.prj.revBoard.web;
 
 
 import java.io.IOException;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,13 +16,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import co.yedam.prj.member.serivce.MemberService;
+import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
@@ -33,6 +32,9 @@ public class revBoardController2 {
 	
 	@Autowired
 	private revBoardService2 dao;
+	
+	@Autowired
+	private MemberService Mdao;
 	
 	@RequestMapping("/review2.do")
 	public String revBoardList(Model model,RevCommentVO vo) {
@@ -58,10 +60,10 @@ public class revBoardController2 {
 	
 	// 由щ럭 �씠誘몄� ���옣寃쎈줈 諛� vo 媛� ���옣
 	@RequestMapping("/revBoardSubmit.do")
-	public String revBoardSubmit(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) {
+	public String revBoardSubmit(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp, MemberVO mvo) {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -76,9 +78,7 @@ public class revBoardController2 {
 				e.printStackTrace();
 			}
 			
-			
-			
-				SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+				SimpleDateFormat format1 = new SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
 				Date time = new Date();
 				String time1 = format1.format(time);
 				
@@ -93,15 +93,30 @@ public class revBoardController2 {
 				vo.setRb_title(title);
 				vo.setRb_image(fileName);
 				vo.setRb_regdate(time1);
-			
-				System.out.println(time1);
 				
-				int r=dao.insertRevBoard(vo);
+				int k = dao.revCount(vo);
 				
-				HttpSession session=req.getSession();
-				session.setAttribute("image", vo.getRb_image());
-				model.addAttribute("review",vo);
-	
+				if(k >= 2) {
+					int r = dao.insertRevBoard(vo);
+					System.out.println(r + "건 입력1");
+				
+					HttpSession session=req.getSession();
+					session.setAttribute("image", vo.getRb_image());
+					model.addAttribute("review",vo);
+				}else if(k < 2) {
+					int r = dao.insertRevBoard(vo);
+					System.out.println(r + "건 입력1");
+					
+					mvo.setU_id(id);
+					int i = Mdao.revMileageUp(mvo);
+					System.out.println(i + "건 입력2");
+					
+					HttpSession session=req.getSession();
+					session.setAttribute("image", vo.getRb_image());
+					model.addAttribute("review",vo);
+				}
+				
+				
 		return "redirect:review2.do";
 	}
 	
@@ -153,7 +168,7 @@ public class revBoardController2 {
 	
 	
 	@RequestMapping("commentInsert.do")
-	public String commentInsert(revBoardVO2 vo2,RevCommentVO vo) {
+	public String commentInsert(revBoardVO2 vo2,RevCommentVO vo,MemberVO vo3) {
 		SimpleDateFormat format1 = new SimpleDateFormat ( "yy.MM.dd HH:mm:ss");
 		Date time = new Date();
 		String time1 = format1.format(time);
@@ -174,7 +189,7 @@ public class revBoardController2 {
 		
 		
 		dao.insertRevComment(vo);
-		
+		dao.commentMileage(vo3);
 		
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	
@@ -194,4 +209,40 @@ public class revBoardController2 {
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	}
 	
+	
+	@RequestMapping("/imageDel1.do")
+	public String imageDel1(revBoardVO2 vo) {
+		dao.imageDel1(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel2.do")
+	public String imageDel2(revBoardVO2 vo) {
+		dao.imageDel2(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel3.do")
+	public String imageDel3(revBoardVO2 vo) {
+		dao.imageDel3(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/imageDel4.do")
+	public String imageDel4(revBoardVO2 vo) {
+		dao.imageDel4(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	@RequestMapping("/test.do")
+	public String test() {
+		return "review/empty/reviewClick/empty123";
+	}
+	
+	@RequestMapping("/reviewLikeUp.do")
+	public String reviewLikeUp(revBoardVO2 vo) {
+		
+		dao.reviewLikeUp(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
 }

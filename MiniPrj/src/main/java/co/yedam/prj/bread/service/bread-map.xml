@@ -72,7 +72,7 @@
 		on a.s_id = b.s_id
 		join member c
 		on a.u_id = c.u_id
-        order by s_like
+        order by b_like
 	</select>
 	
 	<!-- 개인 정보 수정 시 store 테이블 주소 수정 -->

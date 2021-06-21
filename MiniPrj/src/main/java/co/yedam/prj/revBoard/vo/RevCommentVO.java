@@ -7,12 +7,20 @@ public class RevCommentVO {
 	private int c_num;
 	private String c_recomment;
 	private int rb_num;
+	private String star;
 	private int count;
-	
 	
 
 	
 	
+	public String getStar() {
+		return star;
+	}
+
+	public void setStar(String star) {
+		this.star = star;
+	}
+
 	public int getCount() {
 		return count;
 	}

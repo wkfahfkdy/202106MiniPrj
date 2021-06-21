@@ -7,24 +7,48 @@
 	</select>
 	
 	<insert id="revBoardInsert2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
-	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values(seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
+	insert into review (rb_num,rb_title,u_id,rb_content,rb_image,rb_regdate) values (seqrb_num.nextval,#{rb_title},#{u_id},#{rb_content},#{rb_image},#{rb_regdate})
 	</insert>
 	
+	<select id="revCount" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2" resultType="int">
+		select count(*)
+		from review
+		where u_id = #{u_id} and TRUNC(SYSDATE,'IW')  <![CDATA[<]]>  to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss') and to_date(#{rb_regdate}, 'YYYY-MM-DD hh24:mi:ss')  <![CDATA[<]]> next_day(SYSDATE, 1)
+	</select>
 	
-	<!-- 사진 리뷰페이지에서 추가 
-	<update id="">
+	<!-- 사진 리뷰페이지에서 추가-->
+	<update id="imageUpload1" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 		update review set rb_image1 = #{rb_image1} where rb_num=#{rb_num}
 	</update>
 	
-	<update id="">
+	<update id="imageUpload2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 		update review set rb_image2 = #{rb_image2} where rb_num=#{rb_num}
 	</update>
-	
-	<update id="">
+	<update id="imageUpload3" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 		update review set rb_image3 = #{rb_image3} where rb_num=#{rb_num}
 	</update>
 	
-	 END 사진 추가 -->
+	<update id="imageUpload4" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		update review set rb_image4 = #{rb_image4} where rb_num=#{rb_num}
+	</update>
+	
+	<!-- 사진 리뷰페이지에서 null -->
+	<update id="imageDel1" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		update review set rb_image1 = null where rb_num=#{rb_num}
+	</update>
+	
+	<update id="imageDel2" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		update review set rb_image2 = null where rb_num=#{rb_num}
+	</update>
+	<update id="imageDel3" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		update review set rb_image3 = null where rb_num=#{rb_num}
+	</update>
+	
+	<update id="imageDel4" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
+		update review set rb_image4 = null where rb_num=#{rb_num}
+	</update>
+	
+	 <!-- END 사진 추가 -->
 	<update id="revBoardLikeUp" parameterType="co.yedam.prj.revBoard.vo.revBoardVO2">
 	update review set rb_like= rb_like +1 where rb_num=#{rb_num}
 	</update>
@@ -46,12 +70,17 @@
 		select count(*) from review where u_id = #{u_id} 
 	</select>
 	
+	
+	<update id="commentMileage" parameterType="co.yedam.prj.member.vo.MemberVO">
+		update member set mileage =mileage+500 where u_id=#{u_id}
+	</update>
+	
 	<insert id="revCommentInsert" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO">
-	insert into review_comment values(#{c_date},#{c_comment},#{u_id},#{rb_num},c_num.nextval)
+	insert into review_comment values(#{c_date},#{c_comment},#{u_id},#{rb_num},c_num.nextval,#{star})
 	</insert>
 	
 	<select id="revCommentList" parameterType="co.yedam.prj.revBoard.vo.RevCommentVO" resultType="co.yedam.prj.revBoard.vo.RevCommentVO">
-		select * from review_comment where rb_num=#{rb_num}
+		select * from review_comment where rb_num=#{rb_num} order by c_num
 	</select>
 	
 	<!-- 작성한 사람의 아이디 보류 -->

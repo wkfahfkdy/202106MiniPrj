@@ -84,7 +84,7 @@
 						</c:if>
 					</tr>
 				</c:forEach>
-			</table>
+			</table> <br>
 			<div align="center">
 				<jsp:include page="../common/paging.jsp" flush="true">
 					<jsp:param value="${paging.firstPageNo }" name="firstPageNo" />
@@ -97,6 +97,6 @@
 				</jsp:include>
 			</div>
 		</div>
-	</div>
+	</div> <br><br>
 </body>
 </html>
