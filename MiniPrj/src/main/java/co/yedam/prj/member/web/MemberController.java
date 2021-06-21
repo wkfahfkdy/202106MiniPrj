@@ -72,13 +72,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/adminDelete.do")
-	public String adminDelete(HttpServletRequest req, MemberVO vo) {
+	public String adminDelete(HttpServletRequest req, MemberVO vo, BreadVO bvo) {
 		String id = req.getParameter("id");
 		vo.setU_id(id);
 		int r = dao.deleteMember(vo);
 		System.out.println(r + "건 삭제");
 		
-		return "redirect:memberInfo.do";
+		return "redirect:memberInfoListPaging.do";
 	}
 	
 	@RequestMapping("/memberDelete.do")
@@ -89,15 +89,17 @@ public class MemberController {
 		int r = dao.deleteMember(vo);
 		System.out.println(r + "건 삭제");
 		
-		vo = dao.memberSelectSID(vo);
-		bvo.setS_id(vo.getS_id());
-		int i = Dao.storeDelete(bvo);
-		System.out.println(i + "건 삭제2");
-		int k = Dao.breadDeleteAll(bvo);
-		System.out.println(k + "건 삭제3");
+//		vo = dao.memberSelectSID(vo);
+//		bvo.setS_id(vo.getS_id());
+//		int i = Dao.storeDelete(bvo);
+//		System.out.println(i + "건 삭제2");
+//		int k = Dao.breadDeleteAll(bvo);
+//		System.out.println(k + "건 삭제3");
 		
+		session.invalidate();
+
 		
-		return "redirect:memberLogOut.do";
+		return "redirect:home.do";
 	}
 	
 	@RequestMapping("/memberLoginB.do")
@@ -222,7 +224,7 @@ public class MemberController {
 		HttpSession session = req.getSession();
 		session.setAttribute("id", vo.getU_id());
 		model.addAttribute("member", vo);
-		return "layout/main";
+		return "redirect:home.do";
 	}
 	
 	@RequestMapping("/memberIdCheck.do")
