@@ -142,6 +142,7 @@ public class BreadController {
 		model.addAttribute("bread",vo4);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
+		model.addAttribute("sid", vo.getS_id());
 		model.addAttribute("store", list);
 		model.addAttribute("testName", testName);
 		
@@ -445,10 +446,6 @@ public class BreadController {
 	
 	@RequestMapping("/breadStore.do")
 	public String breadStoreList(Model model, BreadVO vo, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
-		vo.setU_id(id);
-		vo = dao.selectStoreId(vo);
 		
 		List<BreadVO> list = dao.storeSelectList(vo);
 		BreadVO vo2 = dao.storeAdr(vo);
