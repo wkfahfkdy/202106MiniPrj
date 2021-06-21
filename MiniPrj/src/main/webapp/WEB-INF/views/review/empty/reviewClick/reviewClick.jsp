@@ -569,7 +569,8 @@ article {
 		}
 	</script>
 </head>
-<body>
+<body style="width: 1000px;
+    margin: auto;">
 	<!-- Page Preloder -->	
 	<div id="preloder">
 		<div class="loader"></div>
@@ -767,7 +768,7 @@ article {
 	<!-- Hero Section end -->
 
 	<!-- Content  -->
-			<blockquote>
+			<blockquote style="margin:auto;">
 				<h4 class="h4b">'' Content ''</h4>
 				<br><br>
 						<textarea id="Udc"cols="100" rows="7" style="display:none;">${Click.rb_content }</textarea>

@@ -372,14 +372,14 @@ margin-bottom: 20px;
 	
 	
 </head>
- <div class="main">
+ <div class="main" style="width: 2000px;margin: auto;">
  <div><img src="resources/bin/CC.PNG" style=" width:100%;height:300px;"></div> 
 <div>
 	
 <div align="center" >
 	<br><br>
 		<c:if test="${id ne null}">
-		<button type="button" style="float:right;font-family: 'Nanum Pen Script', cursive;" onclick="location.href='revBoardEnrollment.do'" class="btn5 btn-5">리뷰 등록</button>
+		<button type="button" style="float:right;font-family: 'Nanum Pen Script', cursive;    margin-right: 90px;" onclick="location.href='revBoardEnrollment.do'" class="btn5 btn-5">리뷰 등록</button>
 		</c:if>
 	<br><br>
 </div>
@@ -388,7 +388,8 @@ margin-bottom: 20px;
 <div class="endDiv">
 	 
 <div>
- <div class="dk-box-2 dk-padding-bot">
+ <div class="dk-box-2 dk-padding-bot"  style="margin-left: -120px;">
+
         <div class="container" style="margin-left: 550px; margin-bottom:100px;">
         <h1 align="center" style="font-family: 'Single Day'; font-size:140px; margin-left:-50px; margin-bottom: 200px;color:lightsalmon;">BEST Review ! ! </h1>
             <div class="row vertical-gap dk-isotope-grid dk-box-2-r">
