@@ -8,19 +8,19 @@
 
 <style>
 
-.gap{
-padding: 150px;
-
-}
-.goback{
-position:fixed; top:95%; right:4%;
-z-index:999; 
-}
-
-.gotop{
-position:fixed; top:95%; right:1%;
-z-index:999; 
-}
+	.gap{
+	padding: 150px;
+	
+	}
+	.goback{
+	position:fixed; top:95%; right:4%;
+	z-index:999; 
+	}
+	
+	.gotop{
+	position:fixed; top:95%; right:1%;
+	z-index:999; 
+	}
 
 
 </style>

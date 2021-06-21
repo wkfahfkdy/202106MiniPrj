@@ -221,6 +221,7 @@
 							<div align="center" style="width: 50%; padding-left: 120px;"> 
 								<form action="breadMainUpload.do" method="post" id="frm3"
 									enctype="multipart/form-data">
+									<div style="z-index: 999;">
 									<div style="width: 60%; float: left;">
 										<input style="width: 100%;" type="file" name="s_file"
 											class="form-control" placeholder="SFile">
@@ -228,7 +229,7 @@
 									<div style="width: 10%; float: left; padding-left: 20px;">
 										<button style="width: 20%; border:0px; border-radius: 5px; width: 60px; height: 40px; background-color: #C3B0A1; color: #fff; " 
 												type="button" name="sumbit" value="사진 업로드" onclick="breadMainUpload()">Save</button>
-									</div>
+									</div></div>
 								</form>
 							</div>
 							</div>
@@ -257,7 +258,7 @@
 		}
 		</script>
 
-			<div class="dk-box-2 dk-padding-top" style="padding-top: 200px;">
+			<div class="dk-box-2 dk-padding-top" style="magin-top: 200px; z-index: -999;">
 				<div class="container">
 					<a style="font-size: 20px; float: left"><b>STORE Menu</b></a>
 
@@ -390,7 +391,7 @@
 
 
 					<button class="dk-btn dk-btn-md" type="button"
-						onclick='location.href="breadStore.do"' name="back_breadStore">breadStore</button>
+						onclick='location.href="storeRandomList.do"' name="back_breadStore">breadStore</button>
 				</div>
 			</div>
 		</div>
