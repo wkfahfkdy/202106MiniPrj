@@ -83,7 +83,7 @@ public class BreadController {
 		List<StoreReplyVO> replyList = dao.storeReplyList(vo2);
 		System.out.println(replyList);
 		model.addAttribute("replyList", replyList);
-		model.addAttribute("bid", b_id);
+		model.addAttribute("bid", b_id); 
 		
 		return "breadView";
 	}
