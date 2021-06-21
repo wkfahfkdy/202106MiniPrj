@@ -470,6 +470,10 @@ article {
 <script>
 	function commentInsert(id,rbnum){
 		frm.u_id.value=id;
+		if(!id){
+			alert("로그인후 이용이 가능합니다");
+			return;
+		}
 		var comment=$('#comment').val();
 		console.log(rbnum);
 		frm.rb_num.value=rbnum;
@@ -477,13 +481,16 @@ article {
 		
 		var temp = $('input:radio[name="rating"]:checked').val();
 		frm.star.value=temp;
-		if(!temp){
-			alert("별점을 주세요!!");
-		}if(!comment){
-		 	alert("댓글을 입력해주세요!");
-		}else{	
 		console.log(temp);
-		alert("500 마일리지가 지급되었습니다!");
+		console.log(comment);
+		if(!temp){
+			alert("별점을 체크해주세요!");
+			return;
+		}if(!comment){
+			alert("댓글을 입력해주세요!");
+			return;
+		}else{	
+		alert("100 마일리지가 지급되었습니다!");
 		frm.submit();
 		}
 	}
@@ -554,6 +561,7 @@ article {
 					imgDiv4.submit();
 				}
 		 }
+	
 	</script>
 	<script>
 		function likeBtn(rbnum){
@@ -602,7 +610,7 @@ article {
 						</div>
 						<div class="imgDiv1">
 							<c:if test="${Click.rb_image2 ne null }">
-								<p align="left" style="font-size:30px;">IMAGE 2 등록 되어 있음!<button class="myButton1"  type="button" onclick="imgDel2('${Click.rb_num}');">삭제</button></p>
+								<p align="left" style="font-size:30px;">IMAGE 2 등록 되어 있음!<button class="myButton1"  type="button" onc	lick="imgDel2('${Click.rb_num}');">삭제</button></p>
 							</c:if>
 							<c:if test="${Click.rb_image2 eq null }">
 								<form id="imgDiv2" name="imgDiv2" action="imgDiv2.do" method="post"  enctype="multipart/form-data"accept-charset="UTF-8">
@@ -803,6 +811,7 @@ article {
 	
 	<textarea class="textarea" style="resize: none;" id="comment" name="comment" rows="1" cols="60" placeholder="댓글 입력하는 곳 !"></textarea>
 		</div>
+		
 		<button type="button" class="myButton" onclick="commentInsert('${id}',' ${Click.rb_num }');">등록</button>
 	</form>
 		<hr style="border:solid 1px #A9D0F5;">
@@ -815,11 +824,8 @@ article {
 		<br>
 		<div class="commentDiv">
 			<c:forEach items="${list }" var="comment">
-			
-			<c:set var="click" value="${click+1 }"></c:set>
 			<div>
 			<c:if test="${comment.star == 1 }">
-			
 			<div class="star-rating1" style="border:none;">
 			<c:if test="${comment.u_id eq Click.u_id }">
 			 <a class="btnE btn-1" style="font-size: 20px;margin-right: -100px; font-family: 'Cute Font', cursive;font-weight:bold;height: 30px;margin-top: 7px;"> 작성자 </a>
@@ -829,8 +835,13 @@ article {
 				  <label class="star1">&#9733;</label>
 				  <label class="star1">&#9733;</label>
 				  <label class="star1" style="color:#f90;">&#9733;</label>
-			</div>		
+			</div>
+				<c:if test="${comment.u_id eq id }">	
+					<button style="float:right;    margin-top: -35px;margin-left: 230px;"
+					class="myButton1"  type="button" onclick="delComment1('${id}','${comment.c_num }',${Click.rb_num });">삭제</button>	
+				</c:if>
 			</c:if>
+			
 			
 			<c:if test="${comment.star == 2 }">
 			<div class="star-rating1" style="border:none;">
@@ -843,7 +854,13 @@ article {
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 			</div>		
+				<c:if test="${comment.u_id eq id }">	
+					<button style="float:right;    margin-top: -35px;margin-left: 230px;"
+					class="myButton1"  type="button" onclick="delComment1('${id}','${comment.c_num }',${Click.rb_num });">삭제</button>	
+				</c:if>
 			</c:if>
+			
+			
 			<c:if test="${comment.star == 3 }">
 			<div class="star-rating1" style="border:none;">
 			<c:if test="${comment.u_id eq Click.u_id }">
@@ -855,7 +872,13 @@ article {
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 			</div>		
+				<c:if test="${comment.u_id eq id }">	
+					<button style="float:right;    margin-top: -35px;margin-left: 230px;"
+					class="myButton1"  type="button" onclick="delComment1('${id}','${comment.c_num }',${Click.rb_num });">삭제</button>	
+				</c:if>
 			</c:if>
+			
+			
 			<c:if test="${comment.star == 4 }">
 			<div class="star-rating1" style="border:none;">
 			<c:if test="${comment.u_id eq Click.u_id }">
@@ -867,7 +890,13 @@ article {
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 			</div>		
+				<c:if test="${comment.u_id eq id }">	
+					<button style="float:right;    margin-top: -35px;margin-left: 230px;"
+					class="myButton1"  type="button" onclick="delComment1('${id}','${comment.c_num }',${Click.rb_num });">삭제</button>	
+				</c:if>
 			</c:if>
+			
+			
 			<c:if test="${comment.star == 5 }">
 			<div class="star-rating1" style="border:none;">
 			<c:if test="${comment.u_id eq Click.u_id }">
@@ -879,8 +908,13 @@ article {
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 				  <label class="star1"style="color:#f90;">&#9733;</label>
 			</div>		
-		
+				<c:if test="${comment.u_id eq id }">	
+					<button style="float:right;    margin-top: -35px;margin-left: 230px;"
+					class="myButton1"  type="button" onclick="delComment1('${id}','${comment.c_num }',${Click.rb_num });">삭제</button>	
+				</c:if>
 			</c:if>
+			
+			
 			<div class="btnClass1">		
 				<div class="spanComment" style="height: 50px;margin-top: 10px;margin-bottom: 10px;">
 				${comment.c_comment }</div>
@@ -921,7 +955,13 @@ article {
 			</div>
 			<hr class="commentfootHr" style="border:solid 1px #EBF5FF;">
 			
-			</c:forEach>
+				
+				
+				
+				
+				</c:forEach>
+			
+		
 			<div class="container">
 			<!-- Footer Section -->
 			<div class="footer__copyright__text">
@@ -933,7 +973,32 @@ article {
 		
 
 	</div>
-	
+	<script>
+	 function delComment1(a,b,c){
+			console.log(a,b);
+			delComment.u_id.value=a;
+			delComment.c_num.value=b;
+			delComment.rb_num.value=c;
+			var check = confirm("정말 삭제 하시겠습니까?!");
+			if(check ==true){
+				delComment.submit();
+			}else{
+				alert("취소되었습니다.");
+			}
+		}
+	 function reComment(cnum,id,rbnum){
+		 console.log(cnum,id);
+		 updateReComment.u_id.value=id;
+		 updateReComment.c_num.value=cnum;
+		 updateReComment.rb_num.value=rbnum;
+		 var a=document.getElementById("reCommentText").value;
+		 console.log(a);
+		 updateReComment.re_comment.value=a;
+		 updateReComment.submit();
+	 }
+	</script>
+
+
 	<!-- hidden//  눌렀을때 나오는  script -->
 	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	 <script>
@@ -1040,8 +1105,12 @@ if($("#dis").css("display") == "none"){
 				alert("취소되었습니다.");
 			}
 		}
+		
 	</script>
 	
+	<script>
+		
+	</script>
 	<footer class="footer__section">
 
 
@@ -1074,13 +1143,25 @@ if($("#dis").css("display") == "none"){
 		<form id="reviewLikeUp" name="reviewLikeUp" action="reviewLikeUp.do" method="post">
 			<input type="hidden" id="rb_num" name="rb_num">
 		</form>
-
+		<form id="delComment" name="delComment" action="delComment.do" method="post">
+			<input type="hidden" id="u_id" name="u_id">
+			<input type="hidden" id="c_num" name="c_num">
+			<input type="hidden" id="rb_num" name="rb_num">
+		</form>
+		<form id="updateReComment" name="updateReComment" action="updateReComment.do" method="post"  accept-charset="UTF-8">
+			<input type="hidden" id="u_id" name="u_id">
+			<input type="hidden" id="c_num" name="c_num">
+			<input type="hidden" id="re_comment" name="re_comment">
+			<input type="hidden" id="rb_num" name="rb_num">
+		</form> 
+ 		
+	
 	<!--====== Javascripts & Jquery ======-->
 	<script src="resources/reviewbootstrap/js/vendor/jquery-3.2.1.min.js"></script>
 	<script src="resources/reviewbootstrap/js/jquery.slicknav.min.js"></script>
 	<script src="resources/reviewbootstrap/js/slick.min.js"></script>
 	<script src="resources/reviewbootstrap/js/main.js"></script>
-	<script>
+<script>
 
 $('a.like-button').on('click', function(e) {
 		
@@ -1088,9 +1169,10 @@ $('a.like-button').on('click', function(e) {
 	  $(e.target).removeClass('liked')
 	  setTimeout(() => {
 		  reviewLikeUp.submit();
-	  }, 1200)
+	  }, 900)
 	});
 </script>
 	</body>
 </html>
+    
     

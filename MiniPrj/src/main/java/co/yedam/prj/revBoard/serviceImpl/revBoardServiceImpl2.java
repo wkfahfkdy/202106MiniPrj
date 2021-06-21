@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import co.yedam.prj.member.vo.MemberVO;
 import co.yedam.prj.revBoard.service.revBoardService2;
+import co.yedam.prj.revBoard.vo.ReCommentVO;
 import co.yedam.prj.revBoard.vo.RevCommentVO;
 import co.yedam.prj.revBoard.vo.revBoardVO2;
 
@@ -156,5 +157,31 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	@Override
 	public int commentMileage(MemberVO vo) {
 		return sqlSession.update("commentMileage",vo);
+	}
+	
+	@Override
+	public int delComment(RevCommentVO vo) {
+		
+		return sqlSession.delete("delComment",vo);
+	}
+	
+	
+	
+	@Override 
+	public int commentUpdate(ReCommentVO vo) {
+		
+		return sqlSession.update("commentUpdate" ,vo);
+	}
+
+	
+	@Override
+	public int commentDefault(RevCommentVO vo4) {
+		return sqlSession.insert("commentDefault",vo4);
+	}
+
+	
+	@Override
+	public List<ReCommentVO> recommentList(){
+		return sqlSession.selectList("recommentList");
 	}
 }	 
