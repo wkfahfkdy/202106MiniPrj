@@ -4,7 +4,8 @@
 
 <title>회원정보</title>
 <!-- 페이지 상단 부분 정보 -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -125,90 +126,111 @@
 					<c:if test="${member.s_reg eq 'N' }">
 						<h3>회원 ${id }님의페이지</h3>
 					</c:if>
-					<form action="memberUpdateInfo.do" class="dk-form" method="post" id="frm">
-						<input type="hidden" name="u_pwd">
-						<input type="hidden" name="u_tel">
-						<input type="hidden" name="u_mail">
-						<input type="hidden" name="u_adrcode">
-						<input type="hidden" name="u_adr">
-		  			</form>
-					
-					
-						<div class="row vertical-gap">
-							<div class="col-md-6">
-								<input class="form-control" type="password" id="u_pwd"
-									value="${member.u_pwd}" placeholder="New password">
-							</div>
-							<div class="col-md-6">
-								<input class="form-control" type="password" id="u_pwdChk"
-									name="check_password" value=""
-									placeholder="Again input New password">
-								<font id="chkNotice" size="2"></font>
-							</div>
-							<div class="col-12">
-								<input class="form-control" type="text" value="${member.u_tel}"
-									id="u_tel" placeholder="New Tel">
-							</div>
-							<div class="col-md-6">
-								<input type="email" id="u_mail" class="form-control"
-									aria-describedby="emailHelp" placeholder="Your Email" value="${member.u_mail}">
-							</div>
-							<div class="col-md-12">
-							<input class="dk-btn dk-btn-md" style="width: 50%;" type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br> 
-							</div>
-							<div class="col-md-12">
-							<input style="width: 50%;" type="text" id="sample6_postcode"  placeholder="우편번호" class="form-control" value="${member.u_adrcode}">
-							</div>
-							<div class="col-md-12">
-							<input style="width: 50%;" type="text" id="sample6_address" placeholder="주소" class="form-control" value="${member.u_adr}"> 
-							</div>
-							<div class="col-md-12">
-							<input style="width: 50%;" type="hidden" id="sample6_extraAddress" placeholder="상세주소" class="form-control">
-							</div>
-						
+					<form action="memberUpdateInfo.do" class="dk-form" method="post"
+						id="frm">
+						<input type="hidden" name="u_pwd"> <input type="hidden"
+							name="u_tel"> <input type="hidden" name="u_mail">
+						<input type="hidden" name="u_adrcode"> <input
+							type="hidden" name="u_adr">
+					</form>
+
+
+					<div class="row vertical-gap">
+						<div class="col-md-6">
+							<input class="form-control" type="password" id="u_pwd"
+								value="${member.u_pwd}" placeholder="New password">
+						</div>
+						<div class="col-md-6">
+							<input class="form-control" type="password" id="u_pwdChk"
+								name="check_password" value=""
+								placeholder="Again input New password"> <font
+								id="chkNotice" size="2"></font>
+						</div>
+						<div class="col-12">
+							<input class="form-control" type="text" value="${member.u_tel}"
+								id="u_tel" placeholder="New Tel">
+						</div>
+						<div class="col-12">
+							<input type="email" id="u_mail" class="form-control" 
+								aria-describedby="emailHelp" placeholder="Your Email"
+								value="${member.u_mail}">
+						</div>
+						<div class="col-md-12">
+							<input class="dk-btn dk-btn-md" style="width: 100%;" type="button"
+								onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+						</div>
+						<div class="col-md-12">
+							<input style="width: 100%;" type="text" id="sample6_postcode"
+								placeholder="우편번호" class="form-control"
+								value="${member.u_adrcode}">
+						</div>
+						<div class="col-md-12">
+							<input style="width: 100%;" type="text" id="sample6_address"
+								placeholder="주소" class="form-control" value="${member.u_adr}">
+						</div>
+						<div class="col-md-12">
+							<input style="width: 100%;" type="hidden"
+								id="sample6_extraAddress" placeholder="상세주소"
+								class="form-control">
 						</div>
 
-						<!-- 마일리지 확인 파트 -->
+					</div>
 
-						<!-- 
+					<!-- 마일리지 확인 파트 -->
+
+					<!-- 
 	SELECT SUM(적립금) AS 적립금합계 FROM 구매기록 WHERE 아이디=회원아이디; 해서 합계를 구해다가...
 
 	UPDATE `회원` SET `총적립금` = '위에서 구한 총합' WHERE `아이디` = '회원아이디'; -->
 
-						<!-- 마일리지 확인 파트 끝-->
+					<!-- 마일리지 확인 파트 끝-->
+
+					<div class="row vertical-gap">
+						<div class="col-12">
+							<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정</button>
+							<button class="dk-btn dk-btn-md" name="deleteInfo"
+								onclick="deleteInfo()">탈퇴하기</button>
+						</div>
+						<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
+							<div class="col-12">
+								<button style="width: 50%;" class="dk-btn dk-btn-md"
+									type="submit" name="check_mileage"
+									onclick="window.open('memberMileage.do?id=${member.u_id}','적립금 확인하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">적립금
+									확인하기</button>
+							</div>
+						</c:if>
 						
-						<div class="row vertical-gap" >
-							<c:if test="${member.s_reg eq 'N' and member.joinwait eq 'N' }">
-								<div class="col-12">
-									<button style="width: 50%;" class="dk-btn dk-btn-md" type="submit" name="check_mileage"
-									onclick="window.open('memberMileage.do?id=${member.u_id}','적립금 확인하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">적립금 확인하기</button>
-								</div>
-							</c:if>	
-							<c:if test="${member.s_reg eq 'Y' and member.s_pay eq 0}">
-								<div class="col-12">
-									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+						<c:if test="${member.s_reg eq 'Y' and member.s_pay eq 0}">
+							<div class="col-12">
+								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
 									onclick="window.open('memberAdPopup.do','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
 									신청하러가기</button>
-								</div>
-							</c:if>	
-							<c:if test="${member.s_reg eq 'Y' and member.s_pay > 0}">
-								<div class="col-12">	
-									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
-									onclick="window.open('puchaseAdPopup.do','이용중인 광고','width=1600, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">이용중인 광고조회</button>
-									<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+							</div>
+						</c:if>
+						<c:if test="${member.s_reg eq 'Y' and member.s_pay > 0}">
+							<div class="col-12">
+								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
+									onclick="window.open('puchaseAdPopup.do','이용중인 광고','width=1600, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">이용중인
+									광고조회</button>
+								<button class="dk-btn dk-btn-md" type="button" name="ad4_button"
 									onclick="window.open('memberAdPopup.do?id=${member.u_id}','광고 신청하기','width=800, height=800, left=400, top=500,location=no,status=no,scrollbars=yes');">광고
 									신청</button>
-								</div>
-							</c:if>	
-							<div class="col-12">
-								<button class="dk-btn dk-btn-md" onclick="memberUpdateInfo()">정보수정</button>
-								<button class="dk-btn dk-btn-md" name="deleteInfo" onclick="deleteInfo()">탈퇴하기</button>
 							</div>
+						</c:if>
+						<div class="col-12">
+								<button class="dk-btn dk-btn-md" type="button"
+									onclick="location.href='breadStoreManage.do'">My shop</button>
 						</div>
+					</div>
+
+
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
+
+
+
+
 <!-- 리뷰 사진 파트 끝-->

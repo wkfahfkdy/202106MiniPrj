@@ -12,12 +12,24 @@ public class revBoardVO2 {
 	private String rb_content;
 	private int rb_like;
 	private String rb_image;
+	private String rb_image1;
 	private String rb_image2;
 	private String rb_image3;
 	private String rb_image4;
 	
 	
 	
+
+	public String getRb_image1() {
+		return rb_image1;
+	}
+
+
+	public void setRb_image1(String rb_image1) {
+		this.rb_image1 = rb_image1;
+	}
+
+
 	public String getRb_image2() {
 		return rb_image2;
 	}

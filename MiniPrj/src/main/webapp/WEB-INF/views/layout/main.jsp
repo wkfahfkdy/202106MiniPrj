@@ -27,17 +27,17 @@
 </div>
 
 <!-- 슬라이드부분 -->
-
+<div style="margin-top: -80px;">
 <div class="swiper-container dk-swiper dk-swiper-slides-auto"
 	data-swiper-slidesAuto="true" data-swiper-pagination="true"
 	data-swiper-speed="600" data-swiper-space="30"
 	data-swiper-autoHeight="true" data-swiper-loop="true">
-	
+		
 	<div class="swiper-wrapper">
 		<c:forEach items="${purchaseMainList }" var="purchaseMainList">
 			<div class="swiper-slide text-center">
 				<div class="dk-swiper-slide">
-					<a href="storeRandomList.do" class="dk-img"> <img
+					<a href="breadStore.do?s_id=${purchaseMainList.s_id }" class="dk-img"> <img
 						src="resources/purchaseUpload/${purchaseMainList.p_image }" alt=""></a>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 	</div>
 	<div class="swiper-pagination"></div>
 </div>
-
+</div>
 
 
 <!-- 이미지부분 -->
@@ -58,7 +58,7 @@
 			<div class="row vertical-gap justify-content-center">
 				<c:forEach items="${purchaseShowUp}" var="purchaseShowUp">
 				<div class="col-12 col-sm-10 col-md-6 col-lg-4">
-					<a href="home-1.html"
+					<a href="breadStore.do?s_id=${purchaseShowUp.s_id }"
 						class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light">
 						<span class="dk-portfolio-item-image"> 
 						<span class="dk-portfolio-item-overlay" style="background-color: rgba(255, 255, 255, .2)">
@@ -79,7 +79,7 @@
 			<div class="row vertical-gap justify-content-center">
 				<c:forEach items="${storeList }" var="storeList">
 				<div class="col-12 col-sm-10 col-md-6 col-lg-4">
-					<a href="home-4.html"
+					<a href="breadStore.do?s_id=${storeList.s_id }"
 						class="dk-portfolio-item dk-portfolio-item-style-2 dk-portfolio-item-center dk-portfolio-item-light">
 						<span class="dk-portfolio-item-image"> <span
 							class="dk-portfolio-item-overlay"
