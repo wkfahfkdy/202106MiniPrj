@@ -779,7 +779,7 @@ article {
 		
 		<div><p class="pC" style="float:left;" >LIKE :</p>
 					
-					    <a class='like-button' style="float:left; margin-left:20px;" onclick="likeBtn('${Click.rb_num}');">
+					    <a class='like-button' style="float:left; margin-left:20px;   margin-top: 10px;" onclick="likeBtn('${Click.rb_num}');">
 					      <span class='like-icon'>
 					        <div class='heart-animation-1'></div>
 					        <div class='heart-animation-2'></div>
