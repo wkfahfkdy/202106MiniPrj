@@ -2,13 +2,21 @@ package co.yedam.prj.revBoard.web;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.oreilly.servlet.MultipartRequest;
+import com.google.gson.JsonObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -100,29 +108,25 @@ public class revBoardController {
 	}
 	
 	@RequestMapping("imageUpload.do")
-	public void imageUpload(HttpServletRequest request, HttpServletResponse response, @RequestParam MultipartFile upload)
-	throws Exception{
-		response.setCharacterEncoding("UTF-8");
-		
-		response.setContentType("text/html; charset=UTF-8");
-		
-		String fileName = upload.getOriginalFilename();
-		
-		byte[] bytes = upload.getBytes();
-		
-		String uploadPath = "D:\\Workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MiniPrj\\WEB-INF\\views\\images\\";
-		
-		OutputStream out = new FileOutputStream(new File(uploadPath + fileName));
-		
-		out.write(bytes);
-		
-		String callback = request.getParameter("CKEditorFuncNum");
-		
-		PrintWriter printwriter = response.getWriter();
-		String fileUrl = request.getContextPath() + "/images/" + fileName;
-		printwriter.println("<script>window.parent.CKEDITOR.tools.callFunction(" + callback + ",'" + fileUrl
-                + "','이미지가 업로드되었습니다.')" + "</script>");
-		printwriter.flush();
+	public void imageUpload(HttpServletRequest req, HttpServletResponse resp, @RequestParam MultipartFile upload)
+	throws ServletException, IOException{
+		 resp.setCharacterEncoding("UTF-8");
+	      String path = "c:/tmp";
+	      ServletContext sc = req.getServletContext();
+	      path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\upload";
+	      MultipartRequest multi = new MultipartRequest(req,path ,8*1024*1024,"UTF-8",new DefaultFileRenamePolicy());
+	      Enumeration en = multi.getFileNames();
+	      String fileName = null;
+	      while(en.hasMoreElements()) {
+	         String name = (String) en.nextElement();
+	         fileName = multi.getFilesystemName(name);
+	      }
+	      JsonObject json = new JsonObject();
+	      json.addProperty("uploaded", 1);
+	      json.addProperty("fileName", fileName);
+	      json.addProperty("url", req.getContextPath() + "/resources/upload/" + fileName);
+	      resp.getWriter().print(json);
+
 	}
 	
 }

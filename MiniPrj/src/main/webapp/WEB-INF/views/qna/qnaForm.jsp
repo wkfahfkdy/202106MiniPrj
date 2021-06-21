@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src = "${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 
 <script>
 	$(function(){
 		CKEDITOR.replace('qn_content',{
-			filebrowserUploadUrl : '${pageContext.request.contextPath}/imageUpload.do',
+			filebrowserUploadUrl : 'imageUpload.do',
 			height : '600px',
 			width : '800px'
 		});
