@@ -23,6 +23,12 @@
 	z-index:999; 
 	}
 	
+	
+	.gap2{
+	padding-top : 50px;
+	height : 30px;
+	}
+	
 
 </style>
 
@@ -221,7 +227,7 @@
 							<div align="center" style="width: 50%; padding-left: 120px;"> 
 								<form action="breadMainUpload.do" method="post" id="frm3"
 									enctype="multipart/form-data">
-									<div style="z-index: 999;">
+									<div style="z-index: 1;">
 									<div style="width: 60%; float: left;">
 										<input style="width: 100%;" type="file" name="s_file"
 											class="form-control" placeholder="SFile">
@@ -257,8 +263,12 @@
 			
 		}
 		</script>
+		
+		
+			<div class="gap2">
+			</div>
 
-			<div class="dk-box-2 dk-padding-top" style="magin-top: 200px; z-index: -999;">
+			<div class="dk-box-2 dk-padding-top" style="magin-top: 200px; z-index: 1;">
 				<div class="container">
 					<a style="font-size: 20px; float: left"><b>STORE Menu</b></a>
 
