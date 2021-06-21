@@ -390,7 +390,7 @@
 
 
 					<button class="dk-btn dk-btn-md" type="button"
-						onclick='location.href="breadStore.do"' name="back_breadStore">breadStore</button>
+						onclick='location.href="breadStore.do?s_id=${sid}"' name="back_breadStore">breadStore</button>
 				</div>
 			</div>
 		</div>
