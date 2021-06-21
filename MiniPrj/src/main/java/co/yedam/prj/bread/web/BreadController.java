@@ -127,7 +127,7 @@ public class BreadController {
 		vo2 = dao.selectStoreId(vo);
 		
 		vo.setS_id(vo2.getS_id());
-		
+		System.out.println("2 : " + vo.getS_id());
 		BreadVO vo3 = dao.storeAdr(vo);
 		model.addAttribute("loc", vo3.getS_adr());
 		

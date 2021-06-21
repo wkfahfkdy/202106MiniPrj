@@ -390,12 +390,9 @@
 						onclick='location="home.do"' name="back_home">홈으로</button>
 
 
-					<button class="dk-btn dk-btn-md" type="button"
-<<<<<<< HEAD
+				<button class="dk-btn dk-btn-md" type="button"
 						onclick='location.href="breadStore.do?s_id=${sid}"' name="back_breadStore">breadStore</button>
-=======
-						onclick='location.href="storeRandomList.do"' name="back_breadStore">breadStore</button>
->>>>>>> branch 'master' of https://github.com/wkfahfkdy/202106MiniPrj.git
+						
 				</div>
 			</div>
 		</div>
