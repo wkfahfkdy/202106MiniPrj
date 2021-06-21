@@ -389,7 +389,7 @@ margin-bottom: 20px;
 	 
 <div>
  <div class="dk-box-2 dk-padding-bot">
-        <div class="container" style="margin-left: 400px; margin-bottom:100px;">
+        <div class="container" style="margin-left: 550px; margin-bottom:100px;">
         <h1 align="center" style="font-family: 'Single Day'; font-size:140px; margin-left:-50px; margin-bottom: 200px;color:lightsalmon;">BEST Review ! ! </h1>
             <div class="row vertical-gap dk-isotope-grid dk-box-2-r">
            <div  style="margin-top:-200px;margin-left:20px;"><img src="resources/bin/q.png" style="margin-top: 80px; margin-left: 50px;width: 300px;"></div>
