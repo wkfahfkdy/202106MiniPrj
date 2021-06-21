@@ -16,6 +16,7 @@ public class PurchaseVO {
 	private String b_image;
 	private String b_name;
 	private String s_name;
+	private int s_code;
 	
 	public String getU_id() {
 		return u_id;
@@ -94,6 +95,12 @@ public class PurchaseVO {
 	}
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
+	}
+	public int getS_code() {
+		return s_code;
+	}
+	public void setS_code(int s_code) {
+		this.s_code = s_code;
 	}
 	
 	

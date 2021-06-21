@@ -4,19 +4,46 @@
 
 <script>
 
+function receiverCheck () {
+	
+	let receiver_name = $('#receiver_name').val();
+
+		$.ajax({
+			url : 'receiverCheck.do',
+			data : {u_id: receiver_name},
+			type : 'POST',
+			success : function(resp){
+				if(resp>0){//중복 됫을때
+					alert('쪽지보내기 가능합니다!');
+				}else{//중복이 아닐때
+					alert('없는유저입니다!');
+					window.close();
+				}
+			},
+			error : function(err){
+				console.log(err)
+			}
+		});
+	
+	
+}
+
 function formCheck(){
 	
-	if(frm.content.value == ""){
-		alert("내용을입력해주세요!");
-		frm.content.focus();
-		return false;
-	}
-	frm.submit();
+	let receiver_name = $('#receiver_name').val();
+	let sender_name = $('#sender_name').val();
+	let content = $('#content').val();
+	
+	//if(frm.content.value == ""){
+	//	alert("내용을입력해주세요!");
+	//	frm.content.focus();
+	//	return false;
+	//}
 	
 	$.ajax({
 		url : 'messageInsert.do',
-		data : {},
-		type : 'POST',
+		data : {receiver_name: receiver_name, sender_name: sender_name, content: content},
+		type : 'POST',	
 		success : function(resp){
 			opener.parent.location.reload();
 			window.close();
@@ -25,7 +52,6 @@ function formCheck(){
 			console.log(err)
 		}
 	});
-
 }
 
 </script>
@@ -39,23 +65,15 @@ function formCheck(){
 		<hr size="5" noshade>
 	</div>
 	
-	<form id="frm" action = "messageInsert.do" method="post">
 	<div>
 	<table align="center" style="width:80%; height: 250px; ">
 		<tr>
 			<td> 
-				<input style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
+				<input size="27" style="border: 0px;" type="text" name="sender_name" id="sender_name" value="${id }" readonly>
 			</td>
-			<td align="right">
-				<input type="text" name="receiver_name" id="receiver_name" >
-				
-				<!-- 
-				<select id="store" name="store" >
-					<option>회원목록</option>
-					<c:forEach items="${lists}" var = "list" >
-							<option value="${list}">${list}</option>	
-					</c:forEach>	
-				</select> -->
+			<td>
+				<input size="10" type="text" name="receiver_name" id="receiver_name" >
+				<button type="button" onclick="receiverCheck()">Check</button>
 			</td>
 		</tr>
 		<tr>
@@ -69,5 +87,4 @@ function formCheck(){
 	<br>
 	<button type="button" onclick="formCheck()">보내기</button>
 	<input type="button" value="닫기" onclick="window.close()">
-	</form>
 </div>

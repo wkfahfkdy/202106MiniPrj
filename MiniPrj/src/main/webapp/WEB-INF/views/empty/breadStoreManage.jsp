@@ -2,9 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-
-<head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript"
@@ -12,23 +9,20 @@
 
 
 <style>
-.gap{
-	padding: 50px;
+	.gap{
+		padding: 50px;
+	}
 
-}
-
-.left{
-	padding-left: 400px;
-}
-.leftmini{
-	padding-left: 150px;
-}
-
-
-.goback{
-position:fixed; top:95%; right:10%;
-z-index:999; 
-}
+	.goback{
+	position:fixed; top:95%; right:4%;
+	z-index:999; 
+	}
+	
+	.gotop{
+	position:fixed; top:95%; right:1%;
+	z-index:999; 
+	}
+	
 
 </style>
 
@@ -48,11 +42,12 @@ z-index:999;
 	}
 </script>
 
-<title></title>
 <style>
-#s_file {
-	align: center;
-}
+
+	#s_file {
+			align: center;
+		}
+	
 </style>
 <script>
 	function sImageUpload() {
@@ -61,39 +56,34 @@ z-index:999;
 		alert("수정이 완료되었습니다.");
 	}
 </script>
-</head>
-
-
-
-<body>
 
 	<div class="dk-main">
 
-		<div style="margin-top: 150px">
+		<div style="margin-top: 100px">
 			<div class="dk-box dk-header">
 
 				<div class="container">
-					<h4>${id }님의스토어</h4>
+					<a style="font-size: 30px;"><b>${id }님의 STORE</b></a>
+					<a style="font-size: 15px;">나만의 멋진 상점을 꾸며보세요!</a> <br><br>
 
 						
-							
-
-					<div class="row no-gutters" style="background-color: #f3f3f3;">
-						<div class="gap">
-						<div class="col-12 col-lg-6 text-center dk-gallery">
-							<a href="#"><img
+					<div style="width:100%;">
+						<div align="center" style="float: left;">
+							<a href="#"><img style="width:100%; padding-top:180px;" 
 								src="resources/storeMainUpload/${bread.s_image }"></a><br>
 							<form action="sImageUpload.do" method="post" id="frm2"
-								enctype="multipart/form-data">
-								<input style="width: 50%;" type="file" id="s_file" name="s_file"
-									class="form-control" placeholder="SFile">
-								<button class="dk-btn dk-btn-md" type="button" name="sumbit"
-									value="사진 업로드" onclick="sImageUpload()">매장사진 저장</button>
+								enctype="multipart/form-data"> <br>
+								<div style="width: 70%; float: left;">
+									<input style="width: 100%;" type="file" id="s_file" name="s_file"
+										class="form-control" placeholder="SFile"></div> 
+								<div style="width: 10%; float: left; padding-left: 115px">
+									<button style="width: 20%; border:0px; border-radius: 5px; width: 60px; height: 40px; background-color: #C3B0A1; color: #fff; "
+											type="button" name="sumbit"onclick="sImageUpload()">저장</button>
+								</div>
 							</form>
 						</div>
-						</div>
-
-						<div class="col-12 col-lg-6">
+						
+						<div class="">
 
 
 
@@ -172,34 +162,38 @@ z-index:999;
 
 
 									<c:if test="${bread.s_tel eq null}">
-										<div>
-											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">Ex)0505-333-1114
+										<div style="padding-top: 20px;">
+											<button style="width: 20%; border:0px; border-radius: 5px; width:160px; height: 40px; background-color: #C3B0A1; color: #fff; "
+													onclick="copy()">Ex)0505-333-1114
 											</button>
 										</div>
 									</c:if>
 
 									<c:if test="${bread.s_tel ne null}">
-										<div>
-											<button class="dk-btn dk-btn-md mt-35" onclick="copy()">${bread.s_tel }
+										<div style="padding-top: 20px;">
+											<button style="width: 20%; border:0px; border-radius: 5px; width:160px; height: 40px; background-color: #C3B0A1; color: #fff; "
+													onclick="copy()">${bread.s_tel }
 											</button>
 										</div>
 									</c:if>
-									<div>
+									<div style="padding-top: 15px;">
 										<input class="form-control" type="text" maxlength="15"
 											placeholder="매장 번호를 입력하세요" name="s_tel" id="s_tel">
 											<input type="hidden" name="s_tel2" value="${bread.s_tel }">
 									</div>
-
-									<button class="dk-btn dk-btn-md" type="button" name="sumbit"
-										value="Save" onclick="storeInform()">Save</button>
+									
+									<div style="padding-top: 15px;">
+									<button style="width: 20%; border:0px; border-radius: 5px; width:80px; height: 40px; background-color: #C3B0A1; color: #fff; "
+											type="button" name="sumbit" value="Save" onclick="storeInform()">Save</button>
 									&nbsp;
-									<button class="dk-btn dk-btn-md" type="reset" name="sumbit">Reset</button>
+									<button style="width: 20%; border:0px; border-radius: 5px; width:80px; height: 40px; background-color: #C3B0A1; color: #fff; "
+											type="reset" name="sumbit">Reset</button>
+									</div>
 								</div>
 
 							</form>
 						</div>
 					</div>
-
 				</div>
 			</div>
 
@@ -215,36 +209,34 @@ z-index:999;
 			</script>
 
 
-			
-			
-			
-			<div class="dk-box-2">
-				<div class="container" style="background-color: #f3f3f3;">
-				<div class="left">
-					<span>Bbang-Main Image</span><br>
-					<div class="row vertical-gap justify-content-between">
-							<div class="dk-box dk-header-info">
-						<div>
-						 <img src="resources/breadMainUpload/${bread.b_main }">
-						</div>
-						<br>
-						<br>
-						
-						<div class="leftmini"> 
-						<form action="breadMainUpload.do" method="post" id="frm3"
-							enctype="multipart/form-data">
-							
-							<input style="width: 50%;" type="file" name="s_file"
-								class="form-control" placeholder="SFile">
-							<button class="dk-btn dk-btn-md" type="button" name="sumbit"
-								value="사진 업로드" onclick="breadMainUpload()">Save</button>
-						</form>
+			<div align="center" style="padding-top: 50px;">
+				<div class="container">
+				<div>
+					<a style="font-size: 20px; float: left"><b>STORE Main Image</b></a>
+					<div>
+						<div class="dk-box dk-header-info"> <br><br>
+							<div style="clear: both; padding-top: 40px;">
+						 		<img src="resources/breadMainUpload/${bread.b_main }">
+												
+							<div align="center" style="width: 50%; padding-left: 120px;"> 
+								<form action="breadMainUpload.do" method="post" id="frm3"
+									enctype="multipart/form-data">
+									<div style="width: 60%; float: left;">
+										<input style="width: 100%;" type="file" name="s_file"
+											class="form-control" placeholder="SFile">
+									</div>
+									<div style="width: 10%; float: left; padding-left: 20px;">
+										<button style="width: 20%; border:0px; border-radius: 5px; width: 60px; height: 40px; background-color: #C3B0A1; color: #fff; " 
+												type="button" name="sumbit" value="사진 업로드" onclick="breadMainUpload()">Save</button>
+									</div>
+								</form>
+							</div>
 							</div>
 					</div>
 				</div>
 			</div>
 		</div>
-</div>
+</div> 
 
 
 		<script>
@@ -265,16 +257,13 @@ z-index:999;
 		}
 		</script>
 
-
-
-
-			<div class="dk-box-2 dk-padding-top">
+			<div class="dk-box-2 dk-padding-top" style="padding-top: 200px;">
 				<div class="container">
-					<h2 class="text-center mnt-8 mb-60">메뉴</h2>
+					<a style="font-size: 20px; float: left"><b>STORE Menu</b></a>
 
-					<div class="container">
-						<button class="dk-btn dk-btn-md" type="button"
-							onclick='location="breadInsertMenu.do"' name="back_home">메뉴등록하기</button>
+					<div class="container"> &nbsp;&nbsp;&nbsp;
+						<button style="width: 20%; border:0px; border-radius: 5px; width: 80px; height: 30px; background-color: #C3B0A1; color: #fff; " 
+								type="button" onclick='location="breadInsertMenu.do"' name="back_home">메뉴등록</button>
 					</div>
 
 					<div class="row no-gutters">
@@ -298,10 +287,11 @@ z-index:999;
 									</span>
 								</span>
 								</a>
-								<div class="container">
-									<button class="dk-btn dk-btn-md" type="button"
-										onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제하기</button>								</div>
-							</div>
+								<div class="container" style="text-align: right;">
+									<button style="width: 20%; border:0px; border-radius: 5px; width: 80px; height: 30px; background-color: #C3B0A1; color: #fff; " 
+											type="button" onclick="breadDeleteMenu(${vo.b_id})" name="item_delete">메뉴삭제</button>								
+								</div>
+							</div> <br>
 
 						</c:forEach>
 						
@@ -313,9 +303,6 @@ z-index:999;
 			<br> <br>
 
 
-
-
-
 					
 
 
@@ -323,7 +310,7 @@ z-index:999;
 
 
 			<!-- 지도 api -->
-			<div class="container" align="center">
+			<div class="container" align="center" style="padding-top: 100px;">
 				<div align="center" id="map" style="width: 1000px; height: 400px;"></div>
 			</div>
 			<div>
@@ -332,15 +319,6 @@ z-index:999;
 			<div>
 				<input type="hidden" id="search_lat"> <input type="hidden"
 					id="search_lng">
-			</div>
-
-			<div align="center">
-				<button type="button"
-					onclick='window.open("https://map.kakao.com/link/to/카카오판교오피스,37.402056,127.108212")'>길찾기
-				</button>
-
-
-
 			</div>
 
 
@@ -418,16 +396,21 @@ z-index:999;
 		</div>
 	</div>
 	
-	<script>
+		<script>
 			function goback(){
 				window.history.back();
 			}
+			function gotop(){
+				javascript:window.scrollTo(0,0)
+			}
 		
 		</script>
+		
+		<!-- 고정메뉴 -->
 		<div class="goback">
-			<button type="button" onclick="goback()"><img src=""><i class="fa-arrow-circle-left" aria-hidden="true"></i></a>
+			<button type="button" onclick="goback()"><img src="${pageContext.request.contextPath }/resources/image/leftbtn2.png"></button>
+		</div>
+		<div class="gotop">
+			<button type="button" onclick="gotop()"><img src="${pageContext.request.contextPath }/resources/image/topbtn2.png"></button>
 		</div>
 
-		
-</body>
-</html>

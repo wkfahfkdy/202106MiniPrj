@@ -106,6 +106,13 @@ public class MessageVO {
 	public void setSender_name(String sender_name) {
 		this.sender_name = sender_name;
 	}
+	@Override
+	public String toString() {
+		return "MessageVO [ms_num=" + ms_num + ", title=" + title + ", receiver_name=" + receiver_name + ", ms_date="
+				+ ms_date + ", content=" + content + ", sender_name=" + sender_name + ", read_yn=" + read_yn + ", u_id="
+				+ u_id + ", u_name=" + u_name + ", s_reg=" + s_reg + ", s_name=" + s_name + ", firstRecordIndex="
+				+ firstRecordIndex + ", lastRecordIndex=" + lastRecordIndex + ", totalCnt=" + totalCnt + "]";
+	}
 	
 	
 }

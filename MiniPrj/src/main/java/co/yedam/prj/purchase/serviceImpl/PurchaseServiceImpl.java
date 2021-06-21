@@ -42,7 +42,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 	@Override
 	public int deletePurchase(PurchaseVO vo) {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete("deletePurchase", vo);
 	}
 
 	@Override

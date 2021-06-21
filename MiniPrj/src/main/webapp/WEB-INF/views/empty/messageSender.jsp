@@ -21,6 +21,34 @@ function messageDelete(ms_num){
 	});
 }
 
+
+function formCheck(){
+	
+	let receiver_name = $('#receiver_name').val();
+	let sender_name = $('#sender_name').val();
+	let content = $('#content').val();
+	
+	if(frm.content.value == ""){
+		alert("내용을입력해주세요!");
+		frm.content.focus();
+		return false;
+	}
+	
+	$.ajax({
+		url : 'messageInsert.do',
+		data : {receiver_name: receiver_name, sender_name: sender_name, content: content},
+		type : 'POST',
+		success : function(resp){
+			opener.parent.location.reload();
+			window.close();
+		},
+		error : function(err) {
+			console.log(err)
+		}
+	});
+}
+
+
 </script>
 
 

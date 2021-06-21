@@ -199,7 +199,7 @@
 					</c:forEach><br>
 					<c:if test="${id != null }">
 						<h6>새 댓글 쓰기</h6>
-						<textarea rows="2" cols="102" id="newCommentsArea" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)newComment(${vo.qn_num }, '${id }')"></textarea>
+						<textarea rows="2" cols="93" id="newCommentsArea" onkeypress="javascript:if(event.keyCode==13&&!event.shiftKey)newComment(${vo.qn_num }, '${id }')"></textarea>
 					</c:if>
 				</div><br>
 				<div>

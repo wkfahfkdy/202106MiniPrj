@@ -55,8 +55,8 @@
 							</td>
 						</tr>
 						<tr>
-							<th width = "150">내용</th>
-							<td width = "300">
+							<th>내용</th>
+							<td>
 								<textarea style="border:0px" cols="90" rows="15" id = "nt_content" name = "nt_content"></textarea>
 							</td>					
 						</tr>

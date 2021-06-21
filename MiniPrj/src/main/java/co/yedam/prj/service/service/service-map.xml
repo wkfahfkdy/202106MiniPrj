@@ -14,9 +14,14 @@
 	
 	<select id="ceoServiceList" parameterType="co.yedam.prj.service.vo.ServiceVO" resultType="co.yedam.prj.service.vo.ServiceVO">
 		select * from service minus
-		select b.*
-		from purchase a join service b  
-		on a.I_CODE = b.I_CODE
+		select b.* 
+		from purchase a join service b
+		on a.s_code = b.s_code
 		where a.u_id = #{u_id}
 	</select>
+	
+	<select id="serviceSelectOne" parameterType="co.yedam.prj.service.vo.ServiceVO" resultType="co.yedam.prj.service.vo.ServiceVO">
+		
+	</select>
+	
 </mapper>
