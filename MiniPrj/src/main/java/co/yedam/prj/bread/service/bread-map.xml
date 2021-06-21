@@ -143,8 +143,8 @@
 	</insert>
 	
 	<insert id="storeInsert" parameterType="co.yedam.prj.bread.vo.BreadVO"> 
-		insert into store (s_id, u_id, u_name, s_tel, s_adr, s_opendate, s_image)
-		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE, 'sample.png') 
+		insert into store (s_id, u_id, u_name, s_tel, s_adr, s_opendate)
+		values (store_seq.nextval, #{u_id}, #{u_name},#{s_tel}, #{s_adr}, SYSDATE) 
 	</insert>
 
 
