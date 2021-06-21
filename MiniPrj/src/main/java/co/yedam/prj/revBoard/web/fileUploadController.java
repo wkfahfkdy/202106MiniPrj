@@ -31,7 +31,7 @@ public class fileUploadController {
 	public String revBoardSubmit1(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -62,7 +62,7 @@ public class fileUploadController {
 	public String revBoardSubmit2(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -93,7 +93,7 @@ public class fileUploadController {
 	public String revBoardSubmit3(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -124,7 +124,7 @@ public class fileUploadController {
 	public String revBoardSubmit4(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {

@@ -55,4 +55,14 @@ public interface revBoardService2 {
 	public int reviewLikeUp(revBoardVO2 vo);
 
 	public int commentMileage(MemberVO vo);
+
+	public int delComment(RevCommentVO vo);
+
+/*
+	public int commentDefault(RevCommentVO vo4);
+
+	public int commentUpdate(ReCommentVO vo);
+
+	public List<ReCommentVO> recommentList();*/
+
 }

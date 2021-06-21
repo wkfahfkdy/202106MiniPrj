@@ -63,7 +63,7 @@ public class revBoardController2 {
 	public String revBoardSubmit(revBoardVO2 vo,Model model, HttpServletRequest req, HttpServletResponse resp, MemberVO mvo) {
 			int size = 10 * 1024 * 1024;
 			String path = "C:\\tmp";
-			path = "C:\\Users\\User\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
+			path = "C:\\Users\\admin\\git\\202106MiniPrj\\MiniPrj\\src\\main\\webapp\\resources\\reviewUpload";
 			MultipartRequest multi = null;
 			String fileName="";
 			try {
@@ -146,7 +146,9 @@ public class revBoardController2 {
 		
 		List<RevCommentVO> list = new ArrayList<RevCommentVO>();
 		list=dao.revCommentList(vo2);
+	//	List<ReCommentVO> list2= new ArrayList<ReCommentVO>();
 		
+	
 		for (RevCommentVO revCommentVO : list) {
 		System.out.println(revCommentVO.getC_comment());
 		System.out.println(revCommentVO.getU_id());
@@ -155,6 +157,7 @@ public class revBoardController2 {
 		System.out.println(vo.getRb_image());
 		System.out.println(vo.getRb_image2());
 		
+	//	model.addAttribute("reList",list2);
 		model.addAttribute("count", dao.reviewCount(vo2));
 		model.addAttribute("Click", dao.revClickSelect(vo));
 		model.addAttribute("list",list);
@@ -190,6 +193,7 @@ public class revBoardController2 {
 		
 		dao.insertRevComment(vo);
 		dao.commentMileage(vo3);
+		//dao.commentDefault(vo);
 		
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	
@@ -245,4 +249,23 @@ public class revBoardController2 {
 		dao.reviewLikeUp(vo);
 		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
 	}
+	
+	@RequestMapping("/delComment.do")
+	public String delComment(RevCommentVO vo) {
+		
+		dao.delComment(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}
+	
+	
+	/*@RequestMapping("/updateReComment.do")
+	public String insertReComment(ReCommentVO vo) {
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yy.MM.dd HH:mm:ss");
+		Date time = new Date();
+		String time1 = format1.format(time);
+		vo.setC_date(time1);
+		
+		dao.commentUpdate(vo);
+		return "redirect:reviewClick.do?rb_num=" + vo.getRb_num();
+	}*/
 }

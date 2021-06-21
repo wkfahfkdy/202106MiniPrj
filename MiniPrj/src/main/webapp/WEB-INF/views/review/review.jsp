@@ -435,9 +435,9 @@ margin-bottom: 20px;
 				
 
 </div>
+        <hr>
         
-        
-    <div class="dk-box-2 dk-padding-bot " style="background-image:url(resources/bin/e.jpg);">
+    <div class="dk-box-2 dk-padding-bot " >
         <div class="container">
         <br><br>
         <h4 align="center" style="font-family: 'Single Day', cursive; font-size:58px; margin-top:30px;"> &nbsp; Review!!</h4>

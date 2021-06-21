@@ -27,7 +27,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
        
-        <form action="revBoardSubmit.do" method="post" enctype="multipart/form-data">
+        <form id="frm" name="frm" action="revBoardSubmit.do" method="post" enctype="multipart/form-data">
           <table class="table table-striped">
            <tr>
                 <td></td><td></td>
@@ -40,7 +40,7 @@
              
             <tr>
                 <td>이미지 메인 업로드</td>
-                <td><input style = "width:50%;" type="file" name="rb_image" class="form-control"placeholder="SFile"> </td>
+                <td><input style = "width:50%;" type="file" id="rb_image" name="rb_image" class="form-control"placeholder="SFile"> </td>
             </tr>
              
              
@@ -55,7 +55,7 @@
             <tr>
                  
                 <td colspan="2"  class="text-center">
-                    <input type="submit" value="글쓰기" class="btn btn-success">
+                    <button type="button" onclick="dis1();" class="btn btn-success">글쓰기</button>
                     <input type="reset" value="다시작성" class="btn btn-warning">
                     <button type="button"  class="btn btn-primary" onclick="location.href='review2.do'">전체 게시글보기</button>
                 </td>
@@ -66,3 +66,14 @@
     </div>
 </div>
 </div>
+<script>
+function dis1(){
+	var fileCheck = document.getElementById("rb_image").value;
+	if(!fileCheck){
+		alert("파일을 첨부해 주세요!");
+	}else{
+		frm.submit();
+	}
+		
+	}
+</script>

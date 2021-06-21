@@ -157,4 +157,37 @@ public class revBoardServiceImpl2 implements revBoardService2{
 	public int commentMileage(MemberVO vo) {
 		return sqlSession.update("commentMileage",vo);
 	}
+	
+	@Override
+	public int delComment(RevCommentVO vo) {
+		
+		return sqlSession.delete("delComment",vo);
+	}
+	/*
+	@Override
+	public int commentDefault(RevCommentVO vo4) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+
+	@Override 
+	public int commentUpdate(ReCommentVO vo) {
+		
+		return sqlSession.update("commentUpdate" ,vo);
+	}
+
+	
+	@Override
+	public int commentDefault(RevCommentVO vo4) {
+		return sqlSession.insert("commentDefault",vo4);
+	}
+
+	
+	@Override
+	public List<ReCommentVO> recommentList(){
+		return sqlSession.selectList("recommentList");
+	}
+	*/
 }	 
